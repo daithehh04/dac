@@ -1,0 +1,36 @@
+.slide-history {
+  .swiper-slide:nth-child(2n) {
+    .item-history {
+      margin-top: 18.16rem;
+      flex-direction: column-reverse;
+      .circle {
+        top: 3.96rem;
+      }
+      .image {
+        order: 1;
+        margin-top: 3.14rem;
+      }
+      .year {
+        order: 2;
+      }
+    }
+  }
+  .swiper-slide:nth-child(2n+1) {
+    .item-history {
+      .circle {
+        bottom: 3.2rem;
+      }
+      .year {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+}
+.line {
+  border-bottom: 1.5px dashed #444;
+  width: 100%;
+}
+.line-sm {
+  width: 100%;
+  border-bottom: 1px dashed #444;
+}

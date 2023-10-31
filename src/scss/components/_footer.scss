@@ -1,0 +1,17 @@
+.footer {
+  font-size: 1.35417rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -1.04px;
+  h3 {
+    font-weight: 700;
+  }
+  .left ,.right {
+    p {
+      margin-top: 1.35417rem;
+    }
+  }
+  .right h3:not(:first-child) {
+    margin-top: 3.25rem;
+  }
+}
