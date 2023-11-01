@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { i18n } from '../../../i18n-config'
 import { useState } from 'react'
 
-function SelectLang({ lang,checkHome }) {
+function SelectLang({ lang, checkHome }) {
   const pathName = usePathname()
   const [lng, setLng] = useState(lang)
   const redirectedPathName = (locale) => {
@@ -21,15 +21,15 @@ function SelectLang({ lang,checkHome }) {
   return (
     <div className='flex items-center select-lang'>
       {i18n?.lo?.map((locale, index) => (
-          <Link
-            onClick={() => setLng(locale.locale)}
-            key={index}
-            href={redirectedPathName(locale.locale)}
-            className={`flex link items-center w-full border-r border-solid border-[#fff] last:border-none px-[0.6vw] ${checkHome ? 'border-black' : ''} ${lng === locale.locale ? 'active' : ''}`}
-          >
-            <span className={`uppercase text-[1vw] text-white ${checkHome ? 'text-black' : ''}`}>{locale.locale}</span>
-          </Link>
-        ))}
+        <Link
+          onClick={() => setLng(locale.locale)}
+          key={index}
+          href={redirectedPathName(locale.locale)}
+          className={`flex link items-center w-full border-r border-solid border-[#fff] last:border-none px-[0.6vw] ${checkHome ? 'border-black' : ''} ${lng === locale.locale ? 'active' : ''}`}
+        >
+          <span className={`uppercase text-[1vw] text-white ${checkHome ? 'text-black' : ''}`}>{locale.locale}</span>
+        </Link>
+      ))}
     </div>
   )
 }
