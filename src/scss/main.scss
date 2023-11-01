@@ -1,6 +1,12 @@
-@import './base/base';
-@import './base/reset';
-@import './components/footer';
-@import './components/navbar';
-@import './pages/home';
-@import './pages/about-us';
+// base
+@import "./base/base";
+@import "./base/reset";
+
+// component
+@import "./components/footer";
+@import "./components/navbar";
+
+// pages
+@import "./pages/home";
+@import "./pages/about-us";
+@import "./pages/service";
