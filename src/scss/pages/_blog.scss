@@ -1,0 +1,31 @@
+.blogItemOverlay {
+  background: lightgray 50% / cover no-repeat;
+}
+
+.searchTextBlog {
+  & > input::placeholder {
+    padding-left: 1.12rem;
+    color: #888;
+    font-size: 0.83333rem;
+    line-height: 116.662%;
+  }
+}
+
+.line-detail {
+  width: 78.54167rem;
+  background: #000;
+  height: 1px;
+  margin: 3.7rem 12rem 3.7rem 9.43rem;
+}
+
+.swiperBlogDetail {
+  .swiper-slide {
+    padding-left: 2.6rem;
+    &:first-child {
+      // margin-left: 4.17rem;
+    }
+    &:last-child {
+      // padding-right: 4.17rem;
+    }
+  }
+}

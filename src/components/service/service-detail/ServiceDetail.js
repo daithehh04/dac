@@ -159,7 +159,7 @@ function ServiceDetail() {
                         <svg xmlns="http://www.w3.org/2000/svg" className=' absolute inset-0' viewBox="0 0 704 630" fill="none">
                             <path d="M0 0H704V464.211C704 555.774 643.174 630 568.14 630H0V0Z" fill="#D9D9D9" />
                         </svg>
-                        <Swiper pagination={true} modules={[Pagination]} className="mySwiper md:w-[36.66667rem] md:h-full">
+                        <Swiper pagination={true} modules={[Pagination]} className="mySwiper slideFeatureImage md:w-[36.66667rem] md:h-full">
                             {data?.otherBranch[indexSlide]?.attachImage?.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <Image src={item?.imageAttach} alt='img' quality={100} className='w-full h-full object-cover md:rounded-br-[7.5rem]' />

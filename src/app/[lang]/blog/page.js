@@ -1,8 +1,9 @@
+import Blog from '@/components/blogs/Blog'
 import React from 'react'
 
 function page() {
   return (
-    <div>Blog</div>
+    <Blog />
   )
 }
 

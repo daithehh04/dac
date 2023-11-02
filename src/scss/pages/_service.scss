@@ -4,3 +4,16 @@
 .imageSlideOtherItem {
   background: lightgray -6px -20px / 103.614% 112.664% no-repeat;
 }
+
+.slideFeatureImage {
+  .swiper-pagination-bullet {
+    background: #444;
+    width: 0.67708rem;
+    height: 0.67708rem;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #fff;
+  }
+}
