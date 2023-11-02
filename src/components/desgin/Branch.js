@@ -59,7 +59,7 @@ function Branch() {
                     </div>
                 </div>
                 <div className='md:w-[50%]'>
-                    <Image src={img1} alt='img' priority quality={100} className='md:w-[48.75rem] object-cover h-full' />
+                    <Image src={img1} alt='img' priority quality={100} className='md:w-full object-cover h-full' />
                 </div>
             </div>
             {/* Thiết kế nhận diện thương hiệu */}
@@ -67,7 +67,7 @@ function Branch() {
                 <div className='md:w-[50%]'>
                     <Image src={img2} alt='img' priority quality={100} className='md:w-full object-cover h-full' />
                 </div>
-                <div className='md:pl-[7.86rem] md:pt-[4.84rem] md:w-[48.75rem] md:pb-[10.1rem] md:pr-[5.73rem] bg-[#F0F0F0] flex flex-col '>
+                <div className='md:pl-[7.86rem] md:pt-[4.84rem] md:w-[50%] md:pb-[10.1rem] md:pr-[5.73rem] bg-[#F0F0F0] flex flex-col '>
                     <h2 className='heading md:mb-[3.4375rem]'>
                         Thiết kế <span className='text-[#19468D]'>Nhận diện thương hiệu</span>
                     </h2>
