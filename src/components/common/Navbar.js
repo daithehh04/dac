@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation'
 function Navbar({ lang }) {
   const pathName = usePathname()
   let checkHome = false
-  if (pathName === '/' || pathName === '/en') {
+  if (pathName === '/' || pathName === '/en' || pathName.startsWith('/service-products/')) {
     checkHome = true
   }
   const navLinks = [

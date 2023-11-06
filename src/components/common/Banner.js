@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
 
-function Banner({ image, title, description, classTitle, classDesc, positionAndBox }) {
+function Banner({ image, title, description, classTitle, classDesc, positionAndBox, background }) {
     return (
-        <section className='md:w-full md:h-[100vh] relative ' >
+        <section className={`md:w-full md:h-[100vh] relative ${background}`} >
             <Image src={image} priority alt="banner" quality={100} className="md:w-full md:h-full md:rounded-br-[13.54rem] object-cover " />
-            <div className='bg-overlay_banner absolute md:w-full md:h-[15.625rem] top-0 bg-blend-multiply'>
-            </div>
+            {/* <div className='bg-overlay_banner absolute md:w-full md:h-[15.625rem] top-0 bg-blend-multiply'>
+            </div> */}
+            <div className="overlay absolute top-0 w-full h-[16rem]" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
             {/* text */}
             <div className={`absolute z-[1] ${positionAndBox}`}>
                 <p className={`text-[#fff] font-bold  md:leading-[116.662%] md:tracking-[-0.14063rem] ${classTitle}`}>{title}</p>
