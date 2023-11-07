@@ -1,16 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { useDataBanner } from './DataContext'
-import img1 from '@/assets/imgs/TechnologyBanner1.png'
-import img2 from '@/assets/imgs/TechnologyBanner2.png'
-import img3 from '@/assets/imgs/TechnologyBanner3.png'
-import img4 from '@/assets/imgs/TechnologyBanner4.png'
-import img5 from '@/assets/imgs/TechnologyBanner5.png'
-import IndexOffset from './technology-offset/IndexOffset'
-import IndexFlexo from './technology-flexo/IndexFlexo'
-import IndexGravure from './technology-gravure/IndexGravure'
-import IndexDigital from './technology-digital/IndexDigital'
-import IndexOtherPrinting from './technology-otherPrinting/IndexOtherPrinting'
+import Link from 'next/link'
 function Content() {
     const [page, setPage] = useState(1)
     const { dataBanner, setDataBanner } = useDataBanner('')
@@ -47,6 +38,23 @@ function Content() {
         }
     ]
 
+    const slugPage = [
+        {
+            name: 'offset'
+        },
+        {
+            name: 'flexo'
+        },
+        {
+            name: 'gravure'
+        },
+        {
+            name: 'digital'
+        },
+        {
+            name: 'other-printing'
+        }
+    ]
     const handlePage = (page) => {
         setPage(page.id)
         setDataBanner(page)
@@ -57,16 +65,13 @@ function Content() {
     return (
         <div>
             <ul className='flex pt-[3.8rem] md:pl-[12.03rem] bg-[#F5F5F5]'>
-                {data?.map((item, index) => (
-                    <li key={index * Math.random()} className={`uppercase  text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</li>
-                ))}
+                {data?.map((item, index) => {
+                    console.log(page);
+                    return (
+                        <Link href={`/technology/${slugPage[index]?.name}`} key={index * Math.random()} className={`uppercase  text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
+                    )
+                })}
             </ul>
-            {page === 1 && <IndexOffset />}
-            {page === 2 && <IndexFlexo />}
-            {page === 3 && <IndexGravure />}
-            {page === 4 && <IndexDigital />}
-            {page === 5 && <IndexOtherPrinting />}
-
         </div>
     )
 }
