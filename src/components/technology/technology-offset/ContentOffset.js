@@ -1,6 +1,6 @@
 import TextnologyContent from '@/components/common/TextnologyContent'
 import React from 'react'
-import layer1 from '@/assets/imgs/layer_1.svg'
+import layer1 from '@/assets/imgs/Layer_1.svg'
 function ContentOffset() {
     const data = [
         {
