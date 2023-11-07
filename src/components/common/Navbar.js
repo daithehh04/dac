@@ -32,7 +32,7 @@ function Navbar({ lang }) {
     },
     {
       link: 'CÔNG NGHỆ',
-      slug: 'technology'
+      slug: 'technology/offset'
     },
     {
       link: 'TIN TỨC',

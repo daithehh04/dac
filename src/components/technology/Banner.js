@@ -5,15 +5,14 @@ import { useDataBanner } from './DataContext';
 
 function Banner() {
     const { dataBanner } = useDataBanner()
-    console.log({ dataBanner });
     let imgBanner = 'https://cms-dac.okhub.tech/wp-content/uploads/2023/11/TechnologyBanner1.png'
-    let styleBanner = {
-        width: "100%",
-        height: "100vh",
-        backgroundImage: `url(${dataBanner.background || imgBanner})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-    };
+    // let styleBanner = {
+    //     width: "100%",
+    //     height: "100vh",
+    //     backgroundImage: `url(${dataBanner.background || imgBanner})`,
+    //     backgroundSize: 'cover',
+    //     backgroundRepeat: 'no-repeat'
+    // };
     return (
         <div className='banner w-full h-[100vh] relative '>
             <div className='absolute inset-0 bg-[#F5F5F5]'></div>
