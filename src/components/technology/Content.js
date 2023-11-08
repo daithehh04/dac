@@ -4,7 +4,7 @@ import { useDataBanner } from './DataContext'
 import Link from 'next/link'
 function Content() {
     const [page, setPage] = useState(1)
-    const { dataBanner, setDataBanner } = useDataBanner('')
+    const context = useDataBanner()
     const data = [
         {
             id: 1,
@@ -57,7 +57,8 @@ function Content() {
     ]
     const handlePage = (page) => {
         setPage(page.id)
-        setDataBanner(page)
+        context.setDataBanner(page)
+        // window.scroll(0, 0)
     }
     useEffect(() => {
         window.scroll(0, 0)

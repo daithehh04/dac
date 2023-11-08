@@ -13,6 +13,7 @@
 }
 
 .menu_mobile_item {
+  transform-origin: top;
   height: 0;
   overflow: hidden;
   transition: all 0.3s;

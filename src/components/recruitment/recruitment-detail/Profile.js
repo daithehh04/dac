@@ -68,17 +68,17 @@ function Profile() {
 
     }
     const handleClick = () => {
-        const opportunityItem_detail = document.querySelectorAll('.opportunityItem_detail')
-        opportunityItem_detail.forEach(item => {
-            item.style.display = 'flex'
-        })
+        if (refElement.current) {
+            refElement.current.style.display = 'flex'
+        }
     }
+    const refElement = useRef()
     return (
         <section className='md:pt-[1.13rem] pt-[6.4rem] px-[4.27rem] md:px-[4.17rem] md:pb-[10rem]'>
             <h3 className='description md:mb-[2.24rem] mb-[6rem]'>Các vị trí khác</h3>
             <div className='md:grid grid-cols-4'>
                 {data?.listOppo?.map((item, index) => (
-                    <div key={index} className={`max-md:mb-[12rem] opportunityItem_detail ${index === 0 || index === 1 ? '' : 'max-md:hidden'}`}>
+                    <div key={index} ref={refElement} className={`max-md:mb-[12rem] opportunityItem_detail ${index === 0 || index === 1 ? '' : 'max-md:hidden'}`}>
                         <OpportunityItem icon={item?.icon} data={item?.infoOppo} />
                     </div>
                 ))}

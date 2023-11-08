@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useRef } from 'react'
 import layer_11 from '@/assets/imgs/Layer_11.svg'
 import layer_12 from '@/assets/imgs/Layer_12.svg'
 import layer_13 from '@/assets/imgs/Layer_13.svg'
@@ -101,11 +101,11 @@ function Infomation() {
 
     }
     const handleClick = () => {
-        const opportunityItem_detail = document.querySelectorAll('.opportunityItem_detail')
-        opportunityItem_detail.forEach(item => {
-            item.style.display = 'flex'
-        })
+        if (refElement.current) {
+            refElement.current.style.display = 'flex'
+        }
     }
+    const refElement = useRef()
     return (
         <section className='max-md:flex-col md:flex-wrap justify-between flex recruitmentInfo max-md:pb-[12.27rem]'>
             {/* content-left */}
@@ -180,7 +180,7 @@ function Infomation() {
                 <h3 className='description md:mb-[2.24rem] mb-[6rem]'>Các vị trí khác</h3>
                 <div className='md:grid grid-cols-4'>
                     {data?.listOppo?.map((item, index) => (
-                        <div key={index} className={`max-md:mb-[12rem] opportunityItem_detail ${index === 0 || index === 1 ? '' : 'max-md:hidden'}`}>
+                        <div key={index} ref={refElement} className={`max-md:mb-[12rem] opportunityItem_detail ${index === 0 || index === 1 ? '' : 'max-md:hidden'}`}>
                             <OpportunityItem icon={item?.icon} data={item?.infoOppo} />
                         </div>
                     ))}

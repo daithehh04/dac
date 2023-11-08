@@ -151,7 +151,7 @@ function Navbar({ lang }) {
         </div>
       </nav>
 
-      <div ref={refMb} className='fixed inset-0  overflow-x-hidden overflow-y-auto w-full h-full bg-white !z-[199] nav-mobile' >
+      <div ref={refMb} className='fixed inset-0 md:hidden overflow-x-hidden overflow-y-auto w-full h-full bg-white !z-[199] nav-mobile' >
         <MenuMb
           data={navLinks}
           handleCloseModal={handleCloseModal}
