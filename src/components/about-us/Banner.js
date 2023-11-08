@@ -5,7 +5,7 @@ import imgTitle from '@/assets/imgs/title-banner-about.svg'
 import { useDataBanner } from './DataContext';
 
 function Banner() {
-  const { dataBanner } = useDataBanner()
+  const dataBanner = useDataBanner()
   let imgBanner = 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/banner-about-scaled.jpg'
   return (
     <div className='banner relative'>

@@ -10,10 +10,9 @@ import React, { useRef, useState } from "react";
 function ContentDetail() {
     const elementRef = useRef()
     const handleClick = () => {
-        const blogItem_hidden = document.querySelectorAll('.blogItem_hidden')
-        blogItem_hidden.forEach(item => {
-            item.style.display = 'flex'
-        })
+        if (elementRef.current) {
+            elementRef.current.style.display = 'flex'
+        }
     }
     const data = {
         heading: 'Chuỗi sự kiện chào mừng 60 năm ngày thành lập Công ty Cổ phần Bao bì và In nông nghiệp (1963-2023), ngày 15/3/2023',
@@ -98,7 +97,7 @@ function ContentDetail() {
             </div>
             <div className='md:mr-[4.17rem] md:ml-[4.17rem] md:pb-[2.67rem] flex md:overflow-x-scroll max-md:flex-col slideBlog_detail'>
                 {data?.otherBlogs?.map((blog, index) => (
-                    <div key={index} className={`flex flex-shrink-0 flex-col blogItem_hidden md:mr-[2.6rem] ${index === 0 ? '' : 'max-md:hidden'}`}>
+                    <div key={index} ref={elementRef} className={`flex flex-shrink-0 flex-col blogItem_hidden md:mr-[2.6rem] ${index === 0 ? '' : 'max-md:hidden'}`}>
                         <Image src={blog?.image} quality={100} alt='img' className='md:w-[28.80208rem] w-full h-[91.46667rem] pointer-events-none md:h-[19.89583rem] object-cover' />
                         <p className='description !font-normal md:mt-[2.08rem] max-md:my-[5rem] flex justify-center'>{blog?.title}</p>
                     </div>

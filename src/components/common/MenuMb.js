@@ -1,11 +1,15 @@
 'use client'
 import Link from 'next/link'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 function MenuMb({ data, handleCloseModal, lang }) {
     const [selected, setSelected] = useState(null)
+    const [menuMbItem, setMbMenuItem] = useState(null)
     const refElement = useRef()
-    const menu_mobile_item = document.querySelectorAll('.menu_mobile_item')
+    useEffect(() => {
+        const menu_mobile_item = document.querySelectorAll('.menu_mobile_item')
+        setMbMenuItem(menu_mobile_item)
+    }, [])
     const handleSelect = (num) => {
         if (num === selected) {
             setSelected(null)
@@ -58,7 +62,7 @@ function MenuMb({ data, handleCloseModal, lang }) {
                                         style={
                                             selected === index
                                                 ? {
-                                                    height: menu_mobile_item[index - 1 < 0 ? 0 : index - 1].scrollHeight,
+                                                    height: menuMbItem[index - 1 < 0 ? 0 : index - 1].scrollHeight,
                                                     overflow: "visible",
                                                 }
                                                 : {
