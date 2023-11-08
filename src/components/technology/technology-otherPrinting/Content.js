@@ -24,12 +24,12 @@ function Content() {
         }
     ]
     return (
-        <section className='md:pt-[4.32rem] md:px-[4.17rem] bg-[#000D10]'>
-            <h2 className='heading-primary md:w-[33.1875rem]'>
+        <section className='md:pt-[4.32rem] md:px-[4.17rem] px-[4.27rem] bg-[#000D10] overflow-x-hidden max-md:pt-[12rem] '>
+            <h2 className='heading-primary md:w-[33.1875rem] w-[35rem] max-md:mb-[5rem]'>
                 GIẢI PHÁP CHỐNG GIẢ
             </h2>
-            <div className='flex md:pb-[7rem] md:pt-[4rem]'>
-                <p className='md:mr-[10.68rem] priDesc  md:w-[28.59375rem]'>
+            <div className='flex md:pb-[7rem] md:pt-[4rem] max-md:flex-col'>
+                <p className='md:mr-[10.68rem] priDesc  md:w-[28.59375rem]  max-md:mb-[6rem]'>
                     Chúng tôi, Công ty TNHH Công nghệ chống giả DAC - Trực thuộc Công ty cổ phần Bao bì và In Nông Nghiệp với 60 năm hoạt động trong lĩnh vực in ấn và là thành viên Hiệp hội chống hàng giả và bảo vệ thương hiệu Việt Nam (VATAP).
                     Tự hào là công ty đầu tiên tại Việt Nam sản xuất và kinh doanh tem chống hàng giả kỹ thuật số, DAC chuyên cung cấp các giải pháp toàn diện và tối ưu cho nhu cầu chống giả cũng như quản lý phân phối hàng hóa. Tem kỹ thuật số DAC là một giải pháp tổng thể bao gồm nhiều tiện ích đi kèm
                 </p>
@@ -43,7 +43,7 @@ function Content() {
 
             </div>
             {/*  */}
-            <div className='priDesc md:pl-[39rem] md:pb-[3.94rem]'>
+            <div className='priDesc md:pl-[39rem] md:pb-[3.94rem] max-md:pb-[12rem]'>
                 <p className='md:mb-[2rem]'>Ngoài ra, giải pháp của DAC có thể tích hợp với các phần mềm tiện ích khác như CRM, SMS Marketing, SMS Brand Name giúp doanh nghiệp nâng cao chất lượng chăm sóc khách hàng sau bán hàng.</p>
                 <p>Với bề dày kinh nghiệm trong lĩnh vực in ấn và sản xuất tem chống giả, cũng như thế mạnh về dây chuyền thiết bị. DAC tin tưởng vào khả năng ứng dụng công nghệ chống giả kỹ thuật số cho các doanh nghiệp Việt Nam. Không chỉ thế, hợp tác cùng chúng tôi doanh nghiệp còn được cung cấp các tiện ích, công cụ hỗ trợ trong việc quản lý bán hàng cũng như tương tác với người dùng. Công ty DAC cam kết mang đến chất lượng dịch vụ tốt nhất cho quý khách hàng</p>
             </div>

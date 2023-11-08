@@ -17,16 +17,16 @@ function ContentDigital() {
         }
     ]
     return (
-        <section className='contentWrapper bg-[#000D10]'>
-            <h2 className='heading-primary md:w-[39.16667rem]'>
+        <section className='contentWrapper bg-[#000D10] overflow-x-hidden'>
+            <h2 className='heading-primary md:w-[39.16667rem] w-[40rem] max-md:mb-[6rem]'>
                 CÔNG NGHỆ IN KỸ THUẬT SỐ
             </h2>
-            <div className='flex md:pb-[7rem] md:pt-[4rem]'>
-                <div className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem]'>
+            <div className='flex md:pb-[7rem] md:pt-[4rem] max-md:flex-col'>
+                <div className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem] max-md:mb-[7rem]'>
                     <p>
                         Động cơ in 6 màu mang lại sức mạnh hiển thị chưa từng có cho các bản in kỹ thuật số
                     </p>
-                    <ul className='md:pl-[1.5rem] md:mt-[1rem]'>
+                    <ul className='md:pl-[1.5rem] md:mt-[1rem] pl-[5rem]'>
                         <li className='list-disc'>Năng suất vượt trội với khả năng in tốc độ cao 120 trang/phút ngay cả khi in 6 Màu.</li>
                         <li className='list-disc'>Biểu thị độ nét cao với độ phân giải hiệu suất cao 2400 x 2400 dpi.</li>
                         <li className='list-disc'>Máy chủ (print server) hiệu suất cao giúp tối đa hóa năng suất động cơ in ấn.</li>

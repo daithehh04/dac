@@ -11,6 +11,10 @@
     width: 0.67708rem;
     height: 0.67708rem;
     opacity: 1;
+    @media screen and (max-width :767px) {
+      width: 1.86667rem;
+      height: 1.86667rem;
+    }
   }
 
   .swiper-pagination-bullet-active {

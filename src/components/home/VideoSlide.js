@@ -22,7 +22,7 @@ function VideoSlide() {
   }
 
   return (
-    <div className='relative h-full content slide-product mt-[8.5rem]'>
+    <div className='relative md:h-[100vh] h-[100rem] content slide-product mt-[8.5rem]'>
       <Swiper
         slidesPerView={1}
         spaceBetween={20}
@@ -41,30 +41,36 @@ function VideoSlide() {
               className='block w-full h-full'
             >
               {({ isActive }) => (
-                 <div>
-                  <Image src={imgVideo} width={'100%'} height={'100%'} alt='img' className='w-full h-[100vh]'/>
+                <div className='h-full'>
+                  <Image src={imgVideo} width={'100%'} height={'100%'} alt='img' className='w-full h-full object-cover' />
                   <p className='text-white text-[6.667rem] opacity-40 font-bold uppercase absolute top-[50%] -translate-y-1/2 w-full text-center'>Video app</p>
-                 </div>
+                </div>
               )}
             </SwiperSlide>
           )
         })}
       </Swiper>
-      <div className='flex absolute bottom-[3.75rem] z-10 w-full justify-between max-md:hidden btn-product'>
-        <button
-          onClick={handlePrevSlide}
-          className='w-[2.78rem] h-[2.6rem] absolute right-[13rem] bottom-0'
-        >
-          <Image src={arrPrev} width={'100%'} height={'100%'} alt='icon'/>
-        </button>
-        <button
-          onClick={handleNextSlide}
-          className='w-[2.78rem] h-[2.6rem] absolute right-[10rem] bottom-0'
-        >
-           <Image src={arrNext} width={'100%'} height={'100%'} alt='icon'/>
-        </button>
-      </div>
-      <span className='absolute bottom-[3.75rem] right-[2.26rem] text-[3.64583rem] text-white font-bold z-10 leading-[1]'>{indexSlider+1}/{data.length}</span>
+      {/* <div className='flex absolute bottom-[3.75rem] z-10 w-full justify-between  btn-product'> */}
+      <button
+        onClick={handlePrevSlide}
+        className='md:w-[2.78rem] md:h-[2.6rem] absolute md:right-[13rem] max-md:left-[3rem] md:bottom-[4rem] max-md:top-[50%] z-[1]'
+      >
+        <Image src={arrPrev} width={'100%'} height={'100%'} alt='icon' className='max-md:hidden' />
+        <svg xmlns="http://www.w3.org/2000/svg" className='md:hidden w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
+          <path d="M17 30L3 16L17 2" stroke="white" stroke-width="3" />
+        </svg>
+      </button>
+      <button
+        onClick={handleNextSlide}
+        className='md:w-[2.78rem] md:h-[2.6rem] absolute md:right-[10rem] right-[3rem] md:bottom-[4rem] max-md:top-[50%] z-[1]'
+      >
+        <Image src={arrNext} width={'100%'} height={'100%'} alt='icon' className='max-md:hidden' />
+        <svg xmlns="http://www.w3.org/2000/svg" className='md:hidden w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
+          <path d="M2 2L16 16L2 30" stroke="white" stroke-width="3" />
+        </svg>
+      </button>
+      {/* </div> */}
+      <span className='absolute max-md:hidden bottom-[3.75rem] right-[2.26rem] text-[3.64583rem] text-white font-bold z-10 leading-[1]'>{indexSlider + 1}/{data.length}</span>
     </div>
   )
 }

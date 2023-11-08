@@ -66,7 +66,6 @@ function Content() {
         <div>
             <ul className='flex pt-[3.8rem] md:pl-[12.03rem] bg-[#F5F5F5]'>
                 {data?.map((item, index) => {
-                    console.log(page);
                     return (
                         <Link href={`/technology/${slugPage[index]?.name}`} key={index * Math.random()} className={`uppercase  text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
                     )

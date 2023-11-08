@@ -34,16 +34,16 @@ function Motto() {
     },
   ]
   return (
-    <div className="content">
-      <div className='flex gap-x-[15.6rem] pt-[3.65rem] pb-[5rem]'>
+    <div className="md:px-[4.17rem] px-[4.27rem]">
+      <div className='flex md:gap-x-[15.6rem] pt-[3.65rem] md:pb-[5rem] pb-[12rem] max-md:flex-col'>
         <h3 className='heading whitespace-nowrap'>Phương châm</h3>
-        <ul className='grid grid-cols-2 gap-x-[5.26rem] gap-y-[3rem]'>
-            {data?.map((item,index) => (
-              <li key={index} className='flex flex-col'>
-                <Image src={item?.icon} width={'100%'} height={'100%'} alt='icon'/>
-                <p className='text-[1.35417rem] mt-[1.46rem]' dangerouslySetInnerHTML={{__html: `${item?.text}`}}></p>
-              </li>
-            ))}
+        <ul className='grid md:grid-cols-2 gap-x-[5.26rem] max-md:gap-[8rem] gap-y-[3rem] max-md:mt-[7rem]'>
+          {data?.map((item, index) => (
+            <li key={index} className='flex flex-col'>
+              <Image src={item?.icon} width={'100%'} height={'100%'} className='max-md:w-[18.13493rem] max-md:h-[18.13493rem]' alt='icon' />
+              <p className='md:text-[1.35417rem] text-[4.26667rem] leading-[1.2] max-md:tracking-[-0.08533rem] md:mt-[1.46rem] mt-[5.87rem]' dangerouslySetInnerHTML={{ __html: `${item?.text}` }}></p>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

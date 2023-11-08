@@ -4,8 +4,8 @@ import React from 'react'
 function ServiceItem({ icon, textEdit, text }) {
     return (
         <div className='flex flex-col md:mr-[5.26rem]'>
-            <div className='relative md:mb-[1.82rem] md:w-[5.78125rem] md:h-[5.78125rem]'>
-                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[5.78125rem] md:h-[5.78125rem]' viewBox="0 0 111 111" fill="none">
+            <div className='relative md:mb-[1.82rem] md:w-[5.78125rem] md:h-[5.78125rem] w-[18.13333rem] h-[18.13333rem]'>
+                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[5.78125rem] md:h-[5.78125rem] w-[18.13333rem] h-[18.13333rem]' viewBox="0 0 111 111" fill="none">
                     <g clip-path="url(#clip0_417_572)">
                         <path d="M4.36405 111H0V106.626H1.68995V109.31H4.36405V111Z" fill="#444545" />
                         <path d="M1.68995 99.8165H0V92.997H1.68995V99.8165ZM1.68995 86.1775H0V79.3581H1.68995V86.1775ZM1.68995 72.5386H0V65.7192H1.68995V72.5386ZM1.68995 58.8997H0V52.0803H1.68995V58.8997ZM1.68995 45.2608H0V38.4414H1.68995V45.2608ZM1.68995 31.6219H0V24.8025H1.68995V31.6219ZM1.68995 17.983H0V11.1636H1.68995V17.983Z" fill="#444545" />
@@ -20,13 +20,13 @@ function ServiceItem({ icon, textEdit, text }) {
                         </clipPath>
                     </defs>
                 </svg>
-                <Image src={icon} alt='icon' quality={100} className='md:w-[3.48958rem] md:h-[3.48958rem] object-cover absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
+                <Image src={icon} alt='icon' quality={100} className='md:w-[3.48958rem] md:h-[3.48958rem] w-[10.94533rem] h-[10.94533rem] object-contain absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
             </div>
 
-            <div className='md:w-[23.59375rem] md:h-[12rem]'>
-                <span>
+            <div className='md:w-[23.59375rem] md:h-[12rem] max-md:mt-[4rem] md:text-[1.35417rem] text-[4.26667rem] text-[#444]'>
+                <p>
                     {textEdit}
-                </span>
+                </p>
                 <span>{text}</span>
             </div>
         </div>

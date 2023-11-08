@@ -36,12 +36,12 @@ function Product({ lang }) {
   }
 
   return (
-    <div className='product h-[56.25rem] flex mt-[4.11rem]'>
-      <div className='w-[24rem] bg-[#444] flex flex-col justify-between text-white pt-[7rem] pb-[2.88rem] pl-[4.11rem]'>
-        <h3 className='title text-[3.4375rem] font-bold pr-[1.5rem]'>Sản phẩm dịch vụ</h3>
-        <p className='desc pr-[5rem] text-[1.35417rem]'>Với tiêu chí <b>“CHẤT LƯỢNG - SỐ LƯỢNG - TIẾN ĐỘ - GIÁ CẢ”</b> Chúng tôi tin tưởng vào khả năng đáp ứng yêu cầu của Quý khách hàng.</p>
+    <div className='product md:h-[56.25rem] flex md:mt-[4.11rem] max-md:mt-[9rem] max-md:flex-col'>
+      <div className='md:w-[24rem] max-md:px-[4.27rem] md:bg-[#444] flex flex-col justify-between md:text-white pb-[9rem] md:pt-[7rem] md:pb-[2.88rem] md:pl-[4.11rem]'>
+        <h3 className='title text-[8.53333rem] md:text-[3.4375rem] font-bold md:pr-[1.5rem] max-md:text-[#444]'>Sản phẩm dịch vụ</h3>
+        <p className='desc md:pr-[5rem] md:text-[1.35417rem] text-justify text-[4.26667rem] max-md:text-[#888]'>Với tiêu chí <b>“CHẤT LƯỢNG - SỐ LƯỢNG - TIẾN ĐỘ - GIÁ CẢ”</b> Chúng tôi tin tưởng vào khả năng đáp ứng yêu cầu của Quý khách hàng.</p>
       </div>
-      <div className='w-[74.5rem] h-full'><SlideProduct/></div>
+      <div className='md:w-[74.5rem] h-full'><SlideProduct /></div>
     </div>
   )
 }

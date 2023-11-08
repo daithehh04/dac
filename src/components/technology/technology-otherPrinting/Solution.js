@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import organizationChart from '@/assets/imgs/organizationChart.png'
-
+import chatMb from '@/assets/imgs/chartMb.png'
 function Solution() {
     const data = [
         {
@@ -45,19 +45,20 @@ function Solution() {
         }
     ]
     return (
-        <section className='md:pt-[3.07rem] md:pb-[5.73rem]'>
-            <h2 className='heading text-center md:mb-[1.87rem] md:pl-[10.43rem] md:pr-[12.03rem] md:h-[12.03125rem]'>
+        <section className='md:pt-[3.07rem] md:pb-[5.73rem] pt-[6.4rem] max-md:px-[4.27rem]'>
+            <h2 className='heading md:text-center max-md:!text-[6.93333rem] md:mb-[1.87rem] mb-[5rem] md:pl-[10.43rem] md:pr-[12.03rem] md:h-[12.03125rem]'>
                 Bộ giải pháp toàn diện cho doanh nghiệp sản xuất và phân phối
             </h2>
             <div className='md:pl-[5.78rem] md:pr-[11.67rem] relative'>
-                <Image src={organizationChart} alt='image' quality={100} width={1000} height={1000} className='md:w-[73.75rem] object-cover md:h-[34.89583rem] absolute left-0 z-[-1]' />
+                <Image src={organizationChart} alt='image' quality={100} width={1000} height={1000} className='md:w-[73.75rem] max-md:hidden object-cover md:h-[34.89583rem] md:absolute left-0 z-[-1]' />
+                <Image src={chatMb} alt='image' quality={100} width={1000} height={1000} className="md:hidden object-cover" />
                 <div className='flex flex-col items-end md:pt-[1.5rem]'>
                     {data?.map((item, index) => (
-                        <div key={index} className='description !leading-[1.2] md:w-[39.03125rem] md:mb-[2.19rem]'>
+                        <div key={index} className='description !leading-[1.2] md:w-[39.03125rem] md:mb-[2.19rem] max-md:mb-[6rem]'>
                             <p>
                                 {item?.title}
                             </p>
-                            <ul className='md:pl-[1.5rem]'>
+                            <ul className={`md:pl-[1.5rem]  ${index === data?.length - 1 ? '' : 'pl-[5rem]'}`}>
                                 {item?.listInfo?.map((item2, index) => (
                                     <li className={`!font-normal ${index === item?.listInfo?.length - 1 ? '' : 'list-disc'}`} key={index}>{item2?.text}</li>
                                 ))}

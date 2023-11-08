@@ -15,12 +15,12 @@ function ContentGravure() {
         }
     ]
     return (
-        <section className='contentWrapper bg-[#000D10]'>
-            <h2 className='heading-primary md:w-[33.1875rem]'>
+        <section className='contentWrapper bg-[#000D10] overflow-x-hidden'>
+            <h2 className='heading-primary md:w-[33.1875rem] w-[35rem] max-md:mb-[6rem]'>
                 CÔNG NGHỆ IN ỐNG ĐỒNG
             </h2>
-            <div className='flex md:pb-[7rem] md:pt-[4rem]'>
-                <div className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem]'>
+            <div className='flex md:pb-[7rem] md:pt-[4rem] max-md:flex-col'>
+                <div className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem] max-md:mb-[6rem]'>
                     <p>Với máy móc hiện đại, tốc độ sản xuất cực nhanh lên tới 450m/phút,
                         hệ thống thiết bị đồng bộ khép kín từ in đến gia công (máy in, máy ghép, máy chia cuộn, máy dán túi, máy kiểm phẩm offline), công ty APP có thể đáp ứng được sản lượng cho các đơn hàng lớn và các yêu cầu khắt khe khác để đưa tới cho khách hàng những sản phẩm có chất lượng tốt nhất.
                     </p>
@@ -34,7 +34,7 @@ function ContentGravure() {
                 </div>
             </div>
             <div className='md:pl-[38.44rem] md:mb-[6.67rem] md:h-[27.8125rem]'>
-                <Image src={imageContent} alt='image' quality={100} className='w-full object-cover md:h-[27.8125rem]' />
+                <Image src={imageContent} alt='image' quality={100} className='w-full max-md:hidden object-cover md:h-[27.8125rem]' />
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" className='md:w-full  h-[2px]' viewBox="0 0 1762 2" fill="none">
                 <path d="M1 1L1761 0.999846" stroke="white" stroke-linecap="round" />

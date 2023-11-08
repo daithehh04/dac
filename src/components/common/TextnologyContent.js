@@ -3,9 +3,9 @@ import React from 'react'
 
 function TextnologyContent({ icon, text }) {
     return (
-        <div className='flex flex-col md:w-[23.54167rem]'>
+        <div className='flex flex-col md:w-[23.54167rem] max-md:mb-[7rem]'>
             <Image src={icon} alt='icon' quality={100} className='md:w-[5.78125rem] md:h-[5.78125rem]' />
-            <p className='md:mt-[2.14rem] priDesc'>
+            <p className='md:mt-[2.14rem] mt-[5rem] priDesc'>
                 {text}
             </p>
         </div>
