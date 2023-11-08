@@ -9,9 +9,20 @@
   .left ,.right {
     p {
       margin-top: 1.35417rem;
+      @media screen and (max-width :767px) {
+        margin-top: 5rem;
+      }
     }
   }
   .right h3:not(:first-child) {
     margin-top: 3.25rem;
+  }
+
+  .right{
+    transition: all 1s ease;
+    @media screen and (max-width :767px) {
+      height: 0;
+      overflow: hidden;
+    }
   }
 }

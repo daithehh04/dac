@@ -4,7 +4,7 @@ import React from 'react'
 function ServiceItem({ icon, textEdit, text, className }) {
     return (
         <div className={`flex flex-col md:mr-[5.26rem]`}>
-            <div className='relative md:mb-[1.82rem] md:w-[5.78125rem] md:h-[5.78125rem]'>
+            <div className='relative md:mb-[1.82rem] w-[18.13333rem] h-[19.35387rem] md:w-[5.78125rem] md:h-[5.78125rem]'>
                 <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[5.78125rem] md:h-[5.78125rem]' viewBox="0 0 111 111" fill="none">
                     <g clip-path="url(#clip0_417_572)">
                         <path d="M4.36405 111H0V106.626H1.68995V109.31H4.36405V111Z" fill="#444545" />

@@ -8,6 +8,10 @@
     color: #888;
     font-size: 0.83333rem;
     line-height: 116.662%;
+    @media screen and (max-width :767px) {
+      font-size: 3.2rem;
+      padding-left: 3rem;
+    }
   }
 }
 
@@ -16,6 +20,10 @@
   background: #000;
   height: 1px;
   margin: 3.7rem 12rem 3.7rem 9.43rem;
+  @media screen and (max-width :767px) {
+    margin: 7rem 0;
+    width: 100%;
+  }
 }
 
 .swiperBlogDetail {
@@ -28,4 +36,8 @@
       // padding-right: 4.17rem;
     }
   }
+}
+
+.slideBlog_detail::-webkit-scrollbar{
+  display: none;
 }

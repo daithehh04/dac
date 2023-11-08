@@ -2,11 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-function OpportunityItem({ icon, data, title, desc, className }) {
+function OpportunityItem({ icon, data, title, desc, className, classCus, check }) {
     return (
-        <div className={`flex flex-col`}>
-            <div className='relative md:mb-[3.07rem] md:w-[5.26089rem] md:h-[5.62552rem]'>
-                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[5.26089remss] md:h-[5.62552rem]' viewBox="0 0 111 111" fill="none">
+        <div className={`flex flex-col ${classCus} ${check ? 'max-md:mb-[12rem]' : ''}`}>
+            <div className={`relative md:mb-[3.07rem] md:w-[5.26089rem] w-[18.13493rem] h-[18.13493rem] md:h-[5.62552rem] max-md:mr-[6.4rem] ${check ? 'max-md:mb-[6rem]' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[5.26089rem] md:h-[5.62552rem] w-[18.13493rem] h-[18.13493rem] ' viewBox="0 0 111 111" fill="none">
                     <g clip-path="url(#clip0_417_572)">
                         <path d="M4.36405 111H0V106.626H1.68995V109.31H4.36405V111Z" fill="#444545" />
                         <path d="M1.68995 99.8165H0V92.997H1.68995V99.8165ZM1.68995 86.1775H0V79.3581H1.68995V86.1775ZM1.68995 72.5386H0V65.7192H1.68995V72.5386ZM1.68995 58.8997H0V52.0803H1.68995V58.8997ZM1.68995 45.2608H0V38.4414H1.68995V45.2608ZM1.68995 31.6219H0V24.8025H1.68995V31.6219ZM1.68995 17.983H0V11.1636H1.68995V17.983Z" fill="#444545" />
@@ -21,22 +21,25 @@ function OpportunityItem({ icon, data, title, desc, className }) {
                         </clipPath>
                     </defs>
                 </svg>
-                <Image src={icon} alt='icon' quality={100} className='md:w-[3.74297rem] md:h-[3.85135rem] object-contain absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
+                <Image src={icon} alt='icon' quality={100} className='md:w-[3.74297rem] w-[12.90267rem] h-[12.41573rem] md:h-[3.85135rem] object-contain absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
             </div>
 
             {title && desc &&
-                (<div className='md:mb-[1rem]'>
-                    <p className='description'>{title}</p>
-                    <p className='description !font-normal'>{desc}</p>
+                (<div className={`md:mb-[1rem] ${check ? ' max-md:mb-[6rem]' : ''}`}>
+                    <p className={`description2`}>{title}</p>
+                    <p className='description2'>{desc}</p>
                 </div>)}
 
-            <div className={`md:w-[21.04167rem] md:mb-[1.8rem] flex flex-col ${className}`}>
-                {data?.map((item, index) => (
-                    <p key={index} className='description !font-normal md:mb-[0.5rem]'>{item?.text}</p>
-                ))}
+            <div>
+                <div className={`md:w-[21.04167rem] md:mb-[1.5rem] flex flex-col relative max-md:top-[-1.5rem] ${className}`}>
+                    {data?.map((item, index) => (
+                        <p key={index} className='description !font-normal md:mb-[0.5rem] mb-[3rem]'>{item?.text}</p>
+                    ))}
+                </div>
+                <Link className={`${check ? 'hidden' : ''}`} href={`/recruitment/a`}>
+                    <p className='md:w-[21.04167rem] cursor-pointer description !text-[#888] underline !font-normal'>Ứng tuyển ngay</p>
+                </Link>
             </div>
-
-
         </div>
     )
 }

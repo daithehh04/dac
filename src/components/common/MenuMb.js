@@ -1,9 +1,11 @@
+'use client'
 import Link from 'next/link'
 import React, { useRef, useState } from 'react'
 
 function MenuMb({ data, handleCloseModal, lang }) {
     const [selected, setSelected] = useState(null)
     const refElement = useRef()
+    const menu_mobile_item = document.querySelectorAll('.menu_mobile_item')
     const handleSelect = (num) => {
         if (num === selected) {
             setSelected(null)
@@ -11,6 +13,7 @@ function MenuMb({ data, handleCloseModal, lang }) {
             setSelected(num)
         }
     }
+
     return (
         <section className='pt-[10.93rem] px-[4.27rem] pb-[8.53rem] relative'>
             <svg onClick={handleCloseModal} xmlns="http://www.w3.org/2000/svg" className='w-[10.4rem] h-[10.4rem] fixed top-[12.23rem] right-[4.27rem]' viewBox="0 0 39 39" fill="none">
@@ -26,56 +29,58 @@ function MenuMb({ data, handleCloseModal, lang }) {
                 </defs>
             </svg>
 
+
             <div className='flex flex-col'>
-                {data?.map((item, index) => (
-                    <div key={index} className='mb-[2.67rem]'>
-                        {
-                            item?.listContent ?
-                                (
-                                    <span
-                                        onClick={() => handleSelect(index)}
-                                        className='text-[#444] text-[5.33333rem]  font-bold'
-                                        key={index}>{item?.link}
-                                    </span>
-                                )
-                                :
-                                (
-                                    <Link className='text-[#444] mb-[2.67rem] text-[5.33333rem] font-bold'
-                                        href={`/${lang}/${item?.slug}`}>{item?.link}
-                                    </Link>
-                                )
-                        }
-                        {
-                            item?.listContent && (
-                                <div
-                                    ref={refElement}
-                                    className='menu_mobile_item flex flex-col '
-                                    style={
-                                        selected === index
-                                            ? {
-                                                // height: refElement?.current?.scrollHeight,
-                                                height: "auto",
-                                                overflow: "visible",
-                                            }
-                                            : {
-                                                height: "0",
-                                                overflow: "hidden",
-                                            }
-                                    }
-                                >
-                                    {item?.listContent?.map((mbItem, index) => (
-                                        <Link
-                                            href={`/${lang}/${mbItem?.name}`}
-                                            key={index}
-                                            className='text-[#444] text-[3.46667rem] leading-[116.662%] tracking-[-0.104rem] mb-[2.67rem]'>
-                                            {mbItem?.name}
+                {data?.map((item, index) => {
+                    return (
+                        <div key={index} className='mb-[2.67rem]'>
+                            {
+                                item?.listContent ?
+                                    (
+                                        <span
+                                            onClick={() => handleSelect(index)}
+                                            className='text-[#444] text-[5.33333rem]  font-bold'
+                                            key={index}>{item?.link}
+                                        </span>
+                                    )
+                                    :
+                                    (
+                                        <Link className='text-[#444] mb-[2.67rem] text-[5.33333rem] font-bold'
+                                            href={`/${lang}/${item?.slug}`}>{item?.link}
                                         </Link>
-                                    ))}
-                                </div>
-                            )
-                        }
-                    </div>
-                ))}
+                                    )
+                            }
+                            {
+                                item?.listContent && (
+                                    <div
+                                        ref={refElement}
+                                        className='menu_mobile_item flex flex-col '
+                                        style={
+                                            selected === index
+                                                ? {
+                                                    height: menu_mobile_item[index - 1 < 0 ? 0 : index - 1].scrollHeight,
+                                                    overflow: "visible",
+                                                }
+                                                : {
+                                                    height: "0",
+                                                    overflow: "hidden",
+                                                }
+                                        }
+                                    >
+                                        {item?.listContent?.map((mbItem, index) => (
+                                            <Link
+                                                href={`/${lang}/${mbItem?.name}`}
+                                                key={index}
+                                                className='text-[#444] text-[3.46667rem] leading-[116.662%] tracking-[-0.104rem] mb-[2.67rem]'>
+                                                {mbItem?.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )
+                            }
+                        </div>
+                    )
+                })}
             </div>
         </section>
     )
