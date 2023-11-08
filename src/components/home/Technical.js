@@ -27,29 +27,32 @@ function Technical() {
     },
   ]
   return (
-    <div className='content'>
-      <div className="technical pt-[8.75rem] pb-[12rem]">
-        <div>
-          <Image src={titleImg} width={'100%'} height={'100%'} alt='title' className='ml-auto'/>
-        </div>
-        <div className='flex mt-[6.6rem] gap-x-[13rem]'>
-          <div className="left">
-            <ul className='grid gap-x-[7.8rem] grid-cols-2 gap-y-[2rem]'>
-              {data?.map((item,index) => (
-                <li key={index} className='text-[1.35417rem]'>
-                  <Image src={item?.icon} width={'100%'} height={'100%'} alt='icon' className='w-[5.78125rem] h-[5.78125rem]'/>
-                  <h4 className='text-[#444] font-bold mt-[1.25rem]'>{item?.title}</h4>
-                  <p className='mt-[1.625rem] text-[#888]'>{item?.desc}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="right text-[1.35417rem]">
-            <p>Với năng lực máy <b>móc thiết bị hiện đại</b> cùng đội ngũ <b>nhân viên dày dặn kinh nghiệm</b>, Chúng tôi luôn có khả năng đáp ứng tất cả các nhu cầu đa dạng của Quý khách hàng.</p>
-          </div>
+    <section className="technical pt-[8.75rem] md:pb-[12rem] pb-[3rem] md:px-[4.17rem]">
+      <div>
+        <Image src={titleImg} width={'100%'} height={'100%'} alt='title' className='ml-auto max-md:hidden w-[67.5rem] h-[19.1667rem]' />
+        <div className='md:hidden flex text-[#444] font-bold items-center w-full max-md:px-[4.27rem]'>
+          <span className='text-[22.93333rem] leading-[1.2]'>&</span>
+          <span className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem]'>THIẾT KẾ
+            THÀNH CÔNG</span>
         </div>
       </div>
-    </div>
+      <div className='flex md:mt-[6.6rem] mt-[5.2rem] gap-x-[13rem] max-md:flex-col-reverse max-md:px-[4.27rem]'>
+        <div className="left">
+          <ul className='grid md:gap-x-[7.8rem] md:grid-cols-2 md:gap-y-[2rem] gap-[6rem] '>
+            {data?.map((item, index) => (
+              <li key={index} className='text-[1.35417rem]'>
+                <Image src={item?.icon} width={'100%'} height={'100%'} alt='icon' className='md:w-[5.78125rem] md:h-[5.78125rem] w-[18.13333rem] h-[18.13333rem]' />
+                <h4 className='text-[#444] font-bold md:mt-[1.25rem] my-[3rem] md:text-[1.35417rem] text-[4.26667rem]'>{item?.title}</h4>
+                <p className='mt-[1.625rem] text-[#888] md:text-[1.35417rem] text-[4.26667rem]'>{item?.desc}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="right md:text-[1.35417rem] text-[4.26667rem] tracking-[-0.08533rem] text-justify max-md:mb-[7rem]">
+          <p>Với năng lực máy <b>móc thiết bị hiện đại</b> cùng đội ngũ <b>nhân viên dày dặn kinh nghiệm</b>, Chúng tôi luôn có khả năng đáp ứng tất cả các nhu cầu đa dạng của Quý khách hàng.</p>
+        </div>
+      </div>
+    </section>
   )
 }
 

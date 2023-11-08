@@ -15,6 +15,10 @@ html {
   font-weight: 700;
   line-height: 116.662%;
   letter-spacing: -0.10313rem;
+  @media screen and (max-width:767px) {
+    font-size: 8.53333rem;
+    letter-spacing: -0.256rem;
+  }
 }
 
 .heading-primary{
@@ -31,6 +35,10 @@ html {
   font-weight: 700;
   line-height: 116.662%;
   letter-spacing: -0.04063rem;
+
+  @media screen and (max-width : 767px) {
+    font-size: 4.26667rem;
+  }
 }
 .subDescription {
   color: #888;
@@ -44,8 +52,14 @@ html {
   text-align: justify;
   font-size: 1.35417rem;
   line-height: 120%;
+  @media screen and (max-width: 767px) {
+    font-size: 4.26667rem;
+  }
 }
 
 .contentWrapper {
   padding: 4.69rem 4.27rem 0;
+  @media screen and (max-width :767px) {
+    padding: 8.53rem 4.27rem 0;
+  }
 }

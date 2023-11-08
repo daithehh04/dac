@@ -51,15 +51,15 @@ function SlidePartners() {
       >
         {dataSlide?.map((item, index) => {
           return (
-              <SwiperSlide className='w-[20%] partner-item' key={index*Math.random()}>
-                <Image 
-                  src={item?.sourceUrl}
-                  width={500}
-                  height={500}
-                  alt='partners'
-                  className={`object-contain w-[10.19rem] h-[9.6rem]`}
-                />
-              </SwiperSlide>
+            <SwiperSlide className='w-[20%] partner-item' key={index * Math.random()}>
+              <Image
+                src={item?.sourceUrl}
+                width={500}
+                height={500}
+                alt='partners'
+                className={`object-contain md:w-[10.19rem] md:h-[9.6rem] w-[29.86427rem] h-[28.53333rem] `}
+              />
+            </SwiperSlide>
           )
         })}
       </Swiper>

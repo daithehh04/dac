@@ -8,7 +8,6 @@ import IndexDigital from '@/components/technology/technology-digital/IndexDigita
 import IndexOtherPrinting from '@/components/technology/technology-otherPrinting/IndexOtherPrinting';
 function page() {
     const pathName = usePathname()
-    console.log(pathName);
     return (
         <>
             {

@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import SelectLang from '../lang/SelectLang'
 import Image from 'next/image'
 import logo from '@/assets/imgs/logo-h.svg'
@@ -10,8 +10,18 @@ import barsIcon from '@/assets/imgs/bars-icon-b.svg'
 import barsIconW from '@/assets/imgs/bars-icon-w.svg'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import MenuMb from './MenuMb'
 
 function Navbar({ lang }) {
+  const [openModal, setOpenModal] = useState(false)
+  const refMb = useRef()
+  const handleOpenModal = () => {
+    refMb?.current?.classList?.add('active')
+  }
+  const handleCloseModal = () => {
+    refMb?.current?.classList?.remove('active')
+  }
+
   const pathName = usePathname()
   let checkHome = false
   if (pathName === '/' || pathName === '/en' || pathName.startsWith('/service-products/')) {
@@ -20,7 +30,21 @@ function Navbar({ lang }) {
   const navLinks = [
     {
       link: 'VỀ CHÚNG TÔI',
-      slug: 'about-us'
+      slug: 'about-us',
+      listContent: [
+        {
+          name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi'
+        },
+        {
+          name: 'Chặng đường phát triển'
+        },
+        {
+          name: 'Chứng chỉ và giải thưởng'
+        },
+        {
+          name: 'Sơ đồ tổ chức'
+        }
+      ]
     },
     {
       link: 'THIẾT KẾ',
@@ -28,11 +52,54 @@ function Navbar({ lang }) {
     },
     {
       link: 'SẢN PHẨM DỊCH VỤ',
-      slug: 'service-products'
+      slug: 'service-products',
+      listContent: [
+        {
+          name: 'Bao bì thuốc lá'
+        },
+        {
+          name: 'Bao bì Thực phẩm'
+        },
+        {
+          name: 'Bao bì dược mỹ phẩm'
+        },
+        {
+          name: 'Bao bì hàng tiêu dùng'
+        },
+        {
+          name: 'Bao bì Bia rượu nước giải khát'
+        },
+        {
+          name: 'Bao bì nông sản'
+        },
+        {
+          name: 'Thương mại &Vật tư ngành in'
+        },
+        {
+          name: 'Cho thuê văn phòng'
+        }
+      ]
     },
     {
       link: 'CÔNG NGHỆ',
-      slug: 'technology/offset'
+      slug: 'technology/offset',
+      listContent: [
+        {
+          name: 'Công nghệ in Offset'
+        },
+        {
+          name: 'Công nghệ in Flexo'
+        },
+        {
+          name: 'Công nghệ in Ống đồng'
+        },
+        {
+          name: 'Công nghệ in Kỹ thuật số'
+        },
+        {
+          name: 'Giải pháp chống giả'
+        }
+      ]
     },
     {
       link: 'TIN TỨC',
@@ -48,28 +115,38 @@ function Navbar({ lang }) {
     },
   ]
   return (
-    <nav className='absolute top-0 w-full navbar pt-[2.6rem] z-10'>
-      <div className="content">
-        <div className='flex items-center'>
-          {checkHome ?
-            <Link href={`/${lang}`}><Image src={logo} width={100} height={100} className='object-cover' alt='DAC' /></Link>
-            : <Link href={`/${lang}`}><Image src={logoW} width={100} height={100} className='object-cover' alt='DAC' /></Link>
-          }
-          <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw]'>
-            {navLinks.map((link, index) => (
-              <Link className={` text-[1.04167vw] link ${checkHome ? 'text-black' : 'text-white'}`} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
-            ))}
-          </div>
-          <SelectLang lang={lang} checkHome={checkHome} />
-          {checkHome ? <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.2vw] h-[1.2vw] mr-[2.24vw] ml-[0.5vw]' /> :
-            <Image src={searchIconW} width={50} height={50} alt='search' className='w-[1.2vw] h-[1.2vw] mr-[2.24vw] ml-[0.5vw]' />}
-          <div className={`w-[3.4375vw] h-[3.4375vw] rounded-full grid item place-items-center ${checkHome ? 'bg-[#525252]' : 'bg-white'}`}>
-            {checkHome ? <Image src={barsIconW} width={50} height={50} alt='bars' className='w-[1.4375vw] h-[1.4375vw]' /> :
-              <Image src={barsIcon} width={50} height={50} alt='bars' className='w-[1.4375vw] h-[1.4375vw]' />}
+    <>
+      <nav className='absolute top-0 w-full navbar md:pt-[2.6rem] pt-[12.27rem] z-10 '>
+        <div className="content">
+          <div className='flex items-center justify-between'>
+            {checkHome ?
+              <Link href={`/${lang}`}><Image src={logo} width={100} height={100} className='object-cover md:w-[7.91667rem] md:h-[4.21875rem] w-[18.4rem] h-[9.86667rem]' alt='DAC' /></Link>
+              : <Link href={`/${lang}`}><Image src={logoW} width={100} height={100} className='object-cover' alt='DAC' /></Link>
+            }
+            <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw] max-md:hidden'>
+              {navLinks.map((link, index) => (
+                <Link className={` text-[1.04167vw] link ${checkHome ? 'text-black' : 'text-white'}`} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
+              ))}
+            </div>
+            <SelectLang lang={lang} checkHome={checkHome} />
+            {checkHome ? <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.2vw] max-md:hidden h-[1.2vw] mr-[2.24vw] ml-[0.5vw]' /> :
+              <Image src={searchIconW} width={50} height={50} alt='search' className='w-[1.2vw] h-[1.2vw] mr-[2.24vw] ml-[0.5vw] ' />}
+            <div onClick={handleOpenModal} className={`w-[10.4rem] h-[10.4rem] rounded-full grid md:hidden item place-items-center ${checkHome ? 'bg-[#525252]' : 'bg-white'}`}>
+              {checkHome ? <Image src={barsIconW} width={50} height={50} alt='bars' className='w-[3.03125rem] h-[3.03125rem]' /> :
+                <Image src={barsIcon} width={50} height={50} alt='bars' className='w-[3.03125rem] h-[3.03125rem]' />}
+            </div>
           </div>
         </div>
+      </nav>
+
+      <div ref={refMb} className='fixed inset-0  overflow-x-hidden overflow-y-auto w-full h-full bg-white !z-[199] nav-mobile' >
+        <MenuMb
+          data={navLinks}
+          handleCloseModal={handleCloseModal}
+          lang={lang}
+        />
       </div>
-    </nav>
+    </>
   )
 }
 

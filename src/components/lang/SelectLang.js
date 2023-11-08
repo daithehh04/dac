@@ -19,7 +19,7 @@ function SelectLang({ lang, checkHome }) {
   }
 
   return (
-    <div className='flex items-center select-lang'>
+    <div className='flex items-center select-lang max-md:hidden'>
       {i18n?.lo?.map((locale, index) => (
         <Link
           onClick={() => setLng(locale.locale)}

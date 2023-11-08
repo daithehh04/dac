@@ -17,15 +17,15 @@ function ContentOffset() {
         }
     ]
     return (
-        <section className='md:pt-[4.32rem] md:px-[4.17rem] bg-[#000D10]'>
-            <h2 className='heading-primary md:w-[33.1875rem]'>
+        <section className='md:pt-[4.32rem] pt-[8.53rem] md:px-[4.17rem] bg-[#000D10] max-md:overflow-x-hidden'>
+            <h2 className='heading-primary md:w-[33.1875rem] w-[40rem] max-md:px-[4.27rem]'>
                 CÔNG NGHỆ IN OFFSET
             </h2>
-            <div className='flex md:pb-[7rem] md:pt-[4rem]'>
+            <div className='flex md:pb-[7rem] md:pt-[4rem] pt-[5rem] max-md:flex-col max-md:px-[4.27rem]'>
                 <p className='md:mr-[10.68rem] priDesc  md:w-[28.59375rem]'>
                     Công suất in Offset của APP hiện tại lên tới 40.000 đến 80.000 tờ/1 ca in tùy vào định lượng và khổ in. Thế mạnh của công ty chúng tôi là sản xuất các bao bì chuyên dụng, cao cấp, đa dạng trên các chất liệu: Giấy Duplex, Ivory, Metalize, Couche, bền ẩm, giấy bồi sóng, các loại giấy decal,…
                 </p>
-                <div className='md:grid grid-cols-2 gap-x-[5.31rem] gap-y-[3.2rem]'>
+                <div className='md:grid grid-cols-2 gap-x-[5.31rem] gap-y-[3.2rem] max-md:pt-[7rem]'>
                     {data?.map((item, index) => {
                         return (
                             <TextnologyContent key={index} icon={item?.icon} text={item?.text} />

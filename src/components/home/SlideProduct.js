@@ -50,7 +50,14 @@ function SlideProduct({ lang }) {
   return (
     <div className='relative w-full h-full slide-product'>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={1}
+        breakpoints={
+          {
+            768: {
+              slidesPerView: 3
+            }
+          }
+        }
         spaceBetween={0}
         onSlideChange={handleSlideChange}
         modules={[Pagination]}
@@ -67,8 +74,8 @@ function SlideProduct({ lang }) {
             >
               {({ isActive }) => (
                 <Link href={`#!`} className='relative w-full h-full'>
-                  <Image src={item.img} width={'100%'} height={'100%'} alt='img-product' className='w-full h-full'/>
-                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.title}`}} ></h3>
+                  <Image src={item.img} width={'100%'} height={'100%'} alt='img-product' className='w-full md:h-full h-[100rem] object-cover' />
+                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[6.93333rem] max-md:whitespace-nowrap md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.title}` }} ></h3>
                 </Link>
               )}
             </SwiperSlide>
@@ -81,7 +88,7 @@ function SlideProduct({ lang }) {
           className='w-[1.6875rem] h-[3.375rem] absolute left-[2rem] top-[50%] -translate-y-2/4'
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="58" viewBox="0 0 32 58" fill="none">
-            <path d="M30 56L3 29L30 2" stroke="white" strokeWidth="3"/>
+            <path d="M30 56L3 29L30 2" stroke="white" strokeWidth="3" />
           </svg>
         </button>
         <button
@@ -89,7 +96,7 @@ function SlideProduct({ lang }) {
           className='w-[1.6875rem] h-[3.375rem] absolute right-[2rem] top-[50%] -translate-y-2/4'
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="58" viewBox="0 0 32 58" fill="none">
-            <path d="M2 2L29 29L2 56" stroke="white" strokeWidth="3"/>
+            <path d="M2 2L29 29L2 56" stroke="white" strokeWidth="3" />
           </svg>
         </button>
       </div>
