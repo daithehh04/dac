@@ -43,6 +43,18 @@ function Navbar({ lang }) {
         },
         {
           name: 'Sơ đồ tổ chức'
+        },
+        {
+          name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi'
+        },
+        {
+          name: 'Chặng đường phát triển'
+        },
+        {
+          name: 'Chứng chỉ và giải thưởng'
+        },
+        {
+          name: 'Sơ đồ tổ chức'
         }
       ]
     },
@@ -130,7 +142,7 @@ function Navbar({ lang }) {
             </div>
             <SelectLang lang={lang} checkHome={checkHome} />
             {checkHome ? <Image src={searchIcon} width={50} height={50} alt='search' className='w-[1.2vw] max-md:hidden h-[1.2vw] mr-[2.24vw] ml-[0.5vw]' /> :
-              <Image src={searchIconW} width={50} height={50} alt='search' className='w-[1.2vw] h-[1.2vw] mr-[2.24vw] ml-[0.5vw] ' />}
+              <Image src={searchIconW} width={50} height={50} alt='search' className='w-[1.2vw] max-md:hidden h-[1.2vw] mr-[2.24vw] ml-[0.5vw] ' />}
             <div onClick={handleOpenModal} className={`w-[10.4rem] h-[10.4rem] rounded-full grid md:hidden item place-items-center ${checkHome ? 'bg-[#525252]' : 'bg-white'}`}>
               {checkHome ? <Image src={barsIconW} width={50} height={50} alt='bars' className='w-[3.03125rem] h-[3.03125rem]' /> :
                 <Image src={barsIcon} width={50} height={50} alt='bars' className='w-[3.03125rem] h-[3.03125rem]' />}

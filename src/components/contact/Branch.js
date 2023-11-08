@@ -82,16 +82,16 @@ function Branch() {
         ]
     }
     return (
-        <section className='md:pt-[7rem] md:px-[4.17rem] '>
-            <div className='flex'>
-                <h2 className='heading md:mr-[7.97rem]'>{data?.title}</h2>
-                <div>
-                    <div className='md:grid grid-cols-2 gap-x-[4.9rem] gap-y-[2.08rem]'>
+        <section className='md:pt-[7rem] pt-[7.47rem] md:px-[4.17rem] px-[4.27rem]'>
+            <div className='flex max-md:flex-col'>
+                <h2 className='heading2 md:mr-[7.97rem] max-md:w-[45rem]'>{data?.title}</h2>
+                <div className=' max-md:mt-[12rem]'>
+                    <div className='grid md:grid-cols-2 gap-x-[4.9rem] gap-y-[2.08rem]'>
                         {data?.listInfomation?.map((item, index) => (
-                            <OpportunityItem key={index} icon={item?.icon} data={item?.about} title={item?.title} desc={item?.desc} className={'md:w-[26.14583rem]'} />
+                            <OpportunityItem check={true} classCus={'max-md:flex-col'} key={index} icon={item?.icon} data={item?.about} title={item?.title} desc={item?.desc} className={'md:w-[26.14583rem]'} />
                         ))}
                     </div>
-                    <Image src={img} alt='image' quality={100} width={1000} height={1000} className='object-cover md:h-[31.875rem] w-full' />
+                    <Image src={img} alt='image' quality={100} width={1000} height={1000} className='object-cover max-md:hidden md:h-[31.875rem] w-full' />
                 </div>
             </div>
 

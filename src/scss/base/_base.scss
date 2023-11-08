@@ -20,6 +20,17 @@ html {
     letter-spacing: -0.256rem;
   }
 }
+.heading2 {
+  color: #444;
+  font-size: 3.4375rem;
+  font-weight: 700;
+  line-height: 116.662%;
+  letter-spacing: -0.10313rem;
+  @media screen and (max-width:767px) {
+    font-size: 6.93333rem;
+    letter-spacing: -0.34667rem;
+  }
+}
 
 .heading-primary{
   color: #FFF;
@@ -40,11 +51,25 @@ html {
     font-size: 4.26667rem;
   }
 }
+.description2 {
+  color: #444;
+  font-size: 1.35417rem;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: -0.2rem;
+
+  @media screen and (max-width : 767px) {
+    font-size: 4rem;
+  }
+}
 .subDescription {
   color: #888;
   font-size: 1.04167rem;
   font-weight: 400;
   line-height: 116.662%;
+  @media screen and (max-width : 767px) {
+    font-size: 4.26667rem;
+  }
 }
 
 .priDesc {

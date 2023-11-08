@@ -4,7 +4,7 @@ import React from 'react'
 import { useDataBanner } from './DataContext';
 
 function Banner() {
-    const { dataBanner } = useDataBanner()
+    const dataBanner = useDataBanner()
     let imgBanner = 'https://cms-dac.okhub.tech/wp-content/uploads/2023/11/TechnologyBanner1.png'
     return (
         <div className='banner w-full md:h-[100vh] h-[100rem] relative '>

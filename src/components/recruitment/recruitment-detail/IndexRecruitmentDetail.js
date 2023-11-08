@@ -8,7 +8,7 @@ function IndexRecruitmentDetail() {
         <>
             <BannerDetail />
             <Infomation />
-            <Profile />
+            {/* <Profile /> */}
         </>
     )
 }
