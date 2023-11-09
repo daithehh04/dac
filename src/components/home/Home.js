@@ -11,6 +11,7 @@ import Partners from './Partners'
 function HomePage() {
   return (
     <>
+      <div>123</div>
       <Banner/>
       <Design/>
       <Product/>
