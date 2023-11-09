@@ -31,30 +31,23 @@ function Navbar({ lang }) {
     {
       link: 'VỀ CHÚNG TÔI',
       slug: 'about-us',
+      slug2: 'about-us',
       listContent: [
         {
-          name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi'
+          name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi',
+          slug: 'vision'
         },
         {
-          name: 'Chặng đường phát triển'
+          name: 'Chặng đường phát triển',
+          slug: 'journey'
         },
         {
-          name: 'Chứng chỉ và giải thưởng'
+          name: 'Chứng chỉ và giải thưởng',
+          slug: 'prize'
         },
         {
-          name: 'Sơ đồ tổ chức'
-        },
-        {
-          name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi'
-        },
-        {
-          name: 'Chặng đường phát triển'
-        },
-        {
-          name: 'Chứng chỉ và giải thưởng'
-        },
-        {
-          name: 'Sơ đồ tổ chức'
+          name: 'Sơ đồ tổ chức',
+          slug: 'organize'
         }
       ]
     },
@@ -65,51 +58,70 @@ function Navbar({ lang }) {
     {
       link: 'SẢN PHẨM DỊCH VỤ',
       slug: 'service-products',
+      slug2: 'service-products',
       listContent: [
         {
-          name: 'Bao bì thuốc lá'
+          name: 'Bao bì thuốc lá',
+          slug: 'a'
         },
         {
-          name: 'Bao bì Thực phẩm'
+          name: 'Bao bì Thực phẩm',
+          slug: 'a'
         },
         {
-          name: 'Bao bì dược mỹ phẩm'
+          name: 'Bao bì dược mỹ phẩm',
+          slug: 'a'
         },
         {
-          name: 'Bao bì hàng tiêu dùng'
+          name: 'Bao bì hàng tiêu dùng',
+          slug: 'a'
         },
         {
-          name: 'Bao bì Bia rượu nước giải khát'
+          name: 'Bao bì Bia rượu nước giải khát',
+          slug: 'a'
         },
         {
-          name: 'Bao bì nông sản'
+          name: 'Bao bì nông sản',
+          slug: 'a'
         },
         {
-          name: 'Thương mại &Vật tư ngành in'
+          name: 'Thương mại &Vật tư ngành in',
+          slug: 'a'
         },
         {
-          name: 'Cho thuê văn phòng'
+          name: 'Cho thuê văn phòng',
+          slug: 'a'
         }
       ]
     },
     {
       link: 'CÔNG NGHỆ',
       slug: 'technology/offset',
+      slug2: 'technology',
       listContent: [
         {
-          name: 'Công nghệ in Offset'
+          name: 'Công nghệ in Offset',
+          slug: 'offset'
         },
         {
-          name: 'Công nghệ in Flexo'
+          name: 'Công nghệ in Flexo',
+          slug: 'flexo'
+
         },
         {
-          name: 'Công nghệ in Ống đồng'
+          name: 'Công nghệ in Ống đồng',
+          slug: 'gravure'
+
         },
         {
-          name: 'Công nghệ in Kỹ thuật số'
+          name: 'Công nghệ in Kỹ thuật số',
+          slug: 'digital'
+
         },
         {
-          name: 'Giải pháp chống giả'
+          name: 'Giải pháp chống giả',
+          slug: 'other-printing'
+
         }
       ]
     },

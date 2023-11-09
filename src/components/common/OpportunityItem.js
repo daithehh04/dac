@@ -5,7 +5,7 @@ import React from 'react'
 function OpportunityItem({ icon, data, title, desc, className, classCus, check }) {
     return (
         <div className={`flex flex-col ${classCus} ${check ? 'max-md:mb-[12rem]' : ''}`}>
-            <div className={`relative md:mb-[3.07rem] md:w-[5.26089rem] w-[18.13493rem] h-[18.13493rem] md:h-[5.62552rem] max-md:mr-[6.4rem] ${check ? 'max-md:mb-[6rem]' : ''}`}>
+            <div className={`relative md:mb-[3.07rem] mb-[4rem] md:w-[5.26089rem] w-[18.13493rem] h-[18.13493rem] md:h-[5.62552rem] max-md:mr-[6.4rem] ${check ? 'max-md:mb-[6rem]' : ''}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[5.26089rem] md:h-[5.62552rem] w-[18.13493rem] h-[18.13493rem] ' viewBox="0 0 111 111" fill="none">
                     <g clip-path="url(#clip0_417_572)">
                         <path d="M4.36405 111H0V106.626H1.68995V109.31H4.36405V111Z" fill="#444545" />

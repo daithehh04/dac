@@ -1,10 +1,7 @@
 "use client"
-import IndexVision from './about-vision/IndexVision'
-import IndexJourney from './about-journey/IndexJourney'
-import { IndexPrize } from './about-prize/IndexPrize'
-import { IndexOrganize } from './about-organize/IndexOrganize'
 import { useDataBanner } from './DataContext'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 export const Content = () => {
   const [page, setPage] = useState(1)
@@ -31,6 +28,20 @@ export const Content = () => {
       background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/banner-ve-chung-toi-1-2-scaled.jpg'
     }
   ]
+  const slugPage = [
+    {
+      name: 'journey'
+    },
+    {
+      name: 'organize'
+    },
+    {
+      name: 'prize'
+    },
+    {
+      name: 'vision'
+    }
+  ]
   const handlePage = (page) => {
     setPage(page.id)
     setDataBanner(page)
@@ -39,16 +50,18 @@ export const Content = () => {
     window.scroll(0, 0)
   }, [page])
   return (
-    <div>
+    <div className='max-md:hidden'>
       <ul className='flex content pt-[3.8rem]'>
         {data?.map((item, index) => (
-          <li key={index * Math.random()} className={`uppercase text-[1.04167rem] mr-[3.91rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</li>
+          <Link
+            href={`/about-us/${slugPage[index]?.name}`}
+            key={index * Math.random()}
+            className={`uppercase text-[1.04167rem] mr-[3.91rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`}
+            onClick={() => handlePage(item)}>
+            {item?.title}
+          </Link>
         ))}
       </ul>
-      {page === 1 && <IndexVision />}
-      {page === 2 && <IndexJourney />}
-      {page === 3 && <IndexPrize />}
-      {page === 4 && <IndexOrganize />}
     </div>
   )
 }

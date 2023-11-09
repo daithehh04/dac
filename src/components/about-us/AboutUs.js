@@ -6,10 +6,10 @@ import { Content } from './Content'
 
 function AboutUs() {
   return (
-    <DataProvider>
-      <Banner/>
-      <Content/>
-    </DataProvider>
+    // <DataProvider>
+    // <Banner/>
+    <Content />
+    // </DataProvider>
   )
 }
 

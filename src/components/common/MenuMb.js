@@ -49,8 +49,10 @@ function MenuMb({ data, handleCloseModal, lang }) {
                                     )
                                     :
                                     (
-                                        <Link className='text-[#444] mb-[2.67rem] text-[5.33333rem] font-bold'
-                                            href={`/${lang}/${item?.slug}`}>{item?.link}
+                                        <Link
+                                            onClick={handleCloseModal}
+                                            className='text-[#444] mb-[2.67rem] text-[5.33333rem] font-bold'
+                                            href={`/${lang}/${item?.slug}` || '/'}>{item?.link}
                                         </Link>
                                     )
                             }
@@ -58,7 +60,7 @@ function MenuMb({ data, handleCloseModal, lang }) {
                                 item?.listContent && (
                                     <div
                                         ref={refElement}
-                                        className='menu_mobile_item flex flex-col '
+                                        className='menu_mobile_item flex flex-col mt-[2rem]'
                                         style={
                                             selected === index
                                                 ? {
@@ -73,7 +75,8 @@ function MenuMb({ data, handleCloseModal, lang }) {
                                     >
                                         {item?.listContent?.map((mbItem, index) => (
                                             <Link
-                                                href={`/${lang}/${mbItem?.name}`}
+                                                onClick={handleCloseModal}
+                                                href={`/${lang}/${item?.slug2}/${mbItem?.slug}` || '/'}
                                                 key={index}
                                                 className='text-[#444] text-[3.46667rem] leading-[116.662%] tracking-[-0.104rem] mb-[2.67rem]'>
                                                 {mbItem?.name}

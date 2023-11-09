@@ -64,7 +64,7 @@ function Content() {
         window.scroll(0, 0)
     }, [page])
     return (
-        <div>
+        <div className='max-md:hidden'>
             <ul className='flex pt-[3.8rem] md:pl-[12.03rem] bg-[#F5F5F5]'>
                 {data?.map((item, index) => {
                     return (
