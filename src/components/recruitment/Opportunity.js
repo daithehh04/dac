@@ -93,7 +93,7 @@ function Opportunity() {
                 <div className='md:grid grid-cols-4 gap-x-[2.6rem]'>
                     {data?.listOppo?.map((item, index) => (
                         <div key={index} ref={itemRef} className={`opportunityItem_hidden max-md:mb-[10rem] ${index === 0 || index === 1 || index === 2 ? '' : 'max-md:hidden'}`}>
-                            <OpportunityItem icon={item?.icon} data={item?.infoOppo} classCus={'md:flex-row'} />
+                            <OpportunityItem icon={item?.icon} data={item?.infoOppo} classCus={'max-md:flex-row'} />
                         </div>
                     ))}
                 </div>

@@ -10,3 +10,26 @@
         }
     }
 }
+
+.formSubmit{
+    input{
+        width: 25rem;
+        height: 2.61rem;
+        outline: none;
+        @media screen and (max-width :767px) {
+            width: 84.21253rem;
+            height: 9.5264rem;
+            font-size: 3.2rem;
+        }
+    }
+    input::placeholder{
+        padding-left: 1.12rem;
+        color: #888;
+        font-size: 0.83333rem;
+        line-height: 116.662%;
+        @media screen and (max-width :767px) {
+        font-size: 3.2rem;
+        padding-left: 3rem;
+        }
+    }
+}
