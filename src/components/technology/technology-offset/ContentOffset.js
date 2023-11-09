@@ -33,7 +33,7 @@ function ContentOffset() {
                     })}
                 </div>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="1762" height="2" viewBox="0 0 1762 2" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" className='w-full' viewBox="0 0 1762 2" fill="none">
                 <path d="M1 1L1761 0.999846" stroke="white" stroke-linecap="round" />
             </svg>
         </section>

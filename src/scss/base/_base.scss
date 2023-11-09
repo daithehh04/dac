@@ -50,6 +50,9 @@ html {
   @media screen and (max-width : 767px) {
     font-size: 4.26667rem;
   }
+  @media screen and (min-width :768px) and (max-width :1023px) {
+    font-size: 1.5rem;
+  }
 }
 .description2 {
   color: #444;
@@ -61,6 +64,9 @@ html {
   @media screen and (max-width : 767px) {
     font-size: 4rem;
   }
+  @media screen and (min-width :768px) and (max-width :1023px) {
+    font-size: 1.5rem;
+  }
 }
 .subDescription {
   color: #888;
@@ -69,6 +75,9 @@ html {
   line-height: 116.662%;
   @media screen and (max-width : 767px) {
     font-size: 4.26667rem;
+  }
+  @media screen and (min-width :768px) and (max-width :1023px) {
+    font-size: 1.35rem;
   }
 }
 
@@ -80,6 +89,10 @@ html {
   @media screen and (max-width: 767px) {
     font-size: 4.26667rem;
   }
+  @media screen and (min-width :768px) and (max-width :1023px) {
+    font-size: 1.5rem;
+  }
+
 }
 
 .contentWrapper {

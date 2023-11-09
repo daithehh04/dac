@@ -30,14 +30,14 @@ function Culture() {
     }
 
     return (
-        <section className='md:pt-[4rem] pt-[3.73rem] max-md:pb-[10rem] px-[4.27rem] md:px-[4.17rem] flex max-md:flex-col bg-[#F5F5F5]'>
+        <section className='md:pt-[4rem] pt-[3.73rem] md:pb-[6rem] max-md:pb-[10rem] px-[4.27rem] md:px-[4.17rem] flex max-md:flex-col bg-[#F5F5F5]'>
             <div className='md:mr-[10.36rem]'>
                 <h2 className='heading md:!tracking-[-0.17188rem] md:mb-[1.4rem] max-md:mb-[4.2rem]'>{data?.title1}</h2>
                 <p className='description !leading-[1.2] !font-normal md:w-[28.80208rem] text-justify'>{data?.desc}</p>
             </div>
             <div className='grid md:grid-cols-2 max-md:gap-[5rem] gap-x-[9.52rem] gap-y-[1rem] max-md:mt-[8rem]'>
                 {data?.dataCulture?.map((item, index) => (
-                    <ServiceItem className={'md:w-[21rem] text-justify'} key={index} className='md:text-[1.35417rem] text-[4.26667rem] max-md:mt-[4rem]' icon={item?.icon} textEdit={item?.textEdit} text={item?.text} />
+                    <ServiceItem className={'md:w-[21rem] text-justify'} key={index} className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] max-md:mt-[4rem]' icon={item?.icon} textEdit={item?.textEdit} text={item?.text} />
                 ))}
             </div>
         </section>

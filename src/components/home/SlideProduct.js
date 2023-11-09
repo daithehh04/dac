@@ -82,20 +82,20 @@ function SlideProduct({ lang }) {
           )
         })}
       </Swiper>
-      <div className='flex absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between max-md:hidden btn-product'>
+      <div className='flex absolute top-[50%] -translate-y-2/4 z-10 w-full justify-between  btn-product'>
         <button
           onClick={handlePrevSlide}
-          className='w-[1.6875rem] h-[3.375rem] absolute left-[2rem] top-[50%] -translate-y-2/4'
+          className='md:w-[1.6875rem] md:h-[3.375rem] w-[3.73333rem] h-[7.46667rem] absolute left-[2rem] top-[50%] -translate-y-2/4'
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="58" viewBox="0 0 32 58" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[1.6875rem] md:h-[3.375rem] w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 32 58" fill="none">
             <path d="M30 56L3 29L30 2" stroke="white" strokeWidth="3" />
           </svg>
         </button>
         <button
           onClick={handleNextSlide}
-          className='w-[1.6875rem] h-[3.375rem] absolute right-[2rem] top-[50%] -translate-y-2/4'
+          className='md:w-[1.6875rem] md:h-[3.375rem] w-[3.73333rem] h-[7.46667rem] absolute right-[2rem]  top-[50%] -translate-y-2/4'
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="58" viewBox="0 0 32 58" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[1.6875rem] md:h-[3.375rem] w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 32 58" fill="none">
             <path d="M2 2L29 29L2 56" stroke="white" strokeWidth="3" />
           </svg>
         </button>

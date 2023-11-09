@@ -13,13 +13,13 @@ function Story() {
           <h3 className='heading'>
             Câu chuyện APP
           </h3>
-          <p className='md:text-[1.35417rem] text-[4.26667rem] tracking-[1.2] max-md:tracking-[-0.128rem] text-justify md:mt-[1.6rem] max-md:my-[6rem] text-[#444]' dangerouslySetInnerHTML={{ __html: `${text}` }}></p>
+          <p className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] tracking-[1.2] max-md:tracking-[-0.128rem] text-justify md:mt-[1.6rem] max-md:my-[6rem] text-[#444]' dangerouslySetInnerHTML={{ __html: `${text}` }}></p>
         </div>
         <div className="right">
           <Image src={vision} width={'100%'} height={'100%'} alt='vision' className='md:w-[52.55rem] md:h-[32.9rem] h-[62.63627rem] object-cover' />
           <div className='flex gap-x-[5.42rem] md:mt-[2.86rem] mt-[10.56rem] max-md:flex-col max-md:px-[4.27rem]'>
-            <p className='md:text-[1.35417rem] text-[4.26667rem] text-justify text-[#444] leading-[1.2] max-md:mb-[10.56rem]' dangerouslySetInnerHTML={{ __html: `${desc1}` }}></p>
-            <p className='md:text-[1.35417rem] text-[4.26667rem] text-justify text-[#444] leading-[1.2]' dangerouslySetInnerHTML={{ __html: `${desc2}` }}></p>
+            <p className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] text-justify text-[#444] leading-[1.2] max-md:mb-[10.56rem]' dangerouslySetInnerHTML={{ __html: `${desc1}` }}></p>
+            <p className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] text-justify text-[#444] leading-[1.2]' dangerouslySetInnerHTML={{ __html: `${desc2}` }}></p>
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ function ContentDetail() {
                 {data?.listContent?.map((item, index) => (
                     <div key={index}>
                         <div className={`flex md:justify-end md:px-[12rem] ${index === data?.listContent?.length - 1 ? 'max-md:flex-col-reverse' : 'max-md:flex-col'}`}>
-                            <h2 className={`heading md:w-[31.40625rem] max-md:!text-[6.93333rem] max-md:mb-[4rem] ${index === data?.listContent?.length - 1 ? 'md:hidden' : ''} ${index === 0 ? 'w-[60rem]' : ''}`}>{item?.headingContent}</h2>
+                            <h2 className={`heading md:w-[30.40625rem] max-md:!text-[6.93333rem] max-md:mb-[4rem] ${index === data?.listContent?.length - 1 ? 'md:hidden' : ''} ${index === 0 ? 'w-[60rem]' : ''}`}>{item?.headingContent}</h2>
                             <div>
                                 <p className='description !font-normal md:!tracking-[-0.02708rem] md:!leading-[1.2] md:w-[44.47917rem] text-justify md:mb-[3rem] mb-[7rem]'>{item?.content}</p>
                                 <div className={`flex gap-[2.6rem] max-md:flex-col`}>

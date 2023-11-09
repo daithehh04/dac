@@ -3,7 +3,7 @@ import React from 'react'
 
 function Banner({ image, title, description, classTitle, classDesc, positionAndBox, background }) {
     return (
-        <section className={`md:w-full md:h-[100vh] h-[100rem] relative ${background}`} >
+        <section className={`md:w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative ${background}`} >
             <Image src={image} priority alt="banner" quality={100} className="w-full h-full md:rounded-br-[13.54rem] rounded-br-[16rem] object-cover " />
 
             <div className="overlay absolute top-0 w-full h-[16rem]" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>

@@ -14,8 +14,8 @@ function Solution() {
         <h3 className='md:text-[3.4375rem] text-[6.93333rem] md:text-[#444] text-[#fff] font-bold leading-[1.2] tracking-[-0.12375rem] title md:w-[39.4rem] pt-[6.46rem]'>
           Công ty TNHH Công Nghệ Chống giả DAC
         </h3>
-        <div className='md:text-[1.35417rem] text-[4.26667rem] leading-[1.4] md:text-[#444] text-[#fff] mt-[4rem] max-md:mb-[4rem]' dangerouslySetInnerHTML={{ __html: `${desc}` }}></div>
-        <div className='md:text-[1.35417rem] max-md:hidden text-[4.26667rem] leading-[1.4] md:text-[#444] text-[#fff] mt-[13rem]' dangerouslySetInnerHTML={{ __html: `${text}` }}></div>
+        <div className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.4] md:text-[#444] text-[#fff] mt-[4rem] max-md:mb-[4rem]' dangerouslySetInnerHTML={{ __html: `${desc}` }}></div>
+        <div className='md:text-[1.5rem] lg:text-[1.35417rem] max-md:hidden text-[4.26667rem] leading-[1.4] md:text-[#444] text-[#fff] mt-[13rem]' dangerouslySetInnerHTML={{ __html: `${text}` }}></div>
         <span className='md:hidden text-[#fff] text-[4.26667rem] leading-[116.662%] underline tracking-[-0.21333rem]s'>Xem thêm</span>
       </div>
     </div>

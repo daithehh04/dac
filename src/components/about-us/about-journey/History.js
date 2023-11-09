@@ -59,20 +59,20 @@ function History() {
     <>
       <div className='relative mt-[2rem] content'>
         <div className='flex gap-[0.73rem] ml-[1.35rem] border-bottom border-dashed border-[#444] mt-[0.83rem]'>
-          {data?.map((item,index) => (
+          {data?.map((item, index) => (
             <div key={index} className='flex items-center justify-center'>
-              <span  className='text-[0.78125rem] text-black year-history'>{item?.year}</span>
-              <Image src={circle} width={'100%'} height={'100%'} alt='circle' className='absolute bottom-[-0.235rem] w-[0.54rem] h-[0.54rem] object-cover'/>
+              <span className='lg:text-[0.78125rem] md:text-[1.2rem] text-black year-history'>{item?.year}</span>
+              <Image src={circle} width={'100%'} height={'100%'} alt='circle' className='absolute bottom-[-0.235rem] w-[0.54rem] h-[0.54rem] object-cover' />
             </div>
           ))}
         </div>
         {/* <Image src={line} width={'100%'} height={'100%'} alt='line' className='mt-[0.83rem] w-max'/> */}
         <div className='line-sm mt-[0.8rem]'></div>
       </div>
-      <SlideHistory/>
+      <SlideHistory />
       <div className='flex justify-between content border-t border-solid border-[#444] pb-[8.8rem]'>
-        <p className='text-[1.35417rem] text-[#444] w-[44.375rem] pt-[3.96rem]' dangerouslySetInnerHTML={{__html: `${text}`}}></p>
-        <Image src={jour} width={'100%'} height={'100%'} className='w-[36.66rem] object-cover h-[50.625rem] rounded-br-[9.73rem]' alt='jour'/>
+        <p className='lg:text-[1.35417rem] md:text-[1.5rem] text-justify text-[#444] w-[44.375rem] pt-[3.96rem]' dangerouslySetInnerHTML={{ __html: `${text}` }}></p>
+        <Image src={jour} width={'100%'} height={'100%'} className='w-[36.66rem] object-cover h-[50.625rem] rounded-br-[9.73rem]' alt='jour' />
       </div>
     </>
   )

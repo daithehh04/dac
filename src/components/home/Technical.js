@@ -42,13 +42,13 @@ function Technical() {
             {data?.map((item, index) => (
               <li key={index} className='text-[1.35417rem]'>
                 <Image src={item?.icon} width={'100%'} height={'100%'} alt='icon' className='md:w-[5.78125rem] md:h-[5.78125rem] w-[18.13333rem] h-[18.13333rem]' />
-                <h4 className='text-[#444] font-bold md:mt-[1.25rem] my-[3rem] md:text-[1.35417rem] text-[4.26667rem]'>{item?.title}</h4>
-                <p className='mt-[1.625rem] text-[#888] md:text-[1.35417rem] text-[4.26667rem]'>{item?.desc}</p>
+                <h4 className='text-[#444] font-bold md:mt-[1.25rem] max-md:my-[3rem] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.title}</h4>
+                <p className='md:text-[1.5rem] lg:mt-[1.425rem] text-[#888] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.desc}</p>
               </li>
             ))}
           </ul>
         </div>
-        <div className="right md:text-[1.35417rem] text-[4.26667rem] tracking-[-0.08533rem] text-justify max-md:mb-[7rem]">
+        <div className="right md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] tracking-[-0.08533rem] text-justify max-md:mb-[7rem]">
           <p>Với năng lực máy <b>móc thiết bị hiện đại</b> cùng đội ngũ <b>nhân viên dày dặn kinh nghiệm</b>, Chúng tôi luôn có khả năng đáp ứng tất cả các nhu cầu đa dạng của Quý khách hàng.</p>
         </div>
       </div>

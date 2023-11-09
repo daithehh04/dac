@@ -57,7 +57,7 @@ export const Content = () => {
           <Link
             href={`/about-us/${slugPage[index]?.name}`}
             key={index * Math.random()}
-            className={`uppercase text-[1.04167rem] mr-[3.91rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`}
+            className={`uppercase lg:text-[1.04167rem] md:text-[1.3rem] mr-[3.91rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`}
             onClick={() => handlePage(item)}>
             {item?.title}
           </Link>

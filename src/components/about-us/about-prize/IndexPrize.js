@@ -19,7 +19,7 @@ export const IndexPrize = () => {
   return (
     <div className='md:px-[9.46rem] px-[4.27rem] mt-[4.32rem] pb-[15.4rem]'>
       <h2 className='heading max-md:w-[70%]'>Chứng chỉ & Giải thưởng</h2>
-      <div className='grid md:grid-cols-4 grid-cols-2 md:mt-[3.2rem] mt-[15rem] md:gap-[6.5rem] max-md:gap-x-[8.27rem] max-md:gap-y-[12.8rem] justify-items-center'>
+      <div className='md:flex grid grid-cols-2 justify-center flex-wrap md:mt-[3.2rem] mt-[15rem] md:gap-[6.5rem] max-md:gap-x-[8.27rem] max-md:gap-y-[12.8rem] justify-items-center'>
         {data?.map((item, index) => (
           <div key={index * Math.random()} className='flex flex-col items-center justify-center'>
             <Image src={item?.img} width={'100%'} height={'100%'} alt='prize' className='md:w-[14.89vw] w-[41.86667rem] object-cover' />

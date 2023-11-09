@@ -65,10 +65,10 @@ function Content() {
     }, [page])
     return (
         <div className='max-md:hidden'>
-            <ul className='flex pt-[3.8rem] md:pl-[12.03rem] bg-[#F5F5F5]'>
+            <ul className='flex pt-[3.8rem] md:pl-[4.17rem] lg:pl-[12.03rem] bg-[#F5F5F5]'>
                 {data?.map((item, index) => {
                     return (
-                        <Link href={`/technology/${slugPage[index]?.name}`} key={index * Math.random()} className={`uppercase  text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
+                        <Link href={`/technology/${slugPage[index]?.name}`} key={index * Math.random()} className={`uppercase text-[1.3rem] lg:text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
                     )
                 })}
             </ul>

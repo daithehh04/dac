@@ -31,8 +31,8 @@ function News() {
           <ul className="grid md:grid-cols-2 gap-x-[1.82rem] gap-y-[2rem] max-md:px-[4.53rem]">
             {data?.map((item, index) => (
               <li key={index} className='text-[1.35417rem] md:pt-[3.07rem] pt-[5.02rem] md:border-t border-solid border-[#444]'>
-                <h4 className='font-bold text-[#444] md:text-[1.35417rem] text-[4.26667rem]'>{item?.title}</h4>
-                <p className='mt-[1.625rem] text-[#888] md:text-[1.35417rem] text-[4.26667rem]'>{item?.text}</p>
+                <h4 className='font-bold text-[#444] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.title}</h4>
+                <p className='mt-[1.625rem] text-[#888] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.text}</p>
               </li>
             ))}
           </ul>
