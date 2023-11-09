@@ -5,7 +5,8 @@ import Link from 'next/link'
 
 export const Content = () => {
   const [page, setPage] = useState(1)
-  const { dataBanner, setDataBanner } = useDataBanner('')
+  const context = useDataBanner()
+
   const data = [
     {
       id: 1,
@@ -44,7 +45,7 @@ export const Content = () => {
   ]
   const handlePage = (page) => {
     setPage(page.id)
-    setDataBanner(page)
+    context.setDataBanner(page)
   }
   useEffect(() => {
     window.scroll(0, 0)
