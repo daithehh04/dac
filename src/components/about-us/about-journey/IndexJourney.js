@@ -8,10 +8,10 @@ function IndexJourney() {
   return (
     <div className='mt-[5.31rem]'>
       <div className='content'>
-        <h3 className='heading'>Chặng đường APP</h3>
-        <p className='text-[1.35417rem] mt-[1.46rem] w-[44.375rem]' dangerouslySetInnerHTML={{__html: `${text}`}}></p>
+        <h3 className='heading max-md:mb-[5rem]'>Chặng đường APP</h3>
+        <p className='lg:text-[1.35417rem] text-[4.26667rem] md:text-[1.5rem] md:mt-[1.6rem] text-justify md:w-[44.375rem]' dangerouslySetInnerHTML={{ __html: `${text}` }}></p>
       </div>
-      <History/>
+      <History />
     </div>
   )
 }

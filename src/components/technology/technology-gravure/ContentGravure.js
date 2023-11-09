@@ -20,7 +20,7 @@ function ContentGravure() {
                 CÔNG NGHỆ IN ỐNG ĐỒNG
             </h2>
             <div className='flex md:pb-[7rem] md:pt-[4rem] max-md:flex-col'>
-                <div className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem] max-md:mb-[6rem]'>
+                <div className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem]  max-md:mb-[6rem]'>
                     <p>Với máy móc hiện đại, tốc độ sản xuất cực nhanh lên tới 450m/phút,
                         hệ thống thiết bị đồng bộ khép kín từ in đến gia công (máy in, máy ghép, máy chia cuộn, máy dán túi, máy kiểm phẩm offline), công ty APP có thể đáp ứng được sản lượng cho các đơn hàng lớn và các yêu cầu khắt khe khác để đưa tới cho khách hàng những sản phẩm có chất lượng tốt nhất.
                     </p>

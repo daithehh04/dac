@@ -93,7 +93,7 @@ function FormContact() {
                             <Form>
                                 <div className='flex flex-col bg-transparent formSubmit md:mb-[1rem]'>
                                     {/* họ tên */}
-                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem]' >
+                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] max-md:pt-[1rem] ' >
                                         <Field name="fullName" type='text' placeholder='Họ tên*' className='bg-transparent' />
                                         <Image src={layer_11} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />
                                     </div>
@@ -102,13 +102,13 @@ function FormContact() {
                                     ) : null}
 
                                     {/* email */}
-                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] ' >
+                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] max-md:pt-[1rem] ' >
                                         <Field name="email" type="email" placeholder='Email*' className='bg-transparent' />
                                         <Image src={layer_12} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />
                                     </div>
                                     {errors.email && touched.email ? <div className='md:mb-[1rem] text-[#ff0000] max-md:text-[2rem]'>{errors.email}</div> : null}
                                     {/* telephone */}
-                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] md:mb-[1rem]' >
+                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] md:mb-[1rem] max-md:pt-[1rem] ' >
                                         <Field name="telephone" type='text' placeholder='Số điện thoại*' className='bg-transparent' />
                                         <Image src={layer_13} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />
                                     </div>
@@ -116,7 +116,7 @@ function FormContact() {
                                         <div className='md:mb-[1rem] text-[#ff0000] max-md:text-[2rem]'>{errors.telephone}</div>
                                     ) : null}
                                     {/* attach file */}
-                                    <div className='flex flex-col justify-between md:pl-[1rem] max-md:pt-[2rem] md:pb-[1rem] mb-[8rem] border-b border-solid border-[#000] md:mb-[1rem]' >
+                                    <div className='flex flex-col justify-between md:pl-[1rem] max-md:pt-[2rem] md:pb-[1rem] mb-[8rem] border-b border-solid  border-[#000] md:mb-[1rem]' >
                                         {/* <Field name='message' as='textarea' placeholder='Nội dung' className='bg-transparent outline-none md:w-[25rem]' /> */}
                                         <TextareaAutosize
                                             className='outline-none md:w-[25rem]'

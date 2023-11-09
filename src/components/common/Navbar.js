@@ -30,7 +30,7 @@ function Navbar({ lang }) {
   const navLinks = [
     {
       link: 'VỀ CHÚNG TÔI',
-      slug: 'about-us',
+      slug: 'about-us/vision',
       slug2: 'about-us',
       listContent: [
         {
@@ -145,11 +145,11 @@ function Navbar({ lang }) {
           <div className='flex items-center justify-between'>
             {checkHome ?
               <Link href={`/${lang}`}><Image src={logo} width={100} height={100} className='object-cover md:w-[7.91667rem] md:h-[4.21875rem] w-[18.4rem] h-[9.86667rem]' alt='DAC' /></Link>
-              : <Link href={`/${lang}`}><Image src={logoW} width={100} height={100} className='object-cover' alt='DAC' /></Link>
+              : <Link href={`/${lang}`}><Image src={logoW} width={100} height={100} className='object-cover md:w-[7.91667rem] md:h-[4.21875rem] w-[18.4rem] h-[9.86667rem]' alt='DAC' /></Link>
             }
             <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw] max-md:hidden'>
               {navLinks.map((link, index) => (
-                <Link className={` text-[1.04167vw] link ${checkHome ? 'text-black' : 'text-white'}`} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
+                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] link ${checkHome ? 'text-black' : 'text-white'}`} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
               ))}
             </div>
             <SelectLang lang={lang} checkHome={checkHome} />

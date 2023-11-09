@@ -154,7 +154,7 @@ function ServiceDetail() {
     return (
         <section className="md:pt-[10.26rem] pt-[29.3rem]">
             <div className='md:px-[4.27rem]'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="1759" height="2" viewBox="0 0 1759 2" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" className='w-full' viewBox="0 0 1759 2" fill="none">
                     <path d="M1 1H1758" stroke="black" stroke-linecap="round" />
                 </svg>
             </div>
@@ -214,7 +214,7 @@ function ServiceDetail() {
                         <h2 className='heading md:mb-[1.3rem] md:w-[28.59rem] max-md:py-[7.47rem] max-md:!text-[6.93333rem]'>Bao thuốc lá thăng long</h2>
                         <div className='flex flex-col md:w-[32rem] md:h-[21.82rem]'>
                             {data?.info?.map((item, index) => (
-                                <div key={index} className='flex text-[#444]  md:text-[1.35417rem] text-[4.26667rem] font-bold md:leading-[226.662%] md:tracking-[-0.06771rem]'>
+                                <div key={index} className='flex text-[#444] md:text-[1.5rem] whitespace-nowrap lg:text-[1.35417rem] text-[4.26667rem] font-bold md:leading-[226.662%] md:tracking-[-0.06771rem]'>
                                     <span className='whitespace-nowrap max-md:mr-[1rem]'>{item?.name}</span>
                                     <span className='font-normal'>{item?.infoName}</span>
                                 </div>
@@ -226,7 +226,7 @@ function ServiceDetail() {
 
                 {/* slide2 */}
                 <div className='flex flex-col relative max-md:pt-[10rem]'>
-                    <h3 className='md:w-[28.81rem] md:h-[2.76042rem] md:mb-[0.68rem] md:text-[#444] text-[#888] md:text-[1.35417rem] text-[4.26667rem] md:leading-[116.662%] md:tracking-[-0.06771rem]'>Các mẫu thuốc lá khác</h3>
+                    <h3 className='md:w-[28.81rem] md:h-[2.76042rem] md:mb-[0.68rem] md:text-[#444] text-[#888] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] md:leading-[116.662%] md:tracking-[-0.06771rem]'>Các mẫu thuốc lá khác</h3>
                     <div className='slideOther_Item relative max-md:pt-[5.53rem] max-md:pb-[8rem]'>
                         <Swiper
                             slidesPerView={3}
@@ -234,7 +234,7 @@ function ServiceDetail() {
                                 {
                                     768: {
                                         slidesPerView: 5,
-                                        spaceBetween: 30
+                                        spaceBetween: 25
                                     }
                                 }
                             }

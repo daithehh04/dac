@@ -8,7 +8,7 @@ function Introduce() {
     return (
         <section className='md:pt-[5.57rem] pt-[6.4rem] md:pr-[11.72rem] md:pl-[43.44rem] max-md:px-[4.27rem] bg-[#F5F5F5] max-md:pb-[6rem]'>
             <h2 className='heading max-md:mb-[4rem] text-justify max-md:!tracking-[-0.27733rem] max-md:!text-[6.93333rem]'>{data?.title}</h2>
-            <p className='md:py-[2.5rem] description !font-normal max-md:text-justify'>
+            <p className='md:py-[2.5rem] description !font-normal text-justify'>
                 {data?.desc}
             </p>
         </section>

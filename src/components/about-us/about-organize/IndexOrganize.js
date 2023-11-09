@@ -18,7 +18,7 @@ export const IndexOrganize = () => {
       <div className='flex justify-center md:mt-[3rem] mt-[9.6rem] max-md:mb-[9.3rem] max-md:flex-col'>
         {data?.map((item, index) => (
           <p
-            className='md:text-[1.047rem] text-[2.93333rem] text-[#888] mr-[7.68rem]'
+            className='lg:text-[1.047rem] md:text-[1.4rem] text-[2.93333rem] text-[#888] mr-[7.68rem]'
             key={index}
             dangerouslySetInnerHTML={{ __html: `${item?.desc}` }}>
           </p>

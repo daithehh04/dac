@@ -4,9 +4,9 @@ import Image from 'next/image'
 function Banner() {
 
     return (
-        <section className='md:w-full md:h-[100vh] h-[100rem] relative' >
+        <section className='md:w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative' >
             <Image src={banner} alt="banner" quality={100} className="w-full h-full object-cover md:rounded-br-[13.54rem] rounded-br-[16rem]" />
-            <div className="overlay absolute top-0 w-full md:h-[16rem] h-[100rem]" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
+            <div className="overlay absolute top-0 w-full h-full" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
             {/* text PC */}
             <div className='md:w-[45.375rem] max-md:hidden absolute z-[1] md:bottom-[9.02rem] md:right-[3.29rem]'>
                 <p className="md:text-[5.625rem] text-[#fff] font-bold uppercase md:leading-[116.662%] md:tracking-[-0.14063rem]">Thiết kế

@@ -14,12 +14,16 @@
 .formSubmit{
     input{
         width: 25rem;
-        height: 2.61rem;
+        height: 2.81rem;
         outline: none;
+        font-size: 1.5rem;
         @media screen and (max-width :767px) {
             width: 84.21253rem;
             height: 9.5264rem;
             font-size: 3.2rem;
+        }
+        @media screen and (min-width :768px) and (max-width :1023px) {
+           height: 3rem;
         }
     }
     input::placeholder{
@@ -31,5 +35,12 @@
         font-size: 3.2rem;
         padding-left: 3rem;
         }
+        @media screen and (min-width :768px) and (max-width :1023px) {
+            font-size: 1.4rem;
+        }
     }
+}
+
+input[type="file"]{
+    width: auto;
 }

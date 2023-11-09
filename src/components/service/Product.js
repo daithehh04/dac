@@ -101,7 +101,7 @@ function Product() {
         <section>
             <div className='md:pt-[5.1rem] md:pl-[11.67rem] md:pr-[12.03rem] md:pb-[6.56rem] pb-[9rem] flex justify-between max-md:flex-col max-md:px-[4.27rem]'>
                 <h2 className='heading md:w-[45.5rem] max-md:py-[8.33rem]'>Sản phẩm dịch vụ</h2>
-                <div className='flex flex-col md:w-[28.80208rem] md:text-[1.35417rem] text-[4.26667rem] leading-[1.2] md:tracking-[-0.09479rem] text-[#444] '>
+                <div className='flex flex-col md:w-[28.80208rem] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.2] md:tracking-[-0.09479rem] text-[#444] '>
                     <p>Với tiêu chí <span className='font-bold'>“CHẤT LƯỢNG - SỐ LƯỢNG - TIẾN ĐỘ - GIÁ CẢ”</span> Chúng tôi tin tưởng vào khả năng đáp ứng yêu cầu của Quý khách hàng.</p>
                     <ul className='flex flex-col md:pl-[2.5rem] pl-[8rem]'>
                         <li className='list-disc'> Đa dạng chất liệu</li>

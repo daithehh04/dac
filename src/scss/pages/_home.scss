@@ -7,8 +7,10 @@
 .product {
   .slide-product {
     .btn-product {
-      opacity: 0;
       transition: all .3s;
+      @media screen and (min-width:1280px) {
+        opacity: 0;
+      }
     }
     &:hover .btn-product {
       opacity: 1;
