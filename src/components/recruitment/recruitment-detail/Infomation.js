@@ -9,6 +9,8 @@ import layer10 from '@/assets/imgs/Layer_10.svg'
 import OpportunityItem from '@/components/common/OpportunityItem'
 import Image from 'next/image'
 import Button from '@/components/common/Button'
+import { Formik, Field, ErrorMessage, Form } from 'formik'
+import * as Yup from 'yup'
 function Infomation() {
     const dataForm = {
         title: 'Gửi thông tin ứng tuyển cho APP',
@@ -106,6 +108,23 @@ function Infomation() {
         }
     }
     const refElement = useRef()
+    const INITAL_FORM_STATE = {
+        fullName: '',
+        email: '',
+        telephone: '',
+        date: '',
+        address: ''
+    }
+    const FORM_VALIDATION = Yup.object().shape({
+        fullName: Yup.string().required('Required'),
+        telephone: Yup.string()
+            .matches(/^[0-9]+$/, 'Enter a valid number')
+            .min(9, 'Must have 9 number')
+            .required('Required'),
+        email: Yup.string().email('Invalid email.').required('Required'),
+        date: Yup.string().required('Required'),
+        address: Yup.string().required('Required')
+    })
     return (
         <section className='max-md:flex-col md:flex-wrap justify-between flex recruitmentInfo max-md:pb-[12.27rem]'>
             {/* content-left */}
@@ -141,18 +160,74 @@ function Infomation() {
 
             <div className='md:pt-[8.4rem] pt-[13rem] flex-1 md:bg-[#F5F5F5] max-md:px-[4.53rem] md:pb-[6.4rem] max-md:order-3 md:pl-[13rem] md:pr-[4.17rem]'>
                 <h3 className='description !font-normal md:mb-[3rem] mb-[7rem]'>{dataForm?.title}</h3>
-                <div className='flex flex-col'>
-                    {dataForm?.infoInput?.map((item, index) => (
-                        <div key={index} >
-                            <div className='flex justify-between items-center'>
-                                <input placeholder={item?.label} className='bg-transparent max-md:h-[9.5264rem] max-md:w-[84.21253rem] max-md:text-[4.27rem] outline-none' />
-                                {item?.icon && <Image src={item?.icon} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />}
-                            </div>
-                            <div className={`md:w-[31.40625rem] max-md:my-[3rem] w-full h-[1px] bg-[#000] ${index === dataForm?.infoInput?.length - 1 ? 'md:mt-[5.1rem] md:mb-[2.24rem] max-md:mt-[12rem] max-md:mb-[8rem]' : 'md:my-[1rem]'}`}></div>
-                        </div>
-                    ))}
-                </div>
-                <Button text={'Gửi thông tin'} />
+                <Formik
+                    initialValues={{ ...INITAL_FORM_STATE }}
+                    validationSchema={FORM_VALIDATION}
+                    // onSubmit={(values, { resetForm }) => {
+                    //     handleForm(values, resetForm)
+                    // }}
+                    onSubmit={(values) => {
+                        console.log(values);
+                    }}
+                >
+                    {({ errors, touched }) => {
+                        return (
+                            <Form>
+                                <div className='flex flex-col bg-transparent formSubmit md:mb-[1rem]'>
+                                    {/* họ tên */}
+                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem]' >
+                                        <Field name="fullName" type='text' placeholder='Họ tên*' className='bg-transparent' />
+                                        <Image src={layer_11} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />
+                                    </div>
+                                    {errors.fullName && touched.fullName ? (
+                                        <div className='md:mb-[1rem] text-[#ff0000] max-md:text-[2rem]' >{errors.fullName}</div>
+                                    ) : null}
+
+                                    {/* email */}
+                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] ' >
+                                        <Field name="email" type="email" placeholder='Email*' className='bg-transparent' />
+                                        <Image src={layer_12} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />
+                                    </div>
+                                    {errors.email && touched.email ? <div className='md:mb-[1rem] text-[#ff0000] max-md:text-[2rem]'>{errors.email}</div> : null}
+                                    {/* telephone */}
+                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] md:mb-[1rem]' >
+                                        <Field name="telephone" type='text' placeholder='Số điện thoại*' className='bg-transparent' />
+                                        <Image src={layer_13} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />
+                                    </div>
+                                    {errors.telephone && touched.telephone ? (
+                                        <div className='md:mb-[1rem] text-[#ff0000] max-md:text-[2rem]'>{errors.telephone}</div>
+                                    ) : null}
+
+                                    {/* date */}
+                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] md:mb-[1rem]' >
+                                        <Field name="date" type='text' placeholder='Ngày sinh*' className='bg-transparent' />
+                                        <Image src={layer_14} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />
+                                    </div>
+                                    {errors.date && touched.date ? (
+                                        <div className='md:mb-[1rem] text-[#ff0000] max-md:text-[2rem]'>{errors.date}</div>
+                                    ) : null}
+                                    {/* address */}
+                                    <div className='flex justify-between items-center md:pb-[1rem] border-b border-solid border-[#000] max-md:pb-[1.5rem] md:mb-[1rem]' >
+                                        <Field name="address" type='text' placeholder='Địa chỉ hiện tại*' className='bg-transparent' />
+                                        <Image src={layer_15} alt='icon' quality={100} width={1000} height={1000} className='md:w-[1.35417rem] md:h-[1.25rem] w-[4.9536rem] h-[4.57253rem] object-contain' />
+                                    </div>
+                                    {errors.address && touched.address ? (
+                                        <div className='md:mb-[1rem] text-[#ff0000] max-md:text-[2rem]'>{errors.address}</div>
+                                    ) : null}
+
+                                    {/* attach file */}
+                                    <div className='flex flex-col justify-between md:pl-[1rem] max-md:pt-[2rem] md:pb-[1rem] mb-[8rem] border-b border-solid border-[#000] md:mb-[1rem]' >
+                                        <label className='md:mb-[1rem] mb-[2rem] md:text-[#888] md:text-[0.83333rem] text-[3.2rem]'>File đính kèm</label>
+                                        <Field name='file' type='file' className='bg-transparent' />
+                                    </div>
+                                </div>
+                                <Button text={'Gửi thông tin'} />
+                            </Form>
+                        )
+                    }}
+
+                </Formik>
+
             </div>
 
             {/* profile */}

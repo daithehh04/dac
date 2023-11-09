@@ -6,8 +6,6 @@ import { useDataBanner } from './DataContext';
 
 function Banner() {
   const context = useDataBanner()
-  console.log(context.dataBanner);
-
   let imgBanner = 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/banner-about-scaled.jpg'
   return (
     <div className='banner relative'>
