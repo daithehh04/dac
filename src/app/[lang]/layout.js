@@ -21,19 +21,19 @@ export const metadata = {
 }
 
 export async function generateStaticParams() {
-  return [{ lang: 'en' }, {lang: 'vi'}]
+  return [{ lang: 'en' }, { lang: 'vi' }]
 }
 
-export default function RootLayout({ children,params }) {
+export default function RootLayout({ children, params }) {
   let lang = params.lang
   return (
     <html lang={lang}>
       <body>
         <ApolloClientProvider>
-          <Suspense fallback ={<Loader/>}>
-            <Navbar lang={lang}/>
+          <Suspense fallback={<Loader />}>
+            <Navbar lang={lang} />
             {children}
-            <Footer/>
+            <Footer lang={lang} />
           </Suspense>
         </ApolloClientProvider>
       </body>

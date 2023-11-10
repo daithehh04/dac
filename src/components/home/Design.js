@@ -20,18 +20,17 @@ const data = [
     desc: 'Chúng tôi có chứng nhận Tiêu chuẩn quốc tế dành cho các Nhà sản xuất bao bì.'
   },
 ]
-function Design() {
+function Design({ lang, dataDesign }) {
   return (
     <div className='design md:pt-[3.56rem] pt-[6.93rem]'>
       <div className='md:ml-auto md:w-[65.4375rem] md:pr-[14.44rem] max-md:px-[4.27rem]'>
-        <h3 className='md:text-[3.4375rem] text-[6.93333rem] text-[#444] leading-[1.2] md:tracking-[-0.12375rem] tracking-[-0.208rem] title'>
-          <b>CÔNG TY CP BAO BÌ VÀ IN NÔNG NGHIỆP</b> Bao gồm nhà máy tại Ngọc Hồi, Hưng Yên & Công ty DAC
+        <h3 dangerouslySetInnerHTML={{ __html: `${dataDesign?.heading}` }} className='md:text-[3.4375rem] text-[6.93333rem] text-[#444] leading-[1.2] md:tracking-[-0.12375rem] tracking-[-0.208rem] title'>
         </h3>
         <ul className='md:grid grid-cols-2 list-content gap-x-[3.19rem] gap-y-[1.87rem] mt-[3.25rem] flex flex-col'>
-          {data?.map((item, index) => (
+          {dataDesign?.aboutCompany?.map((item, index) => (
             <li key={index} className={`text-[1.35417rem] md:pt-[2.19vw] pt-[4.8rem] border-t border-solid max-md:pb-[4rem] border-[#888] ${index === 0 ? 'max-md:border-none' : ''}`}>
               <h4 className='font-bold text-[#444] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] mb-[1.35417vw]'>{item?.title}</h4>
-              <p className='text-[#888] md:text-[1.5rem] tracking-[-0.04063rem] lg:text-[1.35417rem] text-[4.26667rem] text-justify'>{item?.desc}</p>
+              <p className='text-[#888] md:text-[1.5rem] tracking-[-0.04063rem] lg:text-[1.35417rem] text-[4.26667rem] text-justify'>{item?.description}</p>
             </li>
           ))}
         </ul>
@@ -44,10 +43,13 @@ function Design() {
             <span className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem]'>THIẾT KẾ
               THÀNH CÔNG</span>
           </div>
-          <p className='md:text-[1.5rem] tracking-[-0.06771rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.2] max-md:text-[#fff] max-md:my-[6rem] max-md:px-[4.27rem] text-justify ' >Chúng tôi tự hào với đội ngũ <b>thiết kế chuyên nghiệp</b>, những người có thể <b>nâng tầm sản phẩm</b> của bạn bằng những thiết kế đồ họa độc đáo và đẹp mắt.</p>
+          <p
+            dangerouslySetInnerHTML={{ __html: `${dataDesign?.textAnimation?.description}` }}
+            className='md:text-[1.5rem] tracking-[-0.06771rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.2] max-md:text-[#fff] max-md:my-[6rem] max-md:px-[4.27rem] text-justify' >
+          </p>
         </div>
         <div className="right">
-          <Image src={box} width={500} height={500} alt='box' className='md:w-[39.27rem] md:h-[47.76rem] h-[67.46667rem] object-cover' />
+          <Image src={dataDesign?.textAnimation?.image?.sourceUrl} width={500} height={500} alt='box' className='md:w-[39.27rem] md:h-[47.76rem] h-[67.46667rem] object-cover' />
         </div>
       </div>
     </div>
