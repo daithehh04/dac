@@ -140,7 +140,7 @@ function Navbar({ lang }) {
   ]
   return (
     <>
-      <nav className='absolute top-0 w-full navbar md:pt-[2.6rem] pt-[12.27rem] z-10 '>
+      <nav className=' top-0 w-full fixed navbar md:pt-[2.6rem] pt-[12.27rem] z-10 '>
         <div className="content">
           <div className='flex items-center justify-between'>
             {checkHome ?
