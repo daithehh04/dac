@@ -7,7 +7,7 @@ import partners3 from '@/assets/imgs/partner3.svg'
 import partners4 from '@/assets/imgs/partner4.svg'
 import Image from 'next/image'
 
-function SlidePartners() {
+function SlidePartners({ data }) {
   let slidePartners = [
     {
       sourceUrl: partners1
@@ -22,7 +22,7 @@ function SlidePartners() {
       sourceUrl: partners4
     },
   ]
-  const dataSlide = slidePartners?.concat(slidePartners)?.concat(slidePartners)
+  const dataSlide = data?.concat(data)?.concat(data)
   return (
     <div className='mt-[6.93rem] slide-partners'>
       <Swiper
@@ -53,7 +53,7 @@ function SlidePartners() {
           return (
             <SwiperSlide className='w-[20%] partner-item' key={index * Math.random()}>
               <Image
-                src={item?.sourceUrl}
+                src={item?.image?.sourceUrl}
                 width={500}
                 height={500}
                 alt='partners'

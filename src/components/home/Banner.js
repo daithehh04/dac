@@ -104,7 +104,7 @@ import imgBox98 from '@/assets/imgs/Tissues_050097.png'
 import imgTitle from '@/assets/imgs/title-home.svg'
 import imgText from '@/assets/imgs/Home_TextBanner.svg'
 
-function Banner() {
+function Banner({ lang, dataBanner }) {
   const imgBanner = 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/bg-home.jpg'
   gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
@@ -171,7 +171,7 @@ function Banner() {
   }, [])
   return (
     <div className='banner relative md:w-full md:h-[160vw] frame'>
-      <Image src={imgBanner} quality={100} alt='banner' fill className='w-full md:rounded-br-[13.54rem] md:h-full max-md:!h-[100vh] object-cover z-[-1]' />
+      <Image src={dataBanner?.background?.sourceUrl || imgBanner} quality={100} alt='banner' fill className='w-full md:rounded-br-[13.54rem] md:h-full max-md:!h-[100vh] object-cover z-[-1]' />
       <div className='flex items-center sticky top-0 md:h-[100vh] justify-between content border-b border-solid border-[#888] max-md:flex-col'>
         <div className='flex justify-center'>
           <Image alt="tissue-picture" src={imgBox1} width={800} height={795} priority={true} className='md:w-[38.02rem] md:h-[37.8rem] w-[74.3464rem] h-[74rem] tissue active'></Image>
@@ -273,10 +273,10 @@ function Banner() {
           <Image alt="tissue-picture" src={imgBox97} width={800} height={795} priority={true} className='md:w-[38.02rem] md:h-[37.8rem] w-[74.3464rem] h-[74rem] tissue'></Image>
           <Image alt="tissue-picture" src={imgBox98} width={800} height={795} priority={true} className='md:w-[38.02rem] md:h-[37.8rem] w-[74.3464rem] h-[74rem] tissue'></Image>
         </div>
-        <h2 className='max-md:hidden' ><Image src={imgTitle} width={'100%'} height={'100%'} className='w-[29.48rem] h-[7.72rem]' alt='img' /></h2>
+        <h2 className='max-md:hidden' ><Image src={imgTitle} width={'100%'} height={'100%'} className='w-[29.48rem] h-[7.72rem]' alt='img' />{dataBanner?.textfeature}</h2>
         <h2 className='md:hidden relative left-[8rem]' ><Image src={imgText} width={'100%'} height={'100%'} className='w-[68rem] h-[13.93467rem] object-cover' alt='img' /></h2>
       </div>
-      <p className='uppercase md:text-[1.8rem] absolute md:pl-[4.17rem] md:pb-[4.58rem] bottom-0 lg:text-[1.25rem] text-[3.36rem] font-bold text-[#444] max-md:mt-[2.46rem] max-md:mb-[5.9rem] max-md:text-center'>KHÁCH HÀNG LUÔN LUÔN ĐÚNG</p>
+      <p className='uppercase md:text-[1.8rem] absolute md:pl-[4.17rem] md:pb-[4.58rem] bottom-0 lg:text-[1.25rem] text-[3.36rem] font-bold text-[#444] max-md:mt-[2.46rem] max-md:mb-[5.9rem] max-md:text-center'>{dataBanner?.slogan}</p>
       {/* </div> */}
     </div>
   )

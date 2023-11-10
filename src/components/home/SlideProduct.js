@@ -7,7 +7,7 @@ import product2 from '@/assets/imgs/product-2.jpg'
 import product3 from '@/assets/imgs/product-3.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
-function SlideProduct({ lang }) {
+function SlideProduct({ lang, dataProduct }) {
   const data = [
     {
       img: product1,
@@ -66,7 +66,7 @@ function SlideProduct({ lang }) {
         }}
         className='relative w-full h-full '
       >
-        {data?.map((item, index) => {
+        {dataProduct?.slideproduct?.map((item, index) => {
           return (
             <SwiperSlide
               key={index}
@@ -74,8 +74,8 @@ function SlideProduct({ lang }) {
             >
               {({ isActive }) => (
                 <Link href={`#!`} className='relative w-full h-full'>
-                  <Image src={item.img} width={'100%'} height={'100%'} alt='img-product' className='w-full md:h-full h-[100rem] object-cover' />
-                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[6.93333rem] max-md:whitespace-nowrap md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.title}` }} ></h3>
+                  <Image src={item.image?.sourceUrl} width={1000} height={1000} alt='img-product' className='w-full md:h-full h-[100rem] object-cover' />
+                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[6.93333rem] max-md:whitespace-nowrap md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.productName}` }} ></h3>
                 </Link>
               )}
             </SwiperSlide>

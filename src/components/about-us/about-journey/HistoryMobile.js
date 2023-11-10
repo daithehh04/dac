@@ -31,9 +31,9 @@ function HistoryMobile({ data }) {
     };
     const handleSlideChange = (swiper) => {
         setSelected(swiper.activeIndex);
+
     };
 
-    console.log('active', selected);
     return (
         <section id='historyMobile' className='md:hidden pr-[4.27rem] relative mb-[15rem]'>
             <div ref={popUpRef} className='popUpRef relative z-[11]'>
@@ -59,7 +59,7 @@ function HistoryMobile({ data }) {
             {/* main content */}
             <Swiper
                 direction={'vertical'}
-                slidesPerView={3}
+                slidesPerView={1}
                 onSlideChange={handleSlideChange}
                 onBeforeInit={(swiper) => {
                     if (swiperRef) {
@@ -70,7 +70,7 @@ function HistoryMobile({ data }) {
             >
                 {data?.map((item, index) => {
                     return (
-                        <SwiperSlide key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab `}>
+                        <SwiperSlide key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab ${Object.keys(item).length === 0 ? 'opacity-0' : 'flex'}`}>
                             <span className='text-[#444] relative top-[-2rem] font-bold text-[6.93333rem] block year'>{item?.year}</span>
                             <Image
                                 src={item?.img}

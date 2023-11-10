@@ -6,15 +6,17 @@ import phone from '@/assets/imgs/icon-p.svg'
 import Link from 'next/link'
 import Image from 'next/image'
 
-function Partners() {
+function Partners({ dataPartner }) {
+  console.log('dataPartner', dataPartner);
+
   return (
     <div className='pt-[6.25rem] relative partner'>
-      <h3 className='md:text-[2.5rem] text-[6.93333rem] text-[#444] font-bold leading-[1.16] text-center max-md:mb-[15rem]'>Các bạn hàng của APP</h3>
-      <SlidePartners />
+      <h3 className='md:text-[2.5rem] text-[6.93333rem] text-[#444] font-bold leading-[1.16] text-center max-md:mb-[15rem]'>{dataPartner?.title}</h3>
+      <SlidePartners data={dataPartner?.listPartners} />
       <div style={{ background: 'linear-gradient(180deg, #FFF 0%, #CFEAE4 100%)' }}>
-        <h3 className='md:text-[2.5rem] text-[4.26667rem] text-[#444] leading-[1.16] text-center md:mt-[14.48rem] mt-[22.3rem] '>Thông tin chi tiết</h3>
+        <h3 className='md:text-[2.5rem] text-[4.26667rem] text-[#444] leading-[1.16] text-center md:mt-[14.48rem] mt-[22.3rem] '>{dataPartner?.subTitle}</h3>
         <h3 className='pb-[12.81rem] flex justify-center'>
-          <Link className='md:text-[5rem] text-[6.93333rem] max-md:mt-[4rem] text-[#444] font-bold leading-[1.16] text-center tracking-[-0.25rem] title-connect w-max' href={`#!`}>Hãy kết nối với chúng tôi</Link>
+          <Link className='md:text-[5rem] text-[6.93333rem] max-md:mt-[4rem] text-[#444] font-bold leading-[1.16] text-center tracking-[-0.25rem] title-connect w-max' href={`#!`}>{dataPartner?.heading}</Link>
         </h3>
       </div>
       <div className='max-md:hidden flex flex-col gap-[1.04rem] bg-[#A0A0A0] absolute right-0 top-[50%] -translate-y-1/2 px-[1rem] py-[1.5rem] rounded-bl-[1.97rem]'>
