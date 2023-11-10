@@ -51,4 +51,11 @@
     }
   }
 }
+.tissue{
+  display: none;
+}
+
+.tissue.active{
+  display: block;
+}
 

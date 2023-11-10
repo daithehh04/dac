@@ -34,3 +34,14 @@
   width: 100%;
   border-bottom: 1px dashed #444;
 }
+
+.popUpRef{
+  transform: translateX(-100%);
+  transition: all 0.3s;
+}
+
+#historyMobile {
+  .swiper-slide{
+    height: fit-content !important;
+  }
+}
