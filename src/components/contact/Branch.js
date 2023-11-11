@@ -4,6 +4,7 @@ import layer10 from '@/assets/imgs/Layer_10.svg'
 import img from '@/assets/imgs/ContactImageInfo.png'
 import Image from 'next/image'
 function Branch() {
+    
     const data = {
         title: 'Trụ sở & chi nhánh App',
         listInfomation: [

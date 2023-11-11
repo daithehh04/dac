@@ -6,8 +6,6 @@ import { useRef } from 'react'
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 function HistoryMobile({ data }) {
-    
-    
     const [check,setCheck] = useState(3)
     const [activeSlide,setActiveSlide] = useState(0)
     const openRef = useRef()
@@ -63,7 +61,7 @@ function HistoryMobile({ data }) {
         <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] relative mb-[15rem]'>
             <div ref={popUpRef} className='popUpRef relative z-[11]'>
                 <div className='absolute z-[1] shadow-lg rounded-br-[12.53333rem] w-[22.1rem] bg-[#fff] py-[6.67rem] pl-[2.13rem] pr-[4.8rem]'>
-                    {data?.map((item, index) => (
+                    {data?.journey?.map((item, index) => (
                         <div onClick={() => handleSelect(index)} key={index} className='mb-[2.2rem]  border-l-[1px] border-[#444444] border-dashed  flex items-center justify-center cursor-grab'>
                             <span className={`text-[3.73333rem] text-black year-history `}>{item?.year}</span>
                             <div className={`absolute left-[0.75rem] w-[2.66667rem] rounded-[50%] border border-solid border-[#000] h-[2.66667rem] ${selected === index ? 'bg-[#00A84F]' : 'bg-[#fff]'}`}></div>
@@ -86,7 +84,6 @@ function HistoryMobile({ data }) {
                 direction={'vertical'}
                 slidesPerView={check}
                 onSlideChange={handleSlideChange}
-                // preventInteractionOnTransition={true}
                 onBeforeInit={(swiper) => {
                     if (swiperRef) {
                         swiperRef.current = swiper;
@@ -95,15 +92,15 @@ function HistoryMobile({ data }) {
                 className={`mySwiper my-[3rem] !pl-[13.6rem] `}
                 style={ { height: check === 1 ? '80rem' : check === 2 ? '159.5rem' : '239rem'} }
             >
-                {data?.map((item, index) => {
+                {data?.journey?.map((item, index) => {
                     return (
                         <SwiperSlide key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab`}>
                             <span className='text-[#444] relative top-[-2rem] font-bold text-[6.93333rem] block year'>{item?.year}</span>
                             <Image
-                                src={item?.img}
-                                width={'100%'}
-                                height={'100%'}
-                                alt='history'
+                                src={item?.img?.sourceUrl}
+                                width={1000}
+                                height={1000}
+                                alt={item?.img?.altText || history}
                                 className='object-cover w-[66.93333rem] h-[48.26667rem]'
                             />
                             <p className='mt-[5.33rem] text-[4.26667rem] mb-[5rem] lg:text-[1.35417rem] line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>

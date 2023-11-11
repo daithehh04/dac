@@ -3,47 +3,45 @@ import { useDataBanner } from './DataContext'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
-export const Content = () => {
+export const Content = ({data1,data2,data3,data4,lang}) => {
   const [page, setPage] = useState(1)
   const context = useDataBanner()
-
+  let dataVision = data1?.data?.page?.translation
+  let dataPrize = data2?.data?.page?.translation
+  let dataJourney = data3?.data?.page?.translation
+  let dataOrganize = data4?.data?.page?.translation
+  
+  const slugVision = dataVision?.slug
+  const slugPrize = dataPrize?.slug
+  const slugJourney = dataJourney?.slug
+  const slugOrganize = dataOrganize?.slug
   const data = [
     {
       id: 1,
-      title: 'TẦM NHÌN - SỨ MỆNH - GIÁ TRỊ CỐT LÕI',
-      background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/banner-about-scaled.jpg'
+      title: dataVision?.vision?.tilePage,
+      background: dataVision?.vision?.banner?.imagebanner?.sourceUrl
     },
     {
       id: 2,
-      title: 'CHẶNG ĐƯỜNG PHÁT TRIỂN',
-      background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/banner-about2-scaled.jpg'
+      title: dataJourney?.journey?.banner?.titlePage,
+      background: dataJourney?.journey?.banner?.imagebanner?.sourceUrl,
+      text:dataJourney?.journey?.banner?.textbanner
     },
     {
       id: 3,
-      title: 'CHỨNG CHỈ VÀ GIẢI THƯỞNG',
-      background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/banner-ve-chung-toi-1-1.jpg'
+      title: dataPrize?.prize?.titlePage,
+      background: dataPrize?.prize?.banner?.imagebanner?.sourceUrl,
+      text:dataPrize?.prize?.banner?.textbanner
     },
     {
       id: 4,
-      title: 'SƠ ĐỒ TỔ CHỨC',
-      background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/banner-ve-chung-toi-1-2-scaled.jpg'
+      title: dataOrganize?.organize?.titlePage,
+      background: dataOrganize?.organize?.banner?.imagebanner?.sourceUrl,
+      text:dataOrganize?.organize?.banner?.textbanner
     }
   ]
-  const slugPage = [
-    {
-      name: 'journey'
-    },
-    {
-      name: 'organize'
-    },
-    {
-      name: 'prize'
-    },
-    {
-      name: 'vision'
-    }
-  ]
-  const handlePage = (page) => {
+  let slugPage = [slugVision,slugJourney,slugPrize,slugOrganize]
+  const handlePage = (page) => {    
     setPage(page.id)
     context.setDataBanner(page)
   }
@@ -55,7 +53,7 @@ export const Content = () => {
       <ul className='flex content pt-[3.8rem]'>
         {data?.map((item, index) => (
           <Link
-            href={`/about-us/${slugPage[index]?.name}`}
+            href={`/${lang}/about-us/${slugPage[index]}`}
             key={index * Math.random()}
             className={`uppercase lg:text-[1.04167rem] md:text-[1.3rem] mr-[3.91rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`}
             onClick={() => handlePage(item)}>

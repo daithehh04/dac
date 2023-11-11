@@ -26,7 +26,7 @@ function Footer() {
         <div className="logo">
           <Image src={logo} width={100} height={100} className='object-cover max-md:w-[20.53333rem] max-md:h-[11.73333rem]' alt='DAC' />
         </div>
-        <div className='flex items-start max-md:flex-col justify-between md:mt-[4.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] max-md:!text-[#888]'>
+        <div className='flex items-start max-md:flex-col justify-between md:mt-[4.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888]'>
           <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem]">
             <h3>CÔNG TY CỔ PHẨN BAO BÌ VÀ IN NÔNG NGHIỆP</h3>
             <p> Trụ sở: Tầng 6 tòa nhà APP - Số 72 Trường Chinh – Phương Mai – Đống Đa – Hà Nội <br /> Tel: (84.24) 36895605 – Fax: (84.24) 36895605 <br /> Nhà máy: Lô 3 – CN3 Khu CN Ngọc Hồi -Thanh Trì – Hà Nội <br /> Tel: (84.24) 36840092/3/4 – Fax: (84.24) 36840095 <br /> Email: info@ appmail.vn <br /> Web: www.appprintco.com</p>

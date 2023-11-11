@@ -1,4 +1,4 @@
-export default async function getDataPage(slug, query) {
+export default async function getDataPage(lang, query) {
     const res = await fetch(process.env.NEXT_PUBLIC_API, {
         method: 'POST',
         headers: {
@@ -6,7 +6,7 @@ export default async function getDataPage(slug, query) {
         },
         body: JSON.stringify({
             query: query,
-            variables: { id: slug }
+            variables: { language: lang }
         }),
         next: { revalidate: 0 }
     })

@@ -8,7 +8,6 @@ import arrPrev from '@/assets/imgs/arr-l.svg'
 import imgVideo from '@/assets/imgs/img-video.jpg'
 const data = new Array(6).fill()
 function VideoSlide({dataSlideVideo}) {
-  console.log(dataSlideVideo);
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
