@@ -6,22 +6,14 @@ import { useRef } from 'react'
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 function HistoryMobile({ data }) {
-    const handleSelect = (index) => {
-        setSelected(index)
-        swiperRef.current.slideTo(index)
-        if(selected === data.length - 1) {
-            setCheck(1)
-        } else if(selected === data.length - 2) {
-            setCheck(2)
-        }else {
-            setCheck(3)
-        }
-        
-    }
+    
+    
     const [check,setCheck] = useState(3)
+    const [activeSlide,setActiveSlide] = useState(0)
     const openRef = useRef()
     const swiperRef = useRef()
     const popUpRef = useRef()
+    const seeMoreRef = useRef()
     const [selected, setSelected] = useState(0)
     const handleClosePopUp = () => {
         if (popUpRef.current && openRef.current) {
@@ -40,10 +32,32 @@ function HistoryMobile({ data }) {
     };
     const handleSlideChange = (swiper) => {
         setSelected(swiper.activeIndex);
-        
+       
     };
-    console.log(selected);
+    const handleSelect = (index) => {
+        setSelected(index)
+        if(index === data.length - 1) {
+            setCheck(1)
+        } else if(index === data.length - 2) {
+            setCheck(2)
+        }else {
+            setCheck(3)
+        }
 
+        if(index >= data.length - 3){
+            if(seeMoreRef.current){
+                seeMoreRef.current.style.display = 'none'
+            }
+        }else{
+            if(seeMoreRef.current){
+                seeMoreRef.current.style.display = 'block'
+            }
+        }
+        setActiveSlide(index)
+    }
+    useEffect(()=>{
+        swiperRef.current.slideTo(activeSlide)
+    },[activeSlide])
 
     return (
         <section id='historyMobile' className='md:hidden pr-[4.27rem] relative mb-[15rem]'>
@@ -72,12 +86,14 @@ function HistoryMobile({ data }) {
                 direction={'vertical'}
                 slidesPerView={check}
                 onSlideChange={handleSlideChange}
+                allowTouchMove={false}
                 onBeforeInit={(swiper) => {
                     if (swiperRef) {
                         swiperRef.current = swiper;
                     }
                 }}
-                className={`mySwiper my-[3rem] !pl-[13.6rem] h-[calc(239rem/${check})]`}
+                className={`mySwiper my-[3rem] !pl-[13.6rem] `}
+                style={ { height: check === 1 ? '80rem' : check === 2 ? '159.5rem' : '239rem'} }
             >
                 {data?.map((item, index) => {
                     return (
@@ -96,7 +112,7 @@ function HistoryMobile({ data }) {
                     )
                 })}
             </Swiper>
-            <span onClick={handleNextSlide} className='text-[#00A84F] next-slide-custom text-justify text-[3.2rem] leading-[1.2] tracking-[-0.096rem] relative left-[5rem]'>Xem thêm</span>
+            <span ref={seeMoreRef} onClick={handleNextSlide} className='text-[#00A84F] next-slide-custom text-justify text-[3.2rem] leading-[1.2] tracking-[-0.096rem] relative left-[5rem]'>Xem thêm</span>
         </section>
     )
 }
