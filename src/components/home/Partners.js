@@ -7,8 +7,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 function Partners({ dataPartner }) {
-  console.log('dataPartner', dataPartner);
-
   return (
     <div className='pt-[6.25rem] relative partner'>
       <h3 className='md:text-[2.5rem] text-[6.93333rem] text-[#444] font-bold leading-[1.16] text-center max-md:mb-[15rem]'>{dataPartner?.title}</h3>

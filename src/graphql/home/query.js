@@ -32,12 +32,7 @@ const GET_DATA_HOMEPAGE = `
             title
             description
           }
-          slideproduct{
-            image{
-              sourceUrl
-            }
-            productName
-          }
+          
         }
         technology{
           heading{
