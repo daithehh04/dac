@@ -16,6 +16,7 @@ function HomePage({ lang, data }) {
   const dataSolution = data?.data?.page?.translation?.homepage?.solution
   const dataNews = data?.data?.page?.translation?.homepage?.news
   const dataPartner = data?.data?.page?.translation?.homepage?.partners
+  const dataSlideVideo = data?.data?.page?.translation?.homepage?.slideVideo
 
   return (
     <>
@@ -25,7 +26,7 @@ function HomePage({ lang, data }) {
       <Technical dataTechnology={dataTechnology} />
       <Solution dataSolution={dataSolution} />
       <News dataNews={dataNews} />
-      <VideoSlide />
+      <VideoSlide dataSlideVideo={dataSlideVideo} />
       <Partners dataPartner={dataPartner} />
     </>
   )

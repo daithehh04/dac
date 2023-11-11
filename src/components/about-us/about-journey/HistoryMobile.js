@@ -9,7 +9,16 @@ function HistoryMobile({ data }) {
     const handleSelect = (index) => {
         setSelected(index)
         swiperRef.current.slideTo(index)
+        if(selected === data.length - 1) {
+            setCheck(1)
+        } else if(selected === data.length - 2) {
+            setCheck(2)
+        }else {
+            setCheck(3)
+        }
+        
     }
+    const [check,setCheck] = useState(3)
     const openRef = useRef()
     const swiperRef = useRef()
     const popUpRef = useRef()
@@ -31,8 +40,10 @@ function HistoryMobile({ data }) {
     };
     const handleSlideChange = (swiper) => {
         setSelected(swiper.activeIndex);
-
+        
     };
+    console.log(selected);
+
 
     return (
         <section id='historyMobile' className='md:hidden pr-[4.27rem] relative mb-[15rem]'>
@@ -59,18 +70,18 @@ function HistoryMobile({ data }) {
             {/* main content */}
             <Swiper
                 direction={'vertical'}
-                slidesPerView={1}
+                slidesPerView={check}
                 onSlideChange={handleSlideChange}
                 onBeforeInit={(swiper) => {
                     if (swiperRef) {
                         swiperRef.current = swiper;
                     }
                 }}
-                className="mySwiper my-[3rem] !pl-[13.6rem] h-[239rem]"
+                className={`mySwiper my-[3rem] !pl-[13.6rem] h-[calc(239rem/${check})]`}
             >
                 {data?.map((item, index) => {
                     return (
-                        <SwiperSlide key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab ${Object.keys(item).length === 0 ? 'opacity-0' : 'flex'}`}>
+                        <SwiperSlide key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab`}>
                             <span className='text-[#444] relative top-[-2rem] font-bold text-[6.93333rem] block year'>{item?.year}</span>
                             <Image
                                 src={item?.img}

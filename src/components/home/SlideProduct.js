@@ -66,7 +66,7 @@ function SlideProduct({ lang, dataProduct }) {
         }}
         className='relative w-full h-full '
       >
-        {dataProduct?.slideproduct?.map((item, index) => {
+        {data?.map((item, index) => {
           return (
             <SwiperSlide
               key={index}
@@ -74,8 +74,8 @@ function SlideProduct({ lang, dataProduct }) {
             >
               {({ isActive }) => (
                 <Link href={`#!`} className='relative w-full h-full'>
-                  <Image src={item.image?.sourceUrl} width={1000} height={1000} alt='img-product' className='w-full md:h-full h-[100rem] object-cover' />
-                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[6.93333rem] max-md:whitespace-nowrap md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.productName}` }} ></h3>
+                  <Image src={item.img} width={1000} height={1000} alt='img-product' className='w-full md:h-full h-[100rem] object-cover' />
+                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[6.93333rem] max-md:whitespace-nowrap md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.title}` }} ></h3>
                 </Link>
               )}
             </SwiperSlide>
