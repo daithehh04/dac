@@ -13,7 +13,7 @@ function History({ data }) {
   Sản phẩm chính của Chúng tôi là bao bì màng mỏng, màng nhôm dược, tem nhãn và đặc biệt là bao bì hộp giấy như hộp bánh kẹo, tân dược, thuốc lá, ...
   `
 
-
+ console.log(data?.journey);
   const [selected, setSelected] = useState(0)
   const swiperRef = useRef()
   const handleSelect = (index) => {
@@ -23,7 +23,7 @@ function History({ data }) {
     <section className='max-md:hidden'>
       <div className='relative mt-[2rem] content '>
         <div className='flex gap-[0.73rem] ml-[1.35rem] border-bottom border-dashed border-[#444] mt-[0.83rem]'>
-          {data?.map((item, index) => (
+          {data?.journey?.map((item, index) => (
             <div onClick={() => handleSelect(index)} key={index} className='flex items-center justify-center cursor-grab'>
               <span className='lg:text-[0.78125rem] md:text-[1.2rem] text-black year-history'>{item?.year}</span>
               <Image src={circle} width={'100%'} height={'100%'} alt='circle' className='absolute bottom-[-0.235rem] w-[0.54rem] h-[0.54rem] object-cover' />
@@ -55,15 +55,15 @@ function History({ data }) {
             }
           }}
         >
-          {data?.map((item, index) => {
+          {data?.journey?.map((item, index) => {
             return (
               <SwiperSlide key={index * Math.random()}>
                 <div className='mr-[2.76rem] flex justify-center flex-col item-history relative cursor-grab'>
                   <Image
-                    src={item?.img}
-                    width={'100%'}
-                    height={'100%'}
-                    alt='history'
+                    src={item?.img?.sourceUrl}
+                    width={1000}
+                    height={1000}
+                    alt={item?.img?.altText || history}
                     className='object-cover h-[15.1rem] image'
                   />
                   <p className='mt-[1.4rem] text-[1.41rem] lg:text-[1.35417rem] line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>

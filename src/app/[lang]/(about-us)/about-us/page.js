@@ -1,10 +1,9 @@
 import AboutUs from '@/components/about-us/AboutUs'
 import React from 'react'
 
-function page() {
+export default function Page ({ params: { lang } }) {
+   
   return (
     <AboutUs />
   )
 }
-
-export default page
