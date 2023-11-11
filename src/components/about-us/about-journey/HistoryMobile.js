@@ -60,7 +60,7 @@ function HistoryMobile({ data }) {
     },[activeSlide])
 
     return (
-        <section id='historyMobile' className='md:hidden pr-[4.27rem] relative mb-[15rem]'>
+        <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] relative mb-[15rem]'>
             <div ref={popUpRef} className='popUpRef relative z-[11]'>
                 <div className='absolute z-[1] shadow-lg rounded-br-[12.53333rem] w-[22.1rem] bg-[#fff] py-[6.67rem] pl-[2.13rem] pr-[4.8rem]'>
                     {data?.map((item, index) => (
@@ -86,7 +86,7 @@ function HistoryMobile({ data }) {
                 direction={'vertical'}
                 slidesPerView={check}
                 onSlideChange={handleSlideChange}
-                allowTouchMove={false}
+                // preventInteractionOnTransition={true}
                 onBeforeInit={(swiper) => {
                     if (swiperRef) {
                         swiperRef.current = swiper;
