@@ -1,9 +1,6 @@
 import React from 'react'
-import icon1 from '@/assets/imgs/phuong-cham1.svg'
-import icon2 from '@/assets/imgs/phuong-cham2.svg'
 import Image from 'next/image'
 function Motto({data}) {
-  console.log(data);
   return (
     <div className="md:px-[4.17rem] px-[4.27rem]">
       <div className='flex md:gap-x-[15.6rem] pt-[3.65rem] md:pb-[5rem] pb-[12rem] max-md:flex-col'>

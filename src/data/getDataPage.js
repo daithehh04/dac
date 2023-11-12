@@ -6,7 +6,7 @@ export default async function getDataPage(lang, query) {
         },
         body: JSON.stringify({
             query: query,
-            variables: { language: lang }
+            variables: { language: lang?.toUpperCase() }
         }),
         next: { revalidate: 0 }
     })
