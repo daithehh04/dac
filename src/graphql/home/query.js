@@ -97,11 +97,11 @@ const GET_DATA_HEADER = `
             translation(language:$language){
             homepage{
                 header{
-                nav{
-                    name
+                  nav{
+                      name
+                  }
                 }
-                }
-            }
+              }
             }
         }
     }
@@ -130,9 +130,57 @@ query($language : LanguageCodeEnum!){
   }
 }
 `
+const GET_DATA_MOBILE_JOURNEY = `query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxNjg=") {
+    translation(language: $language) {
+      slug
+      journey {
+        banner {
+          titlePage
+        }
+      }
+    }
+  }
+}`
 
+const GET_DATA_MOBILE_PRIZE = `query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxNzQ=") {
+    translation(language: $language) {
+      slug
+      prize {
+        titlePage
+      }
+    }
+  }
+}`
+
+const GET_DATA_MOBILE_ORGANIZE = `query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxNzY=") {
+    translation(language: $language) {
+      slug
+      organize {
+        titlePage
+      }  
+    }
+  }
+}`
+
+const GET_DATA_MOBILE_VISION = `query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxMzk=") {
+    translation(language: $language) {
+      slug
+      vision {
+        tilePage
+      }
+    }
+  }
+}`
 export {
     GET_DATA_HEADER,
     GET_DATA_FOOTER,
-    GET_DATA_HOMEPAGE
+    GET_DATA_HOMEPAGE,
+    GET_DATA_MOBILE_JOURNEY,
+    GET_DATA_MOBILE_PRIZE,
+    GET_DATA_MOBILE_ORGANIZE,
+    GET_DATA_MOBILE_VISION
 }

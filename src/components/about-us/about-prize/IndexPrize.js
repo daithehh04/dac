@@ -2,7 +2,6 @@ import Image from 'next/image'
 
 export const IndexPrize = ({data}) => {
   const dataPrize = data?.data?.page?.translation
-  console.log('dataPrize',dataPrize?.prize?.content?.listPrize);
   return (
     <div className='md:px-[9.46rem] px-[4.27rem] mt-[4.32rem] pb-[15.4rem]'>
       <h2 className='heading max-md:w-[70%]'>{dataPrize?.prize?.content?.heading}</h2>

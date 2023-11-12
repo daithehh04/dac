@@ -12,8 +12,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MenuMb from './MenuMb'
 
-function Navbar({ lang }) {
-  const [openModal, setOpenModal] = useState(false)
+function Navbar({ lang,dataHeader,dataJourneyFinal,dataVisionFinal,dataOrganizeFinal,dataPrizeFinal }) {
   const refMb = useRef()
   const handleOpenModal = () => {
     refMb?.current?.classList?.add('active')
@@ -29,34 +28,34 @@ function Navbar({ lang }) {
   }
   const navLinks = [
     {
-      link: 'VỀ CHÚNG TÔI',
+      link: dataHeader[0]?.name,
       slug: 'about-us/vision',
       slug2: 'about-us',
       listContent: [
         {
-          name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi',
-          slug: 'vision'
+          name: dataVisionFinal?.vision?.tilePage,
+          slug: dataVisionFinal?.slug
         },
         {
-          name: 'Chặng đường phát triển',
-          slug: 'journey'
+          name: dataJourneyFinal?.journey?.banner?.titlePage,
+          slug: dataJourneyFinal?.slug
         },
         {
-          name: 'Chứng chỉ và giải thưởng',
-          slug: 'prize'
+          name: dataPrizeFinal?.prize?.titlePage,
+          slug: dataPrizeFinal?.slug
         },
         {
-          name: 'Sơ đồ tổ chức',
-          slug: 'organize'
+          name: dataOrganizeFinal?.organize?.titlePage,
+          slug: dataOrganizeFinal?.slug
         }
       ]
     },
     {
-      link: 'THIẾT KẾ',
+      link: dataHeader[1]?.name,
       slug: 'design'
     },
     {
-      link: 'SẢN PHẨM DỊCH VỤ',
+      link: dataHeader[2]?.name,
       slug: 'service-products',
       slug2: 'service-products',
       listContent: [
@@ -95,7 +94,7 @@ function Navbar({ lang }) {
       ]
     },
     {
-      link: 'CÔNG NGHỆ',
+      link: dataHeader[3]?.name,
       slug: 'technology/offset',
       slug2: 'technology',
       listContent: [
@@ -126,15 +125,15 @@ function Navbar({ lang }) {
       ]
     },
     {
-      link: 'TIN TỨC',
+      link: dataHeader[4]?.name,
       slug: 'blog'
     },
     {
-      link: 'TUYỂN DỤNG',
+      link: dataHeader[5]?.name,
       slug: 'recruitment'
     },
     {
-      link: 'LIÊN HỆ',
+      link: dataHeader[6]?.name,
       slug: 'contact'
     },
   ]
