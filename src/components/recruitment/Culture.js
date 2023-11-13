@@ -37,7 +37,7 @@ function Culture() {
             </div>
             <div className='grid md:grid-cols-2 max-md:gap-[5rem] gap-x-[9.52rem] gap-y-[1rem] max-md:mt-[8rem]'>
                 {data?.dataCulture?.map((item, index) => (
-                    <ServiceItem className={'md:w-[21rem] text-justify'} key={index} className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] max-md:mt-[4rem]' icon={item?.icon} textEdit={item?.textEdit} text={item?.text} />
+                    <ServiceItem classNameCus={'md:w-[21rem] text-justify'} key={index} className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] max-md:mt-[4rem]' icon={item?.icon} textEdit={item?.textEdit} text={item?.text} />
                 ))}
             </div>
         </section>

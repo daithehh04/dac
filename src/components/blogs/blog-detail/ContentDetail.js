@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React, { useRef} from "react";
 function ContentDetail({data,lang,dataSlide}) {
-    console.log(dataSlide?.othernews[0]?.news);
     const elementRef = useRef()
     const handleClick = () => {
         if (elementRef.current) {
@@ -15,7 +14,7 @@ function ContentDetail({data,lang,dataSlide}) {
             <div className='flex flex-col md:pt-[4.11rem] md:pb-[6.25rem]'>
                 {/* Text heading */}
                 <div className='flex justify-end md:px-[12rem] md:h-[21rem]'>
-                    <h2 className='heading md:w-[44.84375rem] max-md:text-justify max-md:!tracking-[-0.27733rem] max-md:!text-[6.93333rem] md:line-clamp-5 md:tracking-[-0.1375rem]'>{data?.heading}</h2>
+                    <h2 className='heading md:w-[44.84375rem] max-md:text-justify max-md:!tracking-[-0.27733rem] max-md:!text-[6.93333rem] md:line-clamp-5 md:tracking-[-0.1375rem] text-justify'>{data?.heading}</h2>
                 </div>
                 <div className='line-detail'></div>
                 {data?.listcontent?.map((item, index) => (
@@ -39,7 +38,7 @@ function ContentDetail({data,lang,dataSlide}) {
                                 </div>
                             </div>
                         </div>
-                        {index !== data?.listContent?.length - 1 && <div className='line-detail'></div>}
+                        {index !== data?.listcontent?.length - 1 && <div className='line-detail'></div>}
                     </div>
                 ))}
             </div>

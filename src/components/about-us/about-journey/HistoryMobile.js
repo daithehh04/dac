@@ -4,15 +4,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useRef } from 'react'
 import { useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
 function HistoryMobile({ data }) {
-    const [check,setCheck] = useState(3)
-    const [activeSlide,setActiveSlide] = useState(0)
     const openRef = useRef()
-    const swiperRef = useRef()
     const popUpRef = useRef()
     const seeMoreRef = useRef()
     const [selected, setSelected] = useState(0)
+    const [number,setNumber] = useState(3)
     const handleClosePopUp = () => {
         if (popUpRef.current && openRef.current) {
             popUpRef.current.style.transform = 'translateX(-100%)'
@@ -25,38 +22,27 @@ function HistoryMobile({ data }) {
             openRef.current.style.display = 'none'
         }
     }
-    const handleNextSlide = () => {
-        swiperRef?.current?.slideNext();
-    };
-    const handleSlideChange = (swiper) => {
-        setSelected(swiper.activeIndex);
-       
-    };
+    
+    const handleClick = () =>{
+        if(number >= data?.journey?.length){
+            if(seeMoreRef.current){
+                seeMoreRef.current.style.display ='none'
+            }
+        }
+        setNumber(number + 3)
+    }
     const handleSelect = (index) => {
         setSelected(index)
-        if(index === data.length - 1) {
-            setCheck(1)
-        } else if(index === data.length - 2) {
-            setCheck(2)
-        }else {
-            setCheck(3)
-        }
-
-        if(index >= data.length - 3){
-            if(seeMoreRef.current){
-                seeMoreRef.current.style.display = 'none'
-            }
-        }else{
-            if(seeMoreRef.current){
-                seeMoreRef.current.style.display = 'block'
-            }
-        }
-        setActiveSlide(index)
     }
     useEffect(()=>{
-        swiperRef.current.slideTo(activeSlide)
-    },[activeSlide])
-
+        const listElements = document.querySelectorAll('.historyYear')
+        if(selected > 2){
+            setNumber(selected + 1)
+            listElements[number].scrollIntoView()
+        }
+        listElements[selected].scrollIntoView()
+    },[selected])
+    
     return (
         <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] relative mb-[15rem]'>
             <div ref={popUpRef} className='popUpRef relative z-[11]'>
@@ -80,36 +66,25 @@ function HistoryMobile({ data }) {
             </svg>
 
             {/* main content */}
-            <Swiper
-                direction={'vertical'}
-                slidesPerView={check}
-                onSlideChange={handleSlideChange}
-                onBeforeInit={(swiper) => {
-                    if (swiperRef) {
-                        swiperRef.current = swiper;
-                    }
-                }}
-                className={`mySwiper my-[3rem] !pl-[13.6rem] `}
-                style={ { height: check === 1 ? '80rem' : check === 2 ? '159.5rem' : '239rem'} }
-            >
-                {data?.journey?.map((item, index) => {
+            <div className='pl-[13rem]'>
+                {data?.journey?.slice(0,number)?.map((item,index)=>{
                     return (
-                        <SwiperSlide key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab`}>
+                        <div key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab relative historyYear`}>
                             <span className='text-[#444] relative top-[-2rem] font-bold text-[6.93333rem] block year'>{item?.year}</span>
                             <Image
                                 src={item?.img?.sourceUrl}
                                 width={1000}
                                 height={1000}
-                                alt={item?.img?.altText || history}
-                                className='object-cover w-[66.93333rem] h-[48.26667rem]'
+                                alt={item?.img?.altText || "history"}
+                                className='object-cover  h-[48.26667rem]'
                             />
                             <p className='mt-[5.33rem] text-[4.26667rem] mb-[5rem] lg:text-[1.35417rem] line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>
                             <div className={`absolute left-[-1.5rem] w-[2.66667rem] top-[2rem] rounded-[50%] border border-solid border-[#000] h-[2.66667rem] ${selected === index ? 'bg-[#00A84F]' : 'bg-[#fff]'}`}></div>
-                        </SwiperSlide>
+                        </div>
                     )
                 })}
-            </Swiper>
-            <span ref={seeMoreRef} onClick={handleNextSlide} className='text-[#00A84F] next-slide-custom text-justify text-[3.2rem] leading-[1.2] tracking-[-0.096rem] relative left-[5rem]'>Xem thêm</span>
+            </div>
+            <span ref={seeMoreRef} onClick={handleClick} className='text-[#00A84F] next-slide-custom text-justify text-[3.2rem] leading-[1.2] tracking-[-0.096rem] relative left-[5rem]'>Xem thêm</span>
         </section>
     )
 }
