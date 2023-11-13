@@ -4,13 +4,19 @@
 
 .searchTextBlog {
   & > input::placeholder {
-    padding-left: 1.12rem;
+    // padding-left: 1.12rem;
     color: #888;
     font-size: 0.83333rem;
     line-height: 116.662%;
     @media screen and (max-width :767px) {
       font-size: 3.2rem;
       padding-left: 3rem;
+    }
+  }
+  & > input{
+    @media screen and (max-width :767px) {
+      font-size: 3.2rem;
+      padding: 0 3rem;
     }
   }
 }

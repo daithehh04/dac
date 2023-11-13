@@ -1,9 +1,9 @@
 import Blog from '@/components/blogs/Blog'
 import React from 'react'
 
-function page() {
+function page({ params: { lang } }) {
   return (
-    <Blog />
+    <Blog lang={lang} />
   )
 }
 

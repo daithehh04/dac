@@ -6,15 +6,6 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 function History({ data }) {
-  const text = `
-  Kể từ khi được cổ phần hóa, sau gần 30 năm hoạt động, Công ty đã đạt được những thành tựu đáng khích lệ và hiện là một trong những công ty hàng đầu trong ngành in ấn và bao bì tại Việt Nam.<br/>
-  <br/>
-  Với lợi thế về đội ngũ cán bộ, công nhân kỹ thuật tay nghề cao được đào tạo bài bản cùng hệ thống trang thiết bị hiện đại. Công ty luôn đáp ứng nhu cầu của khách hàng trong và ngoài nước theo những tiêu chuẩn khắt khe nhất về chất lượng sản phẩm. <br/>
-  Sản phẩm chính của Chúng tôi là bao bì màng mỏng, màng nhôm dược, tem nhãn và đặc biệt là bao bì hộp giấy như hộp bánh kẹo, tân dược, thuốc lá, ...
-  `
-
- console.log(data?.journey);
-  const [selected, setSelected] = useState(0)
   const swiperRef = useRef()
   const handleSelect = (index) => {
     swiperRef.current.slideTo(index)
@@ -30,7 +21,6 @@ function History({ data }) {
             </div>
           ))}
         </div>
-        {/* <Image src={line} width={'100%'} height={'100%'} alt='line' className='mt-[0.83rem] w-max'/> */}
         <div className='line-sm mt-[0.8rem]'></div>
       </div>
       {/* <SlideHistory /> */}
@@ -80,7 +70,7 @@ function History({ data }) {
 
       {/*  */}
       <div className='flex justify-between content border-t border-solid border-[#444] pb-[8.8rem]'>
-        <p className='lg:text-[1.35417rem] md:text-[1.5rem] text-justify text-[#444] w-[44.375rem] pt-[3.96rem]' dangerouslySetInnerHTML={{ __html: `${text}` }}></p>
+        <p className='lg:text-[1.35417rem] md:text-[1.5rem] text-justify text-[#444] w-[44.375rem] pt-[3.96rem]' dangerouslySetInnerHTML={{ __html: `${data?.subdescription}` }}></p>
         <Image src={jour} width={'100%'} height={'100%'} className='w-[36.66rem] object-cover h-[50.625rem] rounded-br-[9.73rem]' alt='jour' />
       </div>
     </section>
