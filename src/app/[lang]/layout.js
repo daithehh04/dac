@@ -17,7 +17,7 @@ import 'swiper/css/scrollbar'
 import 'swiper/css/thumbs'
 import 'swiper/css/free-mode'
 import getDataPage from '@/data/getDataPage'
-import { GET_DATA_HEADER, GET_DATA_MOBILE_JOURNEY, GET_DATA_MOBILE_ORGANIZE, GET_DATA_MOBILE_PRIZE, GET_DATA_MOBILE_VISION } from '@/graphql/home/query'
+import { GET_DATA_FOOTER, GET_DATA_HEADER, GET_DATA_MOBILE_JOURNEY, GET_DATA_MOBILE_ORGANIZE, GET_DATA_MOBILE_PRIZE, GET_DATA_MOBILE_VISION } from '@/graphql/home/query'
 export const metadata = {
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1'
 }
@@ -32,17 +32,20 @@ export default async function RootLayout({ children, params }) {
   let dataJourney
   let dataOrganize
   let dataPrize
+  let dataFooter
   let lang = params.lang
   data = await getDataPage(lang,GET_DATA_HEADER)
   dataVision = await getDataPage(lang,GET_DATA_MOBILE_VISION)
   dataJourney = await getDataPage(lang,GET_DATA_MOBILE_JOURNEY)
   dataOrganize = await getDataPage(lang,GET_DATA_MOBILE_ORGANIZE)
   dataPrize = await getDataPage(lang,GET_DATA_MOBILE_PRIZE)
+  dataFooter = await getDataPage(lang,GET_DATA_FOOTER)
   const dataVisionFinal = dataVision?.data?.page?.translation
   const dataJourneyFinal = dataJourney?.data?.page?.translation
   const dataOrganizeFinal = dataOrganize?.data?.page?.translation
   const dataPrizeFinal = dataPrize?.data?.page?.translation
   const dataHeader = data?.data?.page?.translation?.homepage?.header?.nav
+  const dataFooterFinal = dataFooter?.data?.page?.translation
   return (
     <html lang={lang}>
       <body>
@@ -57,7 +60,7 @@ export default async function RootLayout({ children, params }) {
               dataPrizeFinal={dataPrizeFinal}
             />
             {children}
-            <Footer lang={lang} />
+            <Footer lang={lang} data={dataFooterFinal} />
           </Suspense>
         </ApolloClientProvider>
       </body>

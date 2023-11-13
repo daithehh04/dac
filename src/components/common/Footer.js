@@ -1,9 +1,8 @@
 'use client'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
-import logo from '@/assets/imgs/logo-w.svg'
 
-function Footer() {
+function Footer({lang,data}) {
   const [active, setActive] = useState(false)
   const contentRef = useRef()
   const scrollRef = useRef()
@@ -20,22 +19,18 @@ function Footer() {
     }
   }
 
+  console.log(data?.homepage?.footer?.contentColumn1
+    );
   return (
     <footer className='footer bg-[#000D10] text-[#888] md:pt-[4.98rem] pt-[11.47rem] max-md:h-auto'>
       <div className="content max-md:flex flex-col justify-center ">
         <div className="logo">
-          <Image src={logo} width={100} height={100} className='object-cover max-md:w-[20.53333rem] max-md:h-[11.73333rem]' alt='DAC' />
+          <Image src={data?.homepage?.footer?.logo?.sourceUrl} width={100} height={100} className='object-cover max-md:w-[20.53333rem] max-md:h-[11.73333rem]' alt={data?.homepage?.footer?.logo?.altText || 'DAC'} />
         </div>
-        <div className='flex items-start max-md:flex-col justify-between md:mt-[4.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888]'>
-          <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem]">
-            <h3>CÔNG TY CỔ PHẨN BAO BÌ VÀ IN NÔNG NGHIỆP</h3>
-            <p> Trụ sở: Tầng 6 tòa nhà APP – Số 72 Trường Chinh – Phương Mai – Đống Đa – Hà Nội <br /> Tel: (84.24) 36895605 – Fax: (84.24) 36895605 <br /> Nhà máy: Lô 3 – CN3 Khu CN Ngọc Hồi -Thanh Trì – Hà Nội <br /> Tel: (84.24) 36840092/3/4 – Fax: (84.24) 36840095 <br /> Email: info@ appmail.vn <br /> Web: www.appprintco.com</p>
+        <div className='flex items-start max-md:flex-col justify-between md:mt-[3.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888]'>
+          <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem]" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn1}` }}>
           </div>
-          <div ref={contentRef} className="right">
-            <h3>CÔNG TY TNHH CÔNG NGHỆ CHỐNG GIẢ DAC</h3>
-            <p> Trụ sở: Tầng 6 tòa nhà APP – Số 72 Trường Chinh – Phương Mai – Đống Đa – Hà Nội <br /> Tel: (84.24) 36895605 – Fax: (84.24) 36895605 <br /> Nhà máy: Lô 3 – CN3 Khu CN Ngọc Hồi -Thanh Trì – Hà Nội <br /> Tel: (84.24) 36840092/3/4 – Fax: (84.24) 36840095 <br /> Email: info@ appmail.vn <br /> Web: www.appprintco.com</p>
-            <h3>CHI NHÁNH CÔNG TY CỔ PHẦN BAO BÌ VÀ IN NÔNG NGHIỆP TẠI HƯNG YÊN</h3>
-            <p> Địa chỉ: Đường C1 – Khu CN Phố Nối A – Xã Lạc Hồng – Huyện Văn Lâm – Hưng Yên <br /> Tel: (0221) 3982136/7 – Fax: (0221) 3982135 <br /> Email: Info@appmail.vn</p>
+          <div ref={contentRef} className="right" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn2}` }}>
           </div>
         </div>
 
@@ -46,11 +41,11 @@ function Footer() {
         {/*  */}
         <div className="h-[0.0625vw] w-full bg-[#fff] opacity-60 mt-[1.35417rem]"></div>
         <div className="flex items-center max-md:flex-col justify-between copy-right md:py-[3.25rem] py-[4rem] max-md:text-[3.73333rem] md:leading-[0.01867rem]">
-          <p>Copyright © 2023 AppPrint Co. All rights reserved</p>
+          <p>{data?.homepage?.footer?.copyrightAndPolicy?.copyright}</p>
           <div className='flex items-center gap-[2rem]'>
-            <span>Cookie policy</span>
-            <span>Terms & Conditions</span>
-            <span>Privacy Policy</span>
+            {data?.homepage?.footer?.copyrightAndPolicy?.policy?.map((item,index)=>(
+              <span key={index}>{item?.text}</span>
+            ))}
           </div>
         </div>
       </div>
