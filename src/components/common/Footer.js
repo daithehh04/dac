@@ -29,11 +29,11 @@ function Footer() {
         <div className='flex items-start max-md:flex-col justify-between md:mt-[4.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888]'>
           <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem]">
             <h3>CÔNG TY CỔ PHẨN BAO BÌ VÀ IN NÔNG NGHIỆP</h3>
-            <p> Trụ sở: Tầng 6 tòa nhà APP - Số 72 Trường Chinh – Phương Mai – Đống Đa – Hà Nội <br /> Tel: (84.24) 36895605 – Fax: (84.24) 36895605 <br /> Nhà máy: Lô 3 – CN3 Khu CN Ngọc Hồi -Thanh Trì – Hà Nội <br /> Tel: (84.24) 36840092/3/4 – Fax: (84.24) 36840095 <br /> Email: info@ appmail.vn <br /> Web: www.appprintco.com</p>
+            <p> Trụ sở: Tầng 6 tòa nhà APP – Số 72 Trường Chinh – Phương Mai – Đống Đa – Hà Nội <br /> Tel: (84.24) 36895605 – Fax: (84.24) 36895605 <br /> Nhà máy: Lô 3 – CN3 Khu CN Ngọc Hồi -Thanh Trì – Hà Nội <br /> Tel: (84.24) 36840092/3/4 – Fax: (84.24) 36840095 <br /> Email: info@ appmail.vn <br /> Web: www.appprintco.com</p>
           </div>
           <div ref={contentRef} className="right">
             <h3>CÔNG TY TNHH CÔNG NGHỆ CHỐNG GIẢ DAC</h3>
-            <p> Trụ sở: Tầng 6 tòa nhà APP - Số 72 Trường Chinh – Phương Mai – Đống Đa – Hà Nội <br /> Tel: (84.24) 36895605 – Fax: (84.24) 36895605 <br /> Nhà máy: Lô 3 – CN3 Khu CN Ngọc Hồi -Thanh Trì – Hà Nội <br /> Tel: (84.24) 36840092/3/4 – Fax: (84.24) 36840095 <br /> Email: info@ appmail.vn <br /> Web: www.appprintco.com</p>
+            <p> Trụ sở: Tầng 6 tòa nhà APP – Số 72 Trường Chinh – Phương Mai – Đống Đa – Hà Nội <br /> Tel: (84.24) 36895605 – Fax: (84.24) 36895605 <br /> Nhà máy: Lô 3 – CN3 Khu CN Ngọc Hồi -Thanh Trì – Hà Nội <br /> Tel: (84.24) 36840092/3/4 – Fax: (84.24) 36840095 <br /> Email: info@ appmail.vn <br /> Web: www.appprintco.com</p>
             <h3>CHI NHÁNH CÔNG TY CỔ PHẦN BAO BÌ VÀ IN NÔNG NGHIỆP TẠI HƯNG YÊN</h3>
             <p> Địa chỉ: Đường C1 – Khu CN Phố Nối A – Xã Lạc Hồng – Huyện Văn Lâm – Hưng Yên <br /> Tel: (0221) 3982136/7 – Fax: (0221) 3982135 <br /> Email: Info@appmail.vn</p>
           </div>
