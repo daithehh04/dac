@@ -1,40 +1,15 @@
 import titleImg from '@/assets/imgs/title-sec3.svg'
-import icon1 from '@/assets/imgs/tech1.svg'
-import icon2 from '@/assets/imgs/tech2.svg'
-import icon3 from '@/assets/imgs/tech3.svg'
 import Image from 'next/image'
 function Technical({ dataTechnology }) {
-  const data = [
-    {
-      icon: icon1,
-      title: 'Công nghiệ in Offset',
-      desc: 'Sản xuất bao bì chuyên dụng cao cấp, đa dạng trên các chất liệu: Giấy duplex, ivory, metalize, couche, bền ẩm, các loại giấy decal, …'
-    },
-    {
-      icon: icon1,
-      title: 'Công nghệ in Flexo',
-      desc: 'Hệ thống phòng in Flexo chuẩn GMP sản xuất các sản phẩm in trên chất liệu giấy cuộn: Duplex, ivory, màng nhôm, decal, ...'
-    },
-    {
-      icon: icon2,
-      title: 'Công nghiệ in Ống đồng',
-      desc: 'Sở hữu điểm nổi trội với độ chính xác, hình ảnh sắc nét, màu sắc bắt mắt trên các chất liệu: Nhựa, kim loại mỏng, PE, OPP, PET, …'
-    },
-    {
-      icon: icon3,
-      title: 'Công nghiệ in Kỹ thuật số',
-      desc: 'Hệ thống in mã số, mã vạch, mã QR biến đổi cho tem nhãn với độ chính xác cao trên các chất liệu: decal cuộn, couche, …'
-    },
-  ]
+  
   return (
     <section className="technical pt-[8.75rem] md:pb-[12rem] pb-[3rem] md:px-[4.17rem]">
       <div>
-        <Image src={titleImg} width={1000} height={1000} alt='title' className='ml-auto max-md:hidden w-[67.5rem] h-[19.1667rem]' />
-        <div className='md:hidden flex text-[#444] font-bold items-center w-full max-md:px-[4.27rem]'>
+        <div className='md:flex-row-reverse flex text-[#444] font-bold items-center w-full max-md:px-[4.27rem]'>
           <span className='text-[22.93333rem] leading-[1.2]'>&</span>
           <div className='flex flex-col'>
-            <p className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem]'>{dataTechnology?.heading?.heading1}</p>
-            <p className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem]'>{dataTechnology?.heading?.heading2}</p>
+            <p className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem] md:text-end'>{dataTechnology?.heading?.heading1}</p>
+            <p className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem] md:text-end'>{dataTechnology?.heading?.heading2}</p>
           </div>
         </div>
       </div>

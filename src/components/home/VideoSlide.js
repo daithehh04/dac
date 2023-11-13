@@ -96,7 +96,7 @@ function VideoSlide({dataSlideVideo}) {
         </svg>
       </button>
       {/* </div> */}
-      <span className='absolute max-md:hidden bottom-[3.75rem] right-[2.26rem] text-[3.64583rem] text-white font-bold z-10 leading-[1]'>{indexSlider + 1}/{data.length}</span>
+      <span className='absolute max-md:hidden bottom-[3.75rem] right-[2.26rem] text-[3.64583rem] text-white font-bold z-10 leading-[1]'>{indexSlider + 1}/{dataSlideVideo.length}</span>
     </div>
   )
 }

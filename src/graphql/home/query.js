@@ -115,6 +115,7 @@ query($language : LanguageCodeEnum!){
          footer{
           logo{
            	sourceUrl
+            altText
           }
           contentColumn1
           contentColumn2

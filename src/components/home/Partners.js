@@ -17,7 +17,7 @@ function Partners({ dataPartner }) {
           <Link className='md:text-[5rem] text-[6.93333rem] max-md:mt-[4rem] text-[#444] font-bold leading-[1.16] text-center tracking-[-0.25rem] title-connect w-max' href={`#!`}>{dataPartner?.heading}</Link>
         </h3>
       </div>
-      <div className='max-md:hidden flex flex-col gap-[1.04rem] bg-[#A0A0A0] absolute right-0 top-[50%] -translate-y-1/2 px-[1rem] py-[1.5rem] rounded-bl-[1.97rem]'>
+      <div className='max-md:hidden flex flex-col gap-[1.04rem] bg-[#A0A0A0] absolute right-0 top-[50%] -translate-y-[30%] px-[1rem] py-[1.5rem] rounded-bl-[1.97rem]'>
         <Link href={'#!'} className='transition-all hover:scale-95'>
           <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={phone} width={'100%'} height={'100%'} alt='phone' />
         </Link>
