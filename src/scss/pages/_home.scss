@@ -59,28 +59,6 @@
   display: block;
 }
 
-
-  
-//   .scroll-text{
-//      animation: scrollUp 4s infinite forwards;
-//      height: 3rem;
-//      overflow: hidden;
-//      li{
-//         display: flex;
-//         align-items: center;
-//         justify-content: flex-end;
-//         height: 3rem;
-//         list-style-type: none;
-//      }
-//   }
-// $item-count: 3;
-// @keyframes scrollUp {
-//   @for $i from 1 through ($item-count - 1) {
-//     #{($i * 25) - 10%}, #{$i * 25%} {
-//       transform: translateY((-100% / $item-count) * $i);
-//     }
-//   }
-// }
 .scrolling-words-container {
   display: flex;
   align-items: center;
@@ -97,7 +75,7 @@
   }
   
   ul {
-    animation: scrollUp 4s infinite forwards;
+    animation: scrollUp 4s infinite ;
     display: flex;
     justify-content: center;
     align-items: center;

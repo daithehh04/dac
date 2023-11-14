@@ -99,8 +99,34 @@ const DATA_BY_SEARCH_TEXT = gql`query ($text: String!, $language: LanguageCodeEn
     }
   }
 }`
+const GET_DATA_ALL_WITH_SEARCH = gql`query getData($text: String!, $language: LanguageCodeFilterEnum!, $offset: Int!, $size: Int!) {
+  posts(
+    where: {language: $language, search: $text, offsetPagination: {offset: $offset, size: $size}, orderby: {field: DATE, order: ASC}}
+  ) {
+    nodes {
+      id
+      slug
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      news {
+        time
+        name
+      }
+    }
+    pageInfo {
+      offsetPagination {
+        total
+      }
+    }
+  }
+}`
 export {
     GET_DATA_NEWS_DETAIL,
     GET_ALL_NEWS,
-    DATA_BY_SEARCH_TEXT
+    DATA_BY_SEARCH_TEXT,
+    GET_DATA_ALL_WITH_SEARCH
 }

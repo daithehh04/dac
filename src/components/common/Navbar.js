@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import SelectLang from '../lang/SelectLang'
 import Image from 'next/image'
 import logo from '@/assets/imgs/logo-h.svg'
@@ -13,6 +13,11 @@ import { usePathname } from 'next/navigation'
 import MenuMb from './MenuMb'
 
 function Navbar({ lang,dataHeader,dataJourneyFinal,dataVisionFinal,dataOrganizeFinal,dataPrizeFinal }) {
+  const [color, setColor] = useState('')
+  const [bgColor, setBgColor] = useState('')
+  const [checkHome, setCheckHome] = useState(false)
+  const [shadow,setShadow] = useState('')
+
   const refMb = useRef()
   const handleOpenModal = () => {
     refMb?.current?.classList?.add('active')
@@ -20,12 +25,32 @@ function Navbar({ lang,dataHeader,dataJourneyFinal,dataVisionFinal,dataOrganizeF
   const handleCloseModal = () => {
     refMb?.current?.classList?.remove('active')
   }
+  const listPageBlackHeader = ['/', '/service-products/', '/en']
 
   const pathName = usePathname()
-  let checkHome = false
-  if (pathName === '/' || pathName === '/en' || pathName.startsWith('/service-products/')) {
-    checkHome = true
-  }
+  useEffect(() =>{
+    setCheckHome(listPageBlackHeader.includes(pathName) || pathName.startsWith('/service-products/'))
+  }, [pathName])
+
+  
+  useEffect(() =>{
+    const e = () => {
+      if (window.scrollY > 300) {
+        setColor('#000')
+        setBgColor('#fff')
+        setShadow('md:shadow-md')
+      } else if((listPageBlackHeader.includes(pathName) || pathName.startsWith('/service-products/'))) {
+        setBgColor('')
+        setColor('#000')
+        setShadow('')
+      }else{
+        setBgColor('')
+        setShadow('')
+        setColor('#fff')
+      }
+    }
+    window.addEventListener('scroll',e)
+  }, [])
   const navLinks = [
     {
       link: dataHeader[0]?.name,
@@ -139,7 +164,7 @@ function Navbar({ lang,dataHeader,dataJourneyFinal,dataVisionFinal,dataOrganizeF
   ]
   return (
     <>
-      <nav className='backdrop-blur-[4] md:shadow-md top-0 w-full fixed navbar md:pt-[1.3rem] md:pb-[1.3rem] pt-[12.27rem] z-10 '>
+      <nav className={`backdrop-blur-[4] bg-[${bgColor}] ${shadow} top-0 w-full fixed navbar md:pt-[1.3rem] md:pb-[1.3rem] pt-[12.27rem] z-10 `}>
         <div className="content">
           <div className='flex items-center justify-between'>
             {checkHome ?
@@ -148,7 +173,7 @@ function Navbar({ lang,dataHeader,dataJourneyFinal,dataVisionFinal,dataOrganizeF
             }
             <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw] max-md:hidden'>
               {navLinks.map((link, index) => (
-                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] link ${checkHome ? 'text-black' : 'text-white'}`} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
+                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? 'text-[#000]' :'text-[#fff]'} link text-[${color}]`}  key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
               ))}
             </div>
             <SelectLang lang={lang} checkHome={checkHome} />
