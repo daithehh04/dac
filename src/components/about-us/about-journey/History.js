@@ -53,7 +53,7 @@ function History({ data }) {
                     src={item?.img?.sourceUrl}
                     width={1000}
                     height={1000}
-                    alt={item?.img?.altText || history}
+                    alt={item?.img?.altText || "history"}
                     className='object-cover h-[15.1rem] image'
                   />
                   <p className='mt-[1.4rem] text-[1.41rem] lg:text-[1.35417rem] line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>

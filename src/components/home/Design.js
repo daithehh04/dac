@@ -1,25 +1,6 @@
 import React from 'react'
-import titleImg from '@/assets/imgs/title-sec2.svg'
-import box from '@/assets/imgs/Boxes-detail.jpg'
 import Image from 'next/image'
-const data = [
-  {
-    title: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi',
-    desc: 'Tầm nhìn trở thành doanh nghiệp hàng đầu trong lĩnh vực sản xuất bao bì tại Việt Nam. Doanh nghiệp làm việc lấy khách hàng là trung tâm và lấy thị trường là định hướng phát triển.'
-  },
-  {
-    title: 'Sơ đồ tổ chức',
-    desc: 'Chúng tôi tin tưởng rằng một quy trình quản lý hiệu quả là nền tảng cho sự phát triển, mang lại sự vững mạnh về tài chính, lòng tin cho nhà đầu tư và hiệu quả cho hoạt động doanh nghiệp.'
-  },
-  {
-    title: 'Chặng đường phát triển',
-    desc: 'Với bề dày lịch sử 60 năm hình thành và phát triển, Chúng tôi luôn tạo ra những giá trị bền vững cho tất cả các thành viên trong chuỗi hoạt động.'
-  },
-  {
-    title: 'Chứng nhận & Giải thưởng',
-    desc: 'Chúng tôi có chứng nhận Tiêu chuẩn quốc tế dành cho các Nhà sản xuất bao bì.'
-  },
-]
+
 function Design({ lang, dataDesign }) {
   return (
     <div className='design md:pt-[3.56rem] pt-[6.93rem]'>
@@ -37,15 +18,23 @@ function Design({ lang, dataDesign }) {
       </div>
       <div className='flex md:px-[9.43rem] mt-[5.4rem] md:gap-[5.16rem] items-center max-md:flex-col'>
         <div className="left md:w-[36.7rem] max-md:bg-[#444545] flex flex-col items-center">
-          <Image src={titleImg} width={'100%'} height={'100%'} className='max-md:hidden' alt='title' />
-          <div className='md:hidden flex text-[#fff] font-bold items-center w-full max-md:px-[4.27rem]'>
-            <span className='text-[22.93333rem] leading-[1.2]'>&</span>
-            <span className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem]'>THIẾT KẾ
-              THÀNH CÔNG</span>
+
+          <div class="scrolling-words-container">
+            <div class="scrolling-words-box">
+              <ul>
+                {dataDesign?.textAnimation?.listTextScroll?.map((item, index) => (
+                  <li className='list-none md:text-[4rem] text-[8.53333rem] md:text-[#888] text-[#fff] uppercase' key={index}>{item?.text}</li>
+                ))}
+              </ul>
+            </div>
+            <div className='flex text-[#fff] justify-center block-scroll-word font-bold items-end w-full'>
+              <span className='text-[8.53333rem] md:text-[4rem] uppercase md:text-[#444] leading-[1.2] max-md:w-[60rem] relative max-md:bottom-[-2rem]'>{dataDesign?.textAnimation?.textOnTop}</span>
+              <span className='text-[22.93333rem] max-md:hidden md:text-[2rem] md:text-[#444] relative md:bottom-[0.25rem] leading-[1.2]'>&</span>
+            </div>
           </div>
           <p
             dangerouslySetInnerHTML={{ __html: `${dataDesign?.textAnimation?.description}` }}
-            className='md:text-[1.5rem] tracking-[-0.06771rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.2] max-md:text-[#fff] max-md:my-[6rem] max-md:px-[4.27rem] text-justify' >
+            className='md:text-[1.5rem] md:mt-[1rem] tracking-[-0.06771rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.2] max-md:text-[#fff] max-md:my-[6rem] max-md:px-[4.27rem] text-justify' >
           </p>
         </div>
         <div className="right">

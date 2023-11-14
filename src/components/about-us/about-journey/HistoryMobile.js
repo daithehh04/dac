@@ -9,7 +9,7 @@ function HistoryMobile({ data }) {
     const popUpRef = useRef()
     const seeMoreRef = useRef()
     const [selected, setSelected] = useState(0)
-    const [number,setNumber] = useState(3)
+    const [number, setNumber] = useState(3)
     const handleClosePopUp = () => {
         if (popUpRef.current && openRef.current) {
             popUpRef.current.style.transform = 'translateX(-100%)'
@@ -22,27 +22,27 @@ function HistoryMobile({ data }) {
             openRef.current.style.display = 'none'
         }
     }
-    
-    const handleClick = () =>{
-        if(number >= data?.journey?.length){
-            if(seeMoreRef.current){
-                seeMoreRef.current.style.display ='none'
-            }
-        }
-        setNumber(number + 3)
+
+    const handleClick = () => {
+        // if (number >= data?.journey?.length) {
+        //     if (seeMoreRef.current) {
+        //         seeMoreRef.current.style.display = 'none'
+        //     }
+        // }
+        // setNumber(number + 3)
     }
     const handleSelect = (index) => {
         setSelected(index)
     }
-    useEffect(()=>{
+    useEffect(() => {
         const listElements = document.querySelectorAll('.historyYear')
-        if(selected > 2){
-            setNumber(selected + 1)
-            listElements[number].scrollIntoView()
-        }
+        // if(selected > 2){
+        //     setNumber(selected + 1)
+        //     listElements[number].scrollIntoView()
+        // }
         listElements[selected].scrollIntoView()
-    },[selected])
-    
+    }, [selected])
+
     return (
         <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] relative mb-[15rem]'>
             <div ref={popUpRef} className='popUpRef relative z-[11]'>
@@ -67,7 +67,7 @@ function HistoryMobile({ data }) {
 
             {/* main content */}
             <div className='pl-[13rem]'>
-                {data?.journey?.slice(0,number)?.map((item,index)=>{
+                {data?.journey?.map((item, index) => {
                     return (
                         <div key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab relative historyYear`}>
                             <span className='text-[#444] relative top-[-2rem] font-bold text-[6.93333rem] block year'>{item?.year}</span>

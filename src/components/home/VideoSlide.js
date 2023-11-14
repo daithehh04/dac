@@ -7,7 +7,7 @@ import arrNext from '@/assets/imgs/arr-r.svg'
 import arrPrev from '@/assets/imgs/arr-l.svg'
 import imgVideo from '@/assets/imgs/img-video.jpg'
 const data = new Array(6).fill()
-function VideoSlide({dataSlideVideo}) {
+function VideoSlide({ dataSlideVideo }) {
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -50,24 +50,25 @@ function VideoSlide({dataSlideVideo}) {
               className='block w-full h-full'
             >
               {({ isActive }) => (
-                <div 
+                <div
                   className='h-full'
-                  onClick={()=>setIsPlay(!isPlay)}                
+                  onClick={() => setIsPlay(true)}
                 >
                   <Image src={item?.background?.sourceUrl || imgVideo} width={1000} height={1000} quality={100} alt='img' className={`w-full h-full absolute z-[0] inset-0 object-cover ${isPlay ? 'hidden' : ''}`} />
                   <svg xmlns="http://www.w3.org/2000/svg" className={`md:w-[4.5rem] shadow-md md:h-[5rem] w-[10rem] h-[10rem] absolute z-[1] top-[50%] left-[50%] -translate-x-1/2 -translat-y-1/2 cursor-pointer ${isPlay ? 'hidden' : ''}`} viewBox="0 0 64 76" fill="none">
-                    <path d="M11.5953 1.67574C5.19164 -2.25456 0 0.965187 0 8.8615V67.1328C0 75.037 5.19164 78.2526 11.5953 74.326L59.1957 45.1168C65.6014 41.1851 65.6014 34.8152 59.1957 30.8844L11.5953 1.67574Z" fill="white"/>
+                    <path d="M11.5953 1.67574C5.19164 -2.25456 0 0.965187 0 8.8615V67.1328C0 75.037 5.19164 78.2526 11.5953 74.326L59.1957 45.1168C65.6014 41.1851 65.6014 34.8152 59.1957 30.8844L11.5953 1.67574Z" fill="white" />
                   </svg>
                   <video
                     width='100%'
                     controls={isPlay}
                     ref={videoRef}
-                    className={`w-full h-full`}
+                    className={`w-full h-full object-cover`}
+                    src={item?.video?.sourceUrl || defaultVideo}
                   >
-                     <source
+                    {/* <source
                       src={item?.video?.sourceUrl || defaultVideo}
                       type='video/mp4'
-                    />
+                    /> */}
                   </video>
                   <p className={`text-white text-[6.667rem] opacity-40 font-bold uppercase absolute top-[50%] -translate-y-1/2 w-full text-center ${isPlay ? 'hidden' : ''}`}>Video app</p>
                 </div>
