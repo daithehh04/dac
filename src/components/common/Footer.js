@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
-function Footer({lang,data}) {
+function Footer({ lang, data }) {
   const [active, setActive] = useState(false)
   const contentRef = useRef()
   const scrollRef = useRef()
@@ -19,8 +19,6 @@ function Footer({lang,data}) {
     }
   }
 
-  console.log(data?.homepage?.footer?.contentColumn1
-    );
   return (
     <footer className='footer bg-[#000D10] text-[#888] md:pt-[4.98rem] pt-[11.47rem] max-md:h-auto'>
       <div className="content max-md:flex flex-col justify-center ">
@@ -43,7 +41,7 @@ function Footer({lang,data}) {
         <div className="flex items-center max-md:flex-col justify-between copy-right md:py-[3.25rem] py-[4rem] max-md:text-[3.73333rem] md:leading-[0.01867rem]">
           <p>{data?.homepage?.footer?.copyrightAndPolicy?.copyright}</p>
           <div className='flex items-center gap-[2rem]'>
-            {data?.homepage?.footer?.copyrightAndPolicy?.policy?.map((item,index)=>(
+            {data?.homepage?.footer?.copyrightAndPolicy?.policy?.map((item, index) => (
               <span key={index}>{item?.text}</span>
             ))}
           </div>

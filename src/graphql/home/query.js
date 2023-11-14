@@ -20,7 +20,9 @@ const GET_DATA_HOMEPAGE = `
           }
           textAnimation{
             textOnTop
-            textOnBottom
+            listTextScroll{
+              text
+            }
             description
             image{
               sourceUrl
@@ -177,11 +179,11 @@ const GET_DATA_MOBILE_VISION = `query ($language: LanguageCodeEnum!) {
   }
 }`
 export {
-    GET_DATA_HEADER,
-    GET_DATA_FOOTER,
-    GET_DATA_HOMEPAGE,
-    GET_DATA_MOBILE_JOURNEY,
-    GET_DATA_MOBILE_PRIZE,
-    GET_DATA_MOBILE_ORGANIZE,
-    GET_DATA_MOBILE_VISION
+  GET_DATA_HEADER,
+  GET_DATA_FOOTER,
+  GET_DATA_HOMEPAGE,
+  GET_DATA_MOBILE_JOURNEY,
+  GET_DATA_MOBILE_PRIZE,
+  GET_DATA_MOBILE_ORGANIZE,
+  GET_DATA_MOBILE_VISION
 }
