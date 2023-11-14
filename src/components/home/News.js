@@ -14,7 +14,7 @@ function News({ dataNews }) {
             {dataNews?.listNews?.map((item, index) => (
               <li key={index} className='text-[1.35417rem] md:pt-[3.07rem] pt-[5.02rem] md:border-t border-solid border-[#444]'>
                 <h4 className='font-bold text-[#444] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.title}</h4>
-                <p className='mt-[1.625rem] text-[#888] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.description}</p>
+                <p className='mt-[1.625rem] text-[#888] md:text-[1.5rem] md:tracking-[-0.06771rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.description}</p>
               </li>
             ))}
           </ul>

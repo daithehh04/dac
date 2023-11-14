@@ -3,131 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Pagination, Navigation } from 'swiper/modules';
-import prd1 from '@/assets/imgs/prd1.png'
-import prd2 from '@/assets/imgs/prd2.png'
-import prd3 from '@/assets/imgs/prd3.png'
-import prd5 from '@/assets/imgs/prd5.png'
-import prd4 from '@/assets/imgs/itemFeature.png'
-function ServiceDetail() {
-    const data = {
-        listImageFeature: [
-            {
-                image: prd4
-            },
-            {
-                image: prd4
-            },
-            {
-                image: prd4
-            }
+import Link from 'next/link';
 
-        ],
-        info: [
-            {
-                name: 'Chất liệu:',
-                infoName: 'Ivory 220 Gsm'
-            },
-            {
-                name: 'Kiểu dáng:',
-                infoName: 'Compact'
-            },
-            {
-                name: 'Hiệu ứng:',
-                infoName: 'Bóng gốc nước, bóng sần cục bộ, bế nổi'
-            },
-            {
-                name: 'Công nghệ in:',
-                infoName: 'Offset/Flexo'
-            }
-
-        ],
-        otherBranch: [
-            {
-                image: prd4,
-                attachImage: [
-                    {
-                        imageAttach: prd1
-                    },
-                    {
-                        imageAttach: prd4
-                    },
-                    {
-                        imageAttach: prd5
-                    },
-                ]
-            },
-            {
-                image: prd4,
-                attachImage: [
-                    {
-                        imageAttach: prd2
-                    },
-                    {
-                        imageAttach: prd4
-                    },
-                    {
-                        imageAttach: prd3
-                    },
-                ]
-            },
-            {
-                image: prd4,
-                attachImage: [
-                    {
-                        imageAttach: prd5
-                    },
-                    {
-                        imageAttach: prd4
-                    },
-                    {
-                        imageAttach: prd3
-                    },
-                ]
-            },
-            {
-                image: prd4,
-                attachImage: [
-                    {
-                        imageAttach: prd2
-                    },
-                    {
-                        imageAttach: prd4
-                    },
-                    {
-                        imageAttach: prd1
-                    },
-                ]
-            },
-            {
-                image: prd4,
-                attachImage: [
-                    {
-                        imageAttach: prd1
-                    },
-                    {
-                        imageAttach: prd4
-                    },
-                    {
-                        imageAttach: prd2
-                    },
-                ]
-            },
-            {
-                image: prd4,
-                attachImage: [
-                    {
-                        imageAttach: prd3
-                    },
-                    {
-                        imageAttach: prd4
-                    },
-                    {
-                        imageAttach: prd1
-                    },
-                ]
-            },
-        ]
-    }
+function ServiceDetail({ data, lang, dataOtherProduct }) {
+    console.log(dataOtherProduct);
 
     const [indexSlide, setIndexSlide] = useState(0)
     const swiperRef = useRef()
@@ -182,9 +61,9 @@ function ServiceDetail() {
                                 }
                             }}
                         >
-                            {data?.otherBranch[indexSlide]?.attachImage?.map((item, index) => (
+                            {data?.product_detail?.listImages?.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <Image src={item?.imageAttach} alt='img' quality={100} className='w-full h-full object-cover md:rounded-br-[7.5rem] rounded-br-[18rem]' />
+                                    <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7.5rem] rounded-br-[18rem]' />
                                 </SwiperSlide>
                             ))}
 
@@ -211,12 +90,12 @@ function ServiceDetail() {
                     </div>
                     {/* info */}
                     <div className=''>
-                        <h2 className='heading md:mb-[1.3rem] md:w-[28.59rem] max-md:py-[7.47rem] max-md:!text-[6.93333rem]'>Bao thuốc lá thăng long</h2>
+                        <h2 className='heading md:mb-[1.3rem] md:w-[28.59rem] max-md:py-[7.47rem] max-md:!text-[6.93333rem]'>{data?.product_detail?.title}</h2>
                         <div className='flex flex-col md:w-[32rem] md:h-[21.82rem]'>
-                            {data?.info?.map((item, index) => (
+                            {data?.product_detail?.aboutProduct?.map((item, index) => (
                                 <div key={index} className='flex text-[#444] md:text-[1.5rem] whitespace-nowrap lg:text-[1.35417rem] text-[4.26667rem] font-bold md:leading-[226.662%] md:tracking-[-0.06771rem]'>
                                     <span className='whitespace-nowrap max-md:mr-[1rem]'>{item?.name}</span>
-                                    <span className='font-normal'>{item?.infoName}</span>
+                                    <span className='font-normal'>{item?.description}</span>
                                 </div>
                             ))}
                         </div>
@@ -226,7 +105,7 @@ function ServiceDetail() {
 
                 {/* slide2 */}
                 <div className='flex flex-col relative max-md:pt-[10rem]'>
-                    <h3 className='md:w-[28.81rem] md:h-[2.76042rem] md:mb-[0.68rem] md:text-[#444] text-[#888] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] md:leading-[116.662%] md:tracking-[-0.06771rem]'>Các mẫu thuốc lá khác</h3>
+                    <h3 className='md:w-[28.81rem] md:h-[2.76042rem] md:mb-[0.68rem] md:text-[#444] text-[#888] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] md:leading-[116.662%] md:tracking-[-0.06771rem]'>{data?.product_detail?.subTitle}</h3>
                     <div className='slideOther_Item relative max-md:pt-[5.53rem] max-md:pb-[8rem]'>
                         <Swiper
                             slidesPerView={3}
@@ -247,9 +126,11 @@ function ServiceDetail() {
                                 }
                             }}
                         >
-                            {data?.otherBranch?.map((item, index) => (
+                            {dataOtherProduct?.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <Image src={item?.image} className='imageSlideOtherItem md:w-[12.96875rem] md:h-[11.92708rem] object-cover' />
+                                    <Link href={`/${lang}/service-products/${item?.slug}`}>
+                                        <Image src={item?.featuredImage?.node?.sourceUrl} width={1000} height={1000} alt={item?.featuredImage?.node?.altText} className='imageSlideOtherItem md:w-[12.96875rem] md:h-[11.92708rem] object-cover' />
+                                    </Link>
                                 </SwiperSlide>
                             ))}
                         </Swiper>

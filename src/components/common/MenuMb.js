@@ -1,6 +1,8 @@
 'use client'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
+import SelectLang from '../lang/SelectLang'
+import SelectLangMb from '../lang/SelectLangMb'
 
 function MenuMb({ data, handleCloseModal, lang }) {
     const [selected, setSelected] = useState(null)
@@ -33,6 +35,7 @@ function MenuMb({ data, handleCloseModal, lang }) {
                 </defs>
             </svg>
 
+            <SelectLangMb lang={lang} handleCloseModal={handleCloseModal} />
 
             <div className='flex flex-col'>
                 {data?.map((item, index) => {
