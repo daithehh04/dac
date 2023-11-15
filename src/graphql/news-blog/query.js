@@ -24,6 +24,7 @@ const GET_DATA_NEWS_DETAIL = `query ($language: LanguageCodeEnum!, $slug: ID!) {
             }
           }
         }
+        subtitleMobile
         othernews {
           ... on Post {
             slug
@@ -125,8 +126,8 @@ const GET_DATA_ALL_WITH_SEARCH = gql`query getData($text: String!, $language: La
   }
 }`
 export {
-    GET_DATA_NEWS_DETAIL,
-    GET_ALL_NEWS,
-    DATA_BY_SEARCH_TEXT,
-    GET_DATA_ALL_WITH_SEARCH
+  GET_DATA_NEWS_DETAIL,
+  GET_ALL_NEWS,
+  DATA_BY_SEARCH_TEXT,
+  GET_DATA_ALL_WITH_SEARCH
 }

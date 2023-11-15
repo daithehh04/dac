@@ -35,7 +35,7 @@ function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrgan
 
   useEffect(() => {
     const e = () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 50) {
         setColor('#000')
         setBgColor('#fff')
         setShadow('md:shadow-md')
@@ -54,6 +54,19 @@ function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrgan
     }
     window.addEventListener('scroll', e)
   }, [])
+
+  // useEffect(() => {
+  //   let prevScrollpos = window.pageYOffset;
+  //   window.onscroll = function () {
+  //     let currentScrollPos = window.pageYOffset;
+  //     if (prevScrollpos > currentScrollPos) {
+  //       document.getElementById("navheader").style.top = "0";
+  //     } else {
+  //       document.getElementById("navheader").style.top = "-100%";
+  //     }
+  //     prevScrollpos = currentScrollPos;
+  //   }
+  // }, [])
   const navLinks = [
     {
       link: dataHeader[0]?.name,

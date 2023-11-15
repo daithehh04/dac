@@ -2,38 +2,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
 import { useRef, useState } from 'react'
-import product1 from '@/assets/imgs/product-1.jpg'
-import product2 from '@/assets/imgs/product-2.jpg'
-import product3 from '@/assets/imgs/product-3.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
-function SlideProduct({ lang, dataProduct }) {
-  const data = [
-    {
-      img: product1,
-      title: 'Bao bì <br/> Thuốc lá'
-    },
-    {
-      img: product2,
-      title: 'Bao bì <br/> thực phẩm'
-    },
-    {
-      img: product3,
-      title: 'Bao bì <br/> dược mỹ phẩm'
-    },
-    {
-      img: product1,
-      title: 'Bao bì <br/> Thuốc lá'
-    },
-    {
-      img: product2,
-      title: 'Bao bì <br/> thực phẩm'
-    },
-    {
-      img: product3,
-      title: 'Bao bì <br/> dược mỹ phẩm'
-    }
-  ]
+function SlideProduct({ lang, dataProductList }) {
+
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
@@ -66,16 +38,17 @@ function SlideProduct({ lang, dataProduct }) {
         }}
         className='relative w-full h-full '
       >
-        {data?.map((item, index) => {
+        {dataProductList?.map((item, index) => {
           return (
             <SwiperSlide
               key={index}
               className='block w-full h-full'
             >
               {({ isActive }) => (
-                <Link href={`#!`} className='relative w-full h-full'>
-                  <Image src={item.img} width={1000} height={1000} alt='img-product' className='w-full md:h-full h-[100rem] object-cover' />
-                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[6.93333rem] max-md:whitespace-nowrap md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.title}` }} ></h3>
+                <Link href={`/${lang}/service-products/${item?.product_category?.info?.featureProduct}`} className='relative w-full h-full '>
+                  <div className="overlay absolute top-0 w-full md:h-[100%] rotate-180 h-[100rem]" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
+                  <Image src={item?.product_category?.info?.image?.sourceUrl} quality={100} width={1000} height={1000} alt={item?.product_category?.info?.image?.altText || 'img-product'} className='w-full md:h-full h-[100rem] object-cover' />
+                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[6.93333rem] max-md:whitespace-nowrap md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.product_category?.info?.title}` }} ></h3>
                 </Link>
               )}
             </SwiperSlide>
