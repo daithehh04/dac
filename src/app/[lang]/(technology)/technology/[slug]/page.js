@@ -6,7 +6,7 @@ import IndexDigital from '@/components/technology/technology-digital/IndexDigita
 import IndexOtherPrinting from '@/components/technology/technology-otherPrinting/IndexOtherPrinting';
 import { GET_DATA_TECHNOLOGY_DIGITAL, GET_DATA_TECHNOLOGY_FLEXO, GET_DATA_TECHNOLOGY_GRAVURE, GET_DATA_TECHNOLOGY_OFFSET, GET_DATA_TECHNOLOGY_OTHERPRINT } from '@/graphql/technology/query';
 import getDataPage from '@/data/getDataPage';
-async function page({ params }) {
+export default async function page({ params }) {
     let language = params?.lang?.toUpperCase()
     let data
     if (params?.slug === 'offset') {
@@ -24,31 +24,28 @@ async function page({ params }) {
     if (params?.slug === 'other-printing') {
         data = await getDataPage(language, GET_DATA_TECHNOLOGY_OTHERPRINT)
     }
-    console.log('data', data?.data?.page?.translation);
     return (
         <>
             {
-                params?.slug === '/technology/gravure' &&
+                params?.slug === 'gravure' &&
                 <IndexGravure data={data} />
             }
             {
-                params?.slug === '/technology/offset' &&
+                params?.slug === 'offset' &&
                 <IndexOffset data={data} />
             }
             {
-                params?.slug === '/technology/flexo' &&
+                params?.slug === 'flexo' &&
                 <IndexFlexo data={data} />
             }
             {
-                params?.slug === '/technology/digital' &&
+                params?.slug === 'digital' &&
                 <IndexDigital data={data} />
             }
             {
-                params?.slug === '/technology/other-printing' &&
+                params?.slug === 'other-printing' &&
                 <IndexOtherPrinting data={data} />
             }
         </>
     )
 }
-
-export default page

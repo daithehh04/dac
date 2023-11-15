@@ -70,7 +70,7 @@ function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOt
             <ul className='flex pt-[3.8rem] md:pl-[4.17rem] lg:pl-[12.03rem] bg-[#F5F5F5]'>
                 {data?.map((item, index) => {
                     return (
-                        <Link href={`/technology/${slugPage[index]}`} key={index * Math.random()} className={`uppercase text-[1.3rem] lg:text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
+                        <Link href={`/${lang}/technology/${slugPage[index]}`} key={index * Math.random()} className={`uppercase text-[1.3rem] lg:text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
                     )
                 })}
             </ul>

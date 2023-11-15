@@ -4,13 +4,13 @@ import System from './System'
 import ContentOffset from './ContentOffset'
 
 function IndexOffset({ data }) {
-    console.log(data);
+    const dataOffset = data?.data?.page?.translation?.technology_common
     return (
-        <div>
-            <Introduce />
-            <System />
-            <ContentOffset />
-        </div>
+        <>
+            <Introduce dataIntro = {dataOffset?.content?.introduce} />
+            <System dataSystem = {dataOffset?.content?.system} />
+            <ContentOffset dataContent = {dataOffset?.content?.mainContent} />
+        </>
     )
 }
 

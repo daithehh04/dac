@@ -6,7 +6,7 @@ import { GET_DATA_TECHNOLOGY_DIGITAL, GET_DATA_TECHNOLOGY_FLEXO, GET_DATA_TECHNO
 import React from 'react'
 
 async function layout({ children, params }) {
-    let language = params.lang?.toUpperCase()
+    let language = params.lang
     let dataOffset
     let dataFlexo
     let dataGravure

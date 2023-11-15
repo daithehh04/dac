@@ -57,18 +57,18 @@ function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrgan
     window.addEventListener('scroll', e)
   }, [])
 
-  // useEffect(() => {
-  //   let prevScrollpos = window.pageYOffset;
-  //   window.onscroll = function () {
-  //     let currentScrollPos = window.pageYOffset;
-  //     if (prevScrollpos > currentScrollPos) {
-  //       document.getElementById("navheader").style.top = "0";
-  //     } else {
-  //       document.getElementById("navheader").style.top = "-100%";
-  //     }
-  //     prevScrollpos = currentScrollPos;
-  //   }
-  // }, [])
+  useEffect(() => {
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navheader").style.top = "0";
+      } else {
+        document.getElementById("navheader").style.top = "-100%";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  }, [])
   const navLinks = [
     {
       link: dataHeader[0]?.name,
