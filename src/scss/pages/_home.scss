@@ -67,6 +67,9 @@
   flex-direction : column-reverse
 }
 
+#navheader{
+  transition: background 0.5s;
+}
 .scrolling-words-box {
   height: 7rem;
   overflow: hidden;
