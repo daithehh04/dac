@@ -1,8 +1,11 @@
 import React from 'react'
-
 import ProductItem from './ProductItem'
 import Link from 'next/link'
-function Product({ lang, data, dataCate }) {
+import getDataByTaxonomy from '@/data/getDataByTaxonomy'
+import { GET_SLUG_FIRST_PRODUCT } from '@/graphql/product/query'
+async function Product({ lang, data, dataCate }) {
+    // let dataProductFirst = await getDataByTaxonomy(lang, dataCate?.slug, GET_SLUG_FIRST_PRODUCT)
+    console.log('dataCate', dataCate);
     return (
         <section>
             <div className='md:pt-[5.1rem] md:pl-[11.67rem] md:pr-[12.03rem] md:pb-[6.56rem] pb-[9rem] flex justify-between max-md:flex-col max-md:px-[4.27rem]'>
@@ -20,7 +23,7 @@ function Product({ lang, data, dataCate }) {
 
             <div className='md:grid grid-cols-4 md:gap-x-[2.6rem] md:gap-y-[2.45rem] md:px-[4.17rem]  md:pb-[13.23rem]'>
                 {dataCate?.map((item, index) => (
-                    <Link href={`/${lang}/service-products/bao-thuoc-la-thang-long-vi`} key={index}>
+                    <Link href={`/${lang}/service-products/${item?.product_category?.info?.featureProduct}`} key={index}>
                         <ProductItem image={item?.product_category?.info?.image} text={item?.product_category?.info?.title} />
                     </Link>
                 ))}

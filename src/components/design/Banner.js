@@ -1,10 +1,10 @@
 import React from 'react'
 import banner from '@/assets/imgs/bannerDesign.png'
 import Image from 'next/image'
-function Banner({data}) {
+function Banner({ data }) {
     return (
         <section className='md:w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative' >
-            <Image src={data?.background?.sourceUrl || banner} width={10000} height={10000} alt={data?.background?.altText || 'banner'} quality={100} className="w-full h-full object-cover md:rounded-br-[13.54rem] rounded-br-[16rem]" />
+            <Image src={data?.background?.sourceUrl || banner} width={1600} height={1000} alt={data?.background?.altText || 'banner'} quality={100} className="w-full h-full object-cover md:rounded-br-[13.54rem] rounded-br-[16rem]" />
             <div className="overlay absolute top-0 w-full h-full" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
             {/* text PC */}
             <div className='md:w-[45.375rem] max-md:hidden absolute z-[1] md:bottom-[9.02rem] md:right-[3.29rem]'>

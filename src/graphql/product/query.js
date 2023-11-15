@@ -18,13 +18,14 @@ const GET_DATA_PRODUCT_PAGE = `query getDataProductPage($language: LanguageCodeE
 }
 `
 const GET_DATA_CATEGORY_PRODUCT_SERVICE = `
-query getDataCategoryProduct ($language:LanguageCodeFilterEnum!){
+query getDataCategoryProduct($language: LanguageCodeFilterEnum!) {
   allCategoryProducts(first: 100, where: {language: $language}) {
     nodes {
       slug
       product_category {
         info {
           title
+          featureProduct
           image {
             altText
             sourceUrl
@@ -56,16 +57,21 @@ const GET_DATA_PRODUCT_DETAIL = `query getDataProduct_detail($language: Language
   }
 }`
 
-const GET_FIRST_PRODUCT_DETAIL = `query getFirstProductDetail($language: LanguageCodeEnum!) {
-  allServiceProduct(first: 1, where: {orderby: {field: DATE, order: ASC}}){
-    nodes{
-      translation(language:$language){
+
+const GET_SLUG_FIRST_PRODUCT = `query ($language: LanguageCodeEnum!,$term:[String!]) {
+  allServiceProduct(
+    where: {taxQuery: {taxArray: {taxonomy: CATEGORYPRODUCTS, field: SLUG, operator: IN, terms: $term}}, orderby: {field: DATE, order: DESC}}
+    first: 1
+  ) {
+    nodes {
+      translation(language: $language) {
         slug
+        id
+        title
       }
     }
   }
 }`
-
 const GET_DATA_OTHER_PRODUCT = `query getDataProduct_detail($language: LanguageCodeFilterEnum!) {
   allServiceProduct(where: {language: $language}) {
     nodes {
@@ -83,6 +89,6 @@ export {
   GET_DATA_PRODUCT_PAGE,
   GET_DATA_CATEGORY_PRODUCT_SERVICE,
   GET_DATA_PRODUCT_DETAIL,
-  GET_FIRST_PRODUCT_DETAIL,
+  GET_SLUG_FIRST_PRODUCT,
   GET_DATA_OTHER_PRODUCT
 }
