@@ -1,7 +1,8 @@
 import TextnologyContent from '@/components/common/TextnologyContent'
 import React from 'react'
 import layer2 from '@/assets/imgs/layer_2.svg'
-function ContentFlexo() {
+function ContentFlexo({dataContent}) {
+    console.log(dataContent);
     const data = [
         {
             icon: layer2,
@@ -19,20 +20,13 @@ function ContentFlexo() {
     return (
         <section className='contentWrapper bg-[#000D10] max-md:overflow-x-hidden'>
             <h2 className='heading-primary md:w-[33.1875rem] w-[35rem]'>
-                CÔNG NGHỆ IN FLEXO
+                {dataContent?.heading}
             </h2>
             <div className='flex md:pb-[7rem] md:pt-[4rem] pt-[6rem] max-md:flex-col'>
-                <div className='md:mr-[10.68rem] priDesc md:w-[28.59375rem]'>
-                    <p>Công nghệ Flexo có thể in được trên mọi chất liệu và vật liệu khác nhau. Các sản phẩm có thể sản xuất được từ hệ thống máy in hiện tại tại APP:</p>
-                    <ul className='md:pl-[1.5rem] md:mt-[1rem] pl-[5rem] mt-[4rem]'>
-                        <li className='list-disc'>Bao bì hộp khép kín từ in bế nổi bế cắt</li>
-                        <li className='list-disc'>Màng nhôm chuyên dụng cho dược phẩm, thực phẩm</li>
-                        <li className='list-disc'>Tem nhãn tờ rời và tem nhãn dùng cho máy dán tự động</li>
-                        <li className='list-disc'>Các sản phẩm được in trên các chất liệu giấy cuộn: Duplex, Ivory, Decal các loại, màng nhôm,…</li>
-                    </ul>
+                <div className='md:mr-[10.68rem] priDesc md:w-[28.59375rem]' dangerouslySetInnerHTML={{ __html: `${dataContent?.description}` }}>
                 </div>
                 <div className='md:grid grid-cols-2 gap-x-[5.31rem] gap-y-[3.2rem] max-md:mt-[6rem]'>
-                    {data?.map((item, index) => {
+                    {dataContent?.listContent?.map((item, index) => {
                         return (
                             <TextnologyContent key={index} icon={item?.icon} text={item?.text} />
                         )
