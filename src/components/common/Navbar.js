@@ -12,13 +12,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MenuMb from './MenuMb'
 
-function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrganizeFinal, dataPrizeFinal }) {
+function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrganizeFinal, dataPrizeFinal, dataProductList }) {
   const [color, setColor] = useState('')
   const [bgColor, setBgColor] = useState('')
   const [checkHome, setCheckHome] = useState(false)
   const [shadow, setShadow] = useState('')
   const [logoHome, setLogoHome] = useState(logoW)
   const refMb = useRef()
+
   const handleOpenModal = () => {
     refMb?.current?.classList?.add('active')
   }
@@ -31,6 +32,7 @@ function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrgan
   useEffect(() => {
     setCheckHome(listPageBlackHeader.includes(pathName) || pathName.startsWith('/service-products/'))
   }, [pathName])
+
 
 
   useEffect(() => {
@@ -101,36 +103,36 @@ function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrgan
       slug2: 'service-products',
       listContent: [
         {
-          name: 'Bao bì thuốc lá',
-          slug: 'a'
+          name: dataProductList?.[0]?.product_category?.info?.title,
+          slug: dataProductList?.[0]?.product_category?.info?.featureProduct
         },
         {
-          name: 'Bao bì Thực phẩm',
-          slug: 'a'
+          name: dataProductList?.[1]?.product_category?.info?.title,
+          slug: dataProductList?.[1]?.product_category?.info?.featureProduct
         },
         {
-          name: 'Bao bì dược mỹ phẩm',
-          slug: 'a'
+          name: dataProductList?.[2]?.product_category?.info?.title,
+          slug: dataProductList?.[2]?.product_category?.info?.featureProduct
         },
         {
-          name: 'Bao bì hàng tiêu dùng',
-          slug: 'a'
+          name: dataProductList?.[3]?.product_category?.info?.title,
+          slug: dataProductList?.[3]?.product_category?.info?.featureProduct
         },
         {
-          name: 'Bao bì Bia rượu nước giải khát',
-          slug: 'a'
+          name: dataProductList?.[4]?.product_category?.info?.title,
+          slug: dataProductList?.[4]?.product_category?.info?.featureProduct
         },
         {
-          name: 'Bao bì nông sản',
-          slug: 'a'
+          name: dataProductList?.[5]?.product_category?.info?.title,
+          slug: dataProductList?.[5]?.product_category?.info?.featureProduct
         },
         {
-          name: 'Thương mại &Vật tư ngành in',
-          slug: 'a'
+          name: dataProductList?.[6]?.product_category?.info?.title,
+          slug: dataProductList?.[6]?.product_category?.info?.featureProduct
         },
         {
-          name: 'Cho thuê văn phòng',
-          slug: 'a'
+          name: dataProductList?.[7]?.product_category?.info?.title,
+          slug: dataProductList?.[7]?.product_category?.info?.featureProduct
         }
       ]
     },
