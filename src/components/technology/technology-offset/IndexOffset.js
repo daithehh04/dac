@@ -3,7 +3,8 @@ import Introduce from './Introduce'
 import System from './System'
 import ContentOffset from './ContentOffset'
 
-function IndexOffset() {
+function IndexOffset({ data }) {
+    console.log(data);
     return (
         <div>
             <Introduce />

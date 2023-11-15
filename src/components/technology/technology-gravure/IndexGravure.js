@@ -3,7 +3,7 @@ import Introduce from './Introduce'
 import System from './System'
 import ContentGravure from './ContentGravure'
 
-function IndexGravure() {
+function IndexGravure({ data }) {
     return (
         <div>
             <Introduce />
