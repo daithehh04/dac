@@ -2,58 +2,60 @@
 import React, { useEffect, useState } from 'react'
 import { useDataBanner } from './DataContext'
 import Link from 'next/link'
-function Content() {
+function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOtherPrint }) {
     const [page, setPage] = useState(1)
     const context = useDataBanner()
+    let dataInfoOffset = dataOffset?.data?.page?.translation?.technology_common
+    let dataInfoFlexo = dataFlexo?.data?.page?.translation?.technology_common
+    let dataInfoGravure = dataGravure?.data?.page?.translation?.technology_common
+    let dataInfoDigital = dataDigital?.data?.page?.translation?.technology_common
+    let dataInfoOtherPrint = dataOtherPrint?.data?.page?.translation?.technology_otherPrinting
+
+    let dataSlugOffset = dataOffset?.data?.page?.translation?.slug
+    let dataSlugFlexo = dataFlexo?.data?.page?.translation?.slug
+    let dataSlugGravure = dataGravure?.data?.page?.translation?.slug
+    let dataSlugDigital = dataDigital?.data?.page?.translation?.slug
+    let dataSlugOtherPrint = dataOtherPrint?.data?.page?.translation?.slug
     const data = [
         {
             id: 1,
-            title: 'CÔNG NGHỆ IN OFFSET',
-            background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/11/TechnologyBanner1.png',
-            text: 'Công nghệ in Offset'
+            title: dataInfoOffset?.content?.titlePage,
+            background: dataInfoOffset?.banner?.background?.sourceUrl,
+            altText: dataInfoOffset?.banner?.background?.altText,
+            text: dataInfoOffset?.banner?.title
         },
         {
             id: 2,
-            title: 'CÔNG NGHỆ IN FLEXO',
-            background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/11/TechnologyBanner2.png',
-            text: 'Công nghệ in Flexo'
+            title: dataInfoFlexo?.content?.titlePage,
+            background: dataInfoFlexo?.banner?.background?.sourceUrl,
+            altText: dataInfoFlexo?.banner?.background?.altText,
+            text: dataInfoFlexo?.banner?.title
         },
         {
             id: 3,
-            title: 'CÔNG NGHỆ IN ỐNG ĐỒNG',
-            background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/11/TechnologyBanner3.png',
-            text: 'Công nghệ in Ống Đồng'
+            title: dataInfoGravure?.content?.titlePage,
+            background: dataInfoGravure?.banner?.background?.sourceUrl,
+            altText: dataInfoGravure?.banner?.background?.altText,
+            text: dataInfoGravure?.banner?.title
         },
         {
             id: 4,
-            title: 'CÔNG NGHỆ IN KỸ THUẬT SỐ',
-            background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/11/TechnologyBanner4.png',
-            text: 'CÔNG NGHỆ IN KỸ THUẬT SỐ'
+            title: dataInfoDigital?.content?.titlePage,
+            background: dataInfoDigital?.banner?.background?.sourceUrl,
+            altText: dataInfoDigital?.banner?.background?.altText,
+            text: dataInfoDigital?.banner?.title
         },
         {
             id: 5,
-            title: 'CÔNG NGHỆ IN KHÁC',
-            background: 'https://cms-dac.okhub.tech/wp-content/uploads/2023/11/TechnologyBanner5.png',
-            text: 'Giải pháp chống giả'
+            title: dataInfoOtherPrint?.content?.titlepage,
+            background: dataInfoOtherPrint?.banner?.background?.sourceUrl,
+            altText: dataInfoOtherPrint?.banner?.background?.altText,
+            text: dataInfoOtherPrint?.banner?.title
         }
     ]
 
     const slugPage = [
-        {
-            name: 'offset'
-        },
-        {
-            name: 'flexo'
-        },
-        {
-            name: 'gravure'
-        },
-        {
-            name: 'digital'
-        },
-        {
-            name: 'other-printing'
-        }
+        dataSlugOffset, dataSlugFlexo, dataSlugGravure, dataSlugDigital, dataSlugOtherPrint
     ]
     const handlePage = (page) => {
         setPage(page.id)
@@ -68,7 +70,7 @@ function Content() {
             <ul className='flex pt-[3.8rem] md:pl-[4.17rem] lg:pl-[12.03rem] bg-[#F5F5F5]'>
                 {data?.map((item, index) => {
                     return (
-                        <Link href={`/technology/${slugPage[index]?.name}`} key={index * Math.random()} className={`uppercase text-[1.3rem] lg:text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
+                        <Link href={`/technology/${slugPage[index]}`} key={index * Math.random()} className={`uppercase text-[1.3rem] lg:text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
                     )
                 })}
             </ul>

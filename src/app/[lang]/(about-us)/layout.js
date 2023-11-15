@@ -5,8 +5,8 @@ import getDataPage from '@/data/getDataPage'
 import { GET_DATA_ABOUT_US_JOURNEY, GET_DATA_ABOUT_US_ORGANIZE, GET_DATA_ABOUT_US_PRIZE, GET_DATA_ABOUT_US_VISION } from '@/graphql/about-us/query'
 import React from 'react'
 
-export default async function layout({ children,params }) {
-    let language = params.lang?.toUpperCase()
+export default async function layout({ children, params }) {
+    let language = params.lang?.toUpperCase() || 'VI'
     let data1
     let data2
     let data3
@@ -19,12 +19,12 @@ export default async function layout({ children,params }) {
         <>
             <DataProvider>
                 <Banner />
-                <Content 
+                <Content
                     lang={params?.lang}
-                    data1={data1} 
-                    data2={data2} 
-                    data3={data3} 
-                    data4={data4}  
+                    data1={data1}
+                    data2={data2}
+                    data3={data3}
+                    data4={data4}
                 />
             </DataProvider>
             {children}
