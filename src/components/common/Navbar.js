@@ -12,7 +12,20 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MenuMb from './MenuMb'
 
-function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrganizeFinal, dataPrizeFinal, dataProductList }) {
+function Navbar({
+  lang,
+  dataHeader,
+  dataJourneyFinal,
+  dataVisionFinal,
+  dataOrganizeFinal,
+  dataPrizeFinal,
+  dataProductList,
+  slugOffsetFinal,
+  slugFlexoFinal,
+  slugGravureFinal,
+  slugDigitalFinal,
+  slugOtherPrintFinal
+}) {
   const [color, setColor] = useState('')
   const [bgColor, setBgColor] = useState('')
   const [checkHome, setCheckHome] = useState(false)
@@ -142,27 +155,27 @@ function Navbar({ lang, dataHeader, dataJourneyFinal, dataVisionFinal, dataOrgan
       slug2: 'technology',
       listContent: [
         {
-          name: 'Công nghệ in Offset',
-          slug: 'offset'
+          name: slugOffsetFinal?.technology_common?.content?.titlePage,
+          slug: slugOffsetFinal?.slug
         },
         {
-          name: 'Công nghệ in Flexo',
-          slug: 'flexo'
+          name: slugFlexoFinal?.technology_common?.content?.titlePage,
+          slug: slugFlexoFinal?.slug
 
         },
         {
-          name: 'Công nghệ in Ống đồng',
-          slug: 'gravure'
+          name: slugGravureFinal?.technology_common?.content?.titlePage,
+          slug: slugGravureFinal?.slug
 
         },
         {
-          name: 'Công nghệ in Kỹ thuật số',
-          slug: 'digital'
+          name: slugDigitalFinal?.technology_common?.content?.titlePage,
+          slug: slugDigitalFinal?.slug
 
         },
         {
-          name: 'Giải pháp chống giả',
-          slug: 'other-printing'
+          name: slugOtherPrintFinal?.technology_otherPrinting?.content?.titlepage,
+          slug: slugOtherPrintFinal?.slug
 
         }
       ]

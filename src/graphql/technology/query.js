@@ -230,10 +230,75 @@ const GET_DATA_TECHNOLOGY_OTHERPRINT = `query getDataPageOtherPrint($language :L
   }
 }`
 
+const GET_SLUG_OFFSET = `query getDataPageOffset($language :LanguageCodeEnum!){
+  page(id:"cG9zdDo1MzA="){
+		translation(language:$language){
+      slug
+      technology_common{
+      content{
+        titlePage
+      }
+    	}
+    }
+  }
+}`
+const GET_SLUG_FLEXO = `query getDataPageOffset($language :LanguageCodeEnum!){
+  page(id:"cG9zdDo1MzI="){
+		translation(language:$language){
+      slug
+      technology_common{
+      content{
+        titlePage
+      }
+    	}
+    }
+  }
+}`
+const GET_SLUG_GRAVURE = `query getDataPageOffset($language :LanguageCodeEnum!){
+  page(id:"cG9zdDo1MzY="){
+		translation(language:$language){
+      slug
+      technology_common{
+      content{
+        titlePage
+      }
+    	}
+    }
+  }
+}`
+const GET_SLUG_DIGITAL = `query getDataPageOffset($language :LanguageCodeEnum!){
+  page(id:"cG9zdDo1NDI="){
+		translation(language:$language){
+      slug
+      technology_common{
+      content{
+        titlePage
+      }
+    	}
+    }
+  }
+}`
+const GET_SLUG_OTHERPRINT = `query getDataPageOffset($language :LanguageCodeEnum!){
+  page(id:"cG9zdDo1NDQ="){
+		translation(language:$language){
+      slug
+      technology_otherPrinting{
+        content{
+          titlepage
+        }
+    	}
+    }
+  }
+}`
 export {
   GET_DATA_TECHNOLOGY_DIGITAL,
   GET_DATA_TECHNOLOGY_GRAVURE,
   GET_DATA_TECHNOLOGY_OTHERPRINT,
   GET_DATA_TECHNOLOGY_OFFSET,
-  GET_DATA_TECHNOLOGY_FLEXO
+  GET_DATA_TECHNOLOGY_FLEXO,
+  GET_SLUG_OFFSET,
+  GET_SLUG_FLEXO,
+  GET_SLUG_GRAVURE,
+  GET_SLUG_DIGITAL,
+  GET_SLUG_OTHERPRINT
 }

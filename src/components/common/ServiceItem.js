@@ -20,14 +20,14 @@ function ServiceItem({ icon, textEdit, text, classNameCus }) {
                         </clipPath>
                     </defs>
                 </svg>
-                <Image src={icon} alt='icon' quality={100} className='md:w-[3.48958rem] md:h-[3.48958rem]  w-[12.72693rem] h-[13.42453rem] object-contain absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
+                <Image src={icon} alt='icon' quality={100} width={300} height={300} className='md:w-[3.48958rem] md:h-[3.48958rem]  w-[12.72693rem] h-[13.42453rem] object-contain absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
             </div>
 
             <div className={`md:w-[23.59375rem] md:line-clamp-[10] lg:h-[12rem] ${classNameCus}`}>
                 <span className='font-bold'>
                     {textEdit}
                 </span>
-                <span>{text}</span>
+                <span> {text}</span>
             </div>
         </div>
     )

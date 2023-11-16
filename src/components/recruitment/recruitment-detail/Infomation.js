@@ -9,7 +9,7 @@ import layer10 from '@/assets/imgs/Layer_10.svg'
 import OpportunityItem from '@/components/common/OpportunityItem'
 import Image from 'next/image'
 import Button from '@/components/common/Button'
-import { Formik, Field, ErrorMessage, Form } from 'formik'
+import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 function Infomation() {
     const dataForm = {
