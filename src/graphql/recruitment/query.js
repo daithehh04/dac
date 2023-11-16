@@ -2,7 +2,7 @@ const GET_DATA_RECRUIMENT_DETAIL = `query getDataRecruitmentDetail($slug:ID!,$la
   jobOpportunity(id: $slug, idType: SLUG) {
     translation(language:$language){
       slug
-       recruimentDetail {
+      recruimentDetail {
       banner {
         background {
           sourceUrl
@@ -24,6 +24,7 @@ const GET_DATA_RECRUIMENT_DETAIL = `query getDataRecruitmentDetail($slug:ID!,$la
           button
           telephone
         }
+        requestProfile
       }
     }
     }
@@ -60,34 +61,6 @@ const GET_DATA_RECRUIMENT_PAGE = `query ($language: LanguageCodeEnum!) {
   }
 }`
 
-const GET_LIST_JOB_BY_SEARCH = `query getData($text: String!, $language: LanguageCodeFilterEnum!, $offset: Int!, $size: Int!) {
-  allJobOpportunity(
-    where: {language: $language, search: $text, offsetPagination: {offset: $offset, size: $size}, orderby: {field: DATE, order: DESC}}
-  ) {
-    nodes {
-      slug
-      recruimentDetail {
-        infoJob {
-          icon {
-            sourceUrl
-            altText
-          }
-          nameJob
-          listInfoDetail {
-            title
-            text
-          }
-          applyText
-        }
-      }
-    }
-    pageInfo {
-      offsetPagination {
-        total
-      }
-    }
-  }
-}`
 
 const GET_ALL_SEARCH_BY_SERVER = (offset = 0, lang = "VI", text = '') => {
     return `{allJobOpportunity(
@@ -118,8 +91,33 @@ const GET_ALL_SEARCH_BY_SERVER = (offset = 0, lang = "VI", text = '') => {
   }
 }`
 }
+
+const  GET_DATA_NEW_JOBS = `query getdataJobNew($language: LanguageCodeEnum!) {
+  allJobOpportunity(first: 4, where: {orderby: {field: DATE, order: DESC}}) {
+    nodes {
+      translation(language: $language) {
+        slug
+        recruimentDetail {
+          infoJob {
+            nameJob
+            applyText
+            icon {
+              altText
+              sourceUrl
+            }
+            listInfoDetail{
+              title
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+}`
 export {
     GET_DATA_RECRUIMENT_DETAIL,
+    GET_DATA_NEW_JOBS,
     GET_DATA_RECRUIMENT_PAGE,
     GET_ALL_SEARCH_BY_SERVER
 }

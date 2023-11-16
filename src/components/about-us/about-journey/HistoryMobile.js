@@ -9,6 +9,7 @@ function HistoryMobile({ data }) {
     const popUpRef = useRef()
     const seeMoreRef = useRef()
     const [selected, setSelected] = useState(0)
+    const [checkNum,setCheckNum] = useState(0)
     const [number, setNumber] = useState(3)
     const handleClosePopUp = () => {
         if (popUpRef.current && openRef.current) {
@@ -24,25 +25,25 @@ function HistoryMobile({ data }) {
     }
 
     const handleClick = () => {
-        // if (number >= data?.journey?.length) {
-        //     if (seeMoreRef.current) {
-        //         seeMoreRef.current.style.display = 'none'
-        //     }
-        // }
-        // setNumber(number + 3)
+        setNumber(number + 1)
     }
     const handleSelect = (index) => {
         setSelected(index)
-    }
-    useEffect(() => {
-        const listElements = document.querySelectorAll('.historyYear')
-        // if(selected > 2){
+        // if(selected >= number - 1){
         //     setNumber(selected + 1)
-        //     listElements[number].scrollIntoView()
+        // }else{
+        //     setNumber(3)
         // }
-        listElements[selected].scrollIntoView()
-    }, [selected])
+    }
+    // useEffect(() => {
+    //     const listElements = document.querySelectorAll('.historyYear')
+    //     listElements[selected].scrollIntoView()
+    // }, [selected])
 
+    const dataJourney = data?.journey?.slice(0,number)
+    console.log('num',number);
+    console.log('select',selected);
+    
     return (
         <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] relative mb-[15rem]'>
             <div ref={popUpRef} className='popUpRef relative z-[11]'>
@@ -67,7 +68,7 @@ function HistoryMobile({ data }) {
 
             {/* main content */}
             <div className='pl-[13rem]'>
-                {data?.journey?.map((item, index) => {
+                {dataJourney?.map((item, index) => {
                     return (
                         <div key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab relative historyYear`}>
                             <span className='text-[#444] relative top-[-2rem] font-bold text-[6.93333rem] block year'>{item?.year}</span>
@@ -84,7 +85,8 @@ function HistoryMobile({ data }) {
                     )
                 })}
             </div>
-            <span ref={seeMoreRef} onClick={handleClick} className='text-[#00A84F] next-slide-custom text-justify text-[3.2rem] leading-[1.2] tracking-[-0.096rem] relative left-[5rem]'>Xem thêm</span>
+            {number <= data?.journey?.length - 1  &&
+            <span ref={seeMoreRef} onClick={handleClick} className='text-[#00A84F] next-slide-custom text-justify text-[3.2rem] leading-[1.2] tracking-[-0.096rem] relative left-[5rem]'>Xem thêm</span>}
         </section>
     )
 }
