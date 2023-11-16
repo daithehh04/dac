@@ -5,8 +5,6 @@ import { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 function SlideProduct({ lang, dataProductList }) {
-  console.log(dataProductList);
-
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
   const handleNextSlide = () => {
