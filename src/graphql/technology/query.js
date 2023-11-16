@@ -220,6 +220,7 @@ const GET_DATA_TECHNOLOGY_OTHERPRINT = `query getDataPageOtherPrint($language :L
                 sourceUrl
                 altText
               }
+              text
             }
             subContent
           }

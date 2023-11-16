@@ -3,7 +3,7 @@ import layer3 from '@/assets/imgs/Layer_3.svg'
 import TextnologyContent from '@/components/common/TextnologyContent'
 import imageContent from '@/assets/imgs/TechnologyBanner3.png'
 import Image from 'next/image'
-function ContentGravure() {
+function ContentGravure({ dataContent }) {
     const data = [
         {
             icon: layer3,
@@ -16,17 +16,17 @@ function ContentGravure() {
     ]
     return (
         <section className='contentWrapper bg-[#000D10] overflow-x-hidden'>
-            <h2 className='heading-primary md:w-[33.1875rem] w-[35rem] max-md:mb-[6rem]'>
-                CÔNG NGHỆ IN ỐNG ĐỒNG
+            <h2 className='heading-primary md:w-[33.1875rem] max-md:!text-[8.53333rem] w-[60rem] max-md:mb-[6rem]'>
+                {dataContent?.heading}
             </h2>
             <div className='flex md:pb-[7rem] md:pt-[4rem] max-md:flex-col'>
-                <div className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem]  max-md:mb-[6rem]'>
-                    <p>Với máy móc hiện đại, tốc độ sản xuất cực nhanh lên tới 450m/phút,
-                        hệ thống thiết bị đồng bộ khép kín từ in đến gia công (máy in, máy ghép, máy chia cuộn, máy dán túi, máy kiểm phẩm offline), công ty APP có thể đáp ứng được sản lượng cho các đơn hàng lớn và các yêu cầu khắt khe khác để đưa tới cho khách hàng những sản phẩm có chất lượng tốt nhất.
-                    </p>
+                <div
+                    className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem]  max-md:mb-[6rem]'
+                    dangerouslySetInnerHTML={{ __html: `${dataContent?.description}` }}
+                >
                 </div>
                 <div className='md:grid grid-cols-2 gap-x-[5.31rem] gap-y-[3.2rem]'>
-                    {data?.map((item, index) => {
+                    {dataContent?.listContent?.map((item, index) => {
                         return (
                             <TextnologyContent key={index} icon={item?.icon} text={item?.text} />
                         )
@@ -34,11 +34,10 @@ function ContentGravure() {
                 </div>
             </div>
             <div className='md:pl-[38.44rem] md:mb-[6.67rem] md:h-[27.8125rem]'>
-                <Image src={imageContent} alt='image' quality={100} className='w-full max-md:hidden object-cover md:h-[27.8125rem]' />
+                <Image src={dataContent?.image?.sourceUrl} alt={dataContent?.image?.altText || 'image'} width={1500} height={1000} quality={100} className='w-full max-md:hidden object-cover md:h-[27.8125rem]' />
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" className='md:w-full  h-[2px]' viewBox="0 0 1762 2" fill="none">
-                <path d="M1 1L1761 0.999846" stroke="white" stroke-linecap="round" />
-            </svg>
+
+            <div className='w-full h-[2px] bg-[#fff] opacity-30'></div>
         </section>
     )
 }
