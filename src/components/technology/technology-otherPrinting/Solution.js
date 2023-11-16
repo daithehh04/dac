@@ -15,7 +15,7 @@ function Solution({ dataSolution }) {
                     {dataSolution?.listSolution?.map((item, index) => (
                         <div
                             key={index}
-                            className='description !leading-[1.2] md:w-[39.03125rem] md:mb-[2.19rem] max-md:mb-[6rem]'
+                            className='list_solutions md:text-[1.5rem] lg:text-[1.35417rem] text-[4.27rem] md:tracking-[-0.04063rem] text-[#444] leading-[1.2] w-full md:w-[39.03125rem] md:mb-[2.19rem] max-md:mb-[6rem]'
                             dangerouslySetInnerHTML={{ __html: `${item?.solution}` }}
                         >
                         </div>

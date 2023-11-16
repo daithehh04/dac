@@ -1,10 +1,14 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { useDataBanner } from './DataContext'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOtherPrint }) {
     const [page, setPage] = useState(1)
     const context = useDataBanner()
+    const pathName = usePathname()
+    // let slug = searchParams.get('')
+    // console.log('pathName', pathName);
     let dataInfoOffset = dataOffset?.data?.page?.translation?.technology_common
     let dataInfoFlexo = dataFlexo?.data?.page?.translation?.technology_common
     let dataInfoGravure = dataGravure?.data?.page?.translation?.technology_common
@@ -58,6 +62,7 @@ function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOt
         dataSlugOffset, dataSlugFlexo, dataSlugGravure, dataSlugDigital, dataSlugOtherPrint
     ]
     const handlePage = (page) => {
+        alert(page)
         setPage(page.id)
         context.setDataBanner(page)
         // window.scroll(0, 0)
@@ -65,6 +70,20 @@ function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOt
     useEffect(() => {
         window.scroll(0, 0)
     }, [page])
+
+    useEffect(() => {
+        if (pathName.endsWith('offset')) {
+            context.setDataBanner(data[0])
+        } else if (pathName.endsWith('flexo')) {
+            context.setDataBanner(data[1])
+        } else if (pathName.endsWith('gravure')) {
+            context.setDataBanner(data[2])
+        } else if (pathName.endsWith('digital')) {
+            context.setDataBanner(data[3])
+        } else if (pathName.endsWith('other-printing')) {
+            context.setDataBanner(data[4])
+        }
+    }, [pathName])
     return (
         <div className='max-md:hidden'>
             <ul className='flex pt-[3.8rem] md:pl-[4.17rem] lg:pl-[12.03rem] bg-[#F5F5F5]'>
