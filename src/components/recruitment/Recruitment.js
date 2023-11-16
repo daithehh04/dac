@@ -11,7 +11,7 @@ function Recruitment({ data, lang, dataFirstIn }) {
             <main>
                 <Culture dataCulture={data?.content} />
                 <div className='flex flex-col max-md:flex-col-reverse'>
-                    <Opportunity lang={lang} dataOp={data?.content} />
+                    <Opportunity lang={lang} dataOp={data?.content} dataPagination={dataFirstIn} />
                     <InputAndPagination dataFirstIn={dataFirstIn} />
                 </div>
             </main>

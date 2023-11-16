@@ -9,12 +9,10 @@ function InputAndPagination({ dataFirstIn }) {
     const pathName = usePathname()
     const searchParams = useSearchParams()
     const page = searchParams.get('page') || 1
-    const textSearch = useDebounce(text, 500)
+    const textSearch = useDebounce(text, 300)
 
-    // const searchParams = useSearchParams()
-    // const page = searchParams.get('page') || 1
     const handleChangeInput = (e) => {
-        setText(e.target.value)
+            setText(e.target.value)
     }
     useEffect(() => {
         if (!textSearch) return

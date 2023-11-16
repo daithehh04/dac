@@ -91,7 +91,7 @@ const GET_LIST_JOB_BY_SEARCH = `query getData($text: String!, $language: Languag
 
 const GET_ALL_SEARCH_BY_SERVER = (offset = 0, lang = "VI", text = '') => {
     return `{allJobOpportunity(
-    where: {language: VI, search: "${text}", offsetPagination: {offset: ${offset}, size: 4}, orderby: {field: DATE, order: DESC}}
+    where: {language: ${lang} , search: "${text}", offsetPagination: {offset: ${offset}, size: 4}, orderby: {field: DATE, order: DESC}}
   ) {
     nodes {
       slug

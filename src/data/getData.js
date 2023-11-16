@@ -8,7 +8,7 @@ export default async function getData(query, variables = {}) {
             query,
             variables,
         }),
-        next: { revalidate: 60 },
+        next: { revalidate: 0 },
     })
     if (!res.ok) {
         return null
