@@ -101,3 +101,20 @@ html {
     padding: 8.53rem 4.27rem 0;
   }
 }
+
+.jobText {
+  color: #444;
+  text-align: justify;
+  font-size: 1.35417rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 116.662%; 
+  letter-spacing: -0.04063rem;
+  @media screen and (max-width:767px) {
+    font-size: 4.26667rem;    
+    letter-spacing: -0.128rem
+  }
+  @media screen and (min-width :768px) and (max-width :1023px) {
+    font-size: 1.5rem;
+  }
+}
