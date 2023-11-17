@@ -25,6 +25,7 @@ const GET_DATA_RECRUIMENT_DETAIL = `query getDataRecruitmentDetail($slug:ID!,$la
           telephone
         }
         requestProfile
+        subTitle
       }
     }
     }
@@ -63,7 +64,7 @@ const GET_DATA_RECRUIMENT_PAGE = `query ($language: LanguageCodeEnum!) {
 
 
 const GET_ALL_SEARCH_BY_SERVER = (offset = 0, lang = "VI", text = '') => {
-    return `{allJobOpportunity(
+  return `{allJobOpportunity(
     where: {language: ${lang} , search: "${text}", offsetPagination: {offset: ${offset}, size: 4}, orderby: {field: DATE, order: DESC}}
   ) {
     nodes {
@@ -92,7 +93,7 @@ const GET_ALL_SEARCH_BY_SERVER = (offset = 0, lang = "VI", text = '') => {
 }`
 }
 
-const  GET_DATA_NEW_JOBS = `query getdataJobNew($language: LanguageCodeEnum!) {
+const GET_DATA_NEW_JOBS = `query getdataJobNew($language: LanguageCodeEnum!) {
   allJobOpportunity(first: 4, where: {orderby: {field: DATE, order: DESC}}) {
     nodes {
       translation(language: $language) {
@@ -116,8 +117,8 @@ const  GET_DATA_NEW_JOBS = `query getdataJobNew($language: LanguageCodeEnum!) {
   }
 }`
 export {
-    GET_DATA_RECRUIMENT_DETAIL,
-    GET_DATA_NEW_JOBS,
-    GET_DATA_RECRUIMENT_PAGE,
-    GET_ALL_SEARCH_BY_SERVER
+  GET_DATA_RECRUIMENT_DETAIL,
+  GET_DATA_NEW_JOBS,
+  GET_DATA_RECRUIMENT_PAGE,
+  GET_ALL_SEARCH_BY_SERVER
 }

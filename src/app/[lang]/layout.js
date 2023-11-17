@@ -36,11 +36,11 @@ export default async function RootLayout({ children, params }) {
     <html lang={lang}>
       <body>
         <ApolloClientProvider>
-          <Suspense fallback={<Loader />}>
-            <NavbarData lang={lang} />
-            {children}
-            <Footer lang={lang} data={dataFooterFinal} />
-          </Suspense>
+          {/* <Suspense fallback={<Loader />}> */}
+          <NavbarData lang={lang} />
+          {children}
+          <Footer lang={lang} data={dataFooterFinal} />
+          {/* </Suspense> */}
         </ApolloClientProvider>
       </body>
     </html>

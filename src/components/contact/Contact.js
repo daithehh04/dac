@@ -7,8 +7,10 @@ function Contact() {
     return (
         <>
             <Banner />
-            <Branch />
-            <FormContact />
+            <main>
+                <Branch />
+                <FormContact />
+            </main>
         </>
     )
 }
