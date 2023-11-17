@@ -6,7 +6,6 @@ import Image from 'next/image'
 import arrNext from '@/assets/imgs/arr-r.svg'
 import arrPrev from '@/assets/imgs/arr-l.svg'
 import imgVideo from '@/assets/imgs/img-video.jpg'
-const data = new Array(6).fill()
 function VideoSlide({ dataSlideVideo }) {
   const [indexSlider, setIndexSlider] = useState(0)
   const swiperRef = useRef()
@@ -29,7 +28,6 @@ function VideoSlide({ dataSlideVideo }) {
     }
   }, [isPlay])
 
-  const defaultVideo = 'https://viva-cms.okhub.tech/wp-content/uploads/2023/09/river_-_40012-1080p-2.mp4'
   return (
     <div className='relative md:h-[100vh] h-[100rem] content slide-product mt-[8.5rem]'>
       <Swiper
@@ -63,12 +61,9 @@ function VideoSlide({ dataSlideVideo }) {
                     controls={isPlay}
                     ref={videoRef}
                     className={`w-full h-full object-cover`}
-                    src={item?.video?.sourceUrl || defaultVideo}
+                    src={item?.video?.sourceUrl}
                   >
-                    {/* <source
-                      src={item?.video?.sourceUrl || defaultVideo}
-                      type='video/mp4'
-                    /> */}
+
                   </video>
                   <p className={`text-white text-[6.667rem] opacity-40 font-bold uppercase absolute top-[50%] -translate-y-1/2 w-full text-center ${isPlay ? 'hidden' : ''}`}>Video app</p>
                 </div>
