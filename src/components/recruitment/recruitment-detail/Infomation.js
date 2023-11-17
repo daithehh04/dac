@@ -1,31 +1,45 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import layer_11 from '@/assets/imgs/Layer_11.svg'
 import layer_12 from '@/assets/imgs/Layer_12.svg'
 import layer_13 from '@/assets/imgs/Layer_13.svg'
 import layer_14 from '@/assets/imgs/Layer_14.svg'
 import layer_15 from '@/assets/imgs/Layer_15.svg'
-import layer10 from '@/assets/imgs/Layer_10.svg'
-import OpportunityItem from '@/components/common/OpportunityItem'
+import { gql, useMutation } from '@apollo/client'
 import Image from 'next/image'
 import Button from '@/components/common/Button'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 import OpportunityItem1 from '@/components/common/OppoturnityItem1'
+
+
+// queries form
+const SUBMIT_FORM = gql`
+  mutation ($input: SubmitGfFormInput!) {
+    submitGfForm(input: $input) {
+      entry {
+        id
+      }
+      errors {
+        message
+      }
+    }
+  }
+`
 function Infomation({ dataContent, lang, dataJobNew }) {
-
     const [number, setNumber] = useState(2)
-
+    const [mutate, { loading }] = useMutation(SUBMIT_FORM)
+    const handleClick = () => {
+        setNumber(number + 2)
+    }
     const dataJobNewMb = dataJobNew?.slice(0, number)
     const INITAL_FORM_STATE = {
         fullName: '',
         email: '',
         telephone: '',
         date: '',
-        address: ''
-    }
-    const handleClick = () => {
-        setNumber(number + 2)
+        address: '',
+        file: ''
     }
     const FORM_VALIDATION = Yup.object().shape({
         fullName: Yup.string().required('Required'),
@@ -35,8 +49,43 @@ function Infomation({ dataContent, lang, dataJobNew }) {
             .required('Required'),
         email: Yup.string().email('Invalid email.').required('Required'),
         date: Yup.string().required('Required'),
-        address: Yup.string().required('Required')
+        address: Yup.string().required('Required'),
+        file: Yup
+            .mixed()
+            .test('fileFormat', 'Unsupported file format', (value) => {
+                if (!value) return true; // Accepts empty files
+                return ['image/jpeg', 'image/png', 'application/pdf'].includes(value.type);
+            })
+            .test('fileSize', 'File size is too large', (value) => {
+                if (!value) return true; // Accepts empty files
+                return value.size <= 1024 * 1024; // 1 MB
+            }),
     })
+
+    const handleForm = (values, resetForm) => {
+        mutate({
+            variables: {
+                input: {
+                    id: 1,
+                    fieldValues: [
+                        { id: 1, value: values.fullName },
+                        { id: 3, value: values.email },
+                        { id: 4, value: values.telephone },
+                        { id: 5, value: values.date },
+                        { id: 6, value: values.address },
+                        { id: 7, value: values.file },
+                    ]
+                }
+            }
+        }).then((res) => {
+            if (res?.data?.submitGfForm?.errors?.length > 0) {
+                // Have Error
+            } else {
+                // Successful
+                resetForm()
+            }
+        })
+    }
     return (
         <section className='max-md:flex-col md:flex-wrap justify-between flex recruitmentInfo max-md:pb-[12.27rem]'>
             {/* content-left */}

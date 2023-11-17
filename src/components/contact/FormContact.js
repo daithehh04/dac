@@ -10,41 +10,23 @@ import img from '@/assets/imgs/ContactImageInfo.png'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import * as Yup from 'yup'
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
-
+import { gql, useMutation } from '@apollo/client'
+const SUBMIT_FORM = gql`
+  mutation ($input: SubmitGfFormInput!) {
+    submitGfForm(input: $input) {
+      entry {
+        id
+      }
+      errors {
+        message
+      }
+    }
+  }
+`
 function FormContact({ dataForm }) {
     const [active, setActive] = useState(0)
-    // const dataForm = {
-    //     title: 'Kết nối ngay với App',
-    //     title2: 'Chúng tôi luôn sẵn sàng lắng nghe và đưa ra những dịch vụ phù hợp nhất cho sản phẩm của bạn.',
-    //     infoBranch: [
-    //         {
-    //             name: 'Trụ sở 72 trường chinh'
-    //         },
-    //         {
-    //             name: 'Chi Nhánh nhà máy Hưng Yên'
-    //         },
-    //         {
-    //             name: 'Chi Nhánh nhà máy Ngọc Hồi'
-    //         }
-    //     ],
-    //     infoInput: [
-    //         {
-    //             label: 'Họ tên*',
-    //             icon: layer_11
-    //         },
-    //         {
-    //             label: 'Email*',
-    //             icon: layer_12
-    //         },
-    //         {
-    //             label: 'Số điện thoại*',
-    //             icon: layer_13
-    //         },
-    //         {
-    //             label: 'Nội dung*'
-    //         }
-    //     ]
-    // }
+    const [mutate, { loading }] = useMutation(SUBMIT_FORM)
+    const [address, setAddress] = useState(dataForm?.address[0]?.text)
     const INITAL_FORM_STATE = {
         fullName: '',
         email: '',
@@ -62,13 +44,41 @@ function FormContact({ dataForm }) {
         message: Yup.string(),
         address: Yup.string()
     })
+
+    const handleForm = (values, resetForm) => {
+        mutate({
+            variables: {
+                input: {
+                    id: 2,
+                    fieldValues: [
+                        { id: 1, value: values.fullName },
+                        { id: 3, value: values.email },
+                        { id: 5, value: values.telephone },
+                        { id: 6, value: values.message },
+                        { id: 7, value: values.address }
+                    ]
+                }
+            }
+        }).then((res) => {
+            if (res?.data?.submitGfForm?.errors?.length > 0) {
+                // Have Error
+                return
+            } else {
+                // Successful
+                resetForm()
+            }
+        })
+    }
     return (
         <section className='contactForm md:pt-[4.7rem] pt-[5.07rem]  max-md:flex-col md:pl-[4.17rem] md:pr-[9.43rem]  md:pb-[6.56rem] flex justify-between'>
             {/* content-left */}
             <div className='max-md:px-[4.27rem]'>
                 <h2 className='heading2 md:w-[23.4375rem] md:mb-[2.8rem] mb-[5.07rem]'>{dataForm?.heading}</h2>
                 {dataForm?.address?.map((item, index) => (
-                    <div onClick={() => setActive(index)} key={index} className='flex items-center md:mb-[1.61rem] mb-[5rem] cursor-pointer'>
+                    <div onClick={() => {
+                        setActive(index)
+                        setAddress(item?.text)
+                    }} key={index} className='flex items-center md:mb-[1.61rem] mb-[5rem] cursor-pointer'>
                         <div className={`md:w-[1.04167rem] md:h-[1.04167rem] w-[2.66667rem]  h-[2.66667rem] rounded-[50%] mr-[6.13rem] md:mr-[2.76rem] ${index === active ? 'bg-[#00A84F]' : 'bg-[#D9D9D9]'} `}></div>
                         <p className='description !font-normal'>{item?.text}</p>
                     </div>
@@ -83,12 +93,12 @@ function FormContact({ dataForm }) {
                 <Formik
                     initialValues={{ ...INITAL_FORM_STATE }}
                     validationSchema={FORM_VALIDATION}
-                    // onSubmit={(values, { resetForm }) => {
-                    //     handleForm(values, resetForm)
-                    // }}
-                    onSubmit={(values) => {
-                        console.log(values);
+                    onSubmit={(values, { resetForm }) => {
+                        handleForm(values, resetForm)
                     }}
+                // onSubmit={(values) => {
+                //     console.log(values);
+                // }}
                 >
                     {({ errors, touched }) => {
                         return (
@@ -126,10 +136,11 @@ function FormContact({ dataForm }) {
                                         <TextareaAutosize
                                             className='outline-none md:w-[25rem]'
                                             minRows={4}
-                                            name="message"
+                                            name='message'
                                         />
                                     </div>
-                                    <Field name="address" type='text' className='hidden' />
+                                    <Field name="address" type='text' />
+                                    {/* <input name='address' className='hidden' value={address} /> */}
                                 </div>
                                 <Button text={dataForm?.formData?.button || 'Gửi thông tin'} />
                             </Form>
