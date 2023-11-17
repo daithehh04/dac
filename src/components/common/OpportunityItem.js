@@ -21,7 +21,7 @@ function OpportunityItem({ icon, data, title, desc, className, classCus, check }
                         </clipPath>
                     </defs>
                 </svg>
-                <Image src={icon} alt='icon' quality={100} className='md:w-[3.74297rem] w-[12.90267rem] h-[12.41573rem] md:h-[3.85135rem] object-contain absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
+                <Image src={icon} alt='icon' quality={100} className='md:w-[3.74297rem] w-[12.90267rem] h-[12.41573rem] md:h-[3.85135rem] object-cover absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
             </div>
 
             {title && desc &&
