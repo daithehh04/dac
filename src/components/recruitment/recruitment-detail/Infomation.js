@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import layer_11 from '@/assets/imgs/Layer_11.svg'
 import layer_12 from '@/assets/imgs/Layer_12.svg'
 import layer_13 from '@/assets/imgs/Layer_13.svg'
@@ -12,109 +12,20 @@ import Button from '@/components/common/Button'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 import OpportunityItem1 from '@/components/common/OppoturnityItem1'
-function Infomation({dataContent,lang,dataJobNew}) {
-    const dataForm = {
-        title: 'Gửi thông tin ứng tuyển cho APP',
-        infoInput: [
-            {
-                label: 'Họ tên*',
-                icon: layer_11
-            },
-            {
-                label: 'Email*',
-                icon: layer_12
-            },
-            {
-                label: 'Số điện thoại*',
-                icon: layer_13
-            },
-            {
-                label: 'Ngày sinh*',
-                icon: layer_14
-            },
-            {
-                label: 'Địa chỉ hiện tại*',
-                icon: layer_15
-            },
-            {
-                label: 'File đính kèm'
-            }
-        ]
-    }
-    const data =
-    {
-        listOppo: [
-            {
-                icon: layer10,
-                infoOppo: [
-                    {
-                        text: 'Chuyên viên thiết kế đồ họa'
-                    },
-                    {
-                        text: 'Địa điểm làm việc: Hà Nội'
-                    },
-                    {
-                        text: 'Mức lương: Thỏa thuận'
-                    }
-                ]
-            },
-            {
-                icon: layer10,
-                infoOppo: [
-                    {
-                        text: 'Nhân viên Thị Trường'
-                    },
-                    {
-                        text: 'Địa điểm làm việc: Hà Nội'
-                    },
-                    {
-                        text: 'Mức lương: Thỏa thuận'
-                    }
-                ]
-            },
-            {
-                icon: layer10,
-                infoOppo: [
-                    {
-                        text: 'Kỹ thuật viên lập trình'
-                    },
-                    {
-                        text: 'Địa điểm làm việc: Hưng Yên'
-                    },
-                    {
-                        text: 'Mức lương: Thỏa thuận'
-                    }
-                ]
-            },
-            {
-                icon: layer10,
-                infoOppo: [
-                    {
-                        text: 'Kỹ thuật viên lập trình'
-                    },
-                    {
-                        text: 'Địa điểm làm việc: Hưng Yên'
-                    },
-                    {
-                        text: 'Mức lương: Thỏa thuận'
-                    }
-                ]
-            }
-        ]
+function Infomation({ dataContent, lang, dataJobNew }) {
 
-    }
-    const handleClick = () => {
-        if (refElement.current) {
-            refElement.current.style.display = 'flex'
-        }
-    }
-    const refElement = useRef()
+    const [number, setNumber] = useState(2)
+
+    const dataJobNewMb = dataJobNew?.slice(0, number)
     const INITAL_FORM_STATE = {
         fullName: '',
         email: '',
         telephone: '',
         date: '',
         address: ''
+    }
+    const handleClick = () => {
+        setNumber(number + 2)
     }
     const FORM_VALIDATION = Yup.object().shape({
         fullName: Yup.string().required('Required'),
@@ -132,8 +43,8 @@ function Infomation({dataContent,lang,dataJobNew}) {
 
             <div className='bg-[#F5F5F5] md:pl-[4.17rem] md:pb-[6.4rem] pb-[8rem] pt-[6.4rem] max-md:px-[4.53rem] md:w-[50%]'>
                 <h2 className='heading md:w-[28.64583rem] md:mb-[2.8rem] mb-[7rem] max-md:!text-[6.93333rem]'>{dataContent?.heading}</h2>
-                <div 
-                    className='grid description md:w-[44.63542rem] md:gap-[0.5rem] gap-[4rem]'
+                <div
+                    className='grid job_Info md:w-[44.63542rem] md:gap-[0.5rem] gap-[4rem]'
                     dangerouslySetInnerHTML={{ __html: `${dataContent?.description}` }}>
                 </div>
             </div>
@@ -203,7 +114,7 @@ function Infomation({dataContent,lang,dataJobNew}) {
                                         <Field name='file' type='file' className='bg-transparent' />
                                     </div>
                                 </div>
-                                <Button text={dataContent?.dataForm?.button ||'Gửi thông tin'} />
+                                <Button text={dataContent?.dataForm?.button || 'Gửi thông tin'} />
                             </Form>
                         )
                     }}
@@ -213,20 +124,30 @@ function Infomation({dataContent,lang,dataJobNew}) {
             </div>
 
             {/* profile */}
-            <div 
-                className='flex flex-col description md:w-[44.375rem] max-md:px-[4.53rem] pt-[6.84rem] md:mb-[1.93rem] md:pl-[4.17rem] md:pt-[3.17rem]'
+            <div
+                className='flex flex-col job_Info md:w-[44.375rem] max-md:px-[4.53rem] pt-[6.84rem] md:mb-[1.93rem] md:pl-[4.17rem] md:pt-[3.17rem]'
                 dangerouslySetInnerHTML={{ __html: `${dataContent?.requestProfile}` }}
             >
             </div>
 
             <section className='md:pt-[1.13rem] pt-[6.4rem] px-[4.27rem] md:px-[4.17rem] md:pb-[10rem]'>
-                <h3 className='description md:mb-[2.24rem] mb-[6rem]'>Các vị trí khác</h3>
-                <div className='md:grid grid-cols-4'>
+                <h3 className='description md:mb-[2.24rem] mb-[6rem]'>{dataContent?.subTitle}</h3>
+                <div className='md:grid max-md:hidden grid-cols-4'>
                     {dataJobNew?.map((item, index) => (
-                            <OpportunityItem1 key={index} lang={lang} data={item} />
+                        <OpportunityItem1 key={index} lang={lang} data={item} />
                     ))}
                 </div>
-                <p onClick={handleClick} className='md:hidden text-[4.26667rem] leading-[116.662%] underline text-center text-[#00A84F] max-md:mb-[7rem] cursor-pointer'>Xem thêm</p>
+                <div className='grid md:hidden'>
+                    {dataJobNewMb?.map((item, index) => (
+                        <OpportunityItem1 key={index} lang={lang} data={item} />
+                    ))}
+                </div>
+                {
+                    number < dataJobNew?.length
+                    &&
+                    <p onClick={handleClick} className='md:hidden text-[4.26667rem] leading-[116.662%] underline text-center text-[#00A84F] max-md:mb-[7rem] cursor-pointer'>Xem thêm</p>
+
+                }
             </section>
 
         </section>

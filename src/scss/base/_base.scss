@@ -118,3 +118,32 @@ html {
     font-size: 1.5rem;
   }
 }
+.job_Info {
+  color: #444;
+  text-align: justify;
+  font-size: 1.35417rem;
+  line-height: 116.662%; 
+  letter-spacing: -0.04063rem;
+  @media screen and (max-width:767px) {
+    font-size: 4.26667rem;    
+    letter-spacing: -0.128rem
+  }
+  @media screen and (min-width :768px) and (max-width :1023px) {
+    font-size: 1.5rem;
+  }
+  li {
+        list-style-type: disc;
+        &::marker{
+            font-size: 1rem;
+            @media screen and (max-width :767px) {
+                font-size: 3rem;
+            }
+        }
+    }
+    ul{
+        padding-left: 2rem;
+        @media screen and (max-width :767px) {
+            padding-left: 7rem;
+        }
+    }
+}

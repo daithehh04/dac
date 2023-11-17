@@ -33,7 +33,7 @@ function OpportunityItem1({ lang, data }) {
                         </div>
                     ))}
                 </div>
-                <Link href={`/${lang}/recruitment/${data?.slug}`}>
+                <Link href={`/${lang}/recruitment/${data?.slug || data?.translation?.slug}`}>
                     <p className='md:w-[21.04167rem] cursor-pointer description !text-[#888] underline !font-normal'>{data?.recruimentDetail?.infoJob?.applyText || data?.translation?.recruimentDetail?.infoJob?.applyText}</p>
                 </Link>
             </div>
