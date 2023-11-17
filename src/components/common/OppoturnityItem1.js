@@ -2,10 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-function OpportunityItem1({lang, data}) {
-    console.log(data);
+function OpportunityItem1({ lang, data }) {
     return (
-        <div className={`flex flex-col`}>
+        <div className={`flex flex-col max-md:flex-row max-md:mb-[12rem]`}>
             <div className={`relative md:mb-[2.5rem] mb-[4rem] md:w-[5.26089rem] w-[18.13493rem] h-[18.13493rem] md:h-[5.62552rem] max-md:mr-[6.4rem]`}>
                 <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[5.26089rem] md:h-[5.62552rem] w-[18.13493rem] h-[18.13493rem] ' viewBox="0 0 111 111" fill="none">
                     <g clip-path="url(#clip0_417_572)">
@@ -22,22 +21,22 @@ function OpportunityItem1({lang, data}) {
                         </clipPath>
                     </defs>
                 </svg>
-                    <Image src={data?.recruimentDetail?.infoJob?.icon?.sourceUrl || data?.translation?.recruimentDetail?.infoJob?.icon?.sourceUrl} width={200} height={200} alt={data?.recruimentDetail?.infoJob?.icon?.altText || 'icon'} quality={100} className='md:w-[3.74297rem] w-[12.90267rem] h-[12.41573rem] md:h-[3.85135rem] object-contain absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
+                <Image src={data?.recruimentDetail?.infoJob?.icon?.sourceUrl || data?.translation?.recruimentDetail?.infoJob?.icon?.sourceUrl} width={200} height={200} alt={data?.recruimentDetail?.infoJob?.icon?.altText || 'icon'} quality={100} className='md:w-[3.74297rem] w-[12.90267rem] h-[12.41573rem] md:h-[3.85135rem] object-contain absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2' />
             </div>
-                <div>
-                    <h3 className='jobText md:mb-[0.5rem] mb-[3rem]'>{data?.recruimentDetail?.infoJob?.nameJob || data?.translation?.recruimentDetail?.infoJob?.nameJob}</h3>
-                    <div className={`md:w-[21.04167rem] md:mb-[1.3rem] flex flex-col relative max-md:top-[-1.5rem]`}>
-                        {(data?.recruimentDetail?.infoJob?.listInfoDetail || data?.translation?.recruimentDetail?.infoJob?.listInfoDetail)?.map((item, index) => (
-                                <div key={index} className='flex'>
-                                    <p className='description md:mb-[0.5rem] mb-[3rem] md:mr-[0.5rem]'>{item?.title}</p>
-                                    <p className='description !font-normal md:mb-[0.5rem] mb-[3rem]'> {item?.text}</p>
-                                </div>
-                        ))}
-                    </div>
-                    <Link  href={`/${lang}/recruitment/${data?.slug}`}>
-                        <p className='md:w-[21.04167rem] cursor-pointer description !text-[#888] underline !font-normal'>{data?.recruimentDetail?.infoJob?.applyText || data?.translation?.recruimentDetail?.infoJob?.applyText}</p>
-                    </Link>
+            <div>
+                <h3 className='jobText md:mb-[0.5rem] mb-[3rem]'>{data?.recruimentDetail?.infoJob?.nameJob || data?.translation?.recruimentDetail?.infoJob?.nameJob}</h3>
+                <div className={`md:w-[21.04167rem] md:mb-[1.3rem] flex flex-col relative max-md:top-[-1.5rem]`}>
+                    {(data?.recruimentDetail?.infoJob?.listInfoDetail || data?.translation?.recruimentDetail?.infoJob?.listInfoDetail)?.map((item, index) => (
+                        <div key={index} className='flex'>
+                            <p className='description md:mb-[0.5rem] mb-[3rem] md:mr-[0.5rem]'>{item?.title}</p>
+                            <p className='description !font-normal md:mb-[0.5rem] mb-[3rem]'> {item?.text}</p>
+                        </div>
+                    ))}
                 </div>
+                <Link href={`/${lang}/recruitment/${data?.slug}`}>
+                    <p className='md:w-[21.04167rem] cursor-pointer description !text-[#888] underline !font-normal'>{data?.recruimentDetail?.infoJob?.applyText || data?.translation?.recruimentDetail?.infoJob?.applyText}</p>
+                </Link>
+            </div>
         </div>
     )
 }

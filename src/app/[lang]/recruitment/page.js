@@ -7,9 +7,8 @@ import { GET_ALL_SEARCH_BY_SERVER, GET_DATA_RECRUIMENT_PAGE } from '@/graphql/re
 export default async function page({ params, searchParams }) {
     let data = await getDataPage(params?.lang, GET_DATA_RECRUIMENT_PAGE)
     const dataRecruitment = data?.data?.page?.translation?.recruiment
-    const offset = searchParams?.page || 0 * 4
+    const offset = (searchParams?.page - 1) * 4 || 0
     const text = searchParams?.text || ''
-    console.log(GET_ALL_SEARCH_BY_SERVER(offset, params?.lang.toUpperCase(), text));
     const dataFirstIn = await getData(GET_ALL_SEARCH_BY_SERVER(offset, params?.lang.toUpperCase(), text))
     return (
         <Recruitment dataFirstIn={dataFirstIn?.data?.allJobOpportunity} lang={params?.lang} data={dataRecruitment} />
