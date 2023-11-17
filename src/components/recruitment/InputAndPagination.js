@@ -2,7 +2,6 @@
 import useDebounce from '@/hooks/useDebounce'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-
 function InputAndPagination({ dataFirstIn }) {
     const [text, setText] = useState("")
     const router = useRouter()
@@ -10,18 +9,24 @@ function InputAndPagination({ dataFirstIn }) {
     const searchParams = useSearchParams()
     const page = searchParams.get('page') || 1
     const textSearch = useDebounce(text, 300)
-
     const handleChangeInput = (e) => {
-            setText(e.target.value)
+        setText(e.target.value)
     }
     useEffect(() => {
-        if (!textSearch) return
         const paramNew = new URLSearchParams(searchParams)
-        paramNew.set('text', text)
-        console.log(paramNew.toString());
-        router.replace(pathName + '?' + paramNew.toString(), {
-            scroll: false,
-        })
+        if (!textSearch) {
+            paramNew.set('text', '')
+            return router.replace(pathName + '?' + paramNew.toString(), {
+                scroll: false,
+            })
+        } else {
+            paramNew.set('text', text)
+            paramNew.set('page', '1')
+            router.replace(pathName + '?' + paramNew.toString(), {
+                scroll: false,
+            })
+        }
+
     }, [textSearch])
 
     const pageInfo = dataFirstIn?.pageInfo?.offsetPagination?.total
@@ -33,12 +38,12 @@ function InputAndPagination({ dataFirstIn }) {
             scroll: false,
         })
     }
+
     return (
         <div className='md:pb-[8.56rem]'>
             <div className='searchTextBlog flex justify-center md:mt-[5.8rem] md:mb-[1rem] max-md:my-[7rem]'>
                 <input placeholder='Tim Kiem' onChange={handleChangeInput} className=' md:w-[10.625rem] w-[42.46rem] h-[8.8rem] rounded-[11.46667rem] md:h-[2.1875rem] md:px-[0.5rem] md:rounded-[2.23958rem] bg-[#F0F0F0]' />
             </div>
-
             {/* pagination */}
             <div className='flex justify-center items-center relative md:mt-[1rem]'>
                 {Array.from({ length: totalPage }, (_, index) => (
