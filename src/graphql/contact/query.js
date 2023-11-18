@@ -44,7 +44,25 @@ const GET_DATA_CONTACT_PAGE = `query($language:LanguageCodeEnum!){
   }
   }
 }`
-
+const META_CONTACT_QUERY = `
+query($language: LanguageCodeEnum!){
+  page(id: "cG9zdDo2OTU=") {
+    translation(language:$language){
+      seo{
+      title
+      fullHead
+      metaDesc
+      }
+       featuredImage{
+      node{
+        altText
+        sourceUrl
+      }
+    }
+    }
+  }
+}`
 export {
-    GET_DATA_CONTACT_PAGE
+  GET_DATA_CONTACT_PAGE,
+  META_CONTACT_QUERY
 }

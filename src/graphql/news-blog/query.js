@@ -125,9 +125,47 @@ const GET_DATA_ALL_WITH_SEARCH = gql`query getData($text: String!, $language: La
     }
   }
 }`
+
+const GET_META_NEWS = `
+query($language: LanguageCodeEnum!){
+  page(id: "cG9zdDozNDI=") {
+    translation(language:$language){
+      seo{
+      title
+      fullHead
+      metaDesc
+      }
+       featuredImage{
+      node{
+        altText
+        sourceUrl
+      }
+    }
+    }
+  }
+}`
+const META_NEWS_DETAIL_QUERY = `query($slug:ID!, $language:LanguageCodeEnum!){
+  post(id:$slug,idType:SLUG){
+    translation(language:$language){
+      seo{
+        title
+        fullHead
+        metaDesc
+      }
+      featuredImage{
+        node{
+          sourceUrl
+          altText
+        }
+      }
+    }
+  }
+}`
 export {
   GET_DATA_NEWS_DETAIL,
   GET_ALL_NEWS,
   DATA_BY_SEARCH_TEXT,
-  GET_DATA_ALL_WITH_SEARCH
+  GET_DATA_ALL_WITH_SEARCH,
+  GET_META_NEWS,
+  META_NEWS_DETAIL_QUERY
 }
