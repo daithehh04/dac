@@ -116,9 +116,46 @@ const GET_DATA_NEW_JOBS = `query getdataJobNew($language: LanguageCodeEnum!) {
     }
   }
 }`
+const META_RECRUITMENT_QUERY = `
+query($language: LanguageCodeEnum!){
+  page(id: "cG9zdDo2NjM=") {
+    translation(language:$language){
+      seo{
+      title
+      fullHead
+      metaDesc
+      }
+       featuredImage{
+      node{
+        altText
+        sourceUrl
+      }
+    }
+    }
+  }
+}`
+const META_RECRUITMENT_DETAIL_QUERY = `query($slug:ID!, $language:LanguageCodeEnum!){
+  jobOpportunity(id:$slug,idType:SLUG){
+    translation(language:$language){
+      seo{
+        title
+        fullHead
+        metaDesc
+      }
+      featuredImage{
+        node{
+          sourceUrl
+          altText
+        }
+      }
+    }
+  }
+}`
 export {
   GET_DATA_RECRUIMENT_DETAIL,
   GET_DATA_NEW_JOBS,
   GET_DATA_RECRUIMENT_PAGE,
-  GET_ALL_SEARCH_BY_SERVER
+  GET_ALL_SEARCH_BY_SERVER,
+  META_RECRUITMENT_QUERY,
+  META_RECRUITMENT_DETAIL_QUERY
 }

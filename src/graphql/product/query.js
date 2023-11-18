@@ -18,7 +18,7 @@ const GET_DATA_PRODUCT_PAGE = `query getDataProductPage($language: LanguageCodeE
   }
 }
 `
-const GET_DATA_CATEGORY_PRODUCT_SERVICE =`
+const GET_DATA_CATEGORY_PRODUCT_SERVICE = `
 query getDataCategoryProduct($language: LanguageCodeFilterEnum!) {
   allCategoryProducts(first: 100, where: {language: $language}) {
     nodes {
@@ -86,10 +86,48 @@ const GET_DATA_OTHER_PRODUCT = `query getDataProduct_detail($language: LanguageC
     }
   }
 }`
+const META_PRODUCT_DETAIL_QUERY = `query($slug:ID!, $language:LanguageCodeEnum!){
+ 	serviceProduct(id:$slug,idType:SLUG){
+    translation(language:$language){
+      seo{
+        title
+        fullHead
+        metaDesc
+      }
+      featuredImage{
+        node{
+          sourceUrl
+          altText
+        }
+      }
+    }
+  }
+}`
+
+const META_SERVICE_PRODUCT_QUERY = `
+query($language: LanguageCodeEnum!){
+  page(id: "cG9zdDo0ODM=") {
+    translation(language:$language){
+      seo{
+      title
+      fullHead
+      metaDesc
+      }
+       featuredImage{
+      node{
+        altText
+        sourceUrl
+      }
+    }
+    }
+  }
+}`
 export {
   GET_DATA_PRODUCT_PAGE,
   GET_DATA_CATEGORY_PRODUCT_SERVICE,
   GET_DATA_PRODUCT_DETAIL,
   GET_SLUG_FIRST_PRODUCT,
-  GET_DATA_OTHER_PRODUCT
+  GET_DATA_OTHER_PRODUCT,
+  META_PRODUCT_DETAIL_QUERY,
+  META_SERVICE_PRODUCT_QUERY
 }

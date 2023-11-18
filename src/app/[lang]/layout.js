@@ -2,8 +2,6 @@ import Navbar from '@/components/common/Navbar'
 import ApolloClientProvider from '../apolloProvider'
 import './globals.css'
 import Footer from '@/components/common/Footer'
-import { Suspense } from 'react'
-import Loader from './loading'
 // Sass
 import '@/scss/main.scss'
 // fonts
@@ -29,17 +27,15 @@ export async function generateStaticParams() {
 
 export default async function RootLayout({ children, params }) {
   let lang = params.lang
-  let  dataFooter = await getDataPage(lang, GET_DATA_FOOTER)
+  let dataFooter = await getDataPage(lang, GET_DATA_FOOTER)
   const dataFooterFinal = dataFooter?.data?.page?.translation
   return (
     <html lang={lang}>
       <body>
         <ApolloClientProvider>
-          {/* <Suspense fallback={<Loader />}> */}
           <NavbarData lang={lang} />
           {children}
           <Footer lang={lang} data={dataFooterFinal} />
-          {/* </Suspense> */}
         </ApolloClientProvider>
       </body>
     </html>

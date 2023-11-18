@@ -31,7 +31,7 @@ function Navbar({
   const [checkHome, setCheckHome] = useState(false)
   const [shadow, setShadow] = useState('')
   const [logoHome, setLogoHome] = useState(logoW)
-  const [checkScroll,setCheckScroll] = useState(false)
+  const [checkScroll, setCheckScroll] = useState(false)
   const refMb = useRef()
 
   const handleOpenModal = () => {
@@ -208,7 +208,7 @@ function Navbar({
             }
             <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw] max-md:hidden'>
               {navLinks.map((link, index) => (
-                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && 'text-[#000]'} `} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
+                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
               ))}
             </div>
             <SelectLang lang={lang} color={color} checkHome={checkHome} />

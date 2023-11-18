@@ -28,24 +28,26 @@ function HistoryMobile({ data }) {
     }
     const handleSelect = (index) => {
         setSelected(index)
-        if(index >= 3){
+        if (index >= 3) {
             setNumber(index + 1)
-            if(seeMoreRef.current){
-                seeMoreRef.current.display='none'
-            }else{
-                seeMoreRef.current.display='block'
+            if (seeMoreRef.current) {
+                seeMoreRef.current.display = 'none'
+            } else {
+                seeMoreRef.current.display = 'block'
             }
-        }else{
+        } else {
             setNumber(3)
         }
     }
     useEffect(() => {
         const listElements = document.querySelectorAll('.historyYear')
-        listElements[selected].scrollIntoView()
+        listElements[selected].scrollIntoView({
+            behavior: 'smooth'
+        })
     }, [selected])
 
-    const dataJourney = data?.journey?.slice(0,number)
-    
+    const dataJourney = data?.journey?.slice(0, number)
+
     return (
         <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] max-md:mt-[5rem] relative mb-[15rem]'>
             <div ref={popUpRef} className='popUpRef relative z-[11]'>
@@ -86,8 +88,8 @@ function HistoryMobile({ data }) {
                     )
                 })}
             </div>
-            {number <= data?.journey?.length - 1  &&
-            <span ref={seeMoreRef} onClick={handleClick} className='text-[#00A84F] next-slide-custom text-justify text-[3.2rem] leading-[1.2] tracking-[-0.096rem] relative left-[5rem]'>Xem thêm</span>}
+            {number <= data?.journey?.length - 1 &&
+                <span ref={seeMoreRef} onClick={handleClick} className='text-[#00A84F] next-slide-custom text-justify text-[3.2rem] leading-[1.2] tracking-[-0.096rem] relative left-[5rem]'>Xem thêm</span>}
         </section>
     )
 }

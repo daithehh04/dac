@@ -178,6 +178,24 @@ const GET_DATA_MOBILE_VISION = `query ($language: LanguageCodeEnum!) {
     }
   }
 }`
+
+const GET_META_HOME = `query($language: LanguageCodeEnum!){
+  page(id: "cG9zdDoyMQ==") {
+    translation(language:$language){
+      seo{
+      title
+      fullHead
+      metaDesc
+      }
+       featuredImage{
+      node{
+        altText
+        sourceUrl
+      }
+    }
+    }
+  }
+}`
 export {
   GET_DATA_HEADER,
   GET_DATA_FOOTER,
@@ -185,5 +203,6 @@ export {
   GET_DATA_MOBILE_JOURNEY,
   GET_DATA_MOBILE_PRIZE,
   GET_DATA_MOBILE_ORGANIZE,
-  GET_DATA_MOBILE_VISION
+  GET_DATA_MOBILE_VISION,
+  GET_META_HOME
 }
