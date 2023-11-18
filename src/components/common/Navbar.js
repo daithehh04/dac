@@ -31,6 +31,7 @@ function Navbar({
   const [checkHome, setCheckHome] = useState(false)
   const [shadow, setShadow] = useState('')
   const [logoHome, setLogoHome] = useState(logoW)
+  const [checkScroll,setCheckScroll] = useState(false)
   const refMb = useRef()
 
   const handleOpenModal = () => {
@@ -47,7 +48,6 @@ function Navbar({
   }, [pathName])
 
 
-
   useEffect(() => {
     const e = () => {
       if (window.scrollY > 50) {
@@ -55,12 +55,16 @@ function Navbar({
         setBgColor('#fff')
         setShadow('md:shadow-md')
         setLogoHome(logo)
+        setCheckScroll(true)
       } else if ((listPageBlackHeader.includes(pathName) || pathName.startsWith('/service-products/'))) {
         setBgColor('')
         setColor('#000')
         setShadow('')
         setLogoHome(logoW)
+        setCheckScroll(false)
+
       } else {
+        setCheckScroll(false)
         setBgColor('')
         setShadow('')
         setColor('#fff')
@@ -68,7 +72,7 @@ function Navbar({
       }
     }
     window.addEventListener('scroll', e)
-  }, [])
+  }, [checkHome])
 
   useEffect(() => {
     let prevScrollpos = window.pageYOffset;
@@ -204,7 +208,7 @@ function Navbar({
             }
             <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw] max-md:hidden'>
               {navLinks.map((link, index) => (
-                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'}  !text-[${color}] link `} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
+                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && 'text-[#000]'} `} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
               ))}
             </div>
             <SelectLang lang={lang} color={color} checkHome={checkHome} />

@@ -28,9 +28,8 @@ export async function generateStaticParams() {
 }
 
 export default async function RootLayout({ children, params }) {
-  let dataFooter
   let lang = params.lang
-  dataFooter = await getDataPage(lang, GET_DATA_FOOTER)
+  let  dataFooter = await getDataPage(lang, GET_DATA_FOOTER)
   const dataFooterFinal = dataFooter?.data?.page?.translation
   return (
     <html lang={lang}>
