@@ -9,7 +9,6 @@ function HistoryMobile({ data }) {
     const popUpRef = useRef()
     const seeMoreRef = useRef()
     const [selected, setSelected] = useState(0)
-    const [checkNum,setCheckNum] = useState(0)
     const [number, setNumber] = useState(3)
     const handleClosePopUp = () => {
         if (popUpRef.current && openRef.current) {
@@ -29,23 +28,26 @@ function HistoryMobile({ data }) {
     }
     const handleSelect = (index) => {
         setSelected(index)
-        // if(selected >= number - 1){
-        //     setNumber(selected + 1)
-        // }else{
-        //     setNumber(3)
-        // }
+        if(index >= 3){
+            setNumber(index + 1)
+            if(seeMoreRef.current){
+                seeMoreRef.current.display='none'
+            }else{
+                seeMoreRef.current.display='block'
+            }
+        }else{
+            setNumber(3)
+        }
     }
-    // useEffect(() => {
-    //     const listElements = document.querySelectorAll('.historyYear')
-    //     listElements[selected].scrollIntoView()
-    // }, [selected])
+    useEffect(() => {
+        const listElements = document.querySelectorAll('.historyYear')
+        listElements[selected].scrollIntoView()
+    }, [selected])
 
     const dataJourney = data?.journey?.slice(0,number)
-    console.log('num',number);
-    console.log('select',selected);
     
     return (
-        <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] relative mb-[15rem]'>
+        <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] max-md:mt-[5rem] relative mb-[15rem]'>
             <div ref={popUpRef} className='popUpRef relative z-[11]'>
                 <div className='absolute z-[1] shadow-lg rounded-br-[12.53333rem] w-[22.1rem] bg-[#fff] py-[6.67rem] pl-[2.13rem] pr-[4.8rem]'>
                     {data?.journey?.map((item, index) => (
@@ -65,7 +67,6 @@ function HistoryMobile({ data }) {
                 <path d="M0 0.413818H26V22.3713C26 28.9987 20.6274 34.3713 14 34.3713H0V0.413818Z" fill="#00A84F" />
                 <path d="M10 12.8372L15.5 17.3924L10 21.9477" stroke="white" />
             </svg>
-
             {/* main content */}
             <div className='pl-[13rem]'>
                 {dataJourney?.map((item, index) => {
@@ -79,7 +80,7 @@ function HistoryMobile({ data }) {
                                 alt={item?.img?.altText || "history"}
                                 className='object-cover  h-[48.26667rem]'
                             />
-                            <p className='mt-[5.33rem] text-[4.26667rem] mb-[5rem] lg:text-[1.35417rem] line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>
+                            <p className='mt-[5.33rem] text-[4.26667rem] mb-[3rem] lg:text-[1.35417rem] md:line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>
                             <div className={`absolute left-[-1.5rem] w-[2.66667rem] top-[2rem] rounded-[50%] border border-solid border-[#000] h-[2.66667rem] ${selected === index ? 'bg-[#00A84F]' : 'bg-[#fff]'}`}></div>
                         </div>
                     )

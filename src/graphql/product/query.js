@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client'
 const GET_DATA_PRODUCT_PAGE = `query getDataProductPage($language: LanguageCodeEnum!){
   page(id:"cG9zdDo0ODU="){
     translation(language:$language){
@@ -17,7 +18,7 @@ const GET_DATA_PRODUCT_PAGE = `query getDataProductPage($language: LanguageCodeE
   }
 }
 `
-const GET_DATA_CATEGORY_PRODUCT_SERVICE = `
+const GET_DATA_CATEGORY_PRODUCT_SERVICE =`
 query getDataCategoryProduct($language: LanguageCodeFilterEnum!) {
   allCategoryProducts(first: 100, where: {language: $language}) {
     nodes {
