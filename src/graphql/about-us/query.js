@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client'
 const GET_DATA_ABOUT_US_VISION = `
 query ($language: LanguageCodeEnum!) {
   page(id: "cG9zdDoxMzk=") {
@@ -130,9 +131,132 @@ const GET_DATA_ABOUT_US_ORGANIZE = `query ($language: LanguageCodeEnum!) {
     }
   }`
 
+  const META_VISION_QUERY = `query($language: LanguageCodeEnum!){
+    page(id: "cG9zdDoxMzk=") {
+      translation(language:$language){
+        seo{
+        title
+        fullHead
+        metaDesc
+        }
+         featuredImage{
+        node{
+          altText
+          sourceUrl
+        }
+      }
+      }
+    }
+  }`
+  const META_JOURNEY_QUERY = `query($language: LanguageCodeEnum!){
+    page(id: "cG9zdDoxNjg=") {
+      translation(language:$language){
+        seo{
+        title
+        fullHead
+        metaDesc
+        }
+         featuredImage{
+        node{
+          altText
+          sourceUrl
+        }
+      }
+      }
+    }
+  }`
+  const META_PRIZE_QUERY = `query($language: LanguageCodeEnum!){
+    page(id: "cG9zdDoxNzI=") {
+      translation(language:$language){
+        seo{
+        title
+        fullHead
+        metaDesc
+        }
+         featuredImage{
+        node{
+          altText
+          sourceUrl
+        }
+      }
+      }
+    }
+  }`
+  const META_ORGANIZE_QUERY = `query($language: LanguageCodeEnum!){
+    page(id: "cG9zdDoxNzY=") {
+      translation(language:$language){
+        seo{
+        title
+        fullHead
+        metaDesc
+        }
+         featuredImage{
+        node{
+          altText
+          sourceUrl
+        }
+      }
+      }
+    }
+  }`
+
+const SLUG_VISION_QUERY = `
+query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxMzk=") {
+    translation(language: $language) {
+      slug
+      vision {
+        tilePage
+      }
+    }
+  }
+}`
+const SLUG_JOURNEY_QUERY = `
+query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxNjg=") {
+    translation(language: $language) {
+      slug
+      journey {
+        banner{
+          titlePage
+        }
+      }
+    }
+  }
+}`
+const SLUG_PRIZE_QUERY = `
+query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxNzI=") {
+    translation(language: $language) {
+      slug
+      prize {
+        titlePage
+      }
+    }
+  }
+}`
+const SLUG_ORGANIZE_QUERY = `
+query ($language: LanguageCodeEnum!) {
+  page(id: "cG9zdDoxNzY=") {
+    translation(language: $language) {
+      slug
+      organize {
+        titlePage
+      }
+    }
+  }
+}`
 export {
     GET_DATA_ABOUT_US_JOURNEY,
     GET_DATA_ABOUT_US_ORGANIZE,
     GET_DATA_ABOUT_US_VISION,
-    GET_DATA_ABOUT_US_PRIZE
+    GET_DATA_ABOUT_US_PRIZE,
+    META_ORGANIZE_QUERY,
+    META_JOURNEY_QUERY,
+    META_PRIZE_QUERY,
+    META_VISION_QUERY,
+    SLUG_JOURNEY_QUERY,
+    SLUG_ORGANIZE_QUERY,
+    SLUG_PRIZE_QUERY,
+    SLUG_VISION_QUERY
 }
