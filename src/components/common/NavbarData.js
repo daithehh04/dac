@@ -1,22 +1,43 @@
 import React from 'react'
 import Navbar from './Navbar'
-import getDataPage from '@/data/getDataPage'
 import { GET_DATA_HEADER, GET_DATA_MOBILE_JOURNEY, GET_DATA_MOBILE_ORGANIZE, GET_DATA_MOBILE_PRIZE, GET_DATA_MOBILE_VISION } from '@/graphql/home/query'
 import { GET_DATA_CATEGORY_PRODUCT_SERVICE } from '@/graphql/product/query'
 import { GET_SLUG_DIGITAL, GET_SLUG_FLEXO, GET_SLUG_GRAVURE, GET_SLUG_OFFSET, GET_SLUG_OTHERPRINT } from '@/graphql/technology/query'
-async function NavbarData({ lang }) {
+import { fetchData } from '@/data/fetchData'
 
-    const data = await getDataPage(lang, GET_DATA_HEADER)
-    const dataVision = await getDataPage(lang, GET_DATA_MOBILE_VISION)
-    const dataJourney = await getDataPage(lang, GET_DATA_MOBILE_JOURNEY)
-    const dataOrganize = await getDataPage(lang, GET_DATA_MOBILE_ORGANIZE)
-    const dataPrize = await getDataPage(lang, GET_DATA_MOBILE_PRIZE)
-    const slugOffset = await getDataPage(lang, GET_SLUG_OFFSET)
-    const slugFlexo = await getDataPage(lang, GET_SLUG_FLEXO)
-    const slugGravure = await getDataPage(lang, GET_SLUG_GRAVURE)
-    const slugDigital = await getDataPage(lang, GET_SLUG_DIGITAL)
-    const slugOtherPrint = await getDataPage(lang, GET_SLUG_OTHERPRINT)
-    const dataCategory = await getDataPage(lang, GET_DATA_CATEGORY_PRODUCT_SERVICE)
+const NAV_PARAMS = [
+        GET_DATA_HEADER, 
+        GET_DATA_MOBILE_VISION, 
+        GET_DATA_MOBILE_JOURNEY, 
+        GET_DATA_MOBILE_ORGANIZE,
+        GET_DATA_MOBILE_PRIZE,
+        GET_SLUG_OFFSET,
+        GET_SLUG_FLEXO,
+        GET_SLUG_GRAVURE,
+        GET_SLUG_DIGITAL,
+        GET_SLUG_OTHERPRINT,
+        GET_DATA_CATEGORY_PRODUCT_SERVICE
+]
+async function NavbarData({ lang }) {
+    let language = lang?.toUpperCase() || 'VI'
+    const [
+        data,
+        dataVision,
+        dataJourney,
+        dataOrganize,
+        dataPrize,
+        slugOffset,
+        slugFlexo,
+        slugGravure,
+        slugDigital,
+        slugOtherPrint,
+        dataCategory
+    ] = await Promise.all(
+        NAV_PARAMS.map(item => {
+            return fetchData(item, {language:language})
+        })
+    )
+    
     const dataVisionFinal = dataVision?.data?.page?.translation
     const dataJourneyFinal = dataJourney?.data?.page?.translation
     const dataOrganizeFinal = dataOrganize?.data?.page?.translation

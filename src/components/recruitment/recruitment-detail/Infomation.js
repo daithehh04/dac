@@ -27,6 +27,7 @@ const SUBMIT_FORM = gql`
   }
 `
 function Infomation({ dataContent, lang, dataJobNew }) {
+    console.log(dataJobNew);
     const [number, setNumber] = useState(2)
     const [mutate, { loading }] = useMutation(SUBMIT_FORM)
     const handleClick = () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import OpportunityItem1 from '../common/OppoturnityItem1'
 function Opportunity({ dataOp, dataPagination, lang }) {
-
+    console.log(dataPagination);
     return (
         <section className='md:pt-[5.1rem]  px-[4.27rem]  md:px-[4.17rem]'>
             <h2 className='heading max-md:hidden md:mb-[5.1rem] max-md:!text-[6.93333rem]'>{dataOp?.subTitle}</h2>

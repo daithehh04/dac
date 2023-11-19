@@ -10,6 +10,7 @@ import barsIcon from '@/assets/imgs/bars-icon-b.svg'
 import barsIconW from '@/assets/imgs/bars-icon-w.svg'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useMediaQuery } from 'react-responsive'
 import MenuMb from './MenuMb'
 
 function Navbar({
@@ -33,7 +34,7 @@ function Navbar({
   const [logoHome, setLogoHome] = useState(logoW)
   const [checkScroll, setCheckScroll] = useState(false)
   const refMb = useRef()
-
+  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
   const handleOpenModal = () => {
     refMb?.current?.classList?.add('active')
   }
@@ -78,12 +79,18 @@ function Navbar({
     let prevScrollpos = window.pageYOffset;
     window.onscroll = function () {
       let currentScrollPos = window.pageYOffset;
+      console.log(currentScrollPos);
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navheader").style.top = "0";
+        document.getElementById("navheader").style.backdropFilter='blur(4px)'
       } else {
         document.getElementById("navheader").style.top = "-100%";
+        document.getElementById("navheader").style.backdropFilter='none'
       }
-      prevScrollpos = currentScrollPos;
+      if(currentScrollPos === 0){
+        document.getElementById("navheader").style.backdropFilter='none'
+      }
+       prevScrollpos = currentScrollPos;
     }
   }, [])
   const navLinks = [
@@ -199,7 +206,7 @@ function Navbar({
   ]
   return (
     <>
-      <nav id='navheader' className={`backdrop-blur-[4] bg-[${bgColor}] ${shadow} top-0 w-full fixed navbar md:pt-[1.3rem] md:pb-[1.3rem] pt-[12.27rem] z-10 `}>
+      <nav id='navheader' className={`bg-[${bgColor}] ${shadow} top-0 w-full fixed navbar md:pt-[1.3rem] md:pb-[1.3rem] pt-[12.27rem] z-10 ${isMobile && 'bg-transparent'}`}>
         <div className="content">
           <div className='flex items-center justify-between'>
             {checkHome ?

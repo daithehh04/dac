@@ -24,7 +24,7 @@ function HistoryMobile({ data }) {
     }
 
     const handleClick = () => {
-        setNumber(number + 1)
+        setNumber(number + 3)
     }
     const handleSelect = (index) => {
         setSelected(index)
