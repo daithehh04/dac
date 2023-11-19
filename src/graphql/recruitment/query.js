@@ -80,6 +80,7 @@ const GET_ALL_SEARCH_BY_SERVER = (offset = 0, lang = "VI", text = '') => {
             title
             text
           }
+          expirationDate
           applyText
         }
       }
@@ -102,6 +103,7 @@ const GET_DATA_NEW_JOBS = `query getdataJobNew($language: LanguageCodeEnum!) {
           infoJob {
             nameJob
             applyText
+            expirationDate
             icon {
               altText
               sourceUrl

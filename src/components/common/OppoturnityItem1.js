@@ -3,6 +3,14 @@ import Link from 'next/link'
 import React from 'react'
 
 function OpportunityItem1({ lang, data }) {
+    let today = new Date();
+
+    let day = today.getDate();
+    let month = today.getMonth() + 1;
+    let year = today.getFullYear();
+
+    // Định dạng lại thành "dd/mm/yyyy"
+    let formattedDate = (day < 10 ? "0" + day : day) + "/" + (month < 10 ? "0" + month : month) + "/" + year;
     return (
         <div className={`flex flex-col max-md:flex-row max-md:mb-[12rem]`}>
             <div className={`relative md:mb-[2.5rem] mb-[4rem] md:w-[5.26089rem] w-[18.13493rem] h-[18.13493rem] md:h-[5.62552rem] max-md:mr-[6.4rem]`}>
@@ -25,16 +33,25 @@ function OpportunityItem1({ lang, data }) {
             </div>
             <div>
                 <h3 className='jobText md:mb-[0.5rem] mb-[3rem]'>{data?.recruimentDetail?.infoJob?.nameJob || data?.translation?.recruimentDetail?.infoJob?.nameJob}</h3>
-                <div className={`md:w-[21.04167rem] md:mb-[1.3rem] flex flex-col relative max-md:top-[-1.5rem]`}>
+                <div className={`md:w-[21.04167rem] flex flex-col relative max-md:top-[-1.5rem]`}>
                     {(data?.recruimentDetail?.infoJob?.listInfoDetail || data?.translation?.recruimentDetail?.infoJob?.listInfoDetail)?.map((item, index) => (
-                        <div key={index} className='flex'>
+                        <div key={index} className={`flex ${index === 0 ? 'max-md:mb-[2rem]' : '' }`}>
                             <p className='description md:mb-[0.5rem] mb-[3rem] md:mr-[0.5rem]'>{item?.title}</p>
                             <p className='description !font-normal md:mb-[0.5rem] mb-[3rem]'> {item?.text}</p>
                         </div>
                     ))}
                 </div>
+                {formattedDate <= (data?.recruimentDetail?.infoJob?.expirationDate || data?.translation?.recruimentDetail?.infoJob?.expirationDate) ? (
+                    <p className='description md:mb-[0.5rem] md:mr-[0.5rem]'>{`${lang === 'vi' ? 'Ngày hết hạn: ' : 'Expiration date: '}`}
+                        <span className='description !font-normal md:mb-[0.5rem]'>{data?.recruimentDetail?.infoJob?.expirationDate || data?.translation?.recruimentDetail?.infoJob?.expirationDate}</span>
+                    </p>
+                ) : 
+                (<p className='description !text-[red] md:mb-[0.5rem] md:mr-[0.5rem]'>
+                    {lang === 'vi' ? 'Đã hết hạn' : 'Expired'}
+                </p>) 
+                }
                 <Link href={`/${lang}/recruitment/${data?.slug || data?.translation?.slug}`}>
-                    <p className='md:w-[21.04167rem] cursor-pointer description !text-[#888] underline !font-normal'>{data?.recruimentDetail?.infoJob?.applyText || data?.translation?.recruimentDetail?.infoJob?.applyText}</p>
+                <p className='md:w-[21.04167rem] md:mt-[1.3rem] mt-[3rem] cursor-pointer description !text-[#888] underline !font-normal'>{data?.recruimentDetail?.infoJob?.applyText || data?.translation?.recruimentDetail?.infoJob?.applyText}</p>
                 </Link>
             </div>
         </div>

@@ -26,7 +26,6 @@ const SUBMIT_FORM = gql`
 function FormContact({ dataForm }) {
     const [active, setActive] = useState(0)
     const [mutate, { loading }] = useMutation(SUBMIT_FORM)
-    const [address, setAddress] = useState(dataForm?.address[0]?.text)
     const INITAL_FORM_STATE = {
         fullName: '',
         email: '',
@@ -72,20 +71,6 @@ function FormContact({ dataForm }) {
     return (
         <section className='contactForm md:pt-[4.7rem] pt-[5.07rem]  max-md:flex-col md:pl-[4.17rem] md:pr-[9.43rem]  md:pb-[6.56rem] flex justify-between'>
             {/* content-left */}
-            {/* <div className='max-md:px-[4.27rem]'>
-                <h2 className='heading2 md:w-[23.4375rem] md:mb-[2.8rem] mb-[5.07rem]'>{dataForm?.heading}</h2>
-                {dataForm?.address?.map((item, index) => (
-                    <div onClick={() => {
-                        setActive(index)
-                        setAddress(item?.text)
-                    }} key={index} className='flex items-center md:mb-[1.61rem] mb-[5rem] cursor-pointer'>
-                        <div className={`md:w-[1.04167rem] md:h-[1.04167rem] w-[2.66667rem]  h-[2.66667rem] rounded-[50%] mr-[6.13rem] md:mr-[2.76rem] ${index === active ? 'bg-[#00A84F]' : 'bg-[#D9D9D9]'} `}></div>
-                        <p className='description !font-normal'>{item?.text}</p>
-                    </div>
-                ))}
-
-            </div> */}
-
             {/* content-right */}
 
             <div className='max-md:mb-[10rem] max-md:px-[4.27rem] w-full'>
@@ -94,18 +79,16 @@ function FormContact({ dataForm }) {
                     initialValues={{ ...INITAL_FORM_STATE }}
                     validationSchema={FORM_VALIDATION}
                     onSubmit={(values, { resetForm }) => {
+                        console.log(values);
                         handleForm(values, resetForm)
                     }}
-                // onSubmit={(values) => {
-                //     console.log(values);
-                // }}
                 >
-                    {({ errors, touched }) => {
+                    {({ errors, touched,setFieldValue }) => {
                         return (
                             <Form>
-                                <div className='flex justify-between'>
+                                <div className='flex justify-between max-md:flex-col'>
 
-                                    <div className='max-md:px-[4.27rem]'>
+                                    <div className=''>
                                         <h2 className='heading2 md:w-[23.4375rem] md:mb-[2.8rem] mb-[5.07rem]'>{dataForm?.heading}</h2>
                                         {dataForm?.address?.map((item, index) => (
 
@@ -115,7 +98,7 @@ function FormContact({ dataForm }) {
                                                     name='address'
                                                     value={item?.text}
                                                 />
-                                                <span className='description !font-normal md:ml-[1rem]'>
+                                                <span className='description !font-normal ml-[2.5rem] md:ml-[1rem]'>
                                                     {item?.text}
                                                 </span>
                                             </div>
@@ -153,14 +136,13 @@ function FormContact({ dataForm }) {
                                         {/* content */}
                                         <span className='md:text-[1.04167rem] max-md:mt-[2rem] text-[4.26667rem] leading-[140.662%] md:tracking-[-0.05208rem] tracking-[-0.21333rem]'>{dataForm?.formData?.content}</span>
                                         <div className='flex flex-col justify-between max-md:pt-[2rem] mb-[8rem] border-b border-solid  border-[#000] md:mb-[1rem]' >
-                                            <Field
+                                            <TextareaAutosize
                                                 className='outline-none md:w-[25rem]'
                                                 minRows={4}
                                                 name='message'
+                                                onChange={(e)=>setFieldValue("message",e.target.value)}
                                             />
                                         </div>
-                                        {/* <Field name="address" value={address} type='text' className='bg-transparent' /> */}
-                                        {/* <input name='address' className='hidden' value={address} /> */}
                                     </div>
                                 </div>
 
