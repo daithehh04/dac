@@ -1,4 +1,4 @@
-export default async function getDataDetail(lang,slug,query) {
+export default async function getDataDetail(lang, slug, query) {
     const res = await fetch(process.env.NEXT_PUBLIC_API, {
         method: 'POST',
         headers: {
@@ -6,7 +6,7 @@ export default async function getDataDetail(lang,slug,query) {
         },
         body: JSON.stringify({
             query: query,
-            variables: { language: lang?.toUpperCase(),slug: slug}
+            variables: { language: lang?.toUpperCase(), slug: slug }
         }),
         next: { revalidate: 0 }
     })
