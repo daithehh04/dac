@@ -12,7 +12,7 @@ function History({ data }) {
   }
   return (
     <section className='max-md:hidden'>
-      <div className='relative mt-[2rem] content '>
+      <div className='relative mt-[2rem] w-fit md:pl-[4.17rem] '>
         <div className='flex gap-[0.73rem] ml-[1.35rem] border-bottom border-dashed border-[#444] mt-[0.83rem]'>
           {data?.journey?.map((item, index) => (
             <div onClick={() => handleSelect(index)} key={index} className='flex items-center justify-center cursor-grab'>

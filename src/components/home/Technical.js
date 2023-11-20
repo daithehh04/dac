@@ -1,15 +1,15 @@
 import titleImg from '@/assets/imgs/title-sec3.svg'
 import Image from 'next/image'
 function Technical({ dataTechnology }) {
-  
+
   return (
     <section className="technical pt-[8.75rem] md:pb-[12rem] pb-[3rem] md:px-[4.17rem]">
       <div>
         <div className='md:flex-row-reverse flex text-[#444] font-bold items-center w-full max-md:px-[4.27rem]'>
           <span className='text-[22.93333rem] leading-[1.2]'>&</span>
           <div className='flex flex-col'>
-            <p className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem] md:text-end'>{dataTechnology?.heading?.heading1}</p>
-            <p className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem] md:text-end'>{dataTechnology?.heading?.heading2}</p>
+            <p className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem] uppercase md:text-end'>{dataTechnology?.heading?.heading1}</p>
+            <p className='text-[8.53333rem] leading-[1.2] w-[60rem] relative bottom-[-2rem] uppercase md:text-end'>{dataTechnology?.heading?.heading2}</p>
           </div>
         </div>
       </div>

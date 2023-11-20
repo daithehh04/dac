@@ -85,7 +85,8 @@
     flex-direction: column;
     gap: 1rem;
     @media screen and (max-width:767px) {
-        justify-content: start;
+        align-items: unset;
+        // padding: 0 4.27rem;
     }
     li {
       display: flex;
