@@ -5,12 +5,14 @@ import { useQuery } from '@apollo/client'
 import { GET_DATA_ALL_WITH_SEARCH } from '@/graphql/news-blog/query'
 import BlogItem from './BlogItem'
 import { useMediaQuery } from 'react-responsive'
+import useDebounce from '@/hooks/useDebounce'
 function Blog({lang}) {
     let language = lang?.toUpperCase()
     const [activePage, setActivePage] = useState(0)
     const [text,setText] = useState("")
     const [number,setNumber] = useState(0)
     const [dataNew,setDataNew] = useState([])
+    const textSearch = useDebounce(text, 500)
     const eleRef = useRef()
     const seeMoreRef = useRef()
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
@@ -19,22 +21,18 @@ function Blog({lang}) {
             language,
             offset: 0,
             size: isMobile ? 3 : 8,
-            text:text
+            text:textSearch
         }
       })
     useEffect(() => {
     eleRef?.current?.scrollIntoView({
       behavior: 'smooth'
     })
-    }, [activePage])
+    }, [activePage,textSearch])
     ///////////////////////////////////////////// handle click PC//////////////////////////////////////////
 
     function handleInput(e){
-        setTimeout(()=>{
             setText(e.target.value)
-            setNumber(0)
-            setDataNew([])
-        },1000)
     }
     const handleChangePage = (index) => {
         setActivePage(index)
@@ -52,13 +50,13 @@ function Blog({lang}) {
         isMobile && refetch({
             offset: number * 3,
             size: 3, 
-            text
+            text:textSearch
         }).then(response=>{
             if(number === Math.floor(response.data?.posts?.pageInfo?.offsetPagination?.total / 3)  && seeMoreRef?.current){
                 seeMoreRef.current.style.display = 'none'
             }
             setDataNew([...dataNew,...response.data?.posts?.nodes])})
-    },[number, text])
+    },[number, textSearch])
     const allNews = isMobile ? dataNew : data?.posts?.nodes
     const pageInfo =  data?.posts?.pageInfo?.offsetPagination?.total
     const totalPage = Math.ceil(pageInfo / 8)
