@@ -14,4 +14,4 @@ export const fetchData = async (query, variables = {}) => {
         throw new Error('Failed to fetch data')
     }
     return res.json()
-  }
+}

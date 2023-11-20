@@ -6,12 +6,12 @@ import { GET_DATA_ALL_WITH_SEARCH } from '@/graphql/news-blog/query'
 import BlogItem from './BlogItem'
 import { useMediaQuery } from 'react-responsive'
 import useDebounce from '@/hooks/useDebounce'
-function Blog({lang}) {
+function Blog({ lang }) {
     let language = lang?.toUpperCase()
     const [activePage, setActivePage] = useState(0)
-    const [text,setText] = useState("")
-    const [number,setNumber] = useState(0)
-    const [dataNew,setDataNew] = useState([])
+    const [text, setText] = useState("")
+    const [number, setNumber] = useState(0)
+    const [dataNew, setDataNew] = useState([])
     const textSearch = useDebounce(text, 500)
     const eleRef = useRef()
     const seeMoreRef = useRef()
@@ -21,22 +21,23 @@ function Blog({lang}) {
             language,
             offset: 0,
             size: isMobile ? 3 : 8,
-            text:textSearch
+            text: textSearch
         }
-      })
-    useEffect(() => {
-    eleRef?.current?.scrollIntoView({
-      behavior: 'smooth'
     })
-    }, [activePage,textSearch])
+    useEffect(() => {
+        eleRef?.current?.scrollIntoView({
+            behavior: 'smooth'
+        })
+    }, [activePage, textSearch])
     ///////////////////////////////////////////// handle click PC//////////////////////////////////////////
 
-    function handleInput(e){
-            setText(e.target.value)
+    function handleInput(e) {
+        setText(e.target.value)
+        setNumber(0)
     }
     const handleChangePage = (index) => {
         setActivePage(index)
-            refetch({
+        refetch({
             offset: index * 8,
             size: 8
         })
@@ -45,31 +46,43 @@ function Blog({lang}) {
     const handleClick = () => {
         setNumber(number + 1)
     }
-  
-     useEffect(()=>{
+
+    useEffect(() => {
         isMobile && refetch({
             offset: number * 3,
-            size: 3, 
-            text:textSearch
-        }).then(response=>{
-            if(number === Math.floor(response.data?.posts?.pageInfo?.offsetPagination?.total / 3)  && seeMoreRef?.current){
+            size: 3,
+            text: textSearch
+        }).then(response => {
+            if (number === Math.floor(response.data?.posts?.pageInfo?.offsetPagination?.total / 3) && seeMoreRef?.current) {
                 seeMoreRef.current.style.display = 'none'
+            } else {
+                seeMoreRef.current.style.display = 'block'
             }
-            setDataNew([...dataNew,...response.data?.posts?.nodes])})
-    },[number, textSearch])
+            if (textSearch) {
+                setDataNew(response.data?.posts?.nodes)
+            } else {
+                setDataNew([...response.data?.posts?.nodes])
+            }
+
+            if (number > 0 && (textSearch === '' || textSearch)) {
+                setDataNew([...dataNew, ...response.data?.posts?.nodes])
+            }
+        })
+    }, [number, textSearch])
+
     const allNews = isMobile ? dataNew : data?.posts?.nodes
-    const pageInfo =  data?.posts?.pageInfo?.offsetPagination?.total
+    const pageInfo = data?.posts?.pageInfo?.offsetPagination?.total
     const totalPage = Math.ceil(pageInfo / 8)
     return (
         <>
             <Banner />
             <section ref={eleRef} className='md:px-[4.17rem] md:pt-[8.28rem] md:pb-[2.97rem] max-md:flex flex-col-reverse'>
-                 <span ref={seeMoreRef} onClick={handleClick} className='md:hidden text-[4.26667rem] text-[#00A84F] leading-[116.662%] underline text-center mb-[8.1rem] mt-[2rem]'>Xem thêm</span>
+                <span ref={seeMoreRef} onClick={handleClick} className='md:hidden text-[4.26667rem] text-[#00A84F] leading-[116.662%] underline text-center mb-[8.1rem] mt-[2rem]'>Xem thêm</span>
                 <div className='grid md:grid-cols-4 md:gap-x-[2.6rem] md:gap-y-[4.43rem] max-md:px-[4.27rem]'>
                     {
-                        allNews?.map((item, index) =>(
-                                <BlogItem lang={lang} key={index} data={item} />
-                            )
+                        allNews?.map((item, index) => (
+                            <BlogItem lang={lang} key={index} data={item} />
+                        )
                         )
                     }
                 </div>
@@ -89,7 +102,7 @@ function Blog({lang}) {
                         </div>
                     ))}
                 </div>
-                
+
             </section>
         </>
     )
