@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
-import SelectLang from '../lang/SelectLang'
 import SelectLangMb from '../lang/SelectLangMb'
 
 function MenuMb({ data, handleCloseModal, lang }) {
@@ -47,7 +46,7 @@ function MenuMb({ data, handleCloseModal, lang }) {
                                         <span
                                             onClick={() => handleSelect(index)}
                                             className='text-[#444] text-[5.33333rem]  font-bold'
-                                            key={index}>{item?.link}
+                                            key={index}>{lang === 'vi' ? item?.link : item?.linkEn}
                                         </span>
                                     )
                                     :
@@ -55,7 +54,7 @@ function MenuMb({ data, handleCloseModal, lang }) {
                                         <Link
                                             onClick={handleCloseModal}
                                             className='text-[#444] mb-[2.67rem] text-[5.33333rem] font-bold'
-                                            href={`/${lang}/${item?.slug}` || '/'}>{item?.link}
+                                            href={`/${lang}/${item?.slug}` || '/'}>{lang === 'vi' ? item?.link : item?.linkEn}
                                         </Link>
                                     )
                             }
@@ -76,15 +75,17 @@ function MenuMb({ data, handleCloseModal, lang }) {
                                                 }
                                         }
                                     >
-                                        {item?.listContent?.map((mbItem, index) => (
-                                            <Link
-                                                onClick={handleCloseModal}
-                                                href={`/${lang}/${item?.slug2}/${mbItem?.slug}` || '/'}
-                                                key={index}
-                                                className='text-[#444] text-[3.46667rem] leading-[116.662%] tracking-[-0.104rem] mb-[2.67rem]'>
-                                                {mbItem?.name}
-                                            </Link>
-                                        ))}
+                                        {item?.listContent?.map((mbItem, index) => {
+                                            return (
+                                                <Link
+                                                    onClick={handleCloseModal}
+                                                    href={`/${lang}/${item?.slug2}/${mbItem?.slug}` || '/'}
+                                                    key={index}
+                                                    className='text-[#444] text-[3.46667rem] leading-[116.662%] tracking-[-0.104rem] mb-[2.67rem]'>
+                                                    {mbItem?.nameEn ? (lang === 'vi' ? mbItem?.name : mbItem?.nameEn) : mbItem.name}
+                                                </Link>
+                                            )
+                                        })}
                                     </div>
                                 )
                             }

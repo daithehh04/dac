@@ -16,10 +16,9 @@ export async function generateMetadata({ params: { lang, slug } }) {
 }
 
 export default async function page({ params: { lang, slug } }) {
-    let data
-    let dataOtherProduct
-    data = await getDataDetail(lang, slug, GET_DATA_PRODUCT_DETAIL)
-    dataOtherProduct = await getDataPage(lang, GET_DATA_OTHER_PRODUCT)
+
+    let data = await getDataDetail(lang, slug, GET_DATA_PRODUCT_DETAIL)
+    let dataOtherProduct = await getDataPage(lang, GET_DATA_OTHER_PRODUCT)
     return (
         <ServiceDetail
             data={data?.data?.serviceProduct?.translation}
