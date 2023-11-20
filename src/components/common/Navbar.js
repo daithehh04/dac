@@ -15,17 +15,7 @@ import { useMediaQuery } from 'react-responsive'
 
 function Navbar({
   lang,
-  dataHeader,
-  dataJourneyFinal,
-  dataVisionFinal,
-  dataOrganizeFinal,
-  dataPrizeFinal,
-  dataProductList,
-  slugOffsetFinal,
-  slugFlexoFinal,
-  slugGravureFinal,
-  slugDigitalFinal,
-  slugOtherPrintFinal
+  dataProductList
 }) {
   const [color, setColor] = useState('')
   const [bgColor, setBgColor] = useState('')
@@ -81,47 +71,54 @@ function Navbar({
       let currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navheader").style.top = "0";
-        document.getElementById("navheader").style.backdropFilter='blur(4px)'
+        document.getElementById("navheader").style.backdropFilter = 'blur(4px)'
       } else {
         document.getElementById("navheader").style.top = "-100%";
-        document.getElementById("navheader").style.backdropFilter='none'
+        document.getElementById("navheader").style.backdropFilter = 'none'
       }
-      if(currentScrollPos === 0){
-        document.getElementById("navheader").style.backdropFilter='none'
+      if (currentScrollPos === 0) {
+        document.getElementById("navheader").style.backdropFilter = 'none'
       }
       prevScrollpos = currentScrollPos;
     }
   }, [])
   const navLinks = [
     {
-      link: dataHeader[0]?.name,
+      link: 'VỀ CHÚNG TÔI',
+      linkEn: 'ABOUT-US',
       slug: 'about-us/vision',
       slug2: 'about-us',
       listContent: [
         {
-          name: dataVisionFinal?.vision?.tilePage,
-          slug: dataVisionFinal?.slug
+          name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi',
+          nameEn: 'Vision - Mission - Core values',
+          slug: 'vision'
         },
         {
-          name: dataJourneyFinal?.journey?.banner?.titlePage,
-          slug: dataJourneyFinal?.slug
+          name: 'Chặng đường phát triển',
+          nameEn: 'Development journey',
+          slug: 'journey'
         },
         {
-          name: dataPrizeFinal?.prize?.titlePage,
-          slug: dataPrizeFinal?.slug
+          name: 'Chứng chỉ và giải thưởng',
+          nameEn: 'Certificates and awards',
+          slug: 'prize'
         },
         {
-          name: dataOrganizeFinal?.organize?.titlePage,
-          slug: dataOrganizeFinal?.slug
+          name: 'Sơ đồ tổ chức',
+          nameEn: 'Organizational chart',
+          slug: 'organize'
         }
       ]
     },
     {
-      link: dataHeader[1]?.name,
+      link: 'THIẾT KẾ',
+      linkEn: 'DESIGN',
       slug: 'design'
     },
     {
-      link: dataHeader[2]?.name,
+      link: 'SẢN PHẨM DỊCH VỤ',
+      linkEn: 'PRODUCTS AND SERVICES',
       slug: 'service-products',
       slug2: 'service-products',
       listContent: [
@@ -160,49 +157,55 @@ function Navbar({
       ]
     },
     {
-      link: dataHeader[3]?.name,
+      link: 'CÔNG NGHỆ',
+      linkEn: 'TECHNOLOGY',
       slug: 'technology/offset',
       slug2: 'technology',
       listContent: [
         {
-          name: slugOffsetFinal?.technology_common?.content?.titlePage,
-          slug: slugOffsetFinal?.slug
+          name: 'Công nghệ in Offset',
+          nameEn: 'Offset printing technology',
+          slug: 'offset'
         },
         {
-          name: slugFlexoFinal?.technology_common?.content?.titlePage,
-          slug: slugFlexoFinal?.slug
-
+          name: 'Công nghệ in Flexo',
+          nameEn: 'Flexo printing technology',
+          slug: 'flexo'
         },
         {
-          name: slugGravureFinal?.technology_common?.content?.titlePage,
-          slug: slugGravureFinal?.slug
-
+          name: 'Công nghệ in Ống đồng',
+          nameEn: 'Gravure printing technology',
+          slug: 'gravure'
         },
         {
-          name: slugDigitalFinal?.technology_common?.content?.titlePage,
-          slug: slugDigitalFinal?.slug
-
+          name: 'Công nghệ in Kỹ thuật số',
+          nameEn: 'Digital printing technology',
+          slug: 'digital'
         },
         {
-          name: slugOtherPrintFinal?.technology_otherPrinting?.content?.titlepage,
-          slug: slugOtherPrintFinal?.slug
-
+          name: 'Giải pháp chống giả',
+          nameEn: 'Anti-counterfeit solution',
+          slug: 'other-printing'
         }
       ]
     },
     {
-      link: dataHeader[4]?.name,
+      link: 'TIN TỨC',
+      linkEn: 'NEWS',
       slug: 'blog'
     },
     {
-      link: dataHeader[5]?.name,
+      link: 'TUYỂN DỤNG',
+      linkEn: 'RECRUITMENT',
       slug: 'recruitment'
     },
     {
-      link: dataHeader[6]?.name,
+      link: 'LIÊN HỆ',
+      linkEn: 'CONTACT',
       slug: 'contact'
     },
   ]
+
   return (
     <>
       <nav id='navheader' className={`bg-[${bgColor}] ${shadow} top-0 w-full fixed navbar md:pt-[1.3rem] md:pb-[1.3rem] pt-[12.27rem] z-10 ${isMobile && 'bg-transparent'}`}>
@@ -214,7 +217,9 @@ function Navbar({
             }
             <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw] max-md:hidden'>
               {navLinks.map((link, index) => (
-                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `} key={index} href={`/${lang}/${link.slug}`}>{link.link}</Link>
+                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `} key={index} href={`/${lang}/${link.slug}`}>
+                  {lang === 'vi' ? link?.link : link?.linkEn}
+                </Link>
               ))}
             </div>
             <SelectLang lang={lang} color={color} checkHome={checkHome} />
