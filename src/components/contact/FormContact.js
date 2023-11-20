@@ -79,11 +79,10 @@ function FormContact({ dataForm }) {
                     initialValues={{ ...INITAL_FORM_STATE }}
                     validationSchema={FORM_VALIDATION}
                     onSubmit={(values, { resetForm }) => {
-                        console.log(values);
                         handleForm(values, resetForm)
                     }}
                 >
-                    {({ errors, touched,setFieldValue }) => {
+                    {({ errors, touched, setFieldValue }) => {
                         return (
                             <Form>
                                 <div className='flex justify-between max-md:flex-col'>
@@ -140,7 +139,7 @@ function FormContact({ dataForm }) {
                                                 className='outline-none md:w-[25rem]'
                                                 minRows={4}
                                                 name='message'
-                                                onChange={(e)=>setFieldValue("message",e.target.value)}
+                                                onChange={(e) => setFieldValue("message", e.target.value)}
                                             />
                                         </div>
                                     </div>

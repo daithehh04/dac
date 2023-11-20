@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 function Solution({ dataSolution }) {
   return (
@@ -13,7 +14,7 @@ function Solution({ dataSolution }) {
         </h3>
         <div className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.4] md:text-[#444] text-[#fff] mt-[4rem] max-md:mb-[4rem]' dangerouslySetInnerHTML={{ __html: `${dataSolution?.listSolution}` }}></div>
         <div className='md:text-[1.5rem] lg:text-[1.35417rem] max-md:hidden  text-justify text-[4.26667rem] leading-[1.4] md:text-[#444] text-[#fff] mt-[13rem]' dangerouslySetInnerHTML={{ __html: `${dataSolution?.description}` }}></div>
-        <span className='text-[4.26667rem] md:text-[0.83333rem] cursor-pointer leading-[116.662%] text-[#444] underline tracking-[-0.04167rem] md:absolute md:right-[4.27rem]'>{dataSolution?.seemore}</span>
+        <Link href='https://temchonggia.com.vn/' target='_blank' className='text-[4.26667rem] md:text-[0.83333rem] cursor-pointer leading-[116.662%] text-[#444] underline tracking-[-0.04167rem] md:absolute md:right-[4.27rem]'>{dataSolution?.seemore}</Link>
       </div>
     </div>
   )

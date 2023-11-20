@@ -8,20 +8,28 @@ function HistoryMobile({ data }) {
     const openRef = useRef()
     const popUpRef = useRef()
     const seeMoreRef = useRef()
+    const closeRef = useRef()
     const [selected, setSelected] = useState(0)
     const [number, setNumber] = useState(3)
     const handleClosePopUp = () => {
-        if (popUpRef.current && openRef.current) {
+        if (popUpRef.current && openRef.current && closeRef.current) {
             popUpRef.current.style.transform = 'translateX(-100%)'
             openRef.current.style.display = 'block'
+            popUpRef.current.style.position = 'relative'
+            closeRef.current.style.display = 'none'
+
         }
     }
     const handleOpenPopUp = () => {
-        if (popUpRef.current && openRef.current) {
+        if (popUpRef.current && openRef.current && closeRef.current) {
             popUpRef.current.style.transform = 'translateX(0%)'
+            popUpRef.current.style.position = 'fixed'
+            popUpRef.current.style.top = '0'
             openRef.current.style.display = 'none'
+            closeRef.current.style.display = 'block'
         }
     }
+
 
     const handleClick = () => {
         setNumber(number + 3)
@@ -46,11 +54,55 @@ function HistoryMobile({ data }) {
         })
     }, [selected])
 
+
+    useEffect(() => {
+        let elementId = document.getElementById('contentHisMb')
+        let bannerId = document.getElementById('banner_journey')
+        let historyId = document.getElementById('historyMobile')
+
+        const scroll = () => {
+            let currentY = window.scrollY
+            let sectionHeight = historyId.scrollHeight + elementId.scrollHeight + bannerId.scrollHeight - 250
+            if (openRef.current && currentY >= (elementId.scrollHeight + bannerId.scrollHeight)) {
+                openRef.current.style.position = 'fixed'
+                openRef.current.style.top = '0'
+            } else {
+                openRef.current.style.position = 'absolute'
+
+            }
+            if (popUpRef.current) {
+                if ((currentY >= (elementId.scrollHeight + bannerId.scrollHeight) && popUpRef.current.style.transform === 'translateX(0%)') || popUpRef.current.style.transform === 'translateX(0%)') {
+                    popUpRef.current.style.position = 'fixed'
+                    popUpRef.current.style.top = '0'
+                } else if (currentY < elementId.scrollHeight) {
+                    popUpRef.current.style.position = 'relative'
+                }
+
+                if (currentY >= (elementId.scrollHeight + bannerId.scrollHeight) && popUpRef.current.style.transform === 'translateX(0%)') {
+                    popUpRef.current.style.position = 'fixed'
+                    popUpRef.current.style.top = '0'
+                }
+
+                if (currentY < (elementId.scrollHeight + bannerId.scrollHeight)) {
+                    popUpRef.current.style.position = 'relative'
+                }
+
+                if (currentY >= sectionHeight) {
+                    popUpRef.current.style.position = 'relative'
+                }
+            }
+        }
+        window.addEventListener('scroll', scroll)
+        return () => {
+            window.removeEventListener('scroll', scroll)
+        }
+    }, [])
+
     const dataJourney = data?.journey?.slice(0, number)
 
     return (
         <section id='historyMobile' className='md:hidden overflow-x-hidden pr-[4.27rem] max-md:mt-[5rem] relative mb-[15rem]'>
-            <div ref={popUpRef} className='popUpRef relative z-[11]'>
+            <div ref={popUpRef} className='popUpRef relative z-[11] w-[22.1rem]'>
                 <div className='absolute z-[1] shadow-lg rounded-br-[12.53333rem] w-[22.1rem] bg-[#fff] py-[6.67rem] pl-[2.13rem] pr-[4.8rem]'>
                     {data?.journey?.map((item, index) => (
                         <div onClick={() => handleSelect(index)} key={index} className='mb-[2.2rem]  border-l-[1px] border-[#444444] border-dashed  flex items-center justify-center cursor-grab'>
@@ -59,16 +111,18 @@ function HistoryMobile({ data }) {
                         </div>
                     ))}
                 </div>
-                <svg onClick={handleClosePopUp} xmlns="http://www.w3.org/2000/svg" className='absolute left-[22.1rem] w-[6.93333rem] h-[10.93333rem]' viewBox="0 0 26 41" fill="none">
+                <svg ref={closeRef} onClick={handleClosePopUp} xmlns="http://www.w3.org/2000/svg" className='absolute hidden left-[22.1rem] w-[6.93333rem] h-[10.93333rem]' viewBox="0 0 26 41" fill="none">
                     <path d="M0 0H26V29C26 35.6274 20.6274 41 14 41H0V0Z" fill="#00A84F" />
                     <path d="M15.5 26L10 20.5L15.5 15" stroke="white" />
                 </svg>
-
             </div>
-            <svg ref={openRef} onClick={handleOpenPopUp} xmlns="http://www.w3.org/2000/svg" className='absolute z-[10] left-0' width="26" height="35" viewBox="0 0 26 35" fill="none">
-                <path d="M0 0.413818H26V22.3713C26 28.9987 20.6274 34.3713 14 34.3713H0V0.413818Z" fill="#00A84F" />
-                <path d="M10 12.8372L15.5 17.3924L10 21.9477" stroke="white" />
-            </svg>
+
+            <div className='absolute z-[10] left-0' ref={openRef} onClick={handleOpenPopUp}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="35" viewBox="0 0 26 35" fill="none">
+                    <path d="M0 0.413818H26V22.3713C26 28.9987 20.6274 34.3713 14 34.3713H0V0.413818Z" fill="#00A84F" />
+                    <path d="M10 12.8372L15.5 17.3924L10 21.9477" stroke="white" />
+                </svg>
+            </div>
             {/* main content */}
             <div className='pl-[13rem]'>
                 {dataJourney?.map((item, index) => {

@@ -11,7 +11,8 @@ import Button from '@/components/common/Button'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 import OpportunityItem1 from '@/components/common/OppoturnityItem1'
-
+import { analytics } from '@/firebase'
+import { ref, uploadBytes, getDownloadURL } from '@firebase/storage'
 
 // queries form
 const SUBMIT_FORM = gql`
@@ -28,6 +29,7 @@ const SUBMIT_FORM = gql`
 `
 function Infomation({ dataContent, lang, dataJobNew }) {
     const [number, setNumber] = useState(2)
+    const [fileUpload, setFileUpload] = useState(null)
     const [mutate, { loading }] = useMutation(SUBMIT_FORM)
     const handleClick = () => {
         setNumber(number + 2)
@@ -39,7 +41,7 @@ function Infomation({ dataContent, lang, dataJobNew }) {
         telephone: '',
         date: '',
         address: '',
-        file: ''
+        fileVal: ''
     }
     const FORM_VALIDATION = Yup.object().shape({
         fullName: Yup.string().required('Required'),
@@ -50,15 +52,27 @@ function Infomation({ dataContent, lang, dataJobNew }) {
         email: Yup.string().email('Invalid email.').required('Required'),
         date: Yup.string().required('Required'),
         address: Yup.string().required('Required'),
-        file: Yup
+        fileVal: Yup
             .mixed()
-            .test('fileFormat', 'Unsupported file format', (value) => {
-                if (!value) return true; // Accepts empty files
-                return ['image/jpeg', 'image/png', 'application/pdf'].includes(value.type);
+            .test("has-files", "CV is a required field!", () => {
+                return fileUpload && fileUpload.length > 0;
             })
-            .test('fileSize', 'File size is too large', (value) => {
-                if (!value) return true; // Accepts empty files
-                return value.size <= 1024 * 1024; // 1 MB
+            .test("fileType", "Invalid file format!", () => {
+                if (!fileUpload) return true;
+
+                const supportedFormats = [
+                    "jpg",
+                    "jpeg",
+                    "png",
+                    "doc",
+                    "docx",
+                    "pdf",
+                ];
+                const fileExtension = fileUpload[0]?.type
+                    .split("/")
+                    .pop()
+                    .toLowerCase();
+                return supportedFormats.includes(fileExtension);
             }),
     })
 
@@ -73,7 +87,7 @@ function Infomation({ dataContent, lang, dataJobNew }) {
                         { id: 4, value: values.telephone },
                         { id: 5, value: values.date },
                         { id: 6, value: values.address },
-                        { id: 7, value: values.file },
+                        { id: 9, value: values.fileVal },
                     ]
                 }
             }
@@ -105,11 +119,22 @@ function Infomation({ dataContent, lang, dataJobNew }) {
                 <Formik
                     initialValues={{ ...INITAL_FORM_STATE }}
                     validationSchema={FORM_VALIDATION}
-                    // onSubmit={(values, { resetForm }) => {
-                    //     handleForm(values, resetForm)
-                    // }}
-                    onSubmit={(values) => {
-                        console.log(values);
+                    onSubmit={async (values, { resetForm }) => {
+
+
+                        if (fileUpload !== null) {
+                            const fileRef = ref(analytics, 'newfiles/notes')
+                            uploadBytes(fileRef, fileUpload[0]).then((data) => {
+                                getDownloadURL(data.ref).then((url) => {
+                                    values.fileVal = url
+                                    handleForm(values, resetForm)
+                                })
+                            })
+
+                        } else {
+                            handleForm(values, resetForm)
+                        }
+
                     }}
                 >
                     {({ errors, touched }) => {
@@ -160,7 +185,7 @@ function Infomation({ dataContent, lang, dataJobNew }) {
                                     {/* attach file */}
                                     <div className='flex flex-col justify-between md:pl-[1rem] max-md:pt-[2rem] md:pb-[1rem] mb-[8rem] border-b border-solid border-[#000] md:mb-[1rem]' >
                                         <label className='md:mb-[1rem] mb-[2rem] md:text-[#888] md:text-[1.4rem] lg:text-[0.83333rem] text-[3.2rem]'>{dataContent?.dataForm?.attachFile || 'File đính kèm'}</label>
-                                        <Field name='file' type='file' className='bg-transparent' />
+                                        <input name='fileVal' type='file' onChange={(e) => setFileUpload(e.target.files)} className='bg-transparent' />
                                     </div>
                                 </div>
                                 <Button text={dataContent?.dataForm?.button || 'Gửi thông tin'} />
