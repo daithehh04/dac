@@ -7,8 +7,6 @@ function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOt
     const [page, setPage] = useState(1)
     const context = useDataBanner()
     const pathName = usePathname()
-    // let slug = searchParams.get('')
-    // console.log('pathName', pathName);
     let dataInfoOffset = dataOffset?.data?.page?.translation?.technology_common
     let dataInfoFlexo = dataFlexo?.data?.page?.translation?.technology_common
     let dataInfoGravure = dataGravure?.data?.page?.translation?.technology_common

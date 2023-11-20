@@ -37,11 +37,20 @@
 
 .popUpRef{
   transform: translateX(-100%);
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 #historyMobile {
   .swiper-slide{
     height: fit-content !important;
+  }
+}
+
+
+.image_prize{
+  overflow: hidden;
+  transition: all 0.3s;
+  &:hover{
+    transform: scale(1.05);
   }
 }
