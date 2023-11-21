@@ -1,7 +1,7 @@
 import Blog from '@/components/blogs/Blog'
 import { fetchData } from '@/data/fetchData'
 import { getMeta } from '@/graphql/metaData/getMeta'
-import { GET_META_NEWS } from '@/graphql/news-blog/query'
+import { GET_META_NEWS, NEWS_QUERY } from '@/graphql/news-blog/query'
 import React from 'react'
 
 export async function generateMetadata({ params: { lang } }) {
@@ -13,10 +13,10 @@ export async function generateMetadata({ params: { lang } }) {
   return getMeta(title, excerpt, featuredImage)
 }
 
-function page({ params: { lang } }) {
-
+async function page({ params: { lang } }) {
+  let dataNews = await fetchData(NEWS_QUERY, { language: lang?.toUpperCase() })
   return (
-    <Blog lang={lang} />
+    <Blog dataBlog={dataNews?.data?.page?.translation} lang={lang} />
   )
 }
 
