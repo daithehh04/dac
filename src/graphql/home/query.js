@@ -86,6 +86,11 @@ const GET_DATA_HOMEPAGE = `
               sourceUrl
             }
           }
+          socialAction{
+            phone
+            zalo
+            facebook
+          }
         }
       }
     }
