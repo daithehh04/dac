@@ -60,7 +60,6 @@ function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOt
         dataSlugOffset, dataSlugFlexo, dataSlugGravure, dataSlugDigital, dataSlugOtherPrint
     ]
     const handlePage = (page) => {
-        alert(page)
         setPage(page.id)
         context.setDataBanner(page)
         // window.scroll(0, 0)
