@@ -35,7 +35,7 @@ function OpportunityItem1({ lang, data }) {
                 <h3 className='jobText md:mb-[0.5rem] mb-[3rem]'>{data?.recruimentDetail?.infoJob?.nameJob || data?.translation?.recruimentDetail?.infoJob?.nameJob}</h3>
                 <div className={`md:w-[21.04167rem] flex flex-col relative max-md:top-[-1.5rem]`}>
                     {(data?.recruimentDetail?.infoJob?.listInfoDetail || data?.translation?.recruimentDetail?.infoJob?.listInfoDetail)?.map((item, index) => (
-                        <div key={index} className={`flex ${index === 0 ? 'max-md:mb-[2rem]' : '' }`}>
+                        <div key={index} className={`flex ${index === 0 ? 'max-md:mb-[2rem]' : ''}`}>
                             <p className='description md:mb-[0.5rem] mb-[3rem] md:mr-[0.5rem]'>{item?.title}</p>
                             <p className='description !font-normal md:mb-[0.5rem] mb-[3rem]'> {item?.text}</p>
                         </div>
@@ -45,13 +45,13 @@ function OpportunityItem1({ lang, data }) {
                     <p className='description md:mb-[0.5rem] md:mr-[0.5rem]'>{`${lang === 'vi' ? 'Ngày hết hạn: ' : 'Expiration date: '}`}
                         <span className='description !font-normal md:mb-[0.5rem]'>{data?.recruimentDetail?.infoJob?.expirationDate || data?.translation?.recruimentDetail?.infoJob?.expirationDate}</span>
                     </p>
-                ) : 
-                (<p className='description !text-[red] md:mb-[0.5rem] md:mr-[0.5rem]'>
-                    {lang === 'vi' ? 'Đã hết hạn' : 'Expired'}
-                </p>) 
+                ) :
+                    (<p className='description !text-[red] md:mb-[0.5rem] md:mr-[0.5rem]'>
+                        {lang === 'vi' ? 'Đã hết hạn' : 'Expired'}
+                    </p>)
                 }
-                <Link href={`/${lang}/recruitment/${data?.slug || data?.translation?.slug}`}>
-                <p className='md:w-[21.04167rem] md:mt-[1.3rem] mt-[3rem] cursor-pointer description !text-[#888] underline !font-normal'>{data?.recruimentDetail?.infoJob?.applyText || data?.translation?.recruimentDetail?.infoJob?.applyText}</p>
+                <Link href={`/${lang}/recruitment/${encodeURI(data?.slug || data?.translation?.slug)}`}>
+                    <p className='md:w-[21.04167rem] md:mt-[1.3rem] mt-[3rem] cursor-pointer description !text-[#888] underline !font-normal'>{data?.recruimentDetail?.infoJob?.applyText || data?.translation?.recruimentDetail?.infoJob?.applyText}</p>
                 </Link>
             </div>
         </div>

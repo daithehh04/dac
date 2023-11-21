@@ -12,7 +12,7 @@ function ItemBlogMobile({ data, lang, dataSlide }) {
     return (
         <section className='md:hidden'>
             {dataOtherNews?.map((blog, index) => (
-                <Link href={`/${lang}/blog/${blog?.slug}`} key={index} className={`flex flex-shrink-0 flex-col md:mr-[2.6rem]`}>
+                <Link href={`/${lang}/blog/${encodeURI(blog?.slug)}`} key={index} className={`flex flex-shrink-0 flex-col md:mr-[2.6rem]`}>
                     <Image src={blog?.featuredImage?.node?.sourceUrl} width={1600} height={1000} quality={100} alt={blog?.featuredImage?.node?.altText || 'img'} className='w-full h-[91.46667rem] pointer-events-none object-cover' />
                     <p className='description !font-normal md:mt-[2.08rem] max-md:my-[5rem] flex justify-center'>{blog?.news?.name}</p>
                 </Link>
