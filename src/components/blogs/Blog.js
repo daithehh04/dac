@@ -6,7 +6,7 @@ import { GET_DATA_ALL_WITH_SEARCH } from '@/graphql/news-blog/query'
 import BlogItem from './BlogItem'
 import { useMediaQuery } from 'react-responsive'
 import useDebounce from '@/hooks/useDebounce'
-function Blog({ lang }) {
+function Blog({ lang, dataBlog }) {
     let language = lang?.toUpperCase()
     const [activePage, setActivePage] = useState(0)
     const [text, setText] = useState("")
@@ -75,7 +75,7 @@ function Blog({ lang }) {
     const totalPage = Math.ceil(pageInfo / 8)
     return (
         <>
-            <Banner />
+            <Banner dataBanner={dataBlog} />
             <section ref={eleRef} className='md:px-[4.17rem] md:pt-[8.28rem] md:pb-[2.97rem] max-md:flex flex-col-reverse'>
                 <span ref={seeMoreRef} onClick={handleClick} className='md:hidden text-[4.26667rem] text-[#00A84F] leading-[116.662%] underline text-center mb-[8.1rem] mt-[2rem]'>Xem thêm</span>
                 <div className='grid md:grid-cols-4 md:gap-x-[2.6rem] md:gap-y-[4.43rem] max-md:px-[4.27rem]'>
