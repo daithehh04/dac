@@ -1,7 +1,10 @@
-import React from 'react'
+'use client'
+import React, { useRef } from 'react'
 import banner from '@/assets/imgs/bannerDesign.png'
 import Image from 'next/image'
+import scrollDown from '@/hooks/scrollDown'
 function Banner({ data }) {
+    const scrollDownRef = useRef()
     return (
         <section className='md:w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative' >
             <Image src={data?.background?.sourceUrl || banner} width={1600} height={1000} alt={data?.background?.altText || 'banner'} quality={100} className="w-full h-full object-cover md:rounded-br-[13.54rem] rounded-br-[16rem]" />
@@ -12,7 +15,7 @@ function Banner({ data }) {
                     <span className='md:text-[3.875rem] md:leading-[112.162%] md:tracking-[-0.09688rem]'> & </span>
                     <span className='font-normal md:text-[4.25rem] md:leading-[1.21] md:tracking-[-0.06375rem]'>{data?.subtitle}</span>
                 </p>
-                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[3.1055rem] md:h-[2.6875rem] md:mt-[2rem]' viewBox="0 0 43 50" fill="none">
+                <svg onClick={() => scrollDown(scrollDownRef, 'start')} xmlns="http://www.w3.org/2000/svg" className='md:w-[3.1055rem] md:h-[2.6875rem] md:mt-[2rem]' viewBox="0 0 43 50" fill="none">
                     <path d="M43 31.8963L43 20.7042L25.0162 35.5923L25.0162 -7.2201e-07L17.9911 -1.00405e-06L17.9911 35.5923L2.82936e-06 20.7042L2.29671e-06 31.8962L21.5 49.6884L43 31.8963Z" fill="white" />
                 </svg>
             </div>
@@ -38,6 +41,7 @@ function Banner({ data }) {
                 <path d="M197.437 55.0117V52.5306H207V64.1385H205.126L204.382 61.2882C203.659 62.322 202.642 63.1588 201.334 63.7988C200.035 64.4289 198.657 64.744 197.199 64.744C195.494 64.744 194.041 64.4732 192.842 63.9317C192.009 63.5477 191.225 62.9915 190.492 62.2629C189.034 60.8944 188.043 59.26 187.517 57.3598C187.19 56.1882 187.027 54.7557 187.027 53.0623C187.027 50.1185 187.859 47.5882 189.525 45.4714C191.429 43.0396 194.046 41.8237 197.378 41.8237C199.638 41.8237 201.621 42.4045 203.327 43.5663C205.25 44.8758 206.356 46.6923 206.643 49.0158H203.773C203.366 47.3027 202.464 46.0621 201.066 45.2942C200.015 44.7133 198.746 44.4229 197.259 44.4229C195.186 44.4229 193.491 45.176 192.172 46.6824C190.774 48.2971 190.075 50.4877 190.075 53.2543C190.075 55.8535 190.561 57.8964 191.533 59.3831C192.752 61.2636 194.701 62.2038 197.378 62.2038C198.151 62.2038 198.835 62.1349 199.43 61.9971C200.322 61.7706 201.12 61.3768 201.824 60.8156C202.737 60.1067 203.386 59.2502 203.773 58.2459C204.1 57.3795 204.264 56.3015 204.264 55.0117H197.437Z" fill="white" />
                 <path d="M21.892 91.8621V86.114L12.7361 93.7604V75.4805H9.15957V93.7604L4.72274e-07 86.114L0 91.8621L10.946 101L21.892 91.8621Z" fill="white" />
             </svg>
+            <div ref={scrollDownRef}></div>
         </section>
     )
 }

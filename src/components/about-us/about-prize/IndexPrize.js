@@ -9,6 +9,8 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
       <Banner
         image={dataPrize?.prize?.banner?.imagebanner?.sourceUrl}
         altText={dataPrize?.prize?.banner?.imagebanner?.altText}
+        textAboutUs={dataPrize?.prize?.banner?.textbanner}
+        check={true}
       />
       <TitlePage_About_Us slugPage={slugPage} titlePage={titlePage} lang={lang} />
       <div className='md:px-[9.46rem] px-[4.27rem] mt-[4.32rem] pb-[15.4rem]'>

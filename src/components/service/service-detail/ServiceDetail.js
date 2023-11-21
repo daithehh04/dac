@@ -127,7 +127,7 @@ function ServiceDetail({ data, lang, dataOtherProduct }) {
                             {dataOtherProduct?.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <Link href={`/${lang}/service-products/${item?.slug}`}>
-                                        <Image src={item?.featuredImage?.node?.sourceUrl} width={1000} height={1000} alt={item?.featuredImage?.node?.altText} className='imageSlideOtherItem md:w-[12.96875rem] md:h-[11.92708rem] object-cover' />
+                                        <Image src={item?.featuredImage?.node?.sourceUrl} width={1000} height={1000} alt={item?.featuredImage?.node?.altText} className='imageSlideOtherItem md:w-[12.96875rem] md:h-[11.92708rem] h-[27.73333rem] object-cover' />
                                     </Link>
                                 </SwiperSlide>
                             ))}

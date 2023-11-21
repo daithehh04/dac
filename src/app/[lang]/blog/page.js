@@ -4,6 +4,22 @@ import { getMeta } from '@/graphql/metaData/getMeta'
 import { GET_META_NEWS } from '@/graphql/news-blog/query'
 import React from 'react'
 
+const NEWS_QUERY = `query($language:LanguageCodeEnum!){
+  page(id:"cG9zdDozNDI="){
+    translation(language:$language){
+      news_page{
+        banner{
+          background{
+            sourceUrl
+            altText
+          }
+          title
+          description
+        }
+      }
+    }
+  }
+}`
 export async function generateMetadata({ params: { lang } }) {
   const res = await fetchData(GET_META_NEWS, { language: lang?.toUpperCase() })
   const home = res?.data?.page?.translation?.seo
@@ -13,10 +29,10 @@ export async function generateMetadata({ params: { lang } }) {
   return getMeta(title, excerpt, featuredImage)
 }
 
-function page({ params: { lang } }) {
-
+async function page({ params: { lang } }) {
+  let dataNews = await fetchData(NEWS_QUERY, { language: lang?.toUpperCase() })
   return (
-    <Blog lang={lang} />
+    <Blog dataBlog={dataNews?.data?.page?.translation} lang={lang} />
   )
 }
 

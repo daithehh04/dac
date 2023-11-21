@@ -8,7 +8,7 @@ export default async function getDataPage(lang, query) {
             query: query,
             variables: { language: lang?.toUpperCase() }
         }),
-        next: { revalidate: 0 }
+        next: { revalidate: 60 }
     })
     if (!res.ok) {
         throw new Error('Failed to fetch data')

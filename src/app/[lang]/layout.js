@@ -1,4 +1,3 @@
-import Navbar from '@/components/common/Navbar'
 import ApolloClientProvider from '../apolloProvider'
 import './globals.css'
 import Footer from '@/components/common/Footer'
