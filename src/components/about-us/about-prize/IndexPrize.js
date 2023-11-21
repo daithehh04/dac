@@ -12,7 +12,7 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
         textAboutUs={dataPrize?.prize?.banner?.textbanner}
         check={true}
       />
-      <TitlePage_About_Us slugPage={slugPage} titlePage={titlePage} lang={lang} />
+      <TitlePage_About_Us check={2} slugPage={slugPage} titlePage={titlePage} lang={lang} />
       <div className='md:px-[9.46rem] px-[4.27rem] mt-[4.32rem] pb-[15.4rem]'>
         <h2 className='heading max-md:w-[70%]'>{dataPrize?.prize?.content?.heading}</h2>
         <div className='md:flex grid grid-cols-2 justify-center flex-wrap md:mt-[3.2rem] mt-[15rem] md:gap-[5.5rem] max-md:gap-x-[8.27rem] max-md:gap-y-[12.8rem] justify-items-center'>
