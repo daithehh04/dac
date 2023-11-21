@@ -161,7 +161,24 @@ const META_NEWS_DETAIL_QUERY = `query($slug:ID!, $language:LanguageCodeEnum!){
     }
   }
 }`
+const NEWS_QUERY = `query($language:LanguageCodeEnum!){
+  page(id:"cG9zdDozNDI="){
+    translation(language:$language){
+      news_page{
+        banner{
+          background{
+            sourceUrl
+            altText
+          }
+          title
+          description
+        }
+      }
+    }
+  }
+}`
 export {
+  NEWS_QUERY,
   GET_DATA_NEWS_DETAIL,
   GET_ALL_NEWS,
   DATA_BY_SEARCH_TEXT,
