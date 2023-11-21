@@ -18,13 +18,13 @@ function Partners({ dataPartner }) {
         </h3>
       </div>
       <div className='max-md:hidden flex flex-col gap-[1.04rem] bg-[#A0A0A0] absolute right-0 top-[50%] -translate-y-[30%] px-[1rem] py-[1.5rem] rounded-bl-[1.97rem]'>
-        <Link href={'#!'} className='transition-all hover:scale-95'>
+        <Link href={`tel:${dataPartner?.socialAction?.phone}`} className='transition-all hover:scale-95'>
           <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={phone} width={'100%'} height={'100%'} alt='phone' />
         </Link>
-        <Link href={'#!'} className='transition-all hover:scale-95'>
+        <Link href={`${dataPartner?.socialAction?.zalo}`} target='_blank' className='transition-all hover:scale-95'>
           <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={zalo} width={'100%'} height={'100%'} alt='zalo' />
         </Link>
-        <Link href={'#!'} className='transition-all hover:scale-95'>
+        <Link href={`${dataPartner?.socialAction?.facebook}`} target='_blank' className='transition-all hover:scale-95'>
           <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={fb} width={'100%'} height={'100%'} alt='facebook' />
         </Link>
       </div>
