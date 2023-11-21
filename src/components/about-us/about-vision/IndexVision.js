@@ -14,6 +14,8 @@ async function IndexVision({ data, lang, slugPage, titlePage }) {
       <Banner
         image={dataBanner?.imagebanner?.sourceUrl}
         altText={dataBanner?.imagebanner?.altText}
+        textAboutUs={dataBanner?.textbanner}
+        check={true}
       />
       <main>
         <TitlePage_About_Us lang={lang} slugPage={slugPage} titlePage={titlePage} />

@@ -12,6 +12,8 @@ function IndexJourney({ data, lang, slugPage, titlePage }) {
         id={'banner_journey'}
         image={dataJourney?.journey?.banner?.imagebanner?.sourceUrl}
         altText={dataJourney?.journey?.banner?.imagebanner?.altText}
+        textAboutUs={dataJourney?.journey?.banner?.textbanner}
+        check={true}
       />
       <main>
         <TitlePage_About_Us lang={lang} slugPage={slugPage} titlePage={titlePage} />
