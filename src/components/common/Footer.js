@@ -26,9 +26,9 @@ function Footer({ lang, data }) {
           <Image src={data?.homepage?.footer?.logo?.sourceUrl} width={100} height={100} className='object-cover max-md:w-[20.53333rem] max-md:h-[11.73333rem]' alt={data?.homepage?.footer?.logo?.altText || 'DAC'} />
         </div>
         <div className='flex items-start max-md:flex-col justify-between md:mt-[3.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888]'>
-          <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem]" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn1}` }}>
+          <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem] title_name_company" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn1}` }}>
           </div>
-          <div ref={contentRef} className="right" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn2}` }}>
+          <div ref={contentRef} className="right title_name_company" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn2}` }}>
           </div>
         </div>
 
