@@ -16,7 +16,7 @@ function IndexJourney({ data, lang, slugPage, titlePage }) {
         check={true}
       />
       <main>
-        <TitlePage_About_Us lang={lang} slugPage={slugPage} titlePage={titlePage} />
+        <TitlePage_About_Us check={1} lang={lang} slugPage={slugPage} titlePage={titlePage} />
         <div className='mt-[5.31rem]'>
           <div className='content' id='contentHisMb'>
             <h3 className='heading max-md:mb-[5rem]'>{dataJourney?.journey?.content?.title}</h3>

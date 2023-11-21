@@ -14,7 +14,7 @@ export const IndexOrganize = ({ data, lang, slugPage, titlePage }) => {
         check={true}
       />
       <main className='content pb-[2.31rem]'>
-        <TitlePage_About_Us lang={lang} slugPage={slugPage} titlePage={titlePage} />
+        <TitlePage_About_Us check={3} lang={lang} slugPage={slugPage} titlePage={titlePage} />
         <h1 className='heading pl-[5.47rem] mt-[4.32rem]'>{dataOrganize?.organize?.content?.heading}</h1>
         <Image src={dataOrganize?.organize?.content?.diagram?.sourceUrl} width={1600} quality={100} height={1000} alt={dataOrganize?.organize?.content?.diagram?.altText || 'organize'} className='mt-[4.5rem] md:w-[91.25rem] md:h-[49.53125rem] object-contain w-[91.2rem] h-[49.86667rem]' />
         <div className='flex justify-center md:mt-[3rem] mt-[9.6rem] max-md:mb-[9.3rem] max-md:flex-col'>

@@ -18,7 +18,7 @@ async function IndexVision({ data, lang, slugPage, titlePage }) {
         check={true}
       />
       <main>
-        <TitlePage_About_Us lang={lang} slugPage={slugPage} titlePage={titlePage} />
+        <TitlePage_About_Us check={0} lang={lang} slugPage={slugPage} titlePage={titlePage} />
         <Story data={dataStory} />
         <Motto data={dataMotto} />
       </main>
