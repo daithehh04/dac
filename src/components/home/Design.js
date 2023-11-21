@@ -19,18 +19,22 @@ function Design({ lang, dataDesign }) {
       <div className='flex md:px-[9.43rem] mt-[5.4rem] md:gap-[5.16rem] items-center max-md:flex-col'>
         <div className="left md:w-[36.7rem] max-md:bg-[#444545] flex flex-col items-center">
 
-          <div class="scrolling-words-container">
-            <div class="scrolling-words-box">
-              <ul>
-                {dataDesign?.textAnimation?.listTextScroll?.map((item, index) => (
-                  <li className='list-none md:text-[4rem] text-[8.53333rem] md:text-[#888] text-[#fff] uppercase' key={index}>{item?.text}</li>
-                ))}
-              </ul>
+          <div className='max-md:flex items-center w-full max-md:px-[4.27rem]'>
+            <span className='md:hidden text-[#fff] text-[22.93333rem] font-bold'>&</span>
+            <div class="scrolling-words-container max-md:w-full">
+              <div class="scrolling-words-box max-md:w-full">
+                <ul>
+                  {dataDesign?.textAnimation?.listTextScroll?.map((item, index) => (
+                    <li className='list-none md:text-[4rem] text-[8.53333rem] md:text-[#888] text-[#fff] uppercase' key={index}>{item?.text}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className='flex text-[#fff]  md:justify-center block-scroll-word font-bold items-end w-full'>
+                <span className='text-[8.53333rem] md:text-[4rem] uppercase md:text-[#444] leading-[1.2] max-md:w-[60rem] relative max-md:bottom-[-2rem]'>{dataDesign?.textAnimation?.textOnTop}</span>
+                <span className='text-[22.93333rem] max-md:hidden md:text-[2rem] md:text-[#444] relative md:bottom-[0.25rem] leading-[1.2]'>&</span>
+              </div>
             </div>
-            <div className='flex text-[#fff] justify-center block-scroll-word font-bold items-end w-full'>
-              <span className='text-[8.53333rem] md:text-[4rem] uppercase md:text-[#444] leading-[1.2] max-md:w-[60rem] relative max-md:bottom-[-2rem]'>{dataDesign?.textAnimation?.textOnTop}</span>
-              <span className='text-[22.93333rem] max-md:hidden md:text-[2rem] md:text-[#444] relative md:bottom-[0.25rem] leading-[1.2]'>&</span>
-            </div>
+
           </div>
           <p
             dangerouslySetInnerHTML={{ __html: `${dataDesign?.textAnimation?.description}` }}

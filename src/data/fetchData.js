@@ -8,7 +8,7 @@ export const fetchData = async (query, variables = {}) => {
             query,
             variables,
         }),
-        next: { revalidate: 0 },
+        next: { revalidate: 3600 },
     })
     if (!res.ok) {
         throw new Error('Failed to fetch data')
