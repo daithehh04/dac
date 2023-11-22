@@ -6,7 +6,7 @@ const client = new ApolloClient({
     headers: {
       'Content-Type': 'application/json'
     },
-    next: { revalidate: 3600 }
+    next: { revalidate: 60 }
   }),
   cache: new InMemoryCache()
 })
