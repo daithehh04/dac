@@ -39,22 +39,9 @@ function HistoryMobile({ data }) {
     }
     const handleSelect = (index) => {
         setSelected(index)
-        // if (index >= 3) {
-        //     setNumber(index + 1)
         if (seeMoreRef.current) {
             seeMoreRef.current.display = 'none'
         }
-        //  else {
-        //     seeMoreRef.current.display = 'block'
-        // }
-        // }
-        //  else {
-        //     setNumber(3)
-        // }
-
-        // if (index < 3) {
-        //     setNumber(3)
-        // }
     }
     useEffect(() => {
         const listElements = document.querySelectorAll('.historyYear')
@@ -87,11 +74,6 @@ function HistoryMobile({ data }) {
                     popUpRef.current.style.position = 'relative'
                 }
 
-                // if (currentY >= (elementId.scrollHeight + bannerId.scrollHeight) && popUpRef.current.style.transform === 'translateX(0%)') {
-                //     popUpRef.current.style.position = 'fixed'
-                //     popUpRef.current.style.top = '0'
-                // }
-
                 if (currentY < (elementId.scrollHeight + bannerId.scrollHeight)) {
                     popUpRef.current.style.position = 'relative'
 
@@ -103,12 +85,9 @@ function HistoryMobile({ data }) {
                     openRef.current.style.display = 'none'
 
                 } else if (currentY < sectionHeight && currentY >= (elementId.scrollHeight + bannerId.scrollHeight)) {
-                    // popUpRef.current.style.transform = 'translateX(0%)'
                     popUpRef.current.style.position = 'fixed'
                     popUpRef.current.style.top = '0'
                     openRef.current.style.display = 'block'
-                    // closeRef.current.style.display = 'block'
-
                 }
             }
         }
@@ -138,7 +117,7 @@ function HistoryMobile({ data }) {
             </div>
 
             <div className='absolute z-[10] left-0' ref={openRef} onClick={handleOpenPopUp}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="35" viewBox="0 0 26 35" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" className='w-[6.93333rem] h-[9.0552rem]' viewBox="0 0 26 35" fill="none">
                     <path d="M0 0.413818H26V22.3713C26 28.9987 20.6274 34.3713 14 34.3713H0V0.413818Z" fill="#00A84F" />
                     <path d="M10 12.8372L15.5 17.3924L10 21.9477" stroke="white" />
                 </svg>
