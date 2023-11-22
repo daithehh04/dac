@@ -47,7 +47,7 @@ function SlideProduct({ lang, dataProductList }) {
                 <Link href={`/${lang}/service-products/${item?.product_category?.info?.featureProduct}`} className='relative w-full h-full '>
                   <div className="overlay absolute top-0 w-full md:h-[100%] rotate-180 h-[100rem]" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
                   <Image src={item?.product_category?.info?.image?.sourceUrl} quality={100} width={1000} height={1000} alt={item?.product_category?.info?.image?.altText || 'img-product'} className='w-full md:h-full h-[100rem] object-cover' />
-                  <h3 className='absolute bottom-[5.56rem] pl-[3.17rem] text-[6.93333rem]  md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.product_category?.info?.title}` }} ></h3>
+                  <h3 className='absolute md:bottom-[4.64rem] bottom-[10rem] md:pr-[2.9rem] left-0 w-full pl-[2.64rem] max-md:px-[4.27rem] text-[6.93333rem]  md:text-[2.5rem] font-bold text-white leading-[1.16]' dangerouslySetInnerHTML={{ __html: `${item.product_category?.info?.title}` }} ></h3>
                 </Link>
               )}
             </SwiperSlide>
