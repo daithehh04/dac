@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { useEffect } from 'react'
 import { useRef } from 'react'
 import { useState } from 'react'
@@ -47,7 +47,7 @@ function HistoryMobile({ data }) {
             setNumber(3)
         }
     }
-    useEffect(() => {
+    useLayoutEffect(() => {
         const listElements = document.querySelectorAll('.historyYear')
         listElements[selected].scrollIntoView({
             behavior: 'smooth'
@@ -78,10 +78,10 @@ function HistoryMobile({ data }) {
                     popUpRef.current.style.position = 'relative'
                 }
 
-                if (currentY >= (elementId.scrollHeight + bannerId.scrollHeight) && popUpRef.current.style.transform === 'translateX(0%)') {
-                    popUpRef.current.style.position = 'fixed'
-                    popUpRef.current.style.top = '0'
-                }
+                // if (currentY >= (elementId.scrollHeight + bannerId.scrollHeight) && popUpRef.current.style.transform === 'translateX(0%)') {
+                //     popUpRef.current.style.position = 'fixed'
+                //     popUpRef.current.style.top = '0'
+                // }
 
                 if (currentY < (elementId.scrollHeight + bannerId.scrollHeight)) {
                     popUpRef.current.style.position = 'relative'
