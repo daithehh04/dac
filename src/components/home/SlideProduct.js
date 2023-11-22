@@ -29,6 +29,7 @@ function SlideProduct({ lang, dataProductList }) {
             }
           }
         }
+        speed={800}
         spaceBetween={0}
         onSlideChange={handleSlideChange}
         modules={[Pagination]}
