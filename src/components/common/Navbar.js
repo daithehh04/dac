@@ -72,6 +72,7 @@ function Navbar({
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navheader").style.top = "0";
         document.getElementById("navheader").style.backdropFilter = 'blur(4px)'
+        document.getElementById("navheader").style.webkitBackdropFilter = 'blur(4px)';
       } else {
         document.getElementById("navheader").style.top = "-100%";
         document.getElementById("navheader").style.backdropFilter = 'none'
