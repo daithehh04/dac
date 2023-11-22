@@ -8,7 +8,7 @@ export default async function getDataByTaxonomy(lang, term, query) {
             query: query,
             variables: { language: lang?.toUpperCase(), term: term }
         }),
-        next: { revalidate: 3600 }
+        next: { revalidate: 60 }
     })
     if (!res.ok) {
         throw new Error('Failed to fetch data')

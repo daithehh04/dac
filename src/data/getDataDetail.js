@@ -8,7 +8,7 @@ export default async function getDataDetail(lang, slug, query) {
             query: query,
             variables: { language: lang?.toUpperCase(), slug: slug }
         }),
-        next: { revalidate: 3600 }
+        next: { revalidate: 60 }
     })
     if (!res.ok) {
         throw new Error('Failed to fetch data')
