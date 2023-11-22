@@ -1,24 +1,9 @@
-'use client'
+// 'use client'
 import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import SelectLangMb from '../lang/SelectLangMb'
 
 function MenuMb({ data, handleCloseModal, lang }) {
-    const [selected, setSelected] = useState(null)
-    const [menuMbItem, setMbMenuItem] = useState(null)
-    const refElement = useRef()
-    useEffect(() => {
-        const menu_mobile_item = document.querySelectorAll('.menu_mobile_item')
-        setMbMenuItem(menu_mobile_item)
-    }, [])
-    const handleSelect = (num) => {
-        if (num === selected) {
-            setSelected(null)
-        } else {
-            setSelected(num)
-        }
-    }
-
     return (
         <section className='pt-[10.93rem] px-[4.27rem] pb-[8.53rem] relative'>
             <svg onClick={handleCloseModal} xmlns="http://www.w3.org/2000/svg" className='w-[10.4rem] h-[10.4rem] fixed top-[12.23rem] right-[4.27rem]' viewBox="0 0 39 39" fill="none">
@@ -41,10 +26,9 @@ function MenuMb({ data, handleCloseModal, lang }) {
                     return (
                         <div key={index} className='mb-[2.67rem]'>
                             {
-                                item?.listContent ?
+                                (item?.listContent && index !== 2) ?
                                     (
                                         <span
-                                            onClick={() => handleSelect(index)}
                                             className='text-[#444] text-[5.33333rem]  font-bold'
                                             key={index}>{lang === 'vi' ? item?.link : item?.linkEn}
                                         </span>
@@ -61,19 +45,8 @@ function MenuMb({ data, handleCloseModal, lang }) {
                             {
                                 item?.listContent && (
                                     <div
-                                        ref={refElement}
-                                        className='menu_mobile_item flex flex-col mt-[2rem]'
-                                        style={
-                                            selected === index
-                                                ? {
-                                                    height: menuMbItem[index - 1 < 0 ? 0 : index - 1].scrollHeight,
-                                                    overflow: "visible",
-                                                }
-                                                : {
-                                                    height: "0",
-                                                    overflow: "hidden",
-                                                }
-                                        }
+                                        className='flex flex-col mt-[2rem] ml-[5rem]'
+
                                     >
                                         {item?.listContent?.map((mbItem, index) => {
                                             return (

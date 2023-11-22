@@ -91,7 +91,7 @@ function Blog({ lang, dataBlog }) {
                     <input onChange={handleInput} placeholder='Tim Kiem' className='md:px-[0.8rem] md:w-[10.625rem] w-[42.4576rem] md:h-[2.1875rem] h-[8.8rem] md:rounded-[2.23958rem] rounded-[11.46667rem] bg-[#F0F0F0]' />
                 </div>
                 {/* pagination */}
-                <div className='flex justify-center items-center relative md:mt-[1rem]'>
+                <div className='flex justify-center max-md:hidden items-center relative md:mt-[1rem]'>
                     {Array.from({ length: totalPage }, (_, index) => (
                         <div
                             key={index}
