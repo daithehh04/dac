@@ -17,10 +17,13 @@ function HistoryMobile({ data }) {
             openRef.current.style.display = 'block'
             popUpRef.current.style.position = 'relative'
             closeRef.current.style.display = 'none'
-
+        }
+        if (selected < 2) {
+            setNumber(3)
         }
     }
     const handleOpenPopUp = () => {
+        setNumber(number + 1000)
         if (popUpRef.current && openRef.current && closeRef.current) {
             popUpRef.current.style.transform = 'translateX(0%)'
             popUpRef.current.style.position = 'fixed'
@@ -36,18 +39,24 @@ function HistoryMobile({ data }) {
     }
     const handleSelect = (index) => {
         setSelected(index)
-        if (index >= 3) {
-            setNumber(index + 1)
-            if (seeMoreRef.current) {
-                seeMoreRef.current.display = 'none'
-            } else {
-                seeMoreRef.current.display = 'block'
-            }
-        } else {
-            setNumber(3)
+        // if (index >= 3) {
+        //     setNumber(index + 1)
+        if (seeMoreRef.current) {
+            seeMoreRef.current.display = 'none'
         }
+        //  else {
+        //     seeMoreRef.current.display = 'block'
+        // }
+        // }
+        //  else {
+        //     setNumber(3)
+        // }
+
+        // if (index < 3) {
+        //     setNumber(3)
+        // }
     }
-    useLayoutEffect(() => {
+    useEffect(() => {
         const listElements = document.querySelectorAll('.historyYear')
         listElements[selected].scrollIntoView({
             behavior: 'smooth'
@@ -85,10 +94,21 @@ function HistoryMobile({ data }) {
 
                 if (currentY < (elementId.scrollHeight + bannerId.scrollHeight)) {
                     popUpRef.current.style.position = 'relative'
+
                 }
 
                 if (currentY >= sectionHeight) {
-                    popUpRef.current.style.position = 'relative'
+                    popUpRef.current.style.transform = 'translateX(-100%)'
+                    closeRef.current.style.display = 'none'
+                    openRef.current.style.display = 'none'
+
+                } else if (currentY < sectionHeight && currentY >= (elementId.scrollHeight + bannerId.scrollHeight)) {
+                    // popUpRef.current.style.transform = 'translateX(0%)'
+                    popUpRef.current.style.position = 'fixed'
+                    popUpRef.current.style.top = '0'
+                    openRef.current.style.display = 'block'
+                    // closeRef.current.style.display = 'block'
+
                 }
             }
         }
