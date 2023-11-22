@@ -15,7 +15,7 @@ function HistoryMobile({ data }) {
         if (popUpRef.current && openRef.current && closeRef.current) {
             popUpRef.current.style.transform = 'translateX(-100%)'
             openRef.current.style.display = 'block'
-            popUpRef.current.style.position = 'relative'
+            // popUpRef.current.style.position = 'relative'
             closeRef.current.style.display = 'none'
         }
         if (selected < 2) {
