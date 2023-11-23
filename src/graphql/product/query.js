@@ -20,7 +20,10 @@ const GET_DATA_PRODUCT_PAGE = `query getDataProductPage($language: LanguageCodeE
 `
 const GET_DATA_CATEGORY_PRODUCT_SERVICE = `
 query getDataCategoryProduct($language: LanguageCodeFilterEnum!) {
-  allCategoryProducts(first: 100, where: {language: $language}) {
+  allCategoryProducts(
+    first: 100
+    where: {language: $language, order: ASC, orderby: TERM_ORDER}
+  ) {
     nodes {
       slug
       product_category {

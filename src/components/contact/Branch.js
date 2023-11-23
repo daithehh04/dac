@@ -5,7 +5,7 @@ function Branch({ dataBranch }) {
     return (
         <section className='md:pt-[7rem] pt-[7.47rem] md:px-[4.17rem] px-[4.27rem]'>
             <div className='flex max-md:flex-col'>
-                <h2 className='heading2 md:!tracking-[-0.17188rem] md:mr-[6rem] font-bold' dangerouslySetInnerHTML={{ __html: `${dataBranch?.heading}` }} ></h2>
+                <h2 className='heading2 md:!tracking-[-0.17188rem] md:mr-[6rem] font-bold md:w-[24.4375rem]' dangerouslySetInnerHTML={{ __html: `${dataBranch?.heading}` }} ></h2>
                 <div className=' max-md:mt-[12rem] max-md:mb-[12rem]'>
                     <div className='grid md:grid-cols-2 gap-x-[4.9rem] gap-y-[12rem] md:gap-y-[2.08rem] md:mb-[4rem]'>
                         {dataBranch?.listContentAddress?.map((item, index) => (
