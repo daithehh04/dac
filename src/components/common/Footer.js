@@ -23,7 +23,7 @@ function Footer({ lang, data }) {
     <footer className='footer bg-[#000D10] text-[#888] md:pt-[4.98rem] pt-[11.47rem] max-md:h-auto'>
       <div className="content max-md:flex flex-col justify-center ">
         <div className="logo">
-          <Image src={data?.homepage?.footer?.logo?.sourceUrl} width={100} height={100} className='object-cover max-md:w-[20.53333rem] max-md:h-[11.73333rem]' alt={data?.homepage?.footer?.logo?.altText || 'DAC'} />
+          <Image src={data?.homepage?.footer?.logo?.sourceUrl} width={100} height={100} className='object-cover w-[7.1875rem] h-[4.09453rem] max-md:w-[20.53333rem] max-md:h-[11.73333rem]' alt={data?.homepage?.footer?.logo?.altText || 'DAC'} />
         </div>
         <div className='flex items-start max-md:flex-col justify-between md:mt-[3.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888]'>
           <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem] title_name_company" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn1}` }}>

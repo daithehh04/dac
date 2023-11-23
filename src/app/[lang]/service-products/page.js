@@ -15,10 +15,8 @@ export async function generateMetadata({ params: { lang } }) {
 }
 
 export default async function page({ params: { lang } }) {
-    let data
-    let dataCategory
-    data = await getDataPage(lang, GET_DATA_PRODUCT_PAGE)
-    dataCategory = await getDataPage(lang, GET_DATA_CATEGORY_PRODUCT_SERVICE)
+    let data = await getDataPage(lang, GET_DATA_PRODUCT_PAGE)
+    let dataCategory = await getDataPage(lang, GET_DATA_CATEGORY_PRODUCT_SERVICE)
     return (
         <Service
             data={data?.data?.page?.translation}
