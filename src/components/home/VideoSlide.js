@@ -75,9 +75,9 @@ function VideoSlide({ dataSlideVideo }) {
       {/* <div className='flex absolute bottom-[3.75rem] z-10 w-full justify-between  btn-product'> */}
       <button
         onClick={handlePrevSlide}
-        className='md:w-[2.78rem] md:h-[2.6rem] absolute md:right-[13rem] max-md:left-[3rem] md:bottom-[4rem] max-md:top-[50%] z-[1]'
+        className='md:w-[2.78rem] md:h-[2.6rem] rotate-180 absolute md:right-[13rem] max-md:left-[3rem] md:bottom-[4rem] max-md:top-[50%] z-[1]'
       >
-        <Image src={arrPrev} width={'100%'} height={'100%'} alt='icon' className='max-md:hidden' />
+        <Image src={arrNext} width={'100%'} height={'100%'} alt='icon' className='max-md:hidden' />
         <svg xmlns="http://www.w3.org/2000/svg" className='md:hidden w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
           <path d="M17 30L3 16L17 2" stroke="white" stroke-width="3" />
         </svg>

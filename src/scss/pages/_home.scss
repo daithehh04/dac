@@ -70,6 +70,29 @@
 #navheader{
   transition: all 0.3s;
 }
+
+
+.text-animate{
+  transition: all 0.5s;
+  position: relative;
+  &:hover::after{
+    width: 100%;
+  }
+  &:hover{
+    transform: scale(1.01);
+  }
+  
+}
+.text-animate::after{
+  transition: all 0.3s;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 0;
+  border-bottom: 2px solid #444;
+}
+
 .scrolling-words-box {
   height: 7rem;
   overflow: hidden;

@@ -1,6 +1,6 @@
-import titleImg from '@/assets/imgs/title-sec3.svg'
 import Image from 'next/image'
-function Technical({ dataTechnology }) {
+import Link from 'next/link'
+function Technical({ dataTechnology,lang }) {
 
   return (
     <section className="technical pt-[8.75rem] md:pb-[12rem] pb-[3rem] md:px-[4.17rem]">
@@ -19,7 +19,9 @@ function Technical({ dataTechnology }) {
             {dataTechnology?.listTechnology?.map((item, index) => (
               <li key={index} className='text-[1.35417rem]'>
                 <Image src={item?.icon?.sourceUrl} width={1000} height={1000} alt='icon' className='md:w-[5.78125rem] md:h-[5.78125rem] w-[18.13333rem] h-[18.13333rem]' />
-                <h4 className='text-[#444] font-bold md:mt-[1.25rem] max-md:my-[3rem] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.technologyName}</h4>
+                <Link href={`/${lang}/technology/${index === 0 ? 'offset' : index === 1 ? 'flexo' : index === 2 ? 'gravure' : 'digital'}`}>
+                  <h4 className='text-[#444] text-animate font-bold md:mt-[1.25rem] max-md:my-[3rem] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.technologyName}</h4>
+                </Link>
                 <p className='md:text-[1.5rem] lg:mt-[1.425rem] text-[#888] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.description}</p>
               </li>
             ))}
