@@ -22,7 +22,7 @@ function HomePage({ lang, data, dataProductList }) {
       <Banner dataBanner={dataBanner} lang={lang} />
       <Design dataDesign={dataDesign} lang={lang} />
       <Product dataProductList={dataProductList} dataProduct={dataProduct} lang={lang} />
-      <Technical dataTechnology={dataTechnology} />
+      <Technical dataTechnology={dataTechnology} lang={lang} />
       <Solution dataSolution={dataSolution} />
       <News dataNews={dataNews} />
       <VideoSlide dataSlideVideo={dataSlideVideo} />
