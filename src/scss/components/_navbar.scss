@@ -19,3 +19,8 @@
   transition: all 0.3s;
   padding-left: 5rem;
 }
+.text_product_item_home{
+    & > br {
+      display: none;
+    }
+}
