@@ -3,8 +3,8 @@ import React from 'react'
 
 function ProductItem({ image, text }) {
     return (
-        <div className='relative'>
-            <Image src={image?.sourceUrl} alt={image?.altText || 'image'} width={1000} height={1000} quality={100} className="md:h-[29.0625rem] h-[100rem] md:w-[20.98958rem] object-cover" />
+        <div className='relative overflow-hidden img_item_product'>
+            <Image src={image?.sourceUrl} alt={image?.altText || 'image'} width={1000} height={1000} quality={100} className="md:h-[29.0625rem]  h-[100rem] md:w-[20.98958rem] object-cover" />
             <div className="overlay absolute top-0 w-full md:h-[100%] rotate-180 h-[100rem]" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
             <p 
                 dangerouslySetInnerHTML={{ __html: `${text}` }}

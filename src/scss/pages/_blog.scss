@@ -4,7 +4,6 @@
 
 .searchTextBlog {
   & > input::placeholder {
-    // padding-left: 1.12rem;
     color: #888;
     font-size: 0.83333rem;
     line-height: 116.662%;
@@ -46,4 +45,13 @@
 
 .slideBlog_detail::-webkit-scrollbar{
   display: none;
+}
+
+.blog_item_animate{
+  & > img {
+    transition: all 0.3s;  
+  }
+  &:hover > img {
+    transform: scale(1.2);
+  }
 }
