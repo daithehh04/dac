@@ -129,10 +129,19 @@
     background:linear-gradient(rgba(207, 234, 228, 1),rgba(255, 255, 255, 1))
   // }
 }
-
+.text_seemore{
+  &:hover{
+    color: #0B7CDE;
+  }
+}
 .popUpAction{
   transition: all 0.4s;
-  transform: translateX(0%);
+  transform: translateX(100%);
+}
+
+.arrow_up{
+  transform: translateY(200%);
+  transition: all 0.6s;
 }
 
 @keyframes scrollUp {
