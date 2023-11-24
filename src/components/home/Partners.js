@@ -1,12 +1,23 @@
-import React from 'react'
+'use client'
+import React, { useRef } from 'react'
 import SlidePartners from './SlidePartners'
 import fb from '@/assets/imgs/icon-f.svg'
 import zalo from '@/assets/imgs/icon-z.svg'
 import phone from '@/assets/imgs/icon-p.svg'
 import Link from 'next/link'
+import arrow_right from '@/assets/imgs/arrow_right.svg'
+import arrow from '@/assets/imgs/arrow1.svg'
 import Image from 'next/image'
 
 function Partners({ dataPartner }) {
+  const popUpRef = useRef()
+  const handleClose = () => {
+      if(popUpRef && popUpRef.current.style.transform === 'translateX(0%)'){
+        popUpRef.current.style.transform = 'translateX(102%)'
+      } else{
+        popUpRef.current.style.transform = 'translateX(0%)'
+      }
+  }
   return (
     <div className='pt-[6.25rem] relative partner'>
       <h3 className='md:text-[2.5rem] text-[6.93333rem] text-[#444] font-bold leading-[1.16] text-center max-md:mb-[15rem]'>{dataPartner?.title}</h3>
@@ -17,7 +28,7 @@ function Partners({ dataPartner }) {
           <Link className='md:text-[5rem] text-[6.93333rem] max-md:mt-[4rem] text-[#444] font-bold leading-[1.16] text-center tracking-[-0.25rem] title-connect w-max' href={`#!`}>{dataPartner?.heading}</Link>
         </h3>
       </div>
-      <div className='max-md:hidden flex flex-col gap-[1.04rem] bg-[#A0A0A0] absolute right-0 top-[50%] -translate-y-[30%] px-[1rem] py-[1.5rem] rounded-bl-[1.97rem]'>
+      <div ref={popUpRef} className='max-md:hidden popUpAction flex flex-col gap-[1.04rem] bg-[#A0A0A0] fixed z-50 right-0 top-[60%] -translate-y-[30%] px-[1rem] py-[1.5rem] rounded-bl-[1.97rem]'>
         <Link href={`tel:${dataPartner?.socialAction?.phone}`} className='transition-all hover:scale-95'>
           <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={phone} width={'100%'} height={'100%'} alt='phone' />
         </Link>
@@ -27,6 +38,7 @@ function Partners({ dataPartner }) {
         <Link href={`${dataPartner?.socialAction?.facebook}`} target='_blank' className='transition-all hover:scale-95'>
           <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={fb} width={'100%'} height={'100%'} alt='facebook' />
         </Link>
+        <Image onClick={handleClose} src={arrow_right} alt='arrow' className='w-[1.35417rem] absolute h-[2.13542rem] top-[0] left-[-1.35rem]' />
       </div>
     </div>
   )

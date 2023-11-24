@@ -168,9 +168,9 @@ function Banner({ lang, dataBanner }) {
   }, [])
   return (
     <>
-      <section className='banner relative md:w-full md:h-[180vw] lg:h-[170vw] h-[200vw] max-md:flex flex-col justify-center items-center frame '>
+      <section className='banner banner_home relative md:w-full md:h-[300vw] xl:h-[170vw] lg:h-[250vw] h-[400vw] max-md:flex flex-col md:justify-center items-center frame '>
         {/* <Image src={dataBanner?.background?.sourceUrl || imgBanner} quality={100} alt='banner' fill className='w-full md:rounded-br-[13.54rem] md:h-full max-md:!h-[100vh] object-cover z-[-1]' /> */}
-        <div style={{background:'linear-gradient(rgba(207, 234, 228, 1),rgba(255, 255, 255, 1))'}} className='flex  items-center sticky  top-0 md:h-[90vh] h-[60vh] justify-between  md:border-b border-solid border-[#888] max-md:flex-col'>
+        <div className='flex sticky_box items-center sticky max-md:pt-[10rem] max-md:w-full top-0 md:h-[95vh] justify-between  md:border-b border-solid border-[#888] max-md:flex-col'>
           <div className='flex justify-center'>
             <Image alt="tissue-picture" src={imgBox1} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue active'></Image>
             <Image alt="tissue-picture" src={imgBox2} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
