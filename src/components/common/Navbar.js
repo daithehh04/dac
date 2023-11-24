@@ -11,7 +11,9 @@ import barsIconW from '@/assets/imgs/bars-icon-w.svg'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MenuMb from './MenuMb'
+import arrowUp from '@/assets/imgs/arrow_up.svg'
 import { useMediaQuery } from 'react-responsive'
+import scrollDown from '@/hooks/scrollDown'
 
 function Navbar({
   lang,
@@ -25,6 +27,7 @@ function Navbar({
   const [checkScroll, setCheckScroll] = useState(false)
   const refMb = useRef()
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
+  const bannerRef = useRef()
   const handleOpenModal = () => {
     refMb?.current?.classList?.add('active')
   }
@@ -66,9 +69,12 @@ function Navbar({
   }, [checkHome])
 
   useEffect(() => {
-    let prevScrollpos = window.pageYOffset;
+    let prevScrollpos = window.scrollY;
     window.onscroll = function () {
-      let currentScrollPos = window.pageYOffset;
+      const banner_home = document.querySelector('.banner_home')
+      const arrow_up = document.querySelector('.arrow_up')
+      
+      let currentScrollPos = window.scrollY;
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navheader").style.top = "0";
         document.getElementById("navheader").style.backdropFilter = 'blur(4px)'
@@ -79,6 +85,12 @@ function Navbar({
       }
       if (currentScrollPos === 0) {
         document.getElementById("navheader").style.backdropFilter = 'none'
+      }
+
+      if(banner_home && (currentScrollPos > banner_home.offsetHeight)){
+          arrow_up.style.transform = 'translateY(0)'
+      }else{
+        arrow_up.style.transform = 'translateY(200%)'
       }
       prevScrollpos = currentScrollPos;
     }
@@ -209,7 +221,7 @@ function Navbar({
 
   return (
     <>
-      <nav id='navheader' className={`bg-[${bgColor}] ${shadow} top-0 w-full fixed navbar md:pt-[1.3rem] md:pb-[1.3rem] pt-[12.27rem] z-10 ${isMobile && 'bg-transparent'}`}>
+      <nav id='navheader'  className={`bg-[${bgColor}] ${shadow} top-0 w-full fixed navbar md:pt-[1.3rem] md:pb-[1.3rem] pt-[12.27rem] z-10 ${isMobile && 'bg-transparent'}`}>
         <div className="content">
           <div className='flex items-center justify-between'>
             {checkHome ?
@@ -233,6 +245,7 @@ function Navbar({
           </div>
         </div>
       </nav>
+      <div ref={bannerRef}></div>
 
       <div ref={refMb} className='fixed inset-0 md:hidden overflow-x-hidden overflow-y-auto w-full h-full bg-white !z-[199] nav-mobile' >
         <MenuMb
@@ -240,6 +253,10 @@ function Navbar({
           handleCloseModal={handleCloseModal}
           lang={lang}
         />
+      </div>
+
+      <div onClick={() => scrollDown(bannerRef, 'start')} className='fixed arrow_up z-50 bottom-[2rem] right-[3.17rem]'>
+          <Image src={arrowUp} alt='arrow' className='md:w-[2.29167rem] md:h-[2.13542rem] w-[4.3rem] h-[4.3rem]' />
       </div>
     </>
   )

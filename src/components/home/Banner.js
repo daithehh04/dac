@@ -2,8 +2,7 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import box from '@/assets/imgs/BoxMb.png'
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import imgBox1 from '@/assets/imgs/Tissues_050000.png'
 import imgBox2 from '@/assets/imgs/Tissues_050001.png'
 import imgBox3 from '@/assets/imgs/Tissues_050002.png'
@@ -104,7 +103,6 @@ import imgBox97 from '@/assets/imgs/Tissues_050096.png'
 import imgBox98 from '@/assets/imgs/Tissues_050097.png'
 
 function Banner({ lang, dataBanner }) {
-  const imgBanner = 'https://cms-dac.okhub.tech/wp-content/uploads/2023/10/bg-home.jpg'
   gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     (
@@ -168,8 +166,7 @@ function Banner({ lang, dataBanner }) {
   }, [])
   return (
     <>
-      <section className='banner banner_home relative md:w-full md:h-[300vw] xl:h-[170vw] lg:h-[250vw] h-[400vw] max-md:flex flex-col md:justify-center items-center frame '>
-        {/* <Image src={dataBanner?.background?.sourceUrl || imgBanner} quality={100} alt='banner' fill className='w-full md:rounded-br-[13.54rem] md:h-full max-md:!h-[100vh] object-cover z-[-1]' /> */}
+      <section className='banner banner_home relative md:w-full md:h-[300vw] xl:h-[170vw] lg:h-[250vw] h-[250vw] max-md:flex flex-col md:justify-center items-center frame '>
         <div className='flex sticky_box items-center sticky max-md:pt-[10rem] max-md:w-full top-0 md:h-[95vh] justify-between  md:border-b border-solid border-[#888] max-md:flex-col'>
           <div className='flex justify-center'>
             <Image alt="tissue-picture" src={imgBox1} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue active'></Image>

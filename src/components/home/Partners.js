@@ -1,16 +1,19 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import SlidePartners from './SlidePartners'
 import fb from '@/assets/imgs/icon-f.svg'
 import zalo from '@/assets/imgs/icon-z.svg'
 import phone from '@/assets/imgs/icon-p.svg'
 import Link from 'next/link'
 import arrow_right from '@/assets/imgs/arrow_right.svg'
-import arrow from '@/assets/imgs/arrow1.svg'
+
 import Image from 'next/image'
 
 function Partners({ dataPartner }) {
   const popUpRef = useRef()
+  // const handleCLick = () => {
+  //   window.scrollTo(0, 0, { behavior: 'smooth' })
+  // }
   const handleClose = () => {
       if(popUpRef && popUpRef.current.style.transform === 'translateX(0%)'){
         popUpRef.current.style.transform = 'translateX(102%)'
@@ -18,6 +21,7 @@ function Partners({ dataPartner }) {
         popUpRef.current.style.transform = 'translateX(0%)'
       }
   }
+
   return (
     <div className='pt-[6.25rem] relative partner'>
       <h3 className='md:text-[2.5rem] text-[6.93333rem] text-[#444] font-bold leading-[1.16] text-center max-md:mb-[15rem]'>{dataPartner?.title}</h3>
@@ -40,6 +44,9 @@ function Partners({ dataPartner }) {
         </Link>
         <Image onClick={handleClose} src={arrow_right} alt='arrow' className='w-[1.35417rem] absolute h-[2.13542rem] top-[0] left-[-1.35rem]' />
       </div>
+
+      
+      
     </div>
   )
 }
