@@ -123,8 +123,18 @@
     }
   }
 }
+.sticky_box{
+  
+  // @media screen and (min-width:768px) {
+    background:linear-gradient(rgba(207, 234, 228, 1),rgba(255, 255, 255, 1))
+  // }
+}
 
-// Variables
+.popUpAction{
+  transition: all 0.4s;
+  transform: translateX(0%);
+}
+
 @keyframes scrollUp {
   0% {
       transform: translateY(calc(-100%/3*0))

@@ -44,8 +44,8 @@ function Design({ lang, dataDesign }) {
             className='md:text-[1.5rem] md:mt-[1rem] tracking-[-0.06771rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.2] max-md:text-[#fff] max-md:my-[6rem] max-md:px-[4.27rem] text-justify' >
           </p>
         </div>
-        <div className="right">
-          <Image src={dataDesign?.textAnimation?.image?.sourceUrl} width={500} height={500} alt='box' className='md:w-[39.27rem] md:h-[47.76rem] h-[67.46667rem] object-cover' />
+        <div className="right max-md:w-full">
+          <Image src={dataDesign?.textAnimation?.image?.sourceUrl} width={500} height={500} alt='box' className='md:w-[39.27rem] w-full md:h-[47.76rem] h-[67.46667rem] object-cover' />
         </div>
       </div>
     </div>
