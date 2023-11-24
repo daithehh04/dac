@@ -54,8 +54,8 @@ function MenuMb({ data, handleCloseModal, lang }) {
                                                     onClick={handleCloseModal}
                                                     href={`/${lang}/${item?.slug2}/${mbItem?.slug}` || '/'}
                                                     key={index}
-                                                    className='text-[#444] text-[3.46667rem] leading-[116.662%] tracking-[-0.104rem] mb-[2.67rem]'>
-                                                    {mbItem?.nameEn ? (lang === 'vi' ? mbItem?.name : mbItem?.nameEn) : mbItem.name}
+                                                    dangerouslySetInnerHTML={{ __html: `${mbItem?.nameEn ? (lang === 'vi' ? mbItem?.name : mbItem?.nameEn) : mbItem.name}` }}
+                                                    className='text-[#444] text-[3.46667rem] text_product_item_home leading-[116.662%] tracking-[-0.104rem] mb-[2.67rem]'>
                                                 </Link>
                                             )
                                         })}

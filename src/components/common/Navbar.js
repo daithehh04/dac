@@ -229,10 +229,48 @@ function Navbar({
               : <Link href={`/${lang}`}><Image src={logoHome} width={100} height={100} className='object-cover md:w-[7.91667rem] md:h-[4.21875rem] w-[18.4rem] h-[9.86667rem]' alt='DAC' /></Link>
             }
             <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw] max-md:hidden'>
-              {navLinks.map((link, index) => (
-                <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `} key={index} href={`/${lang}/${link.slug}`}>
-                  {lang === 'vi' ? link?.link : link?.linkEn}
-                </Link>
+              {navLinks.map((item, index) => (
+                // <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `} key={index} href={`/${lang}/${link.slug}`}>
+                //   {lang === 'vi' ? link?.link : link?.linkEn}
+                // </Link>
+                <div key={index} className='relative text_link_nav'>
+                  {
+                    (item?.listContent ) ?
+                    (
+                        <span
+                            className={`text-[#000] text-[1.04167rem]  ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `}
+                            key={index}>{lang === 'vi' ? item?.link : item?.linkEn}
+                        </span>
+                    )
+                    :
+                    (
+                        <Link
+                            onClick={handleCloseModal}
+                            className={`text-[#000] mb-[2.67rem] text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `}
+                            href={`/${lang}/${item?.slug}` || '/'}>{lang === 'vi' ? item?.link : item?.linkEn}
+                        </Link>
+                    )
+                  }
+                  {
+                                item?.listContent && (
+                                    <div
+                                        className='flex flex-col menu_dropdown  rounded-br-[2.61198rem] px-[1rem] py-[1rem] absolute'
+                                    >
+                                        {item?.listContent?.map((mbItem, index) => {
+                                            return (
+                                                <Link
+                                                    onClick={handleCloseModal}
+                                                    href={`/${lang}/${item?.slug2}/${mbItem?.slug}` || '/'}
+                                                    key={index}
+                                                    dangerouslySetInnerHTML={{ __html: `${mbItem?.nameEn ? (lang === 'vi' ? mbItem?.name : mbItem?.nameEn) : mbItem.name}` }}
+                                                    className='text-[#888888] uppercase whitespace-nowrap text_product_item_home text-[1.04167rem]  mb-[0.5rem]'>
+                                                </Link>
+                                            )
+                                        })}
+                                    </div>
+                                )
+                    }
+                </div>
               ))}
             </div>
             <SelectLang lang={lang} color={color} checkHome={checkHome} />

@@ -83,6 +83,14 @@
   }
   
 }
+
+.text_product_item_home{
+  @media screen and (max-width :767px) {
+    & > br {
+      display: none;
+    }
+  }
+}
 .text-animate::after{
   transition: all 0.3s;
   content: '';
@@ -122,6 +130,19 @@
       }
     }
   }
+}
+
+.menu_dropdown{
+  transition: all 0.5s;
+  opacity: 0;
+  background-color: #fff;
+  visibility: hidden;
+}
+
+.text_link_nav:hover .menu_dropdown{
+  opacity: 1;
+  visibility: visible;
+
 }
 .sticky_box{
   
