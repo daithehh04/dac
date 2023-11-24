@@ -125,12 +125,20 @@
 }
 
 // Variables
-$item-count: 3;
-
 @keyframes scrollUp {
-  @for $i from 1 through ($item-count - 1) {
-    #{($i * 25) - 10%}, #{$i * 25%} {
-      transform: translateY((-100% / $item-count) * $i);
-    }
+  0% {
+      transform: translateY(calc(-100%/3*0))
+  }
+  25% {
+      transform: translateY(calc(-100%/3*1))
+  }
+  50% {
+      transform: translateY(calc(-100%/3*2))
+  }
+  75% {
+      transform: translateY(calc(-100%/3*1))
+  }
+  100% {
+      transform: translateY(calc(-100%/3*0))
   }
 }

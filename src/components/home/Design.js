@@ -12,7 +12,7 @@ function Design({ lang, dataDesign }) {
           {dataDesign?.aboutCompany?.map((item, index) => (
             <div key={index} className={`text-[1.35417rem] md:pt-[2.19vw] pt-[4.8rem] border-t border-solid max-md:pb-[4rem] border-[#888] ${index === 0 ? 'max-md:border-none' : ''}`}>
                  <Link href={`/${lang}/about-us/${index === 0 ? 'vision' : index === 1 ? 'organize' : index === 2 ? 'journey' : 'prize'}`}>
-                  <h4 className='font-bold text-animate text-[#444] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] mb-[1.35417vw]'>{item?.title}</h4>
+                  <h4 className='font-bold text-[#444] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] mb-[1.35417vw]'>{item?.title}</h4>
                 </Link>
               <p className='text-[#888] md:text-[1.5rem] md:mt-[1rem] tracking-[-0.04063rem] lg:text-[1.35417rem] text-[4.26667rem] text-justify'>{item?.description}</p>
             </div>
