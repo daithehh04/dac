@@ -7,8 +7,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 function History({ data }) {
   const swiperRef = useRef()
+  const [selected,setSelected] = useState(0)
   const handleSelect = (index) => {
     swiperRef.current.slideTo(index)
+    setSelected(index)
   }
   return (
     <section className='max-md:hidden'>
@@ -17,7 +19,7 @@ function History({ data }) {
           {data?.journey?.map((item, index) => (
             <div onClick={() => handleSelect(index)} key={index} className='flex items-center justify-center cursor-grab'>
               <span className='lg:text-[0.78125rem] md:text-[1.2rem] text-black year-history'>{item?.year}</span>
-              <Image src={circle} width={'100%'} height={'100%'} alt='circle' className='absolute bottom-[-0.235rem] w-[0.54rem] h-[0.54rem] object-cover' />
+              <div className={`absolute bottom-[-0.235rem] w-[0.6rem] h-[0.6rem] rounded-[50%] border border-solid border-[#000] ${index === selected ? 'bg-[#00A84F]' :'bg-[#fff]'}`}></div>
             </div>
           ))}
         </div>

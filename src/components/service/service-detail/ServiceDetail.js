@@ -68,20 +68,20 @@ function ServiceDetail({ data, lang, dataOtherProduct }) {
                         </Swiper>
                         {/* pre */}
                         <button
-                            className='absolute left-0 top-[50%] z-10 md:hidden'
+                            className='absolute left-0 top-[50%] z-[10]'
                             onClick={handlePreSlide1}
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className='w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" className='md:-[0.88542rem] md:h-[1.77083rem] w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
                                 <path d="M17 30L3 16L17 2" stroke="white" stroke-width="3" />
                             </svg>
                         </button>
                         {/* next */}
 
                         <button
-                            className='absolute right-0 top-[50%] z-10 md:hidden'
+                            className='absolute right-0 top-[50%] z-[10]'
                             onClick={handleNextSlide1}
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className='w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" className='md:-[0.88542rem] md:h-[1.77083rem] w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
                                 <path d="M2 2L16 16L2 30" stroke="white" stroke-width="3" />
                             </svg>
                         </button>

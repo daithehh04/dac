@@ -230,12 +230,9 @@ function Navbar({
             }
             <div className='flex items-center ml-auto gap-[2vw] mr-[2.38vw] max-md:hidden'>
               {navLinks.map((item, index) => (
-                // <Link className={`md:text-[1.24rem] lg:text-[1.04167rem] ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `} key={index} href={`/${lang}/${link.slug}`}>
-                //   {lang === 'vi' ? link?.link : link?.linkEn}
-                // </Link>
                 <div key={index} className='relative text_link_nav'>
                   {
-                    (item?.listContent ) ?
+                    (item?.listContent  && index !== 2 ) ?
                     (
                         <span
                             className={`text-[#000] text-[1.04167rem]  ${checkHome ? '!text-[#000]' : 'text-[#fff]'} link ${(checkScroll && !checkHome) && '!text-[#000]'} `}
@@ -263,7 +260,7 @@ function Navbar({
                                                     href={`/${lang}/${item?.slug2}/${mbItem?.slug}` || '/'}
                                                     key={index}
                                                     dangerouslySetInnerHTML={{ __html: `${mbItem?.nameEn ? (lang === 'vi' ? mbItem?.name : mbItem?.nameEn) : mbItem.name}` }}
-                                                    className='text-[#888888] uppercase whitespace-nowrap text_product_item_home text-[1.04167rem]  mb-[0.5rem]'>
+                                                    className='text-[#888888] uppercase text_hover whitespace-nowrap text_product_item_home text-[1.04167rem]  mb-[0.5rem]'>
                                                 </Link>
                                             )
                                         })}
