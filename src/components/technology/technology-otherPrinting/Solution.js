@@ -11,7 +11,7 @@ function Solution({ dataSolution }) {
             <div className='md:pl-[5.78rem] md:pr-[11.67rem] relative'>
                 <Image src={organizationChart} alt='image' quality={100} width={1000} height={1000} className='md:w-[73.75rem] max-md:hidden object-cover md:h-[34.89583rem] md:absolute left-0 z-[-1]' />
                 <Image src={chatMb} alt='image' quality={100} width={1000} height={1000} className="md:hidden object-cover" />
-                <div className='flex flex-col items-end md:pt-[1.5rem]'>
+                <div className='flex flex-col items-end md:pt-[1.5rem] max-md:text-justify'>
                     {dataSolution?.listSolution?.map((item, index) => (
                         <div
                             key={index}
