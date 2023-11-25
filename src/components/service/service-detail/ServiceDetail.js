@@ -92,8 +92,12 @@ function ServiceDetail({ data, lang, dataOtherProduct }) {
                         <div className='flex flex-col md:w-[32rem] md:h-[21.82rem]'>
                             {data?.product_detail?.aboutProduct?.map((item, index) => (
                                 <div key={index} className='flex text-[#444] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] font-bold md:leading-[226.662%] md:tracking-[-0.06771rem]'>
-                                    <span className='whitespace-nowrap max-md:mr-[1rem] mr-[0.5rem]'>{item?.name}</span>
-                                    <span className='font-normal'>{item?.description}</span>
+                                    {/* <span className='whitespace-nowrap max-md:mr-[1rem] mr-[0.5rem]'>{item?.name}</span> */}
+                                    {/* <span className='font-normal'>{item?.description}</span> */}
+                                    <p className='font-normal'>
+                                        <span className='whitespace-nowrap font-bold max-md:mr-[1rem] mr-[0.5rem]'>{item?.name}</span>
+                                        {item?.description}
+                                    </p>
                                 </div>
                             ))}
                         </div>
