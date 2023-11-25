@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
 
-function ServiceItem({ icon, textEdit, text, classNameCus }) {
+function ServiceItem({ icon, textEdit, text, classNameCus,className }) {
     return (
-        <div className={`flex flex-col md:mr-[5.26rem]`}>
+        <div className={`flex flex-col md:mr-[5.26rem] ${className} `}>
             <div className='relative md:mb-[1.82rem] w-[18.13333rem] h-[19.35387rem] md:w-[5.78125rem] md:h-[5.78125rem]'>
                 <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[5.78125rem] md:h-[5.78125rem]' viewBox="0 0 111 111" fill="none">
                     <g clip-path="url(#clip0_417_572)">

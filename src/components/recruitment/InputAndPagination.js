@@ -42,7 +42,7 @@ function InputAndPagination({ dataFirstIn }) {
     return (
         <div className='md:pb-[8.56rem]'>
             <div className='searchTextBlog flex justify-center md:mt-[5.8rem] md:mb-[1rem] max-md:my-[7rem]'>
-                <input placeholder='Tim Kiem' onChange={handleChangeInput} className=' md:w-[10.625rem] w-[42.46rem] h-[8.8rem] rounded-[11.46667rem] md:h-[2.1875rem] md:px-[0.5rem] md:rounded-[2.23958rem] bg-[#F0F0F0]' />
+                <input placeholder='Tìm Kiếm' onChange={handleChangeInput} className=' md:w-[10.625rem] md:pb-[0.25rem] w-[42.46rem] h-[8.8rem] rounded-[11.46667rem] md:h-[2.1875rem] md:px-[0.5rem] md:rounded-[2.23958rem] bg-[#F0F0F0]' />
             </div>
             {/* pagination */}
             <div className='flex justify-center items-center max-md:hidden relative md:mt-[1rem]'>

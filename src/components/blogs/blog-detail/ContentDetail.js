@@ -20,8 +20,8 @@ function ContentDetail({ data, lang, dataSlide }) {
                             <h2 className={`heading md:w-[30.40625rem] max-md:!text-[6.93333rem] max-md:mb-[4rem] ${index === data?.listcontent?.length - 1 ? 'md:hidden' : ''} ${index === 0 ? 'w-[60rem]' : ''}`}>{item?.titleContent}</h2>
                             <div>
                                 <div
-                                    className='description !font-normal md:!tracking-[-0.02708rem] md:!leading-[1.2] md:w-[44.47917rem] text-justify md:mb-[3rem] mb-[7rem]'
-                                    dangerouslySetInnerHTML={{ __html: `${item?.text}` }}
+                                    className={`description content_news !font-normal md:!tracking-[-0.02708rem] md:!leading-[1.2] md:w-[44.47917rem] text-justify md:mb-[3rem] mb-[7rem] ${index === 0 ? 'content_news_hidden' : ''}`}
+                                    dangerouslySetInnerHTML={{ __html: `${item?.text}`}}
                                 >
                                 </div>
                                 <div className={`flex gap-[2.6rem] max-md:flex-col`}>
@@ -29,13 +29,13 @@ function ContentDetail({ data, lang, dataSlide }) {
                                         if (item?.gallery?.length < 2) {
                                             return (<Image key={index} src={gallery?.sourceUrl} alt={gallery?.altText} width={1000} height={1000} quality={100} className='md:w-[44.53125rem] w-full h-[61.05333rem] md:h-[29.73958rem] object-cover' />)
                                         } else {
-                                            return (<Image key={index} src={gallery?.sourceUrl} alt={gallery?.altText} width={1000} height={1000} quality={100} className='md:w-[20.98958rem] w-full h-[61.05333rem] md:h-[14.01042rem] object-cover' />)
+                                            return (<Image key={index} src={gallery?.sourceUrl} alt={gallery?.altText} width={1000} height={1000} quality={100} className={`md:w-[20.98958rem] w-full h-[61.05333rem] md:h-[14.01042rem] object-cover ${index !== 0 ? 'max-md:hidden' :'' }`} />)
                                         }
                                     })}
                                 </div>
                             </div>
                         </div>
-                        <div className='line-detail'></div>
+                        <div className={`line-detail ${index === 2 && 'md:hidden'} ${index === 1 && 'max-md:hidden'}`}></div>
                     </div>
                 ))}
             </div>

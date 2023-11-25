@@ -9,7 +9,7 @@ function ContentDigital({ dataContent }) {
             </h2>
             <div className='flex md:pb-[7rem] md:pt-[4rem] max-md:flex-col'>
                 <div
-                    className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem] max-md:mb-[7rem]'
+                    className='md:mr-[10.68rem] priDesc list_solutions !text-start md:w-[27.59375rem] max-md:mb-[7rem]'
                     dangerouslySetInnerHTML={{ __html: `${dataContent?.description}` }}
                 >
                 </div>

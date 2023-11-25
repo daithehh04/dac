@@ -35,9 +35,9 @@ function OpportunityItem1({ lang, data }) {
                 <h3 className='jobText md:mb-[0.5rem] mb-[3rem]'>{data?.recruimentDetail?.infoJob?.nameJob || data?.translation?.recruimentDetail?.infoJob?.nameJob}</h3>
                 <div className={`md:w-[21.04167rem] flex flex-col relative max-md:top-[-1.5rem]`}>
                     {(data?.recruimentDetail?.infoJob?.listInfoDetail || data?.translation?.recruimentDetail?.infoJob?.listInfoDetail)?.map((item, index) => (
-                        <div key={index} className={`flex ${index === 0 ? 'max-md:mb-[2rem]' : '' }`}>
-                            <p className='description md:mb-[0.5rem] mb-[3rem] md:mr-[0.5rem]'>{item?.title}</p>
-                            <p className='description !font-normal md:mb-[0.5rem] mb-[3rem]'> {item?.text}</p>
+                        <div key={index} className={`flex ${index === 0 ? '' : '' }`}>
+                            <p className='description md:mb-[0.5rem] mb-[3rem] md:mr-[0.5rem] mr-[1rem]'>{item?.title}</p>
+                            <p className='description !font-normal md:mb-[0.5rem] mb-[3rem] relative bototm-[-0.25rem]'> {item?.text}</p>
                         </div>
                     ))}
                 </div>

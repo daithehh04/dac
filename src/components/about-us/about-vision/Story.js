@@ -10,7 +10,7 @@ function Story({data}) {
           <h3 className='heading'>
             {data?.heading}
           </h3>
-          <div className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] tracking-[1.2] max-md:tracking-[-0.128rem] text-justify md:mt-[1.6rem] max-md:my-[6rem] text-[#444]' dangerouslySetInnerHTML={{ __html: `${data?.descriptionHeading}` }}></div>
+          <div className='md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] leading-[1.2] tracking-[1.2] max-md:tracking-[-0.128rem] text-justify md:mt-[1.6rem] max-md:my-[6rem] text-[#444]' dangerouslySetInnerHTML={{ __html: `${data?.descriptionHeading}` }}></div>
         </div>
         <div className="right">
           <Image src={data?.image?.sourceUrl || vision} width={1000} height={1000} alt={data?.altText || 'vision'} className='md:w-[52.55rem] md:h-[32.9rem] h-[62.63627rem] object-cover' />

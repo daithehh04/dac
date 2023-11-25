@@ -199,7 +199,7 @@ function Infomation({ dataContent, lang, dataJobNew }) {
 
             {/* profile */}
             <div
-                className='flex flex-col job_Info md:w-[44.375rem] max-md:px-[4.53rem] pt-[6.84rem] md:mb-[1.93rem] md:pl-[4.17rem] md:pt-[3.17rem]'
+                className='grid max-md:gap-[4rem] gap-[1rem] job_Info md:w-[44.375rem] cv_content max-md:px-[4.53rem] max-md:!text-start pt-[6.84rem] md:mb-[1.93rem] md:pl-[4.17rem] md:pt-[3.17rem]'
                 dangerouslySetInnerHTML={{ __html: `${dataContent?.requestProfile}` }}
             >
             </div>
