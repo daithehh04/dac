@@ -1,12 +1,13 @@
 import React from 'react'
 import svg from '@/assets/imgs/GroupContact.svg'
 import Image from 'next/image'
-function Branch({ dataBranch }) {
+import Link from 'next/link'
+function Branch({ dataBranch,lang }) {
     return (
         <section className='md:pt-[7rem] pt-[7.47rem] md:px-[4.17rem] px-[4.27rem]'>
             <div className='flex max-md:flex-col'>
                 <h2 className='heading2 md:!tracking-[-0.17188rem] md:mr-[6rem] font-bold md:w-[24.4375rem]' dangerouslySetInnerHTML={{ __html: `${dataBranch?.heading}` }} ></h2>
-                <div className=' max-md:mt-[12rem] max-md:mb-[12rem]'>
+                <div className='max-md:mt-[12rem] max-md:mb-[12rem]'>
                     <div className='grid md:grid-cols-2 gap-x-[4.9rem] gap-y-[12rem] md:gap-y-[2.08rem] md:mb-[4rem]'>
                         {dataBranch?.listContentAddress?.map((item, index) => (
                             <div className='flex flex-col' key={index}>
@@ -18,6 +19,14 @@ function Branch({ dataBranch }) {
                                     <p className='font-bold'>{item?.title}</p>
                                     <p className='max-md:mb-[4rem]'>{item?.subTitle}</p>
                                     <p dangerouslySetInnerHTML={{ __html: `${item?.infomation}` }}></p>
+                                    <Link 
+                                    href={
+                                        index === 0 ? 'https://www.google.com/maps/place/72+%C4%90.+Tr%C6%B0%E1%BB%9Dng+Chinh,+Ph%C6%B0%C6%A1ng+%C4%90%C3%ACnh,+%C4%90%E1%BB%91ng+%C4%90a,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@20.9985393,105.8366209,17z/data=!3m1!4b1!4m6!3m5!1s0x3135ac7aa15ba9a9:0xaf70e9b65eb129cc!8m2!3d20.9985343!4d105.8391958!16s%2Fg%2F11c5lvk2hy?entry=ttu'
+                                        : index === 1 ? 'https://www.google.com/maps/place/Khu+c%C3%B4ng+nghi%E1%BB%87p+Ph%E1%BB%91+N%E1%BB%91i+A/@20.9478703,106.0189014,17z/data=!4m6!3m5!1s0x3135a57e89c29f31:0xec575b404696044b!8m2!3d20.9478653!4d106.0214763!16s%2Fg%2F11sz5bdqqt?entry=ttu'
+                                        : 'https://www.google.com/maps/place/72+%C4%90.+Tr%C6%B0%E1%BB%9Dng+Chinh,+Ph%C6%B0%C6%A1ng+%C4%90%C3%ACnh,+%C4%90%E1%BB%91ng+%C4%90a,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@20.9985393,105.8366209,17z/data=!3m1!4b1!4m6!3m5!1s0x3135ac7aa15ba9a9:0xaf70e9b65eb129cc!8m2!3d20.9985343!4d105.8391958!16s%2Fg%2F11c5lvk2hy?entry=ttu'
+                                    } 
+                                    target='_blank'
+                                    className='text-[#888] info_address md:text-[1.04167rem] text-[3.46667rem] tracking-[-0.12133rem] leading-[1.2] md:tracking-[-0.03646rem] underline'>{lang === 'vi' ? 'Xem bản đồ' :'View the map'}</Link>
                                 </div>
                             </div>
                         ))}

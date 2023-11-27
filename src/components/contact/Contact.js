@@ -3,12 +3,12 @@ import Banner from './Banner'
 import Branch from './Branch'
 import FormContact from './FormContact'
 
-function Contact({ dataContact }) {
+function Contact({ dataContact,lang }) {
     return (
         <>
             <Banner dataBanner={dataContact?.banner} />
             <main>
-                <Branch dataBranch={dataContact?.contentAddress} />
+                <Branch lang={lang} dataBranch={dataContact?.contentAddress} />
                 <FormContact dataForm={dataContact?.contentContact} />
             </main>
         </>

@@ -145,7 +145,7 @@ function FormContact({ dataForm }) {
                                     </div>
                                 </div>
 
-                                <Button text={dataForm?.formData?.button || 'Gửi thông tin'} />
+                                <Button className={'md:left-[54%]'} text={dataForm?.formData?.button || 'Gửi thông tin'} />
                             </Form>
                         )
                     }}

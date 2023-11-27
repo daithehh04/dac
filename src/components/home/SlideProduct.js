@@ -1,6 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+import {Autoplay, Pagination } from 'swiper/modules'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -31,8 +31,13 @@ function SlideProduct({ lang, dataProductList }) {
         }
         speed={800}
         spaceBetween={0}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
         onSlideChange={handleSlideChange}
-        modules={[Pagination]}
+        modules={[Autoplay,Pagination]}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
