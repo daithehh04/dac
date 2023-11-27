@@ -23,7 +23,6 @@ export default async function page({ params: { lang, slug } }) {
         <ServiceDetail
             data={data?.data?.serviceProduct?.translation}
             lang={lang}
-            dataOtherProduct={dataOtherProduct?.data?.allServiceProduct?.nodes}
             otherProduct = {otherProduct?.data?.allCategoryProducts?.nodes[0]?.serviceProduct?.nodes}
         />
     )

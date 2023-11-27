@@ -8,15 +8,15 @@ function Footer({ lang, data }) {
   const scrollRef = useRef()
   const handleClick = () => {
     setActive(!active)
-    if (contentRef.current && active) {
-      contentRef.current.style.height = contentRef.current.scrollHeight + "px"
-      contentRef.current.style.overflow = 'visible'
-      scrollRef.current.style.rotate = '180deg'
-    } else if (contentRef.current && !active) {
-      contentRef.current.style.height = '0'
-      contentRef.current.style.overflow = 'hidden'
-      scrollRef.current.style.rotate = '0deg'
-    }
+  }
+  if (contentRef.current && active) {
+    contentRef.current.style.height = contentRef.current.scrollHeight + "px"
+    contentRef.current.style.overflow = 'visible'
+    scrollRef.current.style.rotate = '180deg'
+  } else if (contentRef.current && !active) {
+    contentRef.current.style.height = '0'
+    contentRef.current.style.overflow = 'hidden'
+    scrollRef.current.style.rotate = '0deg'
   }
 
   return (

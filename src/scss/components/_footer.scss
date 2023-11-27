@@ -19,7 +19,7 @@
   }
 
   .right{
-    transition: all 1s ease;
+    // transition: all 1s;
     @media screen and (max-width :767px) {
       height: 0;
       overflow: hidden;
@@ -27,8 +27,8 @@
   }
 }
 .title_name_company {
-  & > p:first-child,
-  & > p:nth-child(3){
-    font-weight: 700;
-  }
+  // & > p:first-child,
+  // & > p:nth-child(3){
+  //   font-weight: 700;
+  // }
 }

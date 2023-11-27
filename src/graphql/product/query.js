@@ -50,6 +50,7 @@ const GET_DATA_PRODUCT_DETAIL = `query getDataProduct_detail($language: Language
         }
       }
       product_detail{
+        heading
         title
         aboutProduct{
           name
