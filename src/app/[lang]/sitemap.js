@@ -2,7 +2,16 @@ import { fetchData } from "@/data/fetchData"
 
 // tieu de
 const NEWS_QUERY = `{
-  posts(first: 100, where: {language: VI}) {
+  posts(first: 1000, where: {language: VI}) {
+    nodes {
+      slug
+      date
+    }
+  }
+}`
+
+const NEWS_QUERY_EN = `{
+  posts(first: 1000, where: {language: EN}) {
     nodes {
       slug
       date
@@ -13,7 +22,7 @@ const NEWS_QUERY = `{
 
 // opporturnity
 const JOB_QUERY = `{
- allJobOpportunity(first:100, where: {language: VI}){
+ allJobOpportunity(first:1000, where: {language: VI}){
     nodes{
       slug
       date
@@ -21,43 +30,84 @@ const JOB_QUERY = `{
   }
 }`
 
+const JOB_QUERY_EN = `{
+  allJobOpportunity(first:1000, where: {language: EN}){
+     nodes{
+       slug
+       date
+     }
+   }
+ }`
+
 // thuoc la, ...
 const PRODUCT_QUERY = `{
- allServiceProduct(first:100, where: {language: VI}){
+ allServiceProduct(first:1000, where: {language: VI}){
     nodes{
       slug
       date
     }
   }
 }`
+const PRODUCT_QUERY_EN = `{
+  allServiceProduct(first:1000, where: {language: EN}){
+     nodes{
+       slug
+       date
+     }
+   }
+ }`
 
 
 export default async function sitemap() {
   const news = await fetchData(NEWS_QUERY)
+  const newsEn = await fetchData(NEWS_QUERY_EN)
   const jobs = await fetchData(JOB_QUERY)
+  const jobsEn = await fetchData(JOB_QUERY_EN)
   const products = await fetchData(PRODUCT_QUERY)
-
+  const productsEn = await fetchData(PRODUCT_QUERY_EN)
   const arrNews = news?.data?.posts?.nodes?.map(e => {
     return {
-      url: `${process.env.DOMAIN}/blog/${e?.slug}`,
+      url: `${process.env.DOMAIN}/tin-tuc-su-kien/${e?.slug}`,
+      lastModified: e?.date,
+      priority: 0.8
+    }
+  })
+  const arrNewsEn = newsEn?.data?.posts?.nodes?.map(e => {
+    return {
+      url: `${process.env.DOMAIN}/tin-tuc-su-kien/${e?.slug}`,
       lastModified: e?.date,
       priority: 0.8
     }
   })
   const arrJobs = jobs?.data?.allJobOpportunity?.nodes?.map(e => {
     return {
-      url: `${process.env.DOMAIN}/recruitment/${e?.slug}`,
+      url: `${process.env.DOMAIN}/tuyen-dung/${e?.slug}`,
+      lastModified: e?.date,
+      priority: 0.8
+    }
+  })
+  const arrJobsEn = jobsEn?.data?.allJobOpportunity?.nodes?.map(e => {
+    return {
+      url: `${process.env.DOMAIN}/tuyen-dung/${e?.slug}`,
       lastModified: e?.date,
       priority: 0.8
     }
   })
   const arrProducts = products?.data?.allServiceProduct?.nodes?.map(e => {
     return {
-      url: `${process.env.DOMAIN}/service-products/${e?.slug}`,
+      url: `${process.env.DOMAIN}/san-pham-dich-vu/${e?.slug}`,
       lastModified: e?.date,
       priority: 0.8
     }
   })
+  const arrProductsEn = productsEn?.data?.allServiceProduct?.nodes?.map(e => {
+    return {
+      url: `${process.env.DOMAIN}/san-pham-dich-vu/${e?.slug}`,
+      lastModified: e?.date,
+      priority: 0.8
+    }
+  })
+  
 
   return [
     {
@@ -66,78 +116,156 @@ export default async function sitemap() {
       priority: 1
     },
     {
-      url: `${process.env.DOMAIN}/service-products`,
+      url: `${process.env.DOMAIN}/en`,
+      lastModified: new Date(),
+      priority: 1
+    },
+    {
+      url: `${process.env.DOMAIN}/san-pham-dich-vu`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/design`,
+      url: `${process.env.DOMAIN}/en/san-pham-dich-vu`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/about-us/vision`,
+      url: `${process.env.DOMAIN}/thiet-ke`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/about-us/journey`,
+      url: `${process.env.DOMAIN}/en/thiet-ke`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/about-us/prize`,
+      url: `${process.env.DOMAIN}/ve-chung-toi/vision`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/about-us/organize`,
+      url: `${process.env.DOMAIN}/en/ve-chung-toi/vision`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/blog`,
+      url: `${process.env.DOMAIN}/ve-chung-toi/journey`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/recruitment`,
+      url: `${process.env.DOMAIN}/en/ve-chung-toi/journey`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/contact`,
+      url: `${process.env.DOMAIN}/ve-chung-toi/prize`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/technology/offset`,
+      url: `${process.env.DOMAIN}/en/ve-chung-toi/prize`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/technology/flexo`,
+      url: `${process.env.DOMAIN}/ve-chung-toi/organize`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/technology/gravure`,
+      url: `${process.env.DOMAIN}/en/ve-chung-toi/organize`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/technology/digital`,
+      url: `${process.env.DOMAIN}/tin-tuc-su-kien`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/technology/other-printing`,
+      url: `${process.env.DOMAIN}/en/tin-tuc-su-kien`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/tuyen-dung`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/en/tuyen-dung`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/lien-he`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/en/lien-he`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/cong-nghe/offset`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/en/cong-nghe/offset`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/cong-nghe/flexo`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/en/cong-nghe/flexo`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/cong-nghe/gravure`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/en/cong-nghe/gravure`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/cong-nghe/digital`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/en/cong-nghe/digital`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/cong-nghe/other-printing`,
+      lastModified: new Date(),
+      priority: 0.9
+    },
+    {
+      url: `${process.env.DOMAIN}/en/cong-nghe/other-printing`,
       lastModified: new Date(),
       priority: 0.9
     },
     ...arrNews,
+    ...arrNewsEn,
     ...arrJobs,
-    ...arrProducts
+    ...arrJobsEn,
+    ...arrProducts,
+    ...arrProductsEn
   ]
 }
 

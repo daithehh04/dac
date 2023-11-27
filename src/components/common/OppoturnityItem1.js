@@ -50,7 +50,7 @@ function OpportunityItem1({ lang, data }) {
                     {lang === 'vi' ? 'Đã hết hạn' : 'Expired'}
                 </p>) 
                 }
-                <Link href={`/${lang}/recruitment/${data?.slug || data?.translation?.slug}`}>
+                <Link href={`/${lang}/tuyen-dung/${data?.slug || data?.translation?.slug}`}>
                 <p className='md:w-[21.04167rem] md:mt-[1.3rem] mt-[3rem] cursor-pointer description !text-[#888] underline !font-normal'>{data?.recruimentDetail?.infoJob?.applyText || data?.translation?.recruimentDetail?.infoJob?.applyText}</p>
                 </Link>
             </div>
