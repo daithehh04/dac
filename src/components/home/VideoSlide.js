@@ -4,7 +4,6 @@ import { Pagination } from 'swiper/modules'
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import arrNext from '@/assets/imgs/arr-r.svg'
-import arrPrev from '@/assets/imgs/arr-l.svg'
 import imgVideo from '@/assets/imgs/img-video.jpg'
 function VideoSlide({ dataSlideVideo }) {
   const [indexSlider, setIndexSlider] = useState(0)
@@ -75,16 +74,16 @@ function VideoSlide({ dataSlideVideo }) {
       {/* <div className='flex absolute bottom-[3.75rem] z-10 w-full justify-between  btn-product'> */}
       <button
         onClick={handlePrevSlide}
-        className='md:w-[2.78rem] md:h-[2.6rem] rotate-180 absolute md:right-[13rem] max-md:left-[3rem] md:bottom-[4rem] max-md:top-[50%] z-[1]'
+        className='md:w-[2.78rem] md:h-[2.6rem] rotate-180 absolute md:right-[13rem] max-md:left-[3rem] md:bottom-[5rem] max-md:top-[50%] z-[1]'
       >
         <Image src={arrNext} width={'100%'} height={'100%'} alt='icon' className='max-md:hidden' />
-        <svg xmlns="http://www.w3.org/2000/svg" className='md:hidden w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" className='md:hidden rotate-180 w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
           <path d="M17 30L3 16L17 2" stroke="white" stroke-width="3" />
         </svg>
       </button>
       <button
         onClick={handleNextSlide}
-        className='md:w-[2.78rem] md:h-[2.6rem] absolute md:right-[10rem] right-[3rem] md:bottom-[4rem] max-md:top-[50%] z-[1]'
+        className='md:w-[2.78rem] md:h-[2.6rem] absolute md:right-[10rem] right-[3rem] md:bottom-[5rem] max-md:top-[50%] z-[1]'
       >
         <Image src={arrNext} width={'100%'} height={'100%'} alt='icon' className='max-md:hidden' />
         <svg xmlns="http://www.w3.org/2000/svg" className='md:hidden w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
@@ -92,7 +91,7 @@ function VideoSlide({ dataSlideVideo }) {
         </svg>
       </button>
       {/* </div> */}
-      <span className='absolute max-md:hidden bottom-[3.75rem] right-[2.26rem] text-[3.64583rem] text-white font-bold z-10 leading-[1]'>{indexSlider + 1}/{dataSlideVideo.length}</span>
+      <span className='absolute max-md:hidden bottom-[5rem] right-[2.26rem] text-[3.64583rem] text-white font-bold z-10 leading-[1]'>{indexSlider + 1}/{dataSlideVideo.length}</span>
     </div>
   )
 }

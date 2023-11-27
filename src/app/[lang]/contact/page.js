@@ -17,7 +17,7 @@ export async function generateMetadata({ params: { lang } }) {
 async function page({ params: { lang } }) {
     let data = await getDataPage(lang, GET_DATA_CONTACT_PAGE)
     return (
-        <Contact dataContact={data?.data?.page?.translation?.contact} />
+        <Contact dataContact={data?.data?.page?.translation?.contact} lang={lang} />
     )
 }
 

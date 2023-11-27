@@ -260,7 +260,7 @@ function Navbar({
                                                     href={`/${lang}/${item?.slug2}/${mbItem?.slug}` || '/'}
                                                     key={index}
                                                     dangerouslySetInnerHTML={{ __html: `${mbItem?.nameEn ? (lang === 'vi' ? mbItem?.name : mbItem?.nameEn) : mbItem.name}` }}
-                                                    className='text-[#888888] uppercase text_hover whitespace-nowrap text_product_item_home text-[1.04167rem]  mb-[0.5rem]'>
+                                                    className='text-[#888888] uppercase text_hover whitespace-nowrap text_product_item_nav text-[1.04167rem]  mb-[0.5rem]'>
                                                 </Link>
                                             )
                                         })}

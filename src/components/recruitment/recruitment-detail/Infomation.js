@@ -188,7 +188,7 @@ function Infomation({ dataContent, lang, dataJobNew }) {
                                         <input name='fileVal' type='file' onChange={(e) => setFileUpload(e.target.files)} className='bg-transparent' />
                                     </div>
                                 </div>
-                                <Button text={dataContent?.dataForm?.button || 'Gửi thông tin'} />
+                                <Button className={'md:left-[0]'} text={dataContent?.dataForm?.button || 'Gửi thông tin'} />
                             </Form>
                         )
                     }}
