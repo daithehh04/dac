@@ -1,6 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Pagination,Autoplay } from 'swiper/modules';
 import Link from 'next/link';
@@ -28,6 +28,29 @@ function ServiceDetail({ data, lang,otherProduct }) {
     const handleNextSlide1 = () => {
         swiperRef1?.current?.slideNext();
     };
+
+    useEffect(()=>{
+        let box = document.querySelectorAll('.box')
+        box.forEach(box => {
+            box.addEventListener('mousemove',(e)=>{
+                box.style.setProperty('--box-show','block')
+    
+                let positionPx = e.x - box.getBoundingClientRect().left
+                let positionPy = e.y - box.getBoundingClientRect().top
+    
+                let positionX = 100 * positionPx / box.offsetWidth
+                let positionY = 100 * positionPy / box.offsetHeight
+    
+                box.style.setProperty('--box-x',positionX + '%')
+                box.style.setProperty('--box-y',positionY + '%')
+            })    
+            box.addEventListener('mouseout',(e)=>{
+                box.style.setProperty('--box-show','none')
+            })
+        })
+
+    },[])
+    
     return (
         <section className="md:pt-[10.26rem] pt-[29.3rem]">
             <div className='md:px-[4.27rem]'>
@@ -36,9 +59,9 @@ function ServiceDetail({ data, lang,otherProduct }) {
                 </svg>
             </div>
 
-            <div className="md:pt-[3.18rem] pt-[7.2rem] md:px-[12.03rem] px-[4.27rem] flex flex-col md:pb-[3.96rem]">
+            <div className="md:pt-[3.18rem] pt-[7.2rem] md:mx-[12.03rem] max-md:px-[4.27rem] content_padding flex flex-col md:pb-[3.96rem]">
                 <h2 className='heading max-md:pb-[7.2rem]'>
-                    Bao bì thuốc lá
+                    {data?.product_detail?.heading}
                 </h2>
 
                 <div className='flex justify-between md:mt-[2.5rem] md:mb-[4.01rem] max-md:flex-col '>
@@ -54,11 +77,11 @@ function ServiceDetail({ data, lang,otherProduct }) {
                               }}
                             speed={800}
                             modules={[Pagination,Autoplay]}
-                            autoplay={{
-                                delay: 3000,
-                                disableOnInteraction: false,
-                              }}
-                            className="mySwiper slideFeatureImage md:w-[36.66667rem] md:h-full h-[81.6rem]"
+                            // autoplay={{
+                            //     delay: 3000,
+                            //     disableOnInteraction: false,
+                            //   }}
+                            className="mySwiper slideFeatureImage md:w-[36.7rem] md:h-full h-[81.6rem]"
                             onSlideChange={handleSlideChange1}
                             onBeforeInit={(swiper) => {
                                 if (swiperRef1) {
@@ -68,7 +91,11 @@ function ServiceDetail({ data, lang,otherProduct }) {
                         >
                             {data?.product_detail?.listImages?.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7.5rem] rounded-br-[18rem]' />
+                                    <div className='box relative overflow-hidden w-full h-full'>
+                                        <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7.5rem] rounded-br-[18rem]' />
+                                        <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7.5rem] rounded-br-[18rem]' />
+                                        {/* <div className="loop md:h-[5.2rem] md:w-[5.2rem] rounded-[50%]"></div> */}
+                                    </div>
                                 </SwiperSlide>
                             ))}
 

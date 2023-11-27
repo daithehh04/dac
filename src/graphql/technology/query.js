@@ -206,9 +206,18 @@ const GET_DATA_TECHNOLOGY_OTHERPRINT = `query getDataPageOtherPrint($language :L
             heading
             description
           }
+          
           solutions{
             title
+            image{
+              sourceUrl
+              altText
+            }
             listSolution{
+              icon{
+                sourceUrl
+                altText
+              }
               solution
             }
           }

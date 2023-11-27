@@ -6,6 +6,11 @@
 }
 
 .slideFeatureImage {
+  .swiper-slide{
+    @media screen and (max-width:767px) {
+      margin-right: 0.2rem;
+    }
+  }
   .swiper-pagination-bullet {
     background: #444;
     width: 0.67708rem;
@@ -49,5 +54,21 @@
   }
   &:hover > img {
     transform: scale(1.2);
+  }
+}
+
+
+.box{
+  --box-x:50%;
+  --box-y:50%;
+  --box-show:none;
+  & img:nth-child(2){
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(2);
+    pointer-events: none;
+    clip-path: circle(3rem at var(--box-x) var(--box-y));
+    display: var(--box-show);
   }
 }

@@ -56,13 +56,13 @@
   }
 }
 
-.content_news_hidden{
-  & > p:last-child{
-    @media screen and (max-width:767px) {
-      display: none;
-    }
-  }
-}
+// .content_news_hidden{
+//   & > p:last-child{
+//     @media screen and (max-width:767px) {
+//       display: none;
+//     }
+//   }
+// }
 .content_news {
   &>p{
     @media screen and (max-width:767px){
