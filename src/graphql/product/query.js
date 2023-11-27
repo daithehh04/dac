@@ -43,6 +43,12 @@ query getDataCategoryProduct($language: LanguageCodeFilterEnum!) {
 const GET_DATA_PRODUCT_DETAIL = `query getDataProduct_detail($language: LanguageCodeEnum!, $slug: ID!) {
   serviceProduct(id: $slug, idType: SLUG) {
     translation(language: $language) {
+      categoryProducts{
+        nodes{
+          id
+          name
+        }
+      }
       product_detail{
         title
         aboutProduct{
@@ -76,14 +82,19 @@ const GET_SLUG_FIRST_PRODUCT = `query ($language: LanguageCodeEnum!,$term:[Strin
     }
   }
 }`
-const GET_DATA_OTHER_PRODUCT = `query getDataProduct_detail($language: LanguageCodeFilterEnum!) {
-  allServiceProduct(where: {language: $language}) {
+
+const OTHER_PRODUCT_QUERY = `query($taxonomyId: [ID!]) {
+  allCategoryProducts(where: {termTaxonomId: $taxonomyId}) {
     nodes {
-      slug
-      featuredImage{
-        node{
-          sourceUrl
-          altText
+      serviceProduct{
+        nodes{
+          slug
+          featuredImage{
+            node{
+              altText
+              sourceUrl
+            }
+          }
         }
       }
     }
@@ -130,7 +141,7 @@ export {
   GET_DATA_CATEGORY_PRODUCT_SERVICE,
   GET_DATA_PRODUCT_DETAIL,
   GET_SLUG_FIRST_PRODUCT,
-  GET_DATA_OTHER_PRODUCT,
   META_PRODUCT_DETAIL_QUERY,
-  META_SERVICE_PRODUCT_QUERY
+  META_SERVICE_PRODUCT_QUERY,
+  OTHER_PRODUCT_QUERY
 }

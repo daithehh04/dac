@@ -2,10 +2,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination,Autoplay } from 'swiper/modules';
 import Link from 'next/link';
 
-function ServiceDetail({ data, lang, dataOtherProduct }) {
+function ServiceDetail({ data, lang,otherProduct }) {
     const [indexSlide, setIndexSlide] = useState(0)
     const swiperRef = useRef()
     const swiperRef1 = useRef()
@@ -49,8 +49,15 @@ function ServiceDetail({ data, lang, dataOtherProduct }) {
                         </svg>
                         <Swiper
                             loop={true}
-                            pagination={true}
-                            modules={[Pagination]}
+                            pagination={{
+                                clickable: true,
+                              }}
+                            speed={800}
+                            modules={[Pagination,Autoplay]}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                              }}
                             className="mySwiper slideFeatureImage md:w-[36.66667rem] md:h-full h-[81.6rem]"
                             onSlideChange={handleSlideChange1}
                             onBeforeInit={(swiper) => {
@@ -119,6 +126,12 @@ function ServiceDetail({ data, lang, dataOtherProduct }) {
                                     }
                                 }
                             }
+                            modules={[Autoplay]}
+                            speed={800}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                              }}
                             loop={true}
                             className="mySwiper"
                             onSlideChange={handleSlideChange}
@@ -128,7 +141,7 @@ function ServiceDetail({ data, lang, dataOtherProduct }) {
                                 }
                             }}
                         >
-                            {dataOtherProduct?.map((item, index) => (
+                            {otherProduct?.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <Link href={`/${lang}/service-products/${item?.slug}`}>
                                         <Image src={item?.featuredImage?.node?.sourceUrl} width={1000} height={1000} alt={item?.featuredImage?.node?.altText} className='imageSlideOtherItem md:w-[12.96875rem] md:h-[11.92708rem] h-[27.73333rem] object-cover' />
