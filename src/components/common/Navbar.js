@@ -34,11 +34,11 @@ function Navbar({
   const handleCloseModal = () => {
     refMb?.current?.classList?.remove('active')
   }
-  const listPageBlackHeader = ['/', '/service-products/', '/en']
+  const listPageBlackHeader = ['/', '/san-pham-dich-vu/', '/en']
 
   const pathName = usePathname()
   useEffect(() => {
-    setCheckHome(listPageBlackHeader.includes(pathName) || pathName.startsWith('/service-products/'))
+    setCheckHome(listPageBlackHeader.includes(pathName) || pathName.startsWith('/san-pham-dich-vu/'))
   }, [pathName])
 
 
@@ -50,7 +50,7 @@ function Navbar({
         setShadow('md:shadow-md')
         setLogoHome(logo)
         setCheckScroll(true)
-      } else if ((listPageBlackHeader.includes(pathName) || pathName.startsWith('/service-products/'))) {
+      } else if ((listPageBlackHeader.includes(pathName) || pathName.startsWith('/san-pham-dich-vu/'))) {
         setBgColor('')
         setColor('#000')
         setShadow('')
@@ -99,8 +99,8 @@ function Navbar({
     {
       link: 'VỀ CHÚNG TÔI',
       linkEn: 'ABOUT-US',
-      slug: 'about-us/vision',
-      slug2: 'about-us',
+      slug: 've-chung-toi/vision',
+      slug2: 've-chung-toi',
       listContent: [
         {
           name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi',
@@ -127,13 +127,13 @@ function Navbar({
     {
       link: 'THIẾT KẾ',
       linkEn: 'DESIGN',
-      slug: 'design'
+      slug: 'thiet-ke'
     },
     {
       link: 'SẢN PHẨM DỊCH VỤ',
       linkEn: 'PRODUCTS AND SERVICES',
-      slug: 'service-products',
-      slug2: 'service-products',
+      slug: 'san-pham-dich-vu',
+      slug2: 'san-pham-dich-vu',
       listContent: [
         {
           name: dataProductList?.[0]?.product_category?.info?.title,
@@ -172,13 +172,13 @@ function Navbar({
     {
       link: 'CÔNG NGHỆ',
       linkEn: 'TECHNOLOGY',
-      slug: 'technology/offset',
-      slug2: 'technology',
+      slug: 'cong-nghe/in-offset',
+      slug2: 'cong-nghe',
       listContent: [
         {
           name: 'Công nghệ in Offset',
           nameEn: 'Offset printing technology',
-          slug: 'offset'
+          slug: 'in-offset'
         },
         {
           name: 'Công nghệ in Flexo',
@@ -205,17 +205,17 @@ function Navbar({
     {
       link: 'TIN TỨC',
       linkEn: 'NEWS',
-      slug: 'blog'
+      slug: 'tin-tuc-su-kien'
     },
     {
       link: 'TUYỂN DỤNG',
       linkEn: 'RECRUITMENT',
-      slug: 'recruitment'
+      slug: 'tuyen-dung'
     },
     {
       link: 'LIÊN HỆ',
       linkEn: 'CONTACT',
-      slug: 'contact'
+      slug: 'lien-he'
     },
   ]
 

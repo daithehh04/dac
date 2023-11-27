@@ -35,7 +35,7 @@ function OpportunityItem({ icon, data, title, desc, className, classCus, check }
                         <p key={index} className='description !font-normal md:mb-[0.5rem] mb-[3rem]'>{item?.text}</p>
                     ))}
                 </div>
-                <Link className={`${check ? 'hidden' : ''}`} href={`/recruitment/a`}>
+                <Link className={`${check ? 'hidden' : ''}`} href={`/tuyen-dung/a`}>
                     <p className='md:w-[21.04167rem] cursor-pointer description !text-[#888] underline !font-normal'>Ứng tuyển ngay</p>
                 </Link>
             </div>
