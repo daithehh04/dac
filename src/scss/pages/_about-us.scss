@@ -4,11 +4,11 @@
       margin-top: 18.16rem;
       flex-direction: column-reverse;
       .circle {
-        top: 3.96rem;
+        top: 5.1rem;
       }
       .image {
         order: 1;
-        margin-top: 3.14rem;
+        margin-top: 4.4rem;
       }
       .year {
         order: 2;
@@ -18,10 +18,10 @@
   .swiper-slide:nth-child(2n+1) {
     .item-history {
       .circle {
-        bottom: 3.2rem;
+        bottom: 2.6rem;
       }
       .year {
-        margin-top: 2.5rem;
+        margin-top: 1.9rem;
       }
     }
   }
