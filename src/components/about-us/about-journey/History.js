@@ -50,7 +50,7 @@ function History({ data }) {
           {data?.journey?.map((item, index) => {
             return (
               <SwiperSlide key={index * Math.random()}>
-                <div className='mr-[2.76rem] flex justify-center flex-col item-history relative cursor-grab'>
+                <div className='mr-[2rem] flex justify-center flex-col item-history relative cursor-grab'>
                   <Image
                     src={item?.img?.sourceUrl}
                     width={1000}
@@ -58,7 +58,7 @@ function History({ data }) {
                     alt={item?.img?.altText || "history"}
                     className='object-cover h-[15.1rem] image'
                   />
-                  <p className='mt-[1.4rem] text-[1.41rem] lg:text-[1.35417rem] line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>
+                  <p className='mt-[0.5rem] text-[1.41rem] xl:text-[1.35147rem] min-h-[6.5rem] line-clamp-3'>{item?.text}</p>
                   <span className='text-[#444] font-bold text-[1.875rem] text-center block year'>{item?.year}</span>
                   <Image src={circle} width={'100%'} height={'100%'} alt='circle' className='absolute bottom-0 left-[50%] w-[0.9375rem] h-[0.9375rem] object-cover circle' />
                 </div>
