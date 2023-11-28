@@ -51,6 +51,29 @@
   overflow: hidden;
   transition: all 0.3s;
   &:hover{
-    transform: scale(1.05);
+    // transform: scale(1.05);
+    // width: 34.84568rem;
+    // height: 46.8226rem;
   }
+} 
+
+.prize_item{
+  position: relative;
+  overflow: hidden;
+  &:hover .description_prize{
+    transform: translateY(0);
+  }
+}
+
+.description_prize{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0.8rem;
+  height: 8.7rem;
+  padding: 1rem 1rem;
+  background: #444;
+  transition: all 0.3s;
+  transform: translateY(100%);
+  mix-blend-mode: multiply;
 }

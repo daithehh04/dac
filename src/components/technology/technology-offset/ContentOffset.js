@@ -9,10 +9,10 @@ function ContentOffset({dataContent}) {
             <div className='flex md:pb-[7rem] md:pt-[4rem] pt-[5rem] max-md:flex-col max-md:px-[4.27rem]'>
                 <div className='md:mr-[10.68rem] priDesc  md:w-[28.59375rem]' dangerouslySetInnerHTML={{ __html: `${dataContent?.description}` }}>
                 </div>
-                <div className='md:grid grid-cols-2 gap-x-[5.31rem] gap-y-[3.2rem] max-md:pt-[7rem]'>
+                <div className='md:grid flex flex-col grid-cols-2 gap-x-[5.31rem] gap-y-[3.2rem] max-md:pt-[7rem]'>
                     {dataContent?.listContent?.map((item, index) => {
                         return (
-                            <TextnologyContent key={index} icon={item?.icon} text={item?.text} />
+                            <TextnologyContent key={index} icon={item?.icon} text={item?.text} className={`${index === 0 ? 'max-md:order-3' : index === 1 ? 'max-md:order-2' : 'max-md:order-1'}`} />
                         )
                     })}
                 </div>

@@ -9,10 +9,10 @@ function ContentFlexo({ dataContent }) {
             <div className='flex md:pb-[7rem] md:pt-[4rem] pt-[6rem] max-md:flex-col'>
                 <div className='md:mr-[10.68rem] priDesc md:w-[28.59375rem]' dangerouslySetInnerHTML={{ __html: `${dataContent?.description}` }}>
                 </div>
-                <div className='md:grid grid-cols-2 gap-x-[5.31rem] gap-y-[3.2rem] max-md:mt-[6rem]'>
+                <div className='md:grid grid-cols-2 flex flex-col gap-x-[5.31rem] gap-y-[3.2rem] max-md:mt-[6rem]'>
                     {dataContent?.listContent?.map((item, index) => {
                         return (
-                            <TextnologyContent key={index} icon={item?.icon} text={item?.text} />
+                            <TextnologyContent key={index} icon={item?.icon} text={item?.text} className={`${index === 0 ? 'max-md:order-3' : index === 1 ? 'max-md:order-2' :'max-md:order-1'}`} />
                         )
                     })}
                 </div>

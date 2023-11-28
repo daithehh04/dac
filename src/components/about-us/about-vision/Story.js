@@ -5,7 +5,7 @@ import Image from 'next/image'
 function Story({data}) {
   return (
     <div className='md:px-[4.17rem]'>
-      <div className='flex max-md:flex-col gap-x-[7.68rem] pt-[6.82rem] pb-[5.9rem] border-b border-solid border-[#444]'>
+      <div className='flex max-md:flex-col gap-x-[7.68rem] pt-[6.82rem] pb-[5.9rem] md:border-b border-solid border-[#444]'>
         <div className="left max-md:px-[4.27rem]">
           <h3 className='heading'>
             {data?.heading}

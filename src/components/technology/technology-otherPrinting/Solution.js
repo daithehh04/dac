@@ -14,7 +14,7 @@ function Solution({ dataSolution }) {
                         <div key={index} className='md:flex'>
                             <Image src={item?.icon?.sourceUrl} quality={100} width={1000} height={1000} alt={item?.icon?.altText || 'icon'} className='max-md:hidden w-[4.53125rem] h-[4.0625rem] object-contain' />
                             <div 
-                            className='list_solutions md:text-[1.5rem] lg:text-[1.35417rem] md:ml-[2rem] text-[4.27rem] md:tracking-[-0.04063rem] text-[#444] leading-[1.2] w-full md:w-[39.03125rem] md:mb-[2.19rem] max-md:mb-[6rem]'
+                            className='list_solutions md:text-[1.5rem] lg:text-[1.35417rem] md:ml-[2rem] text-[4.27rem] md:tracking-[-0.04063rem] tracking-[-0.128rem] text-[#444] leading-[1.2] w-full md:w-[39.03125rem] md:mb-[2.19rem] max-md:mb-[6rem]'
                             dangerouslySetInnerHTML={{ __html: `${item?.solution}` }}
                             >
                         </div>

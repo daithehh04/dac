@@ -75,33 +75,34 @@ const GET_DATA_ABOUT_US_JOURNEY = `query ($language: LanguageCodeEnum!) {
   }`
 
 const GET_DATA_ABOUT_US_PRIZE = `query ($language: LanguageCodeEnum!) {
-    page(id: "cG9zdDoxNzQ=") {
-      translation(language: $language) {
-        slug
-        prize {
-          banner {
-            imagebanner {
+  page(id: "cG9zdDoxNzQ=") {
+    translation(language: $language) {
+      slug
+      prize {
+        banner {
+          imagebanner {
+            sourceUrl
+            altText
+          }
+          textbanner
+        }
+        titlePage
+        content{
+          heading
+          subtitle
+          listPrize{
+            image{
               sourceUrl
               altText
             }
-            textbanner
-          }
-          titlePage
-          content{
-            heading
-            subtitle
-            listPrize{
-              image{
-                sourceUrl
-                altText
-              }
-              name
-            }
+            name
+            description
           }
         }
       }
     }
-  }`
+  }
+}`
 
 const GET_DATA_ABOUT_US_ORGANIZE = `query ($language: LanguageCodeEnum!) {
     page(id: "cG9zdDoxNzY=") {

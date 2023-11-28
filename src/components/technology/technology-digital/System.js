@@ -1,8 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import digital1 from '@/assets/imgs/Digital1.png'
-import digital2 from '@/assets/imgs/Digital2.png'
-import digital3 from '@/assets/imgs/Digital3.png'
 
 function System({ dataSystem }) {
     return (
@@ -14,7 +11,7 @@ function System({ dataSystem }) {
             <div className='flex max-md:flex-col max-md:pb-[6rem]'>
                 <div className='md:mr-[2.6rem] max-md:mb-[6rem]'>
                     <h2 className='heading md:w-[31.40625rem] max-md:!text-[6.93333rem]'>{dataSystem?.title}</h2>
-                    <div className='md:w-[36.66667rem] description !font-normal text-justify md:mt-[1.77rem] mt-[3rem]'
+                    <div className='md:w-[36.66667rem] md:text-[1.35417rem] text-[4.26667rem] md:tracking-[-0.04063rem] leading-[1.2] tracking-[-0.128rem] !font-normal text-justify md:mt-[1.77rem] mt-[3rem]'
                         dangerouslySetInnerHTML={{ __html: `${dataSystem?.description}` }}>
                     </div>
                 </div>
