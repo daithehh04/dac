@@ -14,7 +14,7 @@ function Service({ lang, data, dataCate }) {
 
                 <div className='md:grid grid-cols-4 md:gap-x-[2.6rem] md:gap-y-[2.45rem] md:px-[4.17rem]  md:pb-[13.23rem]'>
                     {dataCate?.map((item, index) => (
-                        <Link href={`/${lang}/service-products/${item?.product_category?.info?.featureProduct}`} key={index}>
+                        <Link href={`/${lang}/san-pham-dich-vu/${item?.product_category?.info?.featureProduct}`} key={index}>
                             <ProductItem image={item?.product_category?.info?.image} text={item?.product_category?.info?.title} />
                         </Link>
                     ))}
