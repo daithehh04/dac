@@ -86,8 +86,8 @@ function ServiceDetail({ data, lang,otherProduct }) {
                             {data?.product_detail?.listImages?.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <div className='box relative overflow-hidden w-full h-full'>
-                                        <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7.7rem] rounded-br-[18rem]' />
-                                        <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7.7rem] rounded-br-[18rem]' />
+                                        <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7rem] rounded-br-[18rem]' />
+                                        <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7rem] rounded-br-[18rem]' />
                                         <svg xmlns="http://www.w3.org/2000/svg" className=' absolute inset-0 z-[-1]' viewBox="0 0 704 630" fill="none">
                                             <path d="M0 0H704V464.211C704 555.774 643.174 630 568.14 630H0V0Z" fill="#D9D9D9" />
                                         </svg>   
@@ -166,7 +166,7 @@ function ServiceDetail({ data, lang,otherProduct }) {
                         >
                             {otherProduct?.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <Link href={`/${lang}/service-products/${item?.slug}`}>
+                                    <Link href={`/${lang}/san-pham-dich-vu/${item?.slug}`}>
                                         <Image src={item?.featuredImage?.node?.sourceUrl} width={1000} height={1000} alt={item?.featuredImage?.node?.altText} className='imageSlideOtherItem md:w-[12.96875rem] md:h-[11.92708rem] h-[27.73333rem] object-cover' />
                                     </Link>
                                 </SwiperSlide>
