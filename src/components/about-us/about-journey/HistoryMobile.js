@@ -134,7 +134,7 @@ function HistoryMobile({ data }) {
                                 alt={item?.img?.altText || "history"}
                                 className='object-cover  h-[48.26667rem]'
                             />
-                            <p className='mt-[5.33rem] text-[4.26667rem] mb-[3rem] lg:text-[1.35417rem] md:line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>
+                            <p className='mt-[5.33rem] text-[4.26667rem] leading-[1.2] mb-[3rem] lg:text-[1.35417rem] md:line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>
                             <div className={`absolute left-[-1.5rem] w-[2.66667rem] top-[2rem] rounded-[50%] border border-solid border-[#000] h-[2.66667rem] ${selected === index ? 'bg-[#00A84F]' : 'bg-[#fff]'}`}></div>
                         </div>
                     )

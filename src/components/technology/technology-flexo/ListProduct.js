@@ -10,7 +10,7 @@ function ListProduct({ dataProductList }) {
             }
             <div className='flex flex-col md:w-[36.66667rem] md:mr-[2.6rem] max-md:mb-[4.8rem]'>
                 <h2 className='heading md:mb-[1.77rem] mb-[3rem] max-md:!text-[6.93333rem] md:pr-[11.87rem]'>{dataProductList?.title || 'Các máy Flexo tại App'}</h2>
-                <div className='description !font-normal md:!tracking-[-0.02708rem]' dangerouslySetInnerHTML={{ __html: `${dataProductList?.description}` }}>
+                <div className='md:text-[1.35417rem] text-[4.26667rem] gap-[1.5rem] leading-[1.2] !font-normal md:tracking-[-0.02708rem] tracking-[-0.08533rem] grid max-md:gap-[4rem]' dangerouslySetInnerHTML={{ __html: `${dataProductList?.description}` }}>
                 </div>
             </div>
             <div className='max-md:mb-[4.8rem]'>

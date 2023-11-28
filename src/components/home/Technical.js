@@ -22,7 +22,7 @@ function Technical({ dataTechnology,lang }) {
                 <Link href={`/${lang}/technology/${index === 0 ? 'offset' : index === 1 ? 'flexo' : index === 2 ? 'gravure' : 'digital'}`}>
                   <h4 className='text-[#444] font-bold md:mt-[1.25rem] max-md:my-[3rem] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.technologyName}</h4>
                 </Link>
-                <p className='md:text-[1.5rem] lg:mt-[1.425rem] text-[#888] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.description}</p>
+                <p className='md:text-[1.5rem] lg:mt-[1.425rem] text-[#888] lg:text-[1.35417rem] max-md:tracking-[-0.08533rem] leading-[116.662%] text-justify text-[4.26667rem]'>{item?.description}</p>
               </li>
             ))}
           </ul>

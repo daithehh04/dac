@@ -18,7 +18,7 @@ function Branch({ dataBranch,lang }) {
                                 <div className='text-[#444] md:w-[27rem] lg:text-[1.35417rem] leading-[1.2] md:text-[1.5rem] text-[4rem] md:tracking-[-0.02708rem] tracking-[-0.2rem]'>
                                     <p className='font-bold'>{item?.title}</p>
                                     <p className='max-md:mb-[4rem]'>{item?.subTitle}</p>
-                                    <p dangerouslySetInnerHTML={{ __html: `${item?.infomation}` }}></p>
+                                    <p className='max-md:mb-[2rem]' dangerouslySetInnerHTML={{ __html: `${item?.infomation}` }}></p>
                                     <Link 
                                     href={
                                         index === 0 ? 'https://www.google.com/maps/place/72+%C4%90.+Tr%C6%B0%E1%BB%9Dng+Chinh,+Ph%C6%B0%C6%A1ng+%C4%90%C3%ACnh,+%C4%90%E1%BB%91ng+%C4%90a,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@20.9985393,105.8366209,17z/data=!3m1!4b1!4m6!3m5!1s0x3135ac7aa15ba9a9:0xaf70e9b65eb129cc!8m2!3d20.9985343!4d105.8391958!16s%2Fg%2F11c5lvk2hy?entry=ttu'
@@ -26,7 +26,7 @@ function Branch({ dataBranch,lang }) {
                                         : 'https://www.google.com/maps/place/72+%C4%90.+Tr%C6%B0%E1%BB%9Dng+Chinh,+Ph%C6%B0%C6%A1ng+%C4%90%C3%ACnh,+%C4%90%E1%BB%91ng+%C4%90a,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@20.9985393,105.8366209,17z/data=!3m1!4b1!4m6!3m5!1s0x3135ac7aa15ba9a9:0xaf70e9b65eb129cc!8m2!3d20.9985343!4d105.8391958!16s%2Fg%2F11c5lvk2hy?entry=ttu'
                                     } 
                                     target='_blank'
-                                    className='text-[#888] info_address md:text-[1.04167rem] text-[3.46667rem] tracking-[-0.12133rem] leading-[1.2] md:tracking-[-0.03646rem] underline'>{lang === 'vi' ? 'Xem bản đồ' :'View the map'}</Link>
+                                    className='text-[#888] info_address md:text-[1.04167rem] text-[3.46667rem]  tracking-[-0.12133rem] leading-[1.2] md:tracking-[-0.03646rem] underline'>{lang === 'vi' ? 'Xem bản đồ' :'View the map'}</Link>
                                 </div>
                             </div>
                         ))}

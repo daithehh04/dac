@@ -12,7 +12,7 @@ function Branch({data}) {
                     className='heading md:w-[38.1875rem] md:h-[16.4375rem] titleEnhance'>
                 </h2>
 
-                <p className='text-[#444] max-md:mt-[4rem] max-md:mb-[12rem] md:w-[28.8rem]  text-justify  text-ellipsis  md:text-[1.35417rem] text-[4.26667rem] md:leading-[1.2] md:tracking-[-0.0325rem]'>
+                <p className='text-[#444] max-md:mt-[4rem] max-md:mb-[12rem] md:w-[28.8rem]  text-justify tracking-[-0.08533rem] text-ellipsis  md:text-[1.35417rem] text-[4.26667rem] leading-[1.2] md:tracking-[-0.0325rem]'>
                     {data?.enhanceBrand?.description}
                 </p>
             </div>
@@ -24,7 +24,7 @@ function Branch({data}) {
                         dangerouslySetInnerHTML={{ __html: `${data?.packagingDesign?.title}` }}
                         className='heading package_desgin_title !text-[#fff] md:mb-[3.4375rem] mb-[8rem]'>
                     </h2>
-                    <div className='flex flex-col md:w-[34.5625rem] md:h-[37.0625rem] md:pr-[4.9rem] text-justify md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] md:leading-[1.2] md:tracking-[-0.0325rem] text-[#fff]'>
+                    <div className='flex flex-col md:w-[34.5625rem] md:h-[37.0625rem] md:pr-[4.9rem] text-justify md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] tracking-[-0.08533rem] leading-[1.2] md:tracking-[-0.0325rem] text-[#fff]'>
                         <p className='design_content_list' dangerouslySetInnerHTML={{ __html: `${data?.packagingDesign?.description}` }}></p>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ function Branch({data}) {
                         dangerouslySetInnerHTML={{ __html: `${data?.brandIdentity?.title}` }}
                         className='heading design_identity_title md:mb-[2.4375rem]'>
                     </h2>
-                    <div className='flex flex-col md:w-[28.8rem] md:h-[37.0625rem] text-justify md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] md:leading-[1.2] md:tracking-[-0.02708rem] text-[#444] max-md:pb-[12rem]'>
+                    <div className='flex flex-col md:w-[28.8rem] md:h-[37.0625rem] text-justify md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] tracking-[-0.08533rem] leading-[1.2] md:tracking-[-0.02708rem] text-[#444] max-md:pb-[12rem]'>
                         <p 
                             dangerouslySetInnerHTML={{ __html: `${data?.brandIdentity?.description}` }}
                             className='design_content_list max-md:py-[6rem]'>

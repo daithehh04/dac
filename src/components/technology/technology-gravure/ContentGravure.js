@@ -1,19 +1,7 @@
 import React from 'react'
-import layer3 from '@/assets/imgs/Layer_3.svg'
 import TextnologyContent from '@/components/common/TextnologyContent'
-import imageContent from '@/assets/imgs/TechnologyBanner3.png'
 import Image from 'next/image'
 function ContentGravure({ dataContent }) {
-    const data = [
-        {
-            icon: layer3,
-            text: 'Thành phẩm sau khi hoàn thiện ở dạng cuộn hoặc túi phù hợp với nhu cầu đóng gói sản phẩm của khách hàng.'
-        },
-        {
-            icon: layer3,
-            text: 'Bên cạnh đó, đội ngũ R&D của APP luôn sẵn sàng tư vấn các cấu trúc phù hợp với mặt hàng mà Quý khách hàng cần sản xuất trên tiêu chí: nhanh, nhiều, tốt, chi phí hợp lý'
-        }
-    ]
     return (
         <section className='contentWrapper bg-[#000D10] overflow-x-hidden'>
             <h2 className='heading-primary md:w-[33.1875rem] max-md:!text-[8.53333rem] w-[60rem] max-md:mb-[6rem]'>
@@ -21,7 +9,7 @@ function ContentGravure({ dataContent }) {
             </h2>
             <div className='flex md:pb-[7rem] md:pt-[4rem] max-md:flex-col'>
                 <div
-                    className='md:mr-[10.68rem] priDesc !text-start md:w-[27.59375rem]  max-md:mb-[6rem]'
+                    className='md:mr-[10.68rem] priDesc  md:w-[27.59375rem] text-justify max-md:mb-[6rem]'
                     dangerouslySetInnerHTML={{ __html: `${dataContent?.description}` }}
                 >
                 </div>
