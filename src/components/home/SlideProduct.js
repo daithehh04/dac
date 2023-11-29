@@ -18,6 +18,7 @@ function SlideProduct({ lang, dataProductList }) {
     setIndexSlider(swiper.activeIndex)
   }
 
+  const newArr = dataProductList.concat(dataProductList)
   return (
     <div className='relative w-full h-full slide-product'>
       <Swiper
@@ -29,7 +30,7 @@ function SlideProduct({ lang, dataProductList }) {
             }
           }
         }
-        speed={800}
+        freeMode={true}
         spaceBetween={0}
         autoplay={{
           delay: 3000,
@@ -43,7 +44,7 @@ function SlideProduct({ lang, dataProductList }) {
         }}
         className='relative w-full h-full '
       >
-        {dataProductList?.map((item, index) => {
+        {newArr?.map((item, index) => {
           return (
             <SwiperSlide
               key={index}
