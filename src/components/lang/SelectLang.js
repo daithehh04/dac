@@ -25,9 +25,9 @@ function SelectLang({ lang, checkHome, color }) {
           onClick={() => setLng(locale.locale)}
           key={index}
           href={redirectedPathName(locale.locale)}
-          className={`flex link items-center w-full border-r border-solid  last:border-none px-[0.6vw] ${checkHome ? 'border-black' : ''} border-[${color}] ${lng === locale.locale ? 'active' : ''}`}
+          className={`flex link items-center w-full border-r border-solid  last:border-none px-[0.6rem] ${checkHome ? 'border-black' : ''} border-[${color}] ${lng === locale.locale ? 'active' : ''}`}
         >
-          <span className={`uppercase text-[1vw]  ${checkHome ? '!text-black' : 'text-white'} !text-[${color}]`}>{locale.locale}</span>
+          <span className={`uppercase text-[1rem]  ${checkHome ? '!text-black' : 'text-white'} !text-[${color}]`}>{locale.locale}</span>
         </Link>
       ))}
     </div>
