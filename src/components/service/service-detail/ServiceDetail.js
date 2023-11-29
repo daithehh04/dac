@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Pagination,Autoplay } from 'swiper/modules';
 import Link from 'next/link';
 
-function ServiceDetail({ data, lang,otherProduct }) {
+function ServiceDetail({ data, lang,otherProduct,subTitle }) {
     const [indexSlide, setIndexSlide] = useState(0)
     const swiperRef = useRef()
     const swiperRef1 = useRef()
@@ -137,7 +137,9 @@ function ServiceDetail({ data, lang,otherProduct }) {
 
                 {/* slide2 */}
                 <div className='flex flex-col relative max-md:pt-[10rem]'>
-                    <h3 className='md:w-[28.81rem] md:h-[2.76042rem] md:mb-[0.68rem] md:text-[#444] text-[#888] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] md:leading-[116.662%] md:tracking-[-0.06771rem]'>{data?.product_detail?.subTitle}</h3>
+                    <h3 className='md:w-[28.81rem] md:h-[2.76042rem] md:mb-[0.68rem] md:text-[#444] text-[#888] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] md:leading-[116.662%] md:tracking-[-0.06771rem]'>
+                        {subTitle}
+                    </h3>
                     <div className='slideOther_Item relative max-md:pt-[5.53rem] max-md:pb-[8rem]'>
                         <Swiper
                             slidesPerView={3}

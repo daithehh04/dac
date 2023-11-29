@@ -34,13 +34,12 @@ function Navbar({
   const handleCloseModal = () => {
     refMb?.current?.classList?.remove('active')
   }
-  const listPageBlackHeader = ['/', '/san-pham-dich-vu/', '/en']
+  const listPageBlackHeader = ['/', '/san-pham-dich-vu/','/en/san-pham-dich-vu/', '/en']
 
   const pathName = usePathname()
   useEffect(() => {
-    setCheckHome(listPageBlackHeader.includes(pathName) || pathName.startsWith('/san-pham-dich-vu/'))
+    setCheckHome(listPageBlackHeader.includes(pathName) || pathName.startsWith('/san-pham-dich-vu/') || pathName.startsWith('/en/san-pham-dich-vu/'))
   }, [pathName])
-
 
   useEffect(() => {
     const e = () => {
@@ -50,7 +49,7 @@ function Navbar({
         setShadow('md:shadow-md')
         setLogoHome(logo)
         setCheckScroll(true)
-      } else if ((listPageBlackHeader.includes(pathName) || pathName.startsWith('/san-pham-dich-vu/'))) {
+      } else if ((listPageBlackHeader.includes(pathName) || pathName.startsWith('/san-pham-dich-vu/') || pathName.startsWith('/en/san-pham-dich-vu/'))) {
         setBgColor('')
         setColor('#000')
         setShadow('')
