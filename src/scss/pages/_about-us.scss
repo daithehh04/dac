@@ -48,32 +48,42 @@
 
 
 .image_prize{
-  overflow: hidden;
+  // overflow: hidden;
+  // position: absolute;
+  // inset: 0;
   transition: all 0.3s;
   &:hover{
-    // transform: scale(1.05);
-    // width: 34.84568rem;
-    // height: 46.8226rem;
+    transform: scale(1.05);
   }
 } 
-
+.image_prize.active:hover{
+  transform: scale(1);
+}
 .prize_item{
   position: relative;
   overflow: hidden;
-  &:hover .description_prize{
-    transform: translateY(0);
-  }
 }
 
 .description_prize{
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0.8rem;
-  height: 8.7rem;
-  padding: 1rem 1rem;
-  background: #444;
-  transition: all 0.3s;
+  // right: 1.55rem;
+  padding: 2.08rem 3.44rem 2.14rem 2.13rem;
+  background: #444444b5;
   transform: translateY(100%);
-  mix-blend-mode: multiply;
+  z-index: 99;
+}
+.description_prize.active{
+  animation: upDes 1s forwards;
+  bottom: 2.25rem;
+}
+@keyframes upDes{
+  from{
+  transform: translateY(100%);
+
+  }to{
+    transform: translateY(0);
+
+  }
 }
