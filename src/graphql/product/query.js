@@ -62,7 +62,18 @@ const GET_DATA_PRODUCT_DETAIL = `query getDataProduct_detail($language: Language
             altText
           }
         }
-        subTitle
+      }
+    }
+  }
+}`
+
+const SUBTITLE_PRODUCT_QUERY =  `query getDataCategoryProduct($language: LanguageCodeFilterEnum!, $termTaxonomId:[ID!]) {
+  allCategoryProducts(where: {language: $language, termTaxonomId: $termTaxonomId}) {
+    nodes {
+      product_category {
+        info {
+          subTitle
+        }
       }
     }
   }
@@ -144,5 +155,6 @@ export {
   GET_SLUG_FIRST_PRODUCT,
   META_PRODUCT_DETAIL_QUERY,
   META_SERVICE_PRODUCT_QUERY,
-  OTHER_PRODUCT_QUERY
+  OTHER_PRODUCT_QUERY,
+  SUBTITLE_PRODUCT_QUERY
 }
