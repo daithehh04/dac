@@ -29,16 +29,36 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
         <div className='md:flex grid grid-cols-2 justify-center flex-wrap md:mt-[3.2rem] mt-[15rem] md:gap-[5.5rem] max-md:gap-x-[8rem] max-md:gap-y-[12.8rem] justify-items-center'>
           {dataPrize?.prize?.content?.listPrize?.map((item, index) => (
             <div key={index * Math.random()} title={item?.image?.altText || lang === 'vi' ? 'giải thưởng' : 'prize' } className={`transition-all duration-1000 flex flex-col relative items-center justify-center ${index === dataPrize?.prize?.content?.listPrize?.length -1 ? 'md:w-[38.11422rem] md:h-[28.125rem] w-full ' : 'md:w-[14.89vw]  w-[41.86667rem]'} ${index === dataPrize?.prize?.content?.listPrize?.length -1 ? 'col-span-2' : '' }`}>
-                <div onClick={() => handleClick(index)} className={`overflow-hidden w-full h-full ${active === index && (index === 0 || index === 1 || index === 2 || index === 3) ? 'md:w-[34.85rem] md:h-[46.82rem] absolute z-[10]' : (active === index && (index === 4 || index === 5 || index === 6 || index ===7))  ? 'md:w-[35.07rem] md:h-[26.875rem] absolute z-[10]' : (active === index && index === dataPrize?.prize?.content?.listPrize?.length -1) ? 'md:w-[84.16667rem] md:h-[58.8333rem] bg-[#DCDCDC] absolute z-[10]' : 'relative'}`}>
+                <div 
+                  onClick={() => handleClick(index)} 
+                  className={`overflow-hidden w-full h-full ${active === index && (index === 0 || index === 1 || index === 2 || index === 3) 
+                  ? 
+                  'md:w-[34.85rem] md:h-[46.82rem] md:absolute z-[10] w-[100rem] h-[130rem] fixed max-md:top-[50%] max-md:left-[50%] max-md:-translate-y-1/2 max-md:-translate-x-1/2' 
+                  : 
+                  (active === index && (index === 4 || index === 5 || index === 6 || index ===7))  
+                  ? 
+                  'md:w-[35.07rem] md:h-[26.875rem] md:absolute z-[10]  w-[100rem] h-[76rem] fixed max-md:top-[50%] max-md:left-[50%] max-md:-translate-y-1/2 max-md:-translate-x-1/2' 
+                  : (active === index && index === dataPrize?.prize?.content?.listPrize?.length -1) 
+                  ? 'md:w-[84.16667rem] md:h-[50.8333rem] bg-[#DCDCDC] md:absolute z-[10]  w-[100rem] h-[76rem] fixed max-md:top-[50%] max-md:left-[50%] max-md:-translate-y-1/2 max-md:-translate-x-1/2' 
+                  : 'relative'}`}
+                >
                   <Image src={item?.image?.sourceUrl} width={1800} height={1000} quality={100} alt={item?.image?.altText || 'prize'} className={`image_prize ${index === active ? 'active' : ''}  object-cover w-full h-full`} />
-                  <div className={`${active === index ? 'active' : ''} description_prize ${(index === 0 || index === 1 || index === 2 || index === 3 ? 'right-[1.45rem]' : index === 4 || index === 5 || index === 6 || index === 7 ? 'right-[1.55rem]' : '!bottom-[0]')}`}>
                   <div 
-                    className={`md:text-[1.35417rem] leading-[1.2] text-[#fff] `}
+                    className={`${active === index ? 'active' : ''} description_prize ${( active === index  && (index === 0 || index === 1 || index === 2 || index === 3) 
+                    ? 'right-[4.5rem] md:right-[1.45rem] md:!bottom-[2.4rem] max-md:!bottom-[5.7rem]' 
+                    : (active === index && (index === 4 || index === 5 || index === 6 || index === 7)) 
+                    ? 'md:right-[1.5rem] right-[4.3rem] md:!bottom-[1rem] max-md:!bottom-[2.8rem]' 
+                    : index ===  dataPrize?.prize?.content?.listPrize?.length -1 
+                    ? '!bottom-[0] md:!px-[10rem] md:!py-[7rem]' 
+                    : '')}`}
+                  >
+                  <div 
+                    className={`md:text-[1.35417rem] text-[4.26667rem] leading-[1.2] text-[#fff]`}
                     dangerouslySetInnerHTML={{ __html: `${item?.description}` }}
                   ></div>
                   </div>
                 </div>
-              {item?.name && <span className='md:text-[1.6rem] text-[4.26667rem] whitespace-nowrap max-md:leading-[111.662%] max-md:tracking-[-0.14933rem] text-[#888] mt-[1.5rem]'>{item?.name}</span>}
+              {item?.name && <span className={`md:text-[1.6rem] text-[4.26667rem] whitespace-nowrap max-md:leading-[111.662%] max-md:tracking-[-0.14933rem] text-[#888] mt-[1.5rem]  ${active === index ? 'hidden' :''}`}>{item?.name}</span>}
             </div>
           ))}
         </div>
