@@ -74,9 +74,6 @@ const GET_DATA_HOMEPAGE = `
             sourceUrl
           }
           videoLink
-          video{
-            sourceUrl
-          }
         }
         partners{
           title
