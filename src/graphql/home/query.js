@@ -73,6 +73,7 @@ const GET_DATA_HOMEPAGE = `
           background{
             sourceUrl
           }
+          videoLink
           video{
             sourceUrl
           }
