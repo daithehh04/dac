@@ -28,7 +28,7 @@ function SelectLangMb({ lang, handleCloseModal }) {
                     }}
                     key={index}
                     href={redirectedPathName(locale.locale)}
-                    className={`flex link items-center w-full  border-solid  px-[0.6vw] ${index === 0 ? 'border-b border-solid pb-[1rem] border-[#000]' : ''} ${lng === locale.locale ? 'active' : ''}`}
+                    className={`flex link items-center w-full  border-solid  px-[0.6rem] ${index === 0 ? 'border-b border-solid pb-[1rem] border-[#000]' : ''} ${lng === locale.locale ? 'active' : ''}`}
                 >
                     <span className={`uppercase text-[3.2rem] text-black`}>{locale.locale}</span>
                 </Link>

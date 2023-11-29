@@ -138,25 +138,55 @@ function Banner({ lang, dataBanner }) {
         trigger: '.frame',
         start: `start+=${window.innerWidth * 0.015 * index}vw`,
         onEnter: self => {
-          item.classList.add("active")
+          // item.classList.add("active")
+          gsap.to(item, {
+            zIndex:'10',
+            opacity:'1',
+            duration:'0'
+          })
           for (let i = 0; i < list.length; i++) {
             if (index !== i) {
-              list[i].classList.remove("active")
+              // list[i].classList.remove("active")
+              gsap.to(list[i], {
+                zIndex:'1',
+                opacity:'0',
+                duration:'0'
+              })
             }
           }
         },
         onLeaveBack: self => {
-          item.classList.remove("active")
+          // item.classList.remove("active")
+          gsap.to(item, {
+            zIndex:'1',
+            opacity:'0',
+            duration:'0'
+          })
           for (let i = 0; i < list.length; i++) {
             if (index == 0) {
-              list[0].classList.add("active")
+              // list[0].classList.add("active")
+              gsap.to(list[0], {
+                zIndex:'10',
+                opacity:'1',
+                duration:'0'
+              })
             }
             else {
               if (i !== index - 1) {
-                list[i].classList.remove("active")
+                // list[i].classList.remove("active")
+                gsap.to(list[i], {
+                  zIndex:'1',
+                  opacity:'0',
+                  duration:'0'
+                })
               }
               else {
-                list[i].classList.add("active")
+                // list[i].classList.add("active")
+                gsap.to(list[i], {
+                  zIndex:'10',
+                  opacity:'1',
+                  duration:'0'
+                })
               }
             }
           }
@@ -169,104 +199,106 @@ function Banner({ lang, dataBanner }) {
       <section className='banner banner_home relative md:w-full md:h-[300vw] xl:h-[170vw] lg:h-[250vw] h-[250vw] max-md:flex flex-col md:justify-center items-center frame '>
         <div className='flex sticky_box items-center sticky max-md:pt-[10rem] max-md:w-full top-0 md:h-[95vh] justify-between  md:border-b border-solid border-[#888] max-md:flex-col'>
           <div className='flex justify-center'>
-            <Image alt="tissue-picture" src={imgBox1} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue active'></Image>
-            <Image alt="tissue-picture" src={imgBox2} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox3} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox4} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox5} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox6} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox7} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox8} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox9} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox10} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox11} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox12} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox13} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox14} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox15} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox16} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox17} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox18} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox19} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox20} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox21} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox22} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox23} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox24} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox25} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox26} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox27} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox28} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox29} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox30} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox31} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox32} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox33} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox34} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox35} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox36} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox37} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox38} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox39} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox40} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox41} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox42} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox43} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox44} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox45} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox46} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox47} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox48} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox49} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox50} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox51} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox52} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox53} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox54} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox55} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox56} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox57} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox58} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox59} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox60} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox61} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox62} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox63} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox64} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox65} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox66} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox67} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox68} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox69} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox70} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox71} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox72} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox73} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox74} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox75} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox76} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox77} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox78} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox79} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox80} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox81} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox82} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox83} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox84} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox85} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox86} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox87} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox88} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox89} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox90} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox91} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox92} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox93} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox94} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox95} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox96} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox97} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
-            <Image alt="tissue-picture" src={imgBox98} width={800} height={795} priority={true} className='lg:w-[48.02rem] lg:h-[45.8rem] md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] tissue'></Image>
+            <div className='lg:w-[48.02rem] lg:h-[45.8rem]  md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] relative'>
+            <Image alt="tissue-picture" src={imgBox1} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue active'></Image>
+            <Image alt="tissue-picture" src={imgBox2} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox3} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox4} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox5} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox6} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox7} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox8} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox9} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox10} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox11} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox12} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox13} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox14} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox15} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox16} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox17} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox18} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox19} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox20} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox21} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox22} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox23} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox24} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox25} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox26} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox27} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox28} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox29} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox30} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox31} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox32} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox33} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox34} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox35} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox36} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox37} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox38} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox39} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox40} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox41} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox42} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox43} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox44} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox45} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox46} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox47} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox48} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox49} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox50} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox51} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox52} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox53} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox54} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox55} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox56} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox57} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox58} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox59} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox60} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox61} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox62} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox63} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox64} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox65} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox66} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox67} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox68} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox69} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox70} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox71} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox72} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox73} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox74} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox75} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox76} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox77} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox78} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox79} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox80} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox81} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox82} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox83} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox84} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox85} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox86} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox87} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox88} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox89} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox90} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox91} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox92} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox93} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox94} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox95} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox96} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox97} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <Image alt="tissue-picture" src={imgBox98} width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            </div>
           </div>
           <div className='flex max-md:flex-row-reverse justify-center items-center md:mr-[6rem] '>
             <h2 className='lg:text-[3.4375rem] text-[4.5rem] max-md:text-[6.93333rem] max-md:w-[43rem] leading-[1.2] font-bold md:w-[30rem] lg:w-[25rem] text-start md:text-end'>{dataBanner?.textfeature}</h2>

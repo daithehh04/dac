@@ -52,11 +52,15 @@
   }
 }
 .tissue{
-  display: none;
+  // display: none;
+  opacity: 0;
+  z-index: 1;
 }
 
-.tissue.active{
-  display: block;
+.tissue:first-child{
+  // display: block;
+  opacity: 1;
+  z-index: 10;
 }
 
 .scrolling-words-container {
