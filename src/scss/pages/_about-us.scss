@@ -66,13 +66,16 @@
 
 .description_prize{
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   // right: 1.55rem;
   padding: 2.08rem 3.44rem 2.14rem 2.13rem;
   background: #444444b5;
   transform: translateY(100%);
-  z-index: 99;
+  z-index: 10;
+  @media screen and (max-width: 767px) {
+    padding: 3.08rem 3.44rem 5.14rem 4.13rem;
+  }
 }
 .description_prize.active{
   animation: upDes 1s forwards;
