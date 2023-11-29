@@ -5,6 +5,7 @@ import ContentOffset from './ContentOffset'
 
 function IndexOffset({ data }) {
     const dataOffset = data?.data?.page?.translation?.technology_common
+    console.log('dataOffset',data);
     return (
         <>
             <Introduce dataIntro = {dataOffset?.content?.introduce} />

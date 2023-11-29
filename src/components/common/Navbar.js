@@ -98,28 +98,28 @@ function Navbar({
     {
       link: 'VỀ CHÚNG TÔI',
       linkEn: 'ABOUT-US',
-      slug: 've-chung-toi/vision',
+      slug: 've-chung-toi/tam-nhin',
       slug2: 've-chung-toi',
       listContent: [
         {
           name: 'Tầm nhìn - Sứ mệnh - Giá trị cốt lõi',
           nameEn: 'Vision - Mission - Core values',
-          slug: 'vision'
+          slug: 'tam-nhin'
         },
         {
           name: 'Chặng đường phát triển',
           nameEn: 'Development journey',
-          slug: 'journey'
+          slug: 'chang-duong-phat-trien'
         },
         {
           name: 'Chứng chỉ và giải thưởng',
           nameEn: 'Certificates and awards',
-          slug: 'prize'
+          slug: 'chung-nhan'
         },
         {
           name: 'Sơ đồ tổ chức',
           nameEn: 'Organizational chart',
-          slug: 'organize'
+          slug: 'so-do-to-chuc'
         }
       ]
     },
@@ -182,22 +182,22 @@ function Navbar({
         {
           name: 'Công nghệ in Flexo',
           nameEn: 'Flexo printing technology',
-          slug: 'flexo'
+          slug: 'in-flexo'
         },
         {
           name: 'Công nghệ in Ống đồng',
           nameEn: 'Gravure printing technology',
-          slug: 'gravure'
+          slug: 'in-ong-dong'
         },
         {
           name: 'Công nghệ in Kỹ thuật số',
           nameEn: 'Digital printing technology',
-          slug: 'digital'
+          slug: 'in-kts'
         },
         {
           name: 'Giải pháp chống giả',
           nameEn: 'Anti-counterfeit solution',
-          slug: 'other-printing'
+          slug: 'khac'
         }
       ]
     },

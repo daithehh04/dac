@@ -153,6 +153,14 @@
     background:linear-gradient(rgba(207, 234, 228, 1),rgba(255, 255, 255, 1))
   // }
 }
+
+// video
+
+.video_slide_home{
+  video{
+    object-fit: cover;
+  }
+}
 .text_seemore{
   &:hover{
     color: #0B7CDE;

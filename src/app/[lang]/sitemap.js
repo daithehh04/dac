@@ -141,7 +141,7 @@ export default async function sitemap() {
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/ve-chung-toi/vision`,
+      url: `${process.env.DOMAIN}/ve-chung-toi/tam-nhin`,
       lastModified: new Date(),
       priority: 0.9
     },
@@ -151,7 +151,7 @@ export default async function sitemap() {
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/ve-chung-toi/journey`,
+      url: `${process.env.DOMAIN}/ve-chung-toi/chang-duong-phat-trien`,
       lastModified: new Date(),
       priority: 0.9
     },
@@ -161,22 +161,22 @@ export default async function sitemap() {
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/ve-chung-toi/prize`,
+      url: `${process.env.DOMAIN}/ve-chung-toi/chung-nhan`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/en/ve-chung-toi/prize`,
+      url: `${process.env.DOMAIN}/en/ve-chung-toi/awards`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/ve-chung-toi/organize`,
+      url: `${process.env.DOMAIN}/ve-chung-toi/so-do-to-chuc`,
       lastModified: new Date(),
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/en/ve-chung-toi/organize`,
+      url: `${process.env.DOMAIN}/en/ve-chung-toi/company-structure`,
       lastModified: new Date(),
       priority: 0.9
     },
@@ -211,7 +211,7 @@ export default async function sitemap() {
       priority: 0.9
     },
     {
-      url: `${process.env.DOMAIN}/cong-nghe/offset`,
+      url: `${process.env.DOMAIN}/cong-nghe/in-offset`,
       lastModified: new Date(),
       priority: 0.9
     },
