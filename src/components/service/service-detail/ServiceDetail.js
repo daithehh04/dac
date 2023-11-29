@@ -73,7 +73,7 @@ function ServiceDetail({ data, lang,otherProduct,subTitle }) {
                             pagination={{
                                 clickable: true,
                               }}
-                            speed={800}
+                            speed={500}
                             modules={[Pagination,Autoplay]}
                             className="mySwiper slideFeatureImage md:w-[36.7rem] md:h-full h-[81.6rem]"
                             onSlideChange={handleSlideChange1}
@@ -94,7 +94,6 @@ function ServiceDetail({ data, lang,otherProduct,subTitle }) {
                                     </div>
                                 </SwiperSlide>
                             ))}
-
                         </Swiper>
                         {/* pre */}
                         <button

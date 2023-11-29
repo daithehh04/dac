@@ -34,13 +34,13 @@ function Partners({ dataPartner }) {
       </div>
       <div ref={popUpRef} className='max-md:hidden popUpAction flex flex-col gap-[1.04rem] bg-[#A0A0A0] fixed z-50 right-0 top-[60%] -translate-y-[30%] px-[1rem] py-[1.5rem] rounded-bl-[1.97rem]'>
         <Link href={`tel:${dataPartner?.socialAction?.phone}`} className='transition-all hover:scale-95'>
-          <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={phone} width={'100%'} height={'100%'} alt='phone' />
+          <Image className='w-[2.86458rem] h-[2.91667rem] object-cover' src={phone} width={'100%'} height={'100%'} alt='phone' />
         </Link>
         <Link href={`${dataPartner?.socialAction?.zalo}`} target='_blank' className='transition-all hover:scale-95'>
-          <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={zalo} width={'100%'} height={'100%'} alt='zalo' />
+          <Image className='w-[2.86458rem] h-[2.91667rem] object-cover' src={zalo} width={'100%'} height={'100%'} alt='zalo' />
         </Link>
         <Link href={`${dataPartner?.socialAction?.facebook}`} target='_blank' className='transition-all hover:scale-95'>
-          <Image className='w-[3.425rem] h-[3.425rem] object-cover' src={fb} width={'100%'} height={'100%'} alt='facebook' />
+          <Image className='w-[2.86458rem] h-[2.91667rem] object-cover' src={fb} width={'100%'} height={'100%'} alt='facebook' />
         </Link>
         <Image onClick={handleClose} src={arrow_right} alt='arrow' className='w-[1.35417rem] absolute h-[2.13542rem] top-[0] left-[-1.35rem]' />
       </div>

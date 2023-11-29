@@ -31,7 +31,7 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
             <div key={index * Math.random()} title={item?.image?.altText || lang === 'vi' ? 'giải thưởng' : 'prize' } className={`transition-all duration-1000 flex flex-col relative items-center justify-center ${index === dataPrize?.prize?.content?.listPrize?.length -1 ? 'md:w-[38.11422rem] md:h-[28.125rem] w-full ' : 'md:w-[14.89vw]  w-[41.86667rem]'} ${index === dataPrize?.prize?.content?.listPrize?.length -1 ? 'col-span-2' : '' }`}>
                 <div 
                   onClick={() => handleClick(index)} 
-                  className={`overflow-hidden w-full h-full ${active === index && (index === 0 || index === 1 || index === 2 || index === 3) 
+                  className={`overflow-hidden  ${active === index && (index === 0 || index === 1 || index === 2 || index === 3) 
                   ? 
                   'md:w-[34.85rem] md:h-[46.82rem] md:absolute z-[10] w-[100rem] h-[130rem] fixed max-md:top-[50%] max-md:left-[50%] max-md:-translate-y-1/2 max-md:-translate-x-1/2' 
                   : 

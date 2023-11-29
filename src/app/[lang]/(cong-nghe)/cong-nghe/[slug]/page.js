@@ -8,28 +8,28 @@ import { GET_DATA_TECHNOLOGY_DIGITAL, GET_DATA_TECHNOLOGY_FLEXO, GET_DATA_TECHNO
 import getDataPage from '@/data/getDataPage';
 
 
-const listData = [
-    {
-        slug:"in-offset",
-        query:GET_DATA_TECHNOLOGY_OFFSET
-    },
-    {
-        slug:"flexo",
-        query:GET_DATA_TECHNOLOGY_FLEXO
-    },
-    {
-        slug:"gravure",
-        query:GET_DATA_TECHNOLOGY_GRAVURE
-    },
-    {
-        slug:"digital",
-        query:GET_DATA_TECHNOLOGY_DIGITAL
-    },
-    {
-        slug:"other-printing",
-        query:GET_DATA_TECHNOLOGY_OTHERPRINT
-    }
-]
+// const listData = [
+//     {
+//         slug:"in-offset",
+//         query:GET_DATA_TECHNOLOGY_OFFSET
+//     },
+//     {
+//         slug:"flexo",
+//         query:GET_DATA_TECHNOLOGY_FLEXO
+//     },
+//     {
+//         slug:"gravure",
+//         query:GET_DATA_TECHNOLOGY_GRAVURE
+//     },
+//     {
+//         slug:"digital",
+//         query:GET_DATA_TECHNOLOGY_DIGITAL
+//     },
+//     {
+//         slug:"other-printing",
+//         query:GET_DATA_TECHNOLOGY_OTHERPRINT
+//     }
+// ]
 
 
 export default async function page({ params }) {
@@ -39,22 +39,22 @@ export default async function page({ params }) {
     if (params?.slug === 'in-offset') {
         data = await getDataPage(language, GET_DATA_TECHNOLOGY_OFFSET)
     }
-    if (params?.slug === 'flexo') {
+    if (params?.slug === 'in-flexo') {
         data = await getDataPage(language, GET_DATA_TECHNOLOGY_FLEXO)
     }
-    if (params?.slug === 'gravure') {
+    if (params?.slug === 'in-ong-dong') {
         data = await getDataPage(language, GET_DATA_TECHNOLOGY_GRAVURE)
     }
-    if (params?.slug === 'digital') {
+    if (params?.slug === 'in-kts') {
         data = await getDataPage(language, GET_DATA_TECHNOLOGY_DIGITAL)
     }
-    if (params?.slug === 'other-printing') {
+    if (params?.slug === 'khac') {
         data = await getDataPage(language, GET_DATA_TECHNOLOGY_OTHERPRINT)
     }
     return (
         <>
             {
-                params?.slug === 'gravure' &&
+                params?.slug === 'in-ong-dong' &&
                 <IndexGravure data={data} />
             }
             {
@@ -62,15 +62,15 @@ export default async function page({ params }) {
                 <IndexOffset data={data} />
             }
             {
-                params?.slug === 'flexo' &&
+                params?.slug === 'in-flexo' &&
                 <IndexFlexo data={data} />
             }
             {
-                params?.slug === 'digital' &&
+                params?.slug === 'in-kts' &&
                 <IndexDigital data={data} />
             }
             {
-                params?.slug === 'other-printing' &&
+                params?.slug === 'khac' &&
                 <IndexOtherPrinting data={data} />
             }
         </>

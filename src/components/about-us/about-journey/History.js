@@ -39,7 +39,7 @@ function History({ data }) {
           loop={false}
           centeredSlides={false}
           allowTouchMove={true}
-          speed={1000}
+          speed={500}
           className='w-full'
           onBeforeInit={(swiper) => {
             if (swiperRef) {
