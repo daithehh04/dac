@@ -55,6 +55,7 @@
   opacity: 0;
   z-index: 1;
   -webkit-transform-style: preserve-3d;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tissue:first-child{
