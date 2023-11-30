@@ -84,9 +84,9 @@
 
 .card_image.active1{
   animation: transformPosition 1.4s;
-  @media screen and (max-width:767px) {
-    animation: transformPositionMb 1.4s;
-  }
+  // @media screen and (max-width:767px) {
+  //   animation: transformPositionMb 1.4s;
+  // }
 }
 
 
