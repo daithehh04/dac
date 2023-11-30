@@ -97,7 +97,7 @@ function ServiceDetail({ data, lang,otherProduct,subTitle }) {
                         </Swiper>
                         {/* pre */}
                         <button
-                            className='absolute left-0 top-[50%] z-[10]'
+                            className='absolute left-[1.6rem] top-[50%] z-[10]'
                             onClick={handlePreSlide1}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className='md:-[0.88542rem] md:h-[1.77083rem] w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
@@ -107,7 +107,7 @@ function ServiceDetail({ data, lang,otherProduct,subTitle }) {
                         {/* next */}
 
                         <button
-                            className='absolute right-0 top-[50%] z-[10]'
+                            className='absolute right-[1.6rem] top-[50%] z-[10]'
                             onClick={handleNextSlide1}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className='md:-[0.88542rem] md:h-[1.77083rem] w-[3.73333rem] h-[7.46667rem]' viewBox="0 0 19 32" fill="none">
@@ -151,7 +151,8 @@ function ServiceDetail({ data, lang,otherProduct,subTitle }) {
                                 }
                             }
                             modules={[Autoplay]}
-                            speed={800}
+                            // speed={800}
+                            freeMode={true}
                             autoplay={{
                                 delay: 3000,
                                 disableOnInteraction: false,

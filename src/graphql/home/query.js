@@ -1,5 +1,3 @@
-import { gql } from '@apollo/client'
-
 const GET_DATA_HOMEPAGE = `
     query($language : LanguageCodeEnum!){
     page(id:"cG9zdDoyMQ=="){
