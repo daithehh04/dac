@@ -81,12 +81,86 @@
   animation: upDes 1s forwards;
   bottom: 2.25rem;
 }
+
+.card_image.active1{
+  animation: transformPosition 1.4s;
+  @media screen and (max-width:767px) {
+    animation: transformPositionMb 1.4s;
+  }
+}
+
+
+.card_image.active2{
+  @media screen and (min-width:768px) {
+    animation: transformPosition2 1.4s;
+  }
+}
+
+.card_image.active3{
+  @media screen and (min-width:768px) {
+    animation: transformPosition3 1.4s;
+  }
+}
+
+
 @keyframes upDes{
   from{
   transform: translateY(100%);
 
   }to{
     transform: translateY(0);
+  }
+}
 
+@keyframes transformPosition {
+  from{
+    width: 15.05208rem;
+    height: 19.79167rem;
+  }
+  to{
+      width: 34.85rem;
+      height: 46.82rem;
+      position: absolute;
+      z-index: 10;
+  }
+}
+
+@keyframes transformPositionMb {
+  from{
+    width: 41.59867rem;
+    height: 54.93333rem;
+  }
+  to{
+      width: 100rem;
+      height: 130rem;
+      transform: translate(-50%,-50%);
+  }
+}
+//  4 5 6 7
+@keyframes transformPosition2 {
+  from{
+    width: 16.77083rem;
+    height: 12.70833rem;
+  }
+  to{
+      width: 35.07rem;
+      height: 26.875rem;
+      position: absolute;
+      z-index: 10;
+  }
+}
+
+// 8
+
+@keyframes transformPosition3 {
+  from{
+    width: 38.11422rem;
+    height: 28.125rem;
+  }
+  to{
+      width: 84.16667rem;
+      height: 50.8333rem;
+      position: absolute;
+      z-index: 10;
   }
 }
