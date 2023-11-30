@@ -74,7 +74,7 @@ function Navbar({
       const arrow_up = document.querySelector('.arrow_up')
       
       let currentScrollPos = window.scrollY;
-      if (prevScrollpos > currentScrollPos) {
+      if (prevScrollpos >= currentScrollPos) {
         document.getElementById("navheader").style.top = "0";
         document.getElementById("navheader").style.backdropFilter = 'blur(4px)'
         document.getElementById("navheader").style.webkitBackdropFilter = 'blur(4px)';

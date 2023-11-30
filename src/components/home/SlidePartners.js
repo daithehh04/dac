@@ -1,27 +1,9 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, FreeMode } from 'swiper/modules'
-import partners1 from '@/assets/imgs/partner1.svg'
-import partners2 from '@/assets/imgs/partner2.svg'
-import partners3 from '@/assets/imgs/partner3.svg'
-import partners4 from '@/assets/imgs/partner4.svg'
 import Image from 'next/image'
 
 function SlidePartners({ data }) {
-  let slidePartners = [
-    {
-      sourceUrl: partners1
-    },
-    {
-      sourceUrl: partners2
-    },
-    {
-      sourceUrl: partners3
-    },
-    {
-      sourceUrl: partners4
-    },
-  ]
   const dataSlide = data?.concat(data)?.concat(data)
   return (
     <div className='mt-[6.93rem] slide-partners'>
