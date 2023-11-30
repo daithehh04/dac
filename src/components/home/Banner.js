@@ -131,7 +131,7 @@ function Banner({ lang, dataBanner }) {
   //   )()
   // }, [])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const list = document.querySelectorAll(".tissue")
     list.forEach((item, index) => {
 
