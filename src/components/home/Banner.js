@@ -101,8 +101,9 @@ import imgBox95 from '@/assets/imgs/Tissues_050094.png'
 import imgBox96 from '@/assets/imgs/Tissues_050095.png'
 import imgBox97 from '@/assets/imgs/Tissues_050096.png'
 import imgBox98 from '@/assets/imgs/Tissues_050097.png'
-
+import { useMediaQuery } from 'react-responsive'
 function Banner({ lang, dataBanner }) {
+  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
   gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     (
@@ -136,7 +137,7 @@ function Banner({ lang, dataBanner }) {
 
       ScrollTrigger.create({
         trigger: '.frame',
-        start: `start+=${window.innerWidth * 0.02 * index}vw`,
+        start: `start+=${isMobile ? window.innerWidth * 0.01 * index : window.innerWidth * 0.02 * index}vw`,
         onEnter: self => {
           // item.classList.add("active")
           gsap.to(item, {
