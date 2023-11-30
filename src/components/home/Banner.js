@@ -136,7 +136,7 @@ function Banner({ lang, dataBanner }) {
 
       ScrollTrigger.create({
         trigger: '.frame',
-        start: `start+=${window.innerWidth * 0.015 * index}vw`,
+        start: `start+=${window.innerWidth * 0.02 * index}vw`,
         onEnter: self => {
           // item.classList.add("active")
           gsap.to(item, {
@@ -156,12 +156,12 @@ function Banner({ lang, dataBanner }) {
           }
         },
         onLeaveBack: self => {
-          // item.classList.remove("active")
-          gsap.to(item, {
-            zIndex:'1',
-            opacity:'0',
-            duration:'0'
-          })
+          item.classList.remove("active")
+          // gsap.to(item, {
+          //   zIndex:'1',
+          //   opacity:'0',
+          //   duration:'0'
+          // })
           for (let i = 0; i < list.length; i++) {
             if (index == 0) {
               // list[0].classList.add("active")
