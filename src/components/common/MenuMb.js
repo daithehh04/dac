@@ -5,8 +5,8 @@ import SelectLangMb from '../lang/SelectLangMb'
 
 function MenuMb({ data, handleCloseModal, lang }) {
     return (
-        <section className='pt-[10.93rem] px-[4.27rem] pb-[8.53rem] relative'>
-            <svg onClick={handleCloseModal} xmlns="http://www.w3.org/2000/svg" className='w-[10.4rem] h-[10.4rem] fixed top-[12.23rem] right-[4.27rem]' viewBox="0 0 39 39" fill="none">
+        <section className='pt-[6.93rem] px-[4.27rem] pb-[8.53rem] relative'>
+            <svg onClick={handleCloseModal} xmlns="http://www.w3.org/2000/svg" className='w-[10.4rem] h-[10.4rem] fixed top-[6.23rem] right-[4.27rem]' viewBox="0 0 39 39" fill="none">
                 <g clip-path="url(#clip0_1129_2615)">
                     <path d="M19.5029 39.0057C30.274 39.0057 39.0057 30.274 39.0057 19.5029C39.0057 8.73172 30.274 0 19.5029 0C8.73172 0 0 8.73172 0 19.5029C0 30.274 8.73172 39.0057 19.5029 39.0057Z" fill="#444545" />
                     <path d="M15 15L24.8913 24.8913" stroke="white" stroke-miterlimit="10" />
