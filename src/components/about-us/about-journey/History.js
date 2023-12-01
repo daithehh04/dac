@@ -39,12 +39,14 @@ function History({ data }) {
           loop={false}
           centeredSlides={false}
           allowTouchMove={true}
-          speed={500}
           className='w-full'
           onBeforeInit={(swiper) => {
             if (swiperRef) {
               swiperRef.current = swiper;
             }
+          }}
+          onSlideChange={(swiper)=>{
+            setSelected(swiper.activeIndex)
           }}
         >
           {data?.journey?.map((item, index) => {
@@ -72,7 +74,7 @@ function History({ data }) {
 
       {/*  */}
       <div className='flex justify-between content border-t border-solid border-[#444] pb-[8.8rem]'>
-        <p className='lg:text-[1.35417rem] md:text-[1.5rem] text-justify text-[#444] w-[44.375rem] pt-[3.96rem]' dangerouslySetInnerHTML={{ __html: `${data?.subdescription}` }}></p>
+        <p className={`lg:text-[1.35417rem] md:text-[1.5rem] text-justify text-[#444] w-[44.375rem] md:tracking-[-0.02708rem] pt-[3.96rem] text-content-journey`} dangerouslySetInnerHTML={{ __html: `${data?.subdescription}` }}></p>
         <Image src={jour} width={'100%'} height={'100%'} className='w-[36.66rem] object-cover h-[50.625rem] rounded-br-[9.73rem]' alt='jour' />
       </div>
     </section>

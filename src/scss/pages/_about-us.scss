@@ -1,4 +1,7 @@
 .slide-history {
+  .swiper-slide{
+    transition: all ;
+  }
   .swiper-slide:nth-child(2n) {
     .item-history {
       margin-top: 18.16rem;
@@ -46,6 +49,13 @@
   }
 }
 
+.text-content-journey{
+  @media screen and (min-width:768px) {
+    & > p:first-child{
+      margin-bottom: 1.25rem;
+    }
+  }
+}
 
 .image_prize{
   // overflow: hidden;

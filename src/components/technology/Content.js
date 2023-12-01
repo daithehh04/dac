@@ -4,9 +4,9 @@ import { useDataBanner } from './DataContext'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOtherPrint }) {
-    const [page, setPage] = useState(1)
     const context = useDataBanner()
     const pathName = usePathname()
+    let check =  pathName.includes('in-offset') ? 1 : pathName.includes('in-flexo') ? 2 : pathName.includes('in-ong-dong') ? 3 : pathName.includes('in-kts') ? 4 : 5
     let dataInfoOffset = dataOffset?.data?.page?.translation?.technology_common
     let dataInfoFlexo = dataFlexo?.data?.page?.translation?.technology_common
     let dataInfoGravure = dataGravure?.data?.page?.translation?.technology_common
@@ -59,14 +59,9 @@ function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOt
     const slugPage = [
         dataSlugOffset, dataSlugFlexo, dataSlugGravure, dataSlugDigital, dataSlugOtherPrint
     ]
-    const handlePage = (page) => {
-        setPage(page.id)
-        context.setDataBanner(page)
-        // window.scroll(0, 0)
-    }
     useEffect(() => {
         window.scroll(0, 0)
-    }, [page])
+    }, [check])
 
     useEffect(() => {
         if (pathName.endsWith('in-offset')) {
@@ -80,13 +75,13 @@ function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOt
         } else if (pathName.endsWith('khac')) {
             context.setDataBanner(data[4])
         }
-    }, [pathName])
+    }, [pathName,check])
     return (
         <div className='max-md:hidden'>
             <ul className='flex pt-[3.8rem] md:pl-[4.17rem] lg:pl-[12.03rem] bg-[#F5F5F5]'>
                 {data?.map((item, index) => {
                     return (
-                        <Link href={`/${lang}/cong-nghe/${slugPage[index]}`} key={index * Math.random()} className={`uppercase text-[1.3rem] lg:text-[1.04167rem] mr-[1.67rem] cursor-pointer ${page === index + 1 ? 'text-[#00A84F]' : ''}`} onClick={() => handlePage(item)}>{item?.title}</Link>
+                        <Link href={`/${lang}/cong-nghe/${slugPage[index]}`} key={index * Math.random()} className={`uppercase text-[1.3rem] lg:text-[1.04167rem] mr-[1.67rem] cursor-pointer ${check === index + 1 ? 'text-[#00A84F]' : ''}`} >{item?.title}</Link>
                     )
                 })}
             </ul>
