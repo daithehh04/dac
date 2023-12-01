@@ -56,10 +56,15 @@
   z-index: 1;
   -webkit-transform-style: preserve-3d;
   -webkit-overflow-scrolling: touch;
+
+  // @media screen and (max-width:767px) {
+  //   transition: all 0.1s;
+  // }
 }
 
 .tissue:first-child{
   opacity: 1;
+  visibility: visible;
   z-index: 10;
 }
 
