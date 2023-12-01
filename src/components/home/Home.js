@@ -19,7 +19,7 @@ function HomePage({ lang, data, dataProductList }) {
   const dataSlideVideo = data?.data?.page?.translation?.homepage?.slideVideo
   return (
     <>
-      <Banner dataBanner={dataBanner} lang={lang} />
+      <Banner dataBanner={dataBanner} dataDesign={dataDesign} lang={lang} />
       <Design dataDesign={dataDesign} lang={lang} />
       <Product dataProductList={dataProductList} dataProduct={dataProduct} lang={lang} />
       <Technical dataTechnology={dataTechnology} lang={lang} />

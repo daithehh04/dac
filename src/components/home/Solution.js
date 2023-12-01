@@ -8,7 +8,7 @@ function Solution({ dataSolution }) {
         <div className='md:hidden w-[50%] bg-[#B9B9B9] h-full'></div>
         <Image src={dataSolution?.thumbnail?.sourceUrl} width={1000} height={1000} quality={100} alt='phone' className='absolute bottom-0 max-md:h-full md:right-[-13rem] md:w-[56.25rem] md:h-[52.25rem] object-cover' />
       </div>
-      <div className="right md:w-[67.135rem] md:bg-[#B9B9B9] bg-[#444] pb-[10.2rem] md:pl-[18.12rem] pl-[4.27rem] pr-[4.27rem]">
+      <div className="right md:w-[67.135rem] md:bg-[#B9B9B9] bg-[#444] pb-[10.2rem] md:pl-[18.12rem] pl-[4.27rem] pr-[4.27rem] relative max-md:top-[-1rem]">
         <h3 className='md:text-[3.4375rem] text-[6.93333rem] md:text-[#444] text-[#fff] font-bold leading-[1.2] tracking-[-0.12375rem] title md:w-[39.4rem] pt-[6.46rem]'>
           {dataSolution?.title}
         </h3>

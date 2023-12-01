@@ -3,7 +3,7 @@ import Link from 'next/link'
 function Technical({ dataTechnology,lang }) {
 
   return (
-    <section className="technical pt-[8.75rem] md:pb-[12rem] pb-[3rem] md:px-[4.17rem]">
+    <section className="technical pt-[8.75rem] md:pb-[12rem] pb-[6rem] md:px-[4.17rem]">
       <div>
         <div className='md:flex-row-reverse flex text-[#444] font-bold items-center w-full max-md:px-[4.27rem]'>
           <span className='text-[22.93333rem] leading-[1.2]'>&</span>
