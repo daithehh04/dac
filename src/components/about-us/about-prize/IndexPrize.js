@@ -15,7 +15,6 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
       setActive(num)
     }
   }
-  console.log(active);
   return (
     <section>
       <Banner

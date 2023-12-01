@@ -9,8 +9,9 @@ function OpportunityItem1({ lang, data }) {
     let month = today.getMonth() + 1;
     let year = today.getFullYear();
 
-    // Định dạng lại thành "dd/mm/yyyy"
     let formattedDate = (day < 10 ? "0" + day : day) + "/" + (month < 10 ? "0" + month : month) + "/" + year;
+    let formatFinal = formattedDate?.split("/")?.reverse().join("/")
+
     return (
         <div className={`flex flex-col max-md:flex-row max-md:mb-[12rem]`}>
             <div className={`relative md:mb-[2.5rem] mb-[4rem] md:w-[5.26089rem] w-[18.13493rem] h-[18.13493rem] md:h-[5.62552rem] max-md:mr-[6.4rem]`}>
@@ -41,7 +42,7 @@ function OpportunityItem1({ lang, data }) {
                         </div>
                     ))}
                 </div>
-                {formattedDate <= (data?.recruimentDetail?.infoJob?.expirationDate || data?.translation?.recruimentDetail?.infoJob?.expirationDate) ? (
+                {(new Date(formatFinal) <= new Date(data?.recruimentDetail?.infoJob?.expirationDate?.split("/")?.reverse().join("/"))) ? (
                     <p className='description md:mb-[0.5rem] md:mr-[0.5rem]'>{`${lang === 'vi' ? 'Ngày hết hạn: ' : 'Expiration date: '}`}
                         <span className='description !font-normal md:mb-[0.5rem]'>{data?.recruimentDetail?.infoJob?.expirationDate || data?.translation?.recruimentDetail?.infoJob?.expirationDate}</span>
                     </p>
