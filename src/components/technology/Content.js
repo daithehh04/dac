@@ -69,15 +69,15 @@ function Content({ lang, dataOffset, dataFlexo, dataGravure, dataDigital, dataOt
     }, [page])
 
     useEffect(() => {
-        if (pathName.endsWith('offset')) {
+        if (pathName.endsWith('in-offset')) {
             context.setDataBanner(data[0])
-        } else if (pathName.endsWith('flexo')) {
+        } else if (pathName.endsWith('in-flexo')) {
             context.setDataBanner(data[1])
-        } else if (pathName.endsWith('gravure')) {
+        } else if (pathName.endsWith('in-ong-dong')) {
             context.setDataBanner(data[2])
-        } else if (pathName.endsWith('digital')) {
+        } else if (pathName.endsWith('in-kts')) {
             context.setDataBanner(data[3])
-        } else if (pathName.endsWith('other-printing')) {
+        } else if (pathName.endsWith('khac')) {
             context.setDataBanner(data[4])
         }
     }, [pathName])
