@@ -2,9 +2,16 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef,useState } from 'react';
 import { useMediaQuery } from 'react-responsive'
 function Banner({ lang, dataBanner }) {
+  const [scroll,setScroll] = useState()
+
+  // useEffect(()=>{
+  //   window.addEventListener('scroll',(e)=>{
+  //     setScroll(e.scrollY)
+  //   })
+  // },[])
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
   gsap.registerPlugin(ScrollTrigger);
   useLayoutEffect(() => {
@@ -13,19 +20,19 @@ function Banner({ lang, dataBanner }) {
 
       ScrollTrigger.create({
         trigger: '.frame',
-        start: `start+=${isMobile ? window.innerWidth * 0.01 * index : window.innerWidth * 0.02 * index}vw`,
+        start: `start+=${isMobile ? window.innerWidth * 0.05 * index : window.innerWidth * 0.02 * index}vw`,
         onEnter: self => {
           gsap.to(item, {
             zIndex:'10',
             opacity:'1',
-            duration:'0.02'
+            duration:'0'
           })
           for (let i = 0; i < list.length; i++) {
             if (index !== i) {
               gsap.to(list[i], {
                 zIndex:'1',
                 opacity:'0',
-                duration:'0.02'
+                duration:'0'
               })
             }
           }
@@ -34,14 +41,14 @@ function Banner({ lang, dataBanner }) {
           gsap.to(item, {
             zIndex:'1',
             opacity:'0',
-            duration:'0.02'
+            duration:'0'
           })
           for (let i = 0; i < list.length; i++) {
             if (index == 0) {
               gsap.to(list[0], {
                 zIndex:'10',
                 opacity:'1',
-                duration:'0.02'
+                duration:'0'
               })
             }
             else {
@@ -49,14 +56,14 @@ function Banner({ lang, dataBanner }) {
                 gsap.to(list[i], {
                   zIndex:'1',
                   opacity:'0',
-                  duration:'0.02'
+                  duration:'0'
                 })
               }
               else {
                 gsap.to(list[i], {
                   zIndex:'10',
                   opacity:'1',
-                  duration:'0.02'
+                  duration:'0'
                 })
               }
             }
@@ -67,108 +74,108 @@ function Banner({ lang, dataBanner }) {
   }, [])
   return (
     <>
-      <section className='banner banner_home relative md:w-full md:h-[300vw] xl:h-[170vw] lg:h-[250vw] h-[250vw] max-md:flex flex-col md:justify-center items-center frame '>
+      <section className='banner banner_home relative md:w-full md:h-[300vw] xl:h-[170vw] lg:h-[250vw] h-[400vw] max-md:flex flex-col md:justify-center items-center frame '>
         <div className='flex sticky_box items-center sticky max-md:pt-[10rem] max-md:w-full top-0 md:h-[95vh] justify-between  md:border-b border-solid border-[#888] max-md:flex-col'>
           <div className='flex justify-center'>
             <div className='lg:w-[48.02rem] lg:h-[45.8rem]  md:w-[45rem] md:h-[45rem] w-[74.3464rem] h-[74rem] relative'>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050000.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue active'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050001.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050002.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050003.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050004.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050005.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050006.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050007.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050008.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050009.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050010.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050011.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050012.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050013.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050014.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050015.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050016.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050017.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050018.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050019.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050020.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050021.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050022.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050023.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050024.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050025.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050026.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050027.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050028.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050029.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050030.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050031.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050032.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050033.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050034.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050035.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050036.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050037.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050038.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050039.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050040.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050041.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050042.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050043.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050044.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050045.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050046.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050047.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050048.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050049.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050050.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050051.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050052.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050053.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050054.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050055.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050056.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050057.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050058.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050059.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050060.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050061.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050062.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050063.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050064.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050065.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050066.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050067.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050068.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050069.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050070.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050071.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050072.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050073.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050074.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050075.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050076.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050077.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050078.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050079.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050080.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050081.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050082.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050083.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050084.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050085.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050086.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050087.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050088.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050089.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050090.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050091.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050092.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050093.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050094.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050095.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050096.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
-            <Image alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050097.png' width={800} height={795} priority={true} className='w-full h-full absolute top-0 left-0 object-contain tissue'></Image>
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050000.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue active' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050001.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050002.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050003.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050004.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050005.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050006.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050007.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050008.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050009.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050010.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050011.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050012.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050013.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050014.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050015.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050016.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050017.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050018.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050019.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050020.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050021.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050022.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050023.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050024.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050025.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050026.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050027.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050028.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050029.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050030.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050031.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050032.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050033.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050034.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050035.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050036.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050037.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050038.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050039.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050040.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050041.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050042.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050043.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050044.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050045.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050046.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050047.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050048.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050049.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050050.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050051.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050052.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050053.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050054.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050055.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050056.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050057.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050058.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050059.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050060.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050061.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050062.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050063.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050064.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050065.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050066.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050067.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050068.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050069.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050070.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050071.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050072.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050073.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050074.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050075.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050076.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050077.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050078.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050079.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050080.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050081.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050082.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050083.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050084.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050085.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050086.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050087.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050088.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050089.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050090.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050091.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050092.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050093.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050094.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050095.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050096.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
+            <img alt="tissue-picture" src='https://cms-dac.okhub.tech/wp-content/uploads/2023/11/Tissues_050097.png' fetchPriority='high'  className='w-full h-full absolute top-0 left-0 object-contain tissue' />
             </div>
           </div>
           <div className='flex max-md:flex-row-reverse justify-center items-center md:mr-[6rem] '>
