@@ -11,7 +11,7 @@ function Design({ lang, dataDesign }) {
         <div className='md:grid grid-cols-2 list-content gap-x-[3.19rem] gap-y-[1.87rem] mt-[3.25rem] flex flex-col'>
           {dataDesign?.aboutCompany?.map((item, index) => (
             <div key={index} className={`text-[1.35417rem] md:pt-[2.19rem] pt-[4.8rem] border-t border-solid max-md:pb-[4rem] border-[#888] ${index === 0 ? 'max-md:border-none' : ''}`}>
-                 <Link href={`/${lang}/about-us/${index === 0 ? 'vision' : index === 1 ? 'organize' : index === 2 ? 'journey' : 'prize'}`}>
+                 <Link href={`/${lang}/ve-chung-toi/${index === 0 ? 'tam-nhin' : index === 1 ? 'so-do-to-chuc' : index === 2 ? 'chang-duong-phat-trien' : 'chung-nhan'}`}>
                   <h4 className='font-bold text-[#444] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem] mb-[1.35417rem]'>{item?.title}</h4>
                 </Link>
               <p className='text-[#888] md:text-[1.5rem] md:mt-[1rem] md:tracking-[-0.04063rem] tracking-[-0.128rem] lg:text-[1.35417rem] text-[4.26667rem] text-justify'>{item?.description}</p>
