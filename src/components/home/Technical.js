@@ -19,7 +19,7 @@ function Technical({ dataTechnology,lang }) {
             {dataTechnology?.listTechnology?.map((item, index) => (
               <li key={index} className='text-[1.35417rem]'>
                 <Image src={item?.icon?.sourceUrl} width={1000} height={1000} alt='icon' className='md:w-[5.78125rem] md:h-[5.78125rem] w-[18.13333rem] h-[18.13333rem]' />
-                <Link href={`/${lang}/technology/${index === 0 ? 'offset' : index === 1 ? 'flexo' : index === 2 ? 'gravure' : 'digital'}`}>
+                <Link href={`/${lang}/cong-nghe/${index === 0 ? 'in-offset' : index === 1 ? 'in-flexo' : index === 2 ? 'in-ong-dong' : 'in-kts'}`}>
                   <h4 className='text-[#444] font-bold md:mt-[1.25rem] max-md:my-[3rem] md:text-[1.5rem] lg:text-[1.35417rem] text-[4.26667rem]'>{item?.technologyName}</h4>
                 </Link>
                 <p className='md:text-[1.5rem] lg:mt-[1.425rem] text-[#888] lg:text-[1.35417rem] max-md:tracking-[-0.08533rem] leading-[116.662%] text-justify text-[4.26667rem]'>{item?.description}</p>
