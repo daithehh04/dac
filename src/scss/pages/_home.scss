@@ -51,6 +51,14 @@
     }
   }
 }
+
+.overlay_banner_mobile{
+  position: absolute;
+  background: linear-gradient(#cfeae4,#fff);
+  height: 216rem;
+  // z-index: 1;
+  width: 100%;
+}
 .tissue{
   opacity: 0;
   z-index: 1;
@@ -158,9 +166,9 @@
 }
 .sticky_box{
   
-  // @media screen and (min-width:768px) {
+  @media screen and (min-width:768px) {
     background:linear-gradient(rgba(207, 234, 228, 1),rgba(255, 255, 255, 1))
-  // }
+  }
 }
 
 // video

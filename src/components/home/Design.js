@@ -5,7 +5,7 @@ import Link from 'next/link'
 function Design({ lang, dataDesign }) {
   return (
     <div className='design md:pt-[3.56rem] pt-[6.93rem]'>
-      <div className='md:ml-auto md:w-[65.4375rem] md:pr-[14.44rem] max-md:px-[4.27rem]'>
+      <div className='max-md:hidden md:ml-auto md:w-[65.4375rem] md:pr-[14.44rem] max-md:px-[4.27rem]'>
         <h3 dangerouslySetInnerHTML={{ __html: `${dataDesign?.heading}` }} className='md:text-[3.4375rem] md:w-[44rem] text-[6.93333rem] text-[#444] leading-[1.2] md:tracking-[-0.12375rem] tracking-[-0.208rem] title'>
         </h3>
         <div className='md:grid grid-cols-2 list-content gap-x-[3.19rem] gap-y-[1.87rem] mt-[3.25rem] flex flex-col'>
