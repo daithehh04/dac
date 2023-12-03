@@ -86,6 +86,7 @@ const GET_DATA_HOMEPAGE = `
             phone
             zalo
             facebook
+            linkedin
           }
         }
       }
