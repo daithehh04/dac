@@ -8,7 +8,7 @@ import News from './News'
 import VideoSlide from './VideoSlide'
 import Partners from './Partners'
 
-function HomePage({ lang, data, dataProductList }) {
+function HomePage({ lang, data, dataProductList,dataNewsHome }) {
   const dataBanner = data?.data?.page?.translation?.homepage?.banner
   const dataDesign = data?.data?.page?.translation?.homepage?.designSuccess
   const dataProduct = data?.data?.page?.translation?.homepage?.productAndService
@@ -24,7 +24,7 @@ function HomePage({ lang, data, dataProductList }) {
       <Product dataProductList={dataProductList} dataProduct={dataProduct} lang={lang} />
       <Technical dataTechnology={dataTechnology} lang={lang} />
       <Solution dataSolution={dataSolution} />
-      <News dataNews={dataNews} />
+      <News dataNews={dataNews} dataNewsHome={dataNewsHome} lang={lang} />
       <VideoSlide dataSlideVideo={dataSlideVideo} />
       <Partners dataPartner={dataPartner} />
     </>

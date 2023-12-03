@@ -2,6 +2,11 @@
   background: lightgray 50% / cover no-repeat;
 }
 
+.content_news{
+  li{
+    list-style-type: disc;
+  }
+}
 .searchTextBlog {
   & > input::placeholder {
     color: #888;

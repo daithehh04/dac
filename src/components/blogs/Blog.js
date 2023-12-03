@@ -76,7 +76,7 @@ function Blog({ lang, dataBlog }) {
     return (
         <>
             <Banner dataBanner={dataBlog} />
-            <section ref={eleRef} className='md:px-[4.17rem] md:pt-[8.28rem] md:pb-[2.97rem] max-md:flex flex-col-reverse'>
+            <section ref={eleRef} className='md:px-[4.17rem] blog_news md:pt-[8.28rem] md:pb-[2.97rem] max-md:flex flex-col-reverse'>
                 <span ref={seeMoreRef} onClick={handleClick} className='md:hidden text-[4.26667rem] text-[#00A84F] leading-[116.662%] underline text-center mb-[8.1rem] mt-[2rem]'>Xem thêm</span>
                 <div className='grid md:grid-cols-4 md:gap-x-[2.6rem] md:gap-y-[4.43rem] max-md:px-[4.27rem]'>
                     {

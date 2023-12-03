@@ -102,7 +102,7 @@ const DATA_BY_SEARCH_TEXT = gql`query ($text: String!, $language: LanguageCodeEn
 }`
 const GET_DATA_ALL_WITH_SEARCH = gql`query getData($text: String!, $language: LanguageCodeFilterEnum!, $offset: Int!, $size: Int!) {
   posts(
-    where: {language: $language, search: $text, offsetPagination: {offset: $offset, size: $size}, orderby: {field: DATE, order: ASC}}
+    where: {language: $language, search: $text, offsetPagination: {offset: $offset, size: $size}, orderby: {field: DATE, order: DESC}}
   ) {
     nodes {
       id
