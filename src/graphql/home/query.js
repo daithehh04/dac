@@ -197,6 +197,19 @@ const GET_META_HOME = `query($language: LanguageCodeEnum!){
     }
   }
 }`
+
+const GET_NEWS_HOMEPAGE = `query getNewsHomepage($language: LanguageCodeFilterEnum!) {
+  posts(
+    first: 4
+    where: {language: $language, orderby: {field: DATE, order: DESC}}
+  ) {
+    nodes{
+      title
+      excerpt
+      slug
+    }
+  }
+}`
 export {
   GET_DATA_HEADER,
   GET_DATA_FOOTER,
@@ -205,5 +218,6 @@ export {
   GET_DATA_MOBILE_PRIZE,
   GET_DATA_MOBILE_ORGANIZE,
   GET_DATA_MOBILE_VISION,
-  GET_META_HOME
+  GET_META_HOME,
+  GET_NEWS_HOMEPAGE
 }

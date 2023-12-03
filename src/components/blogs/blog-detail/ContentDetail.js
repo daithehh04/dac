@@ -17,10 +17,10 @@ function ContentDetail({ data, lang, dataSlide }) {
                 {data?.listcontent?.map((item, index) => (
                     <div key={index}>
                         <div className={`flex md:justify-end md:px-[12rem] ${index === data?.listContent?.length - 1 ? 'max-md:flex-col-reverse' : 'max-md:flex-col'}`}>
-                            <h2 className={`heading md:w-[30.40625rem] max-md:!text-[6.93333rem] max-md:mb-[4rem] ${index === data?.listcontent?.length - 1 ? 'md:hidden' : ''} ${index === 0 ? 'w-[60rem]' : ''}`}>{item?.titleContent}</h2>
+                            <h2 className={`heading md:w-[30.40625rem] max-md:!text-[6.93333rem] max-md:mb-[4rem] ${index === 0 ? 'w-[60rem]' : ''}`}>{item?.titleContent}</h2>
                             <div>
                                 <div
-                                    className={`description content_news !font-normal md:!tracking-[-0.02708rem] md:!leading-[1.2] md:w-[44.47917rem] text-justify md:mb-[3rem] mb-[7rem] ${index === 0 ? 'content_news_hidden' : ''}`}
+                                    className={`description content_news !font-normal md:!tracking-[-0.02708rem] md:!leading-[1.2] md:w-[44.47917rem] text-justify md:mb-[3rem] mb-[7rem]`}
                                     dangerouslySetInnerHTML={{ __html: `${item?.text}`}}
                                 >
                                 </div>
