@@ -156,7 +156,7 @@ function ServiceDetail({ data, lang,otherProduct,subTitle }) {
                             autoplay={{
                                 delay: 3000,
                                 disableOnInteraction: false,
-                              }}
+                            }}
                             loop={true}
                             className="mySwiper"
                             onSlideChange={handleSlideChange}
