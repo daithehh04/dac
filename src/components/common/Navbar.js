@@ -86,6 +86,10 @@ function Navbar({
         document.getElementById("navheader").style.backdropFilter = 'none'
       }
 
+      if(currentScrollPos < 0) {
+        document.getElementById("navheader").style.top = "0";
+      }
+
       if(banner_home && (currentScrollPos > banner_home.offsetHeight)){
           arrow_up.style.transform = 'translateY(0)'
       }else{
