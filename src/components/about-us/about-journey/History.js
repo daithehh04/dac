@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import jour from '@/assets/imgs/jour-img.jpg'
 import circle from '@/assets/imgs/circle.svg'
 import Image from 'next/image'
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 function History({ data }) {
@@ -27,13 +28,18 @@ function History({ data }) {
       </div>
       {/* <SlideHistory /> */}
 
-      <div className='mt-[6.93rem] content slide-history relative mb-[5.3rem]'>
+      <div className='mt-[6.93rem] pl-[4.32rem] pr-[4.17rem] slide-history relative mb-[5.3rem]'>
         <Swiper
           breakpoints={{
             768: {
               slidesPerView: 4
             }
           }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay]}
           slidesPerView={2}
           spaceBetween={0}
           loop={false}

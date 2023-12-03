@@ -2,19 +2,32 @@
 import Banner from '@/components/common/Banner'
 import TitlePage_About_Us from '@/components/common/TitlePage_About_Us'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
   const dataPrize = data?.data?.page?.translation
   const [active,setActive] = useState(-1)
-
-  const handleClick = (num) => {
+  const [itemClick,setItemClick] = useState()
+  const handleClick = (num,e) => {
     if(num === active) {
       setActive(-1)
     }else{
       setActive(num)
     }
+    setItemClick(e.target)
   }
+  useEffect(()=>{
+    const handleClickOutSide = (e) => {
+      if(e.target !== itemClick){
+        console.log('test');
+        setActive(-1)
+      }
+    }
+    window.addEventListener('click',handleClickOutSide)
+    return () => {
+      window.removeEventListener('click',handleClickOutSide)
+    }
+  },[active])
   return (
     <section>
       <Banner
@@ -30,7 +43,7 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
           {dataPrize?.prize?.content?.listPrize?.map((item, index) => (
             <div key={index * Math.random()} title={item?.image?.altText || lang === 'vi' ? 'giải thưởng' : 'prize' } className={`flex flex-col relative items-center justify-center ${index === dataPrize?.prize?.content?.listPrize?.length -1 ? 'md:w-[38.11422rem] md:h-[28.125rem] w-full ' : 'md:w-[14.89vw]  w-[41.86667rem]'} ${index === dataPrize?.prize?.content?.listPrize?.length -1 ? 'col-span-2' : '' }`}>
                 <div 
-                  onClick={() => handleClick(index)} 
+                  onClick={(e) => handleClick(index,e)} 
                   className={`overflow-hidden card_image w-full h-full ${active === index && (index === 0 || index === 1 || index === 2 || index === 3) 
                   ? 
                   'active1 md:w-[34.85rem] md:h-[46.82rem] md:absolute z-[10] max-md:!w-[100rem] max-md:!h-[130rem] fixed max-md:top-[50%] max-md:left-[50%] max-md:-translate-y-1/2 max-md:-translate-x-1/2' 
