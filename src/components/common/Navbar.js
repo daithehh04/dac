@@ -11,7 +11,7 @@ import barsIconW from '@/assets/imgs/bars-icon-w.svg'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MenuMb from './MenuMb'
-import arrowUp from '@/assets/imgs/arrow_up.svg'
+import arrowUp from '@/assets/imgs/arrow2.svg'
 import { useMediaQuery } from 'react-responsive'
 import scrollDown from '@/hooks/scrollDown'
 
@@ -85,7 +85,9 @@ function Navbar({
       if (currentScrollPos === 0) {
         document.getElementById("navheader").style.backdropFilter = 'none'
       }
-
+      if(currentScrollPos < 0){
+        document.getElementById("navheader").style.top = "0";
+      }
       if(banner_home && (currentScrollPos > banner_home.offsetHeight)){
           arrow_up.style.transform = 'translateY(0)'
       }else{

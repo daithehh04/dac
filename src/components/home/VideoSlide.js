@@ -28,7 +28,6 @@ function VideoSlide({ dataSlideVideo }) {
     }
   }, [isPlay])
 
-  console.log(isPlay);
   return (
     <div className='relative md:h-[100vh] h-[100rem] content slide-product mt-[8.5rem]'>
       <Swiper

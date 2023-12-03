@@ -19,7 +19,6 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
   useEffect(()=>{
     const handleClickOutSide = (e) => {
       if(e.target !== itemClick){
-        console.log('test');
         setActive(-1)
       }
     }
