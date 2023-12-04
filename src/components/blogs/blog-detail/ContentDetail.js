@@ -47,7 +47,7 @@ function ContentDetail({ data, lang, dataSlide }) {
                     >
                         {dataSlide?.othernews?.map((blog, index) => (
                             <SwiperSlide key={index}>
-                                <Link href={`/${lang}/blog/${blog?.slug}`} className={`flex flex-shrink-0 flex-col blogItem_hidden md:mr-[2.6rem]`}>
+                                <Link href={`/${lang}/tin-tuc-su-kien/${blog?.slug}`} className={`flex flex-shrink-0 flex-col blogItem_hidden md:mr-[2.6rem]`}>
                                     <Image src={blog?.featuredImage?.node?.sourceUrl} width={1600} height={1000} quality={100} alt={blog?.featuredImage?.node?.altText || 'img'} className=' w-full h-[91.46667rem] pointer-events-none md:h-[19.89583rem] object-cover' />
                                     <p className='description !font-normal md:mt-[2.08rem] max-md:my-[5rem] flex justify-center'>{blog?.news?.name}</p>
                                 </Link>
