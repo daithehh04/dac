@@ -211,6 +211,22 @@ const GET_NEWS_HOMEPAGE = `query getNewsHomepage($language: LanguageCodeFilterEn
     }
   }
 }`
+const DATA_SOCIAL_FOOTER = `query($language : LanguageCodeEnum!){
+  page(id:"cG9zdDoyMQ=="){
+  translation(language:$language){
+    homepage{
+      partners{
+        socialAction{
+          phone
+          zalo
+          facebook
+          linkedin
+        }
+      }
+    }
+  }
+}
+}`
 export {
   GET_DATA_HEADER,
   GET_DATA_FOOTER,
@@ -220,5 +236,6 @@ export {
   GET_DATA_MOBILE_ORGANIZE,
   GET_DATA_MOBILE_VISION,
   GET_META_HOME,
-  GET_NEWS_HOMEPAGE
+  GET_NEWS_HOMEPAGE,
+  DATA_SOCIAL_FOOTER
 }
