@@ -9,7 +9,7 @@ function HistoryMobile({ data }) {
     const popUpRef = useRef()
     const seeMoreRef = useRef()
     const closeRef = useRef()
-    const [selected, setSelected] = useState(0)
+    const [selected, setSelected] = useState(null)
     const [number, setNumber] = useState(3)
     const handleClosePopUp = () => {
         if (popUpRef.current && openRef.current && closeRef.current) {
@@ -43,10 +43,15 @@ function HistoryMobile({ data }) {
         }
     }
     useEffect(() => {
-        const listElements = document.querySelectorAll('.historyYear')
+        if(selected === null) {
+            return
+        }else{
+            const listElements = document.querySelectorAll('.historyYear')
         listElements[selected].scrollIntoView({
             behavior: 'smooth'
         })
+        }
+        
     }, [selected])
 
 
@@ -126,7 +131,7 @@ function HistoryMobile({ data }) {
                 {dataJourney?.map((item, index) => {
                     return (
                         <div key={index} className={`border-l-[1px] border-[#444444] border-dashed pl-[15rem] flex-col cursor-grab relative historyYear`}>
-                            <span className='text-[#444] relative top-[-2rem] font-bold text-[6.93333rem] block year'>{item?.year}</span>
+                            <span className='text-[#444] relative  font-bold text-[6.93333rem] block year'>{item?.year}</span>
                             <Image
                                 src={item?.img?.sourceUrl}
                                 width={1000}
@@ -134,7 +139,7 @@ function HistoryMobile({ data }) {
                                 alt={item?.img?.altText || "history"}
                                 className='object-cover  h-[48.26667rem]'
                             />
-                            <p className='mt-[5.33rem] text-[4.26667rem] leading-[1.2] mb-[3rem] lg:text-[1.35417rem] md:line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>
+                            <p className='mt-[5.33rem] text-[4.26667rem] leading-[1.2] lg:text-[1.35417rem] md:line-clamp-2 min-h-[4.5rem]'>{item?.text}</p>
                             <div className={`absolute left-[-1.5rem] w-[2.66667rem] top-[2rem] rounded-[50%] border border-solid border-[#000] h-[2.66667rem] ${selected === index ? 'bg-[#00A84F]' : 'bg-[#fff]'}`}></div>
                         </div>
                     )

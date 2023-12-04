@@ -13,6 +13,13 @@ function History({ data }) {
     swiperRef.current.slideTo(index)
     setSelected(index)
   }
+
+  const handleNextSlide = () => {
+    swiperRef.current?.slideNext()
+  }
+  const handlePrevSlide = () => {
+    swiperRef.current?.slidePrev()
+  }
   return (
     <section className='max-md:hidden'>
       <div className='relative mt-[2rem] w-fit md:pl-[4.17rem] '>
@@ -35,12 +42,12 @@ function History({ data }) {
               slidesPerView: 4
             }
           }}
+          modules={[Autoplay]}
+          slidesPerView={2}
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay]}
-          slidesPerView={2}
           spaceBetween={0}
           loop={false}
           centeredSlides={false}
@@ -57,24 +64,45 @@ function History({ data }) {
         >
           {data?.journey?.map((item, index) => {
             return (
-              <SwiperSlide key={index * Math.random()}>
-                <div className='mr-[2rem] flex justify-center flex-col item-history relative cursor-grab'>
-                  <Image
-                    src={item?.img?.sourceUrl}
-                    width={1000}
-                    height={1000}
-                    alt={item?.img?.altText || "history"}
-                    className='object-cover h-[15.1rem] image'
-                  />
-                  <p className='mt-[0.5rem] text-[1.41rem] xl:text-[1.35147rem] min-h-[6.5rem] line-clamp-3'>{item?.text}</p>
-                  <span className='text-[#444] font-bold text-[1.875rem] text-center block year'>{item?.year}</span>
-                  <Image src={circle} width={'100%'} height={'100%'} alt='circle' className='absolute bottom-0 left-[50%] w-[0.9375rem] h-[0.9375rem] object-cover circle' />
-                </div>
+              <>
+                <SwiperSlide key={index * Math.random()}>
+                  <div className='mr-[2rem] flex justify-center flex-col item-history relative cursor-grab'>
+                    <Image
+                      src={item?.img?.sourceUrl}
+                      width={1000}
+                      height={1000}
+                      alt={item?.img?.altText || "history"}
+                      className='object-cover h-[15.1rem] image'
+                    />
+                    <p className='mt-[0.5rem] text-[1.41rem] xl:text-[1.35147rem] min-h-[6.5rem] line-clamp-3'>{item?.text}</p>
+                    <span className='text-[#444] font-bold text-[1.875rem] text-center block year'>{item?.year}</span>
+                    <Image src={circle} width={'100%'} height={'100%'} alt='circle' className='absolute bottom-0 left-[50%] w-[0.9375rem] h-[0.9375rem] object-cover circle' />
+                  </div>
               </SwiperSlide>
+
+              
+              </>
             )
           })}
         </Swiper>
-        <div className='line absolute top-[calc(50%)]'></div>
+        <div className='line absolute top-[calc(50%)] !w-[90%]'></div>
+        <div
+                onClick={handlePrevSlide}
+                className='md:w-[2rem] md:h-[2rem]  left-[3rem] top-[50%] -translate-y-2/4 absolute z-[19]'
+              >
+                <svg xmlns="http://www.w3.org/2000/svg"  className='md:w-[0.78125rem] md:h-[1.875rem]' viewBox="0 0 19 38" fill="none">
+                  <path d="M17 37L2 18.5L17 1" stroke="#888888" stroke-width="3"/>
+                </svg>
+              </div>
+
+              <div
+                onClick={handleNextSlide}
+                className='md:w-[2rem] md:h-[2rem]  right-[3rem]  top-[50%] -translate-y-2/4 absolute z-[19]'
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[0.78125rem] md:h-[1.875rem]' viewBox="0 0 19 38" fill="none">
+                  <path d="M2 1L17 19.5L2 37" stroke="#888888" stroke-width="3"/>
+                </svg>
+              </div>
       </div>
 
 

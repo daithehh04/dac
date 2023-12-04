@@ -224,7 +224,7 @@ function Navbar({
 
   return (
     <>
-      <nav id='navheader'  className={`bg-[${bgColor}] ${shadow} top-0 w-full fixed navbar md:pt-[2.6rem] md:pb-[1.3rem] pt-[6.27rem] z-10 ${isMobile && 'bg-transparent'}`}>
+      <nav id='navheader'  className={`bg-[${bgColor}] ${shadow} top-0 w-full fixed navbar md:pt-[2.6rem] md:pb-[1.3rem] pt-[6.27rem] z-[20] ${isMobile && 'bg-transparent'}`}>
         <div className="md:pl-[4.11rem] md:pr-[4.37rem] max-md:px-[4.27rem]">
           <div className='flex items-center justify-between'>
             {checkHome ?
