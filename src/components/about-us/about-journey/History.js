@@ -86,7 +86,7 @@ function History({ data }) {
           })}
         </Swiper>
         <div className='line absolute top-[calc(50%)] !w-[90%]'></div>
-        <div
+              <div
                 onClick={handlePrevSlide}
                 className='md:w-[2rem] md:h-[2rem]  left-[3rem] top-[50%] -translate-y-2/4 absolute z-[19]'
               >

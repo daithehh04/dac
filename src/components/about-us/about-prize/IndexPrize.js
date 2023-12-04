@@ -19,7 +19,6 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
   useEffect(()=>{
     const handleClickOutSide = (e) => {
       if(e.target !== itemClick){
-        console.log('test');
         setActive(-1)
       }
     }
@@ -28,6 +27,15 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
       window.removeEventListener('click',handleClickOutSide)
     }
   },[active])
+
+  useEffect(() => {
+    const desc_box = document.querySelector('.active.description_prize')
+    if(desc_box){
+      const desc_award = desc_box.querySelector('.desc_award');
+      const link_award = desc_award.querySelector('a'); 
+      link_award.setAttribute('target', '_blank');
+    }
+  }, [active]);
   return (
     <section>
       <Banner
@@ -66,7 +74,7 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
                     : '')}`}
                   >
                   <div 
-                    className={`md:text-[1.35417rem] text-[4.26667rem] leading-[1.2] text-[#fff]`}
+                    className={`md:text-[1.35417rem] text-[4.26667rem] desc_award leading-[1.2] text-[#fff]`}
                     dangerouslySetInnerHTML={{ __html: `${item?.description}` }}
                   ></div>
                   </div>
