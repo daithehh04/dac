@@ -10,7 +10,7 @@ function ContentDetail({ data, lang, dataSlide }) {
         <section className='max-md:px-[4.27rem] max-md:pt-[7rem]'>
             <div className='flex flex-col md:pt-[4.11rem] md:pb-[5.25rem]'>
                 {/* Text heading */}
-                <div className='flex justify-end md:px-[12rem] md:h-[21rem]'>
+                <div className='flex justify-end md:px-[12rem]'>
                     <h2 className='heading md:w-[44.84375rem] max-md:text-justify max-md:!tracking-[-0.27733rem] max-md:!text-[6.93333rem] md:line-clamp-5 md:tracking-[-0.1375rem] text-justify'>{data?.heading}</h2>
                 </div>
                 <div className='line-detail'></div>
