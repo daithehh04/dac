@@ -66,6 +66,7 @@ function Footer({ lang, data,dataSocialFooter }) {
         <svg ref={scrollRef} onClick={handleClick} xmlns="http://www.w3.org/2000/svg" className='relative left-[50%] md:hidden w-[4.33333rem] h-[3.46667rem] mb-[6.4rem]' viewBox="0 0 15 7" fill="none">
           <path d="M14 1L7.5 6L1 1" stroke="#888888" />
         </svg>
+        
         {/*  */}
         <div className="h-[0.0625vw] w-full bg-[#fff] opacity-60 mt-[1.35417rem]"></div>
         <div className="flex items-center max-md:flex-col justify-between copy-right md:py-[3.25rem] py-[4rem] max-md:text-[3.73333rem] md:leading-[0.01867rem]">
