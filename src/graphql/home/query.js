@@ -135,6 +135,22 @@ query($language : LanguageCodeEnum!){
   }
 }
 `
+const DATA_SOCIAL_FOOTER = `query($language : LanguageCodeEnum!){
+  page(id:"cG9zdDoyMQ=="){
+  translation(language:$language){
+    homepage{
+      partners{
+        socialAction{
+          phone
+          zalo
+          facebook
+          linkedin
+        }
+      }
+    }
+  }
+}
+}`
 const GET_DATA_MOBILE_JOURNEY = `query ($language: LanguageCodeEnum!) {
   page(id: "cG9zdDoxNjg=") {
     translation(language: $language) {
@@ -220,5 +236,6 @@ export {
   GET_DATA_MOBILE_ORGANIZE,
   GET_DATA_MOBILE_VISION,
   GET_META_HOME,
-  GET_NEWS_HOMEPAGE
+  GET_NEWS_HOMEPAGE,
+  DATA_SOCIAL_FOOTER
 }

@@ -1,24 +1,35 @@
 'use client'
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
+import icon1 from '@/assets/imgs/Group.svg'
+import icon2 from '@/assets/imgs/Group-1.svg'
+import icon3 from '@/assets/imgs/Group-2.svg'
+import icon4 from '@/assets/imgs/Group-3.svg'
+import imgFooter from '@/assets/imgs/imagefooter.svg'
+import Link from 'next/link'
 
-function Footer({ lang, data }) {
+function Footer({ lang, data,dataSocialFooter }) {
+  
   const [active, setActive] = useState(false)
   const contentRef = useRef()
   const scrollRef = useRef()
+  const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
   const handleClick = () => {
     setActive(!active)
   }
-  if (contentRef.current && active) {
+  if (contentRef.current && active && isMobile) {
     contentRef.current.style.height = contentRef.current.scrollHeight + "px"
     contentRef.current.style.overflow = 'visible'
     scrollRef.current.style.rotate = '180deg'
-  } else if (contentRef.current && !active) {
+  } else if (contentRef.current && !active && isMobile) {
     contentRef.current.style.height = '0'
     contentRef.current.style.overflow = 'hidden'
     scrollRef.current.style.rotate = '0deg'
   }
 
+  const listSocial = dataSocialFooter?.data?.page?.translation?.homepage?.partners?.socialAction
+  
   return (
     <footer className='footer bg-[#000D10] text-[#888] md:pt-[4.98rem] pt-[11.47rem] max-md:h-auto'>
       <div className="content max-md:flex flex-col justify-center ">
@@ -28,8 +39,27 @@ function Footer({ lang, data }) {
         <div className='flex items-start max-md:flex-col justify-between md:mt-[3.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888]'>
           <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem] title_name_company" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn1}` }}>
           </div>
-          <div ref={contentRef} className="right title_name_company" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn2}` }}>
+          <div className='flex flex-col'>
+            <div ref={contentRef} className="right title_name_company" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn2}` }}></div>
+            <div className='flex mt-[3rem]'>
+                  <div className='grid grid-cols-2 gap-[1rem] md:mr-[4.84rem]'>
+                    <Link href={`${listSocial?.facebook}`} target='_blank' > 
+                      <Image src={icon4} alt='icon' className='w-[4rem] h-[4rem] object-contain' />
+                    </Link>
+                    <Link href={`${listSocial?.linkedin}`} target='_blank' >
+                      <Image src={icon3} alt='icon' className='w-[4rem] h-[4rem] object-contain' />
+                    </Link>
+                    <Link href={`tel:${listSocial?.phone}`} target='_blank' >
+                      <Image src={icon2} alt='icon' className='w-[4rem] h-[4rem] object-contain' />
+                    </Link>
+                    <Link href={`${listSocial?.zalo}`} target='_blank' >
+                      <Image src={icon1} alt='icon' className='w-[4rem] h-[4rem] object-contain' /> 
+                    </Link>
+                  </div>
+                  <Image src={imgFooter} alt='chứng nhận' className='w-[17.65625rem] h-[6.77083rem]' />
+            </div>
           </div>
+          
         </div>
 
         {/* see more > */}
