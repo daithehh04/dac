@@ -35,7 +35,7 @@ function ContentDetail({ data, lang, dataSlide }) {
                                 </div>
                             </div>
                         </div>
-                        <div className={`line-detail ${index === 2 && 'md:hidden'} ${index === 1 && 'max-md:hidden'}`}></div>
+                        <div className={`line-detail ${index === 1 && 'max-md:hidden'}`}></div>
                     </div>
                 ))}
             </div>
