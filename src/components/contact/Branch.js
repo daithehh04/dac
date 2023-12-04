@@ -2,11 +2,32 @@ import React from 'react'
 import svg from '@/assets/imgs/GroupContact.svg'
 import Image from 'next/image'
 import Link from 'next/link'
-function Branch({ dataBranch,lang }) {
+import icon1 from '@/assets/imgs/fb2.svg'
+import icon2 from '@/assets/imgs/zalo2.svg'
+import icon3 from '@/assets/imgs/phone2.svg'
+import icon4 from '@/assets/imgs/linked.svg'
+function Branch({ dataBranch,lang,dataSocial }) {
+    const listSocial = dataSocial?.data?.page?.translation?.homepage?.partners?.socialAction
     return (
         <section className='md:pt-[7rem] pt-[7.47rem] md:px-[4.17rem] px-[4.27rem]'>
             <div className='flex max-md:flex-col'>
-                <h2 className='heading2 md:!tracking-[-0.17188rem] md:mr-[6rem] font-bold md:w-[24.4375rem]' dangerouslySetInnerHTML={{ __html: `${dataBranch?.heading}` }} ></h2>
+                <div className='flex flex-col '>
+                    <h2 className='heading2 md:!tracking-[-0.17188rem] md:mr-[6rem] font-bold md:w-[24.4375rem]' dangerouslySetInnerHTML={{ __html: `${dataBranch?.heading}` }} ></h2>
+                    <div className='grid grid-cols-2 gap-[1rem] w-fit md:mt-[4rem]'>
+                        <Link href={`tel:${listSocial?.phone}`}>
+                            <Image src={icon3} alt='phone' className='w-[4rem] h-[4rem] object-contain' />
+                        </Link>
+                        <Link href={`${listSocial?.zalo}`}>
+                            <Image src={icon2} alt='zalo' className='w-[4rem] h-[4rem] object-contain' />
+                        </Link>
+                        <Link href={`${listSocial?.facebook}`}>
+                            <Image src={icon1} alt='facebook' className='w-[4rem] h-[4rem] object-contain' />
+                        </Link>
+                        <Link href={`${listSocial?.linkedin}`}>
+                            <Image src={icon4} alt='linkedin' className='w-[4rem] h-[4rem] object-contain' />
+                        </Link>
+                    </div>
+                </div>
                 <div className='max-md:mt-[12rem] max-md:mb-[12rem]'>
                     <div className='grid md:grid-cols-2 gap-x-[4.9rem] gap-y-[12rem] md:gap-y-[2.08rem] md:mb-[4rem]'>
                         {dataBranch?.listContentAddress?.map((item, index) => (

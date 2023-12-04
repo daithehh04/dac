@@ -11,7 +11,7 @@ import barsIconW from '@/assets/imgs/bars-icon-w.svg'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MenuMb from './MenuMb'
-import arrowUp from '@/assets/imgs/arrow_up.svg'
+import arrowUp from '@/assets/imgs/arrow2.svg'
 import { useMediaQuery } from 'react-responsive'
 import scrollDown from '@/hooks/scrollDown'
 

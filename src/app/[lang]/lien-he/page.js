@@ -2,6 +2,7 @@ import Contact from '@/components/contact/Contact'
 import { fetchData } from '@/data/fetchData'
 import getDataPage from '@/data/getDataPage'
 import { GET_DATA_CONTACT_PAGE, META_CONTACT_QUERY } from '@/graphql/contact/query'
+import { DATA_SOCIAL_FOOTER } from '@/graphql/home/query'
 import { getMeta } from '@/graphql/metaData/getMeta'
 import React from 'react'
 
@@ -16,8 +17,13 @@ export async function generateMetadata({ params: { lang } }) {
 
 async function page({ params: { lang } }) {
     let data = await getDataPage(lang, GET_DATA_CONTACT_PAGE)
+    const dataSocial  = await getDataPage(lang,DATA_SOCIAL_FOOTER)
     return (
-        <Contact dataContact={data?.data?.page?.translation?.contact} lang={lang} />
+        <Contact 
+            dataSocial={dataSocial} 
+            dataContact={data?.data?.page?.translation?.contact} 
+            lang={lang} 
+        />
     )
 }
 
