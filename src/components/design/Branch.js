@@ -1,8 +1,25 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import ServiceItem from './ServiceItem'
-
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { useRef } from 'react';
 function Branch({data}) {
+    const swiperRef = useRef()
+    const swiperRef2 = useRef()
+    const handleNextSlide = () => {
+        swiperRef.current?.slideNext()
+    }
+    const handlePrevSlide = () => {
+        swiperRef.current?.slidePrev()
+    }
+    const handleNextSlide2 = () => {
+        swiperRef2.current?.slideNext()
+    }
+    const handlePrevSlide2 = () => {
+        swiperRef2.current?.slidePrev()
+    }
     return (
         <section>
             {/* nâng tầm thương hiệu */}
@@ -29,13 +46,98 @@ function Branch({data}) {
                     </div>
                 </div>
                 <div className='md:w-[50%]'>
-                    <Image src={data?.packagingDesign?.image?.sourceUrl} alt={data?.packagingDesign?.image?.altText || 'img'} width={1000} height={1000} priority quality={100} className='md:w-full object-cover md:h-full h-[100rem]' />
+                    <Swiper
+                        modules={[Autoplay]}
+                        slidesPerView={1}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        }}
+                        spaceBetween={0}
+                        loop={true}
+                        className='w-full h-full'
+                        onBeforeInit={(swiper) => {
+                            if (swiperRef) {
+                            swiperRef.current = swiper;
+                            }
+                        }}
+                        onSlideChange={(swiper)=>{
+                            // setSelected(swiper.activeIndex)
+                        }}
+                    >
+                        {data?.packagingDesign?.image?.concat(data?.packagingDesign?.image)?.map((item,index)=>(
+                            <SwiperSlide key={index}>
+                                <Image src={item?.sourceUrl} alt={item?.altText || 'img'} width={1000} height={1000} priority quality={100} className='md:w-full object-cover md:h-full h-[100rem]' />
+
+                            </SwiperSlide>
+                        ))}
+                            <div
+                                onClick={handleNextSlide}
+                                className='md:w-[2rem] md:h-[2rem]  left-[3rem] top-[50%] -translate-y-2/4 absolute z-[19]'
+                            >
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[1.14583rem] md:h-[2.29167rem]' viewBox="0 0 27 48" fill="none">
+                                    <path d="M25 46L3 24L25 2" stroke="white" stroke-width="3"/>
+                                </svg>
+                            </div>
+
+                            <div
+                                onClick={handlePrevSlide}
+                                className='md:w-[2rem] md:h-[2rem]  right-[3rem]  top-[50%] -translate-y-2/4 absolute z-[19]'
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[1.14583rem] md:h-[2.29167rem]' viewBox="0 0 27 48" fill="none">
+                                    <path d="M2 2L24 24L2 46" stroke="white" stroke-width="3"/>
+                                </svg>
+                            </div>
+                    </Swiper>
                 </div>
             </div>
             {/* Thiết kế nhận diện thương hiệu */}
             <div className='lg:h-[100vh] md:h-[50vh] flex max-md:flex-col-reverse '>
                 <div className='md:w-[50%]'>
-                    <Image src={data?.brandIdentity?.image?.sourceUrl} alt={data?.brandIdentity?.image?.altText || 'img' }  width={1000} height={1000} priority quality={100} className='md:w-full object-cover h-full' />
+                    <Swiper
+                            modules={[Autoplay]}
+                            slidesPerView={1}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                            }}
+                            spaceBetween={0}
+                            loop={true}
+                            className='w-full h-full'
+                            onBeforeInit={(swiper) => {
+                                if (swiperRef2) {
+                                swiperRef2.current = swiper;
+                                }
+                            }}
+                            onSlideChange={(swiper)=>{
+                                // setSelected(swiper.activeIndex)
+                            }}
+                        >
+                            {data?.brandIdentity?.image?.concat(data?.brandIdentity?.image)?.map((item,index)=>(
+                                <SwiperSlide key={index}>
+                                    <Image src={item?.sourceUrl} alt={item?.altText || 'img' }  width={1000} height={1000} priority quality={100} className='md:w-full object-cover h-full' />
+                                </SwiperSlide>
+                            ))}
+                            <div
+                                onClick={handleNextSlide2}
+                                className='md:w-[2rem] md:h-[2rem]  left-[3rem] top-[50%] -translate-y-2/4 absolute z-[19]'
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[1.14583rem] md:h-[2.29167rem]' viewBox="0 0 27 48" fill="none">
+                                    <path d="M25 46L3 24L25 2" stroke="white" stroke-width="3"/>
+                                </svg>
+                                
+                            </div>
+
+                            <div
+                                onClick={handlePrevSlide2}
+                                className='md:w-[2rem] md:h-[2rem]  right-[3rem]  top-[50%] -translate-y-2/4 absolute z-[19]'
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className='md:w-[1.14583rem] md:h-[2.29167rem]' viewBox="0 0 27 48" fill="none">
+                                    <path d="M2 2L24 24L2 46" stroke="white" stroke-width="3"/>
+                                </svg>
+                            </div>
+                    </Swiper>
                 </div>
                 <div className='md:pl-[7.86rem] md:pt-[4.84rem] pt-[8rem] max-md:px-[4.27rem] md:w-[50%] md:pb-[10.1rem] md:pr-[5.73rem] bg-[#F0F0F0] flex flex-col '>
                     <h2 
