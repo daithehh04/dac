@@ -6,7 +6,7 @@ import icon1 from '@/assets/imgs/Group.svg'
 import icon2 from '@/assets/imgs/Group-1.svg'
 import icon3 from '@/assets/imgs/Group-2.svg'
 import icon4 from '@/assets/imgs/Group-3.svg'
-import imgFooter from '@/assets/imgs/imagefooter.svg'
+import imgFooter from '@/assets/imgs/iconmoi.png'
 import Link from 'next/link'
 
 function Footer({ lang, data,dataSocialFooter }) {

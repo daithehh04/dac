@@ -1,4 +1,3 @@
-import Navbar from '@/components/common/Navbar'
 import ApolloClientProvider from '../apolloProvider'
 import './globals.css'
 import Footer from '@/components/common/Footer'
@@ -17,6 +16,7 @@ import 'swiper/css/free-mode'
 import getDataPage from '@/data/getDataPage'
 import { DATA_SOCIAL_FOOTER, GET_DATA_FOOTER } from '@/graphql/home/query'
 import NavbarData from '@/components/common/NavbarData'
+import SocialAction from '@/components/common/SocialAction'
 export const metadata = {
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1'
 }
@@ -35,6 +35,7 @@ export default async function RootLayout({ children, params }) {
       <body>
         <ApolloClientProvider>
           <NavbarData lang={lang} />
+          <SocialAction lang={lang} />
           {children}
           <Footer lang={lang} data={dataFooterFinal} dataSocialFooter={dataSocialFooter} />
         </ApolloClientProvider>
