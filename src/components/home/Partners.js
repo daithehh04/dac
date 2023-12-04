@@ -1,13 +1,6 @@
 import React from 'react'
 import SlidePartners from './SlidePartners'
-import fb from '@/assets/imgs/fb2.svg'
-import zalo from '@/assets/imgs/zalo2.svg'
-import phone from '@/assets/imgs/phone2.svg'
-import linked from '@/assets/imgs/linked.svg'
 import Link from 'next/link'
-
-import Image from 'next/image'
-
 function Partners({ dataPartner }) {
   return (
     <div className='pt-[6.25rem] relative partner'>
@@ -19,25 +12,6 @@ function Partners({ dataPartner }) {
           <Link className='md:text-[5rem] text-[6.93333rem] max-md:mt-[4rem] text-[#444] font-bold leading-[1.16] text-center tracking-[-0.25rem] title-connect w-max' href={`#!`}>{dataPartner?.heading}</Link>
         </h3>
       </div>
-      <div className='max-md:hidden popUpAction flex flex-col gap-[1.04rem] bg-[#A0A0A0] fixed z-50 right-0 top-[60%] -translate-y-[30%] px-[1rem] py-[1.5rem] rounded-bl-[1.97rem]'>
-        <Link href={`tel:${dataPartner?.socialAction?.phone}`} className='transition-all hover:scale-95'>
-          <Image className='w-[2.86458rem] h-[2.91667rem] object-contain' src={phone} width={'100%'} height={'100%'} alt='phone' />
-        </Link>
-        <Link href={`${dataPartner?.socialAction?.zalo}`} target='_blank' className='transition-all hover:scale-95'>
-          <Image className='w-[2.86458rem] h-[2.91667rem] object-contain' src={zalo} width={'100%'} height={'100%'} alt='zalo' />
-        </Link>
-        <Link href={`${dataPartner?.socialAction?.facebook}`} target='_blank' className='transition-all hover:scale-95'>
-          <Image className='w-[2.86458rem] h-[2.91667rem] object-contain' src={fb} width={'100%'} height={'100%'} alt='facebook' />
-        </Link>
-        <Link href={`${dataPartner?.socialAction?.linkedin}`} target='_blank' className='transition-all hover:scale-95'>
-          <Image className='w-[2.86458rem] h-[2.91667rem] object-contain' src={linked} width={'100%'} height={'100%'} alt='facebook' />
-        </Link>
-        
-      </div>
-        
-
-      
-      
     </div>
   )
 }
