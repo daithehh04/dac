@@ -8,6 +8,7 @@ import icon3 from '@/assets/imgs/Group-2.svg'
 import icon4 from '@/assets/imgs/Group-3.svg'
 import imgFooter from '@/assets/imgs/imagefooter.svg'
 import Link from 'next/link'
+
 function Footer({ lang, data,dataSocialFooter }) {
   const [active, setActive] = useState(false)
   const contentRef = useRef()
@@ -56,6 +57,7 @@ function Footer({ lang, data,dataSocialFooter }) {
                   <Image src={imgFooter} alt='chứng nhận' className='w-[17.65625rem] h-[6.77083rem]' />
             </div>
           </div>
+          
         </div>
 
         {/* see more > */}

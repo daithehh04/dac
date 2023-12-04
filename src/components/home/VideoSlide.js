@@ -8,6 +8,7 @@ import imgVideo from '@/assets/imgs/img-video.jpg'
 import ReactPlayer from 'react-player'
 function VideoSlide({ dataSlideVideo }) {
   const [indexSlider, setIndexSlider] = useState(0)
+  const [isPlay, setIsPlay] = useState(false)
   const swiperRef = useRef()
   const handleNextSlide = () => {
     swiperRef.current?.slideNext()
@@ -20,15 +21,8 @@ function VideoSlide({ dataSlideVideo }) {
     setIndexSlider(swiper.activeIndex)
     setIsPlay(false)
   }
-  const [isPlay, setIsPlay] = useState(false)
-  const videoRef = useRef()
-  useEffect(() => {
-    if (videoRef.current) {
-      isPlay ? videoRef.current.play() : videoRef.current.pause()
-    }
-  }, [isPlay])
 
-  console.log(isPlay);
+  console.log(indexSlider);
   return (
     <div className='relative md:h-[100vh] h-[100rem] content slide-product mt-[8.5rem]'>
       <Swiper
@@ -62,7 +56,12 @@ function VideoSlide({ dataSlideVideo }) {
                   </svg>
                   <ReactPlayer
                     onEnded={()=>setIsPlay(false)}
-                    className={`w-full h-full video_slide_home`}  width={'100%'} height={'100%'} controls={false} playing={isPlay} url={item?.videoLink} />
+                    className={`w-full h-full video_slide_home`}  
+                    width={'100%'} 
+                    height={'100%'} 
+                    controls={true} 
+                    playing={isPlay} 
+                    url={item?.videoLink} />
                   <p className={`text-white text-[6.667rem] opacity-40 font-bold uppercase absolute top-[50%] -translate-y-1/2 w-full text-center ${isPlay ? 'hidden' : ''}`}>Video app</p>
                 </div>
               )}
