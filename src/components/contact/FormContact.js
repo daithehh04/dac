@@ -89,20 +89,6 @@ function FormContact({ dataForm }) {
 
                                     <div className=''>
                                         <h2 className='heading2 md:w-[23.4375rem] md:mb-[2.8rem] mb-[5.07rem]'>{dataForm?.heading}</h2>
-                                        {dataForm?.address?.map((item, index) => (
-
-                                            <div key={index} className='flex items-center md:mb-[1.61rem] mb-[5rem]'>
-                                                <Field
-                                                    type='radio'
-                                                    name='address'
-                                                    value={item?.text}
-                                                />
-                                                <span className='description !font-normal ml-[2.5rem] md:ml-[1rem]'>
-                                                    {item?.text}
-                                                </span>
-                                            </div>
-                                        ))}
-
                                     </div>
                                     <div className='flex flex-col bg-transparent formSubmit md:mb-[1rem]'>
                                         <h3 className='description !font-normal md:mb-[3rem] max-md:!text-[3.2rem] mb-[5rem] md:w-[39.21875rem]'>{dataForm?.formData?.title}</h3>

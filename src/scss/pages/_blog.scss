@@ -74,4 +74,10 @@
       margin-bottom: 4rem;
     }
   }
+  li{
+    margin-left: 1.5rem;
+    @media screen and (max-width:767px){
+      margin-left: 6rem;
+    }
+  }
 }
