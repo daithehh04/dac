@@ -2,7 +2,6 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 function ContentDetail({ data, lang, dataSlide }) {
 

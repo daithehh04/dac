@@ -27,7 +27,10 @@ function Footer({ lang, data,dataSocialFooter }) {
     contentRef.current.style.overflow = 'hidden'
     scrollRef.current.style.rotate = '0deg'
   }
-
+  if(!isMobile && contentRef.current){
+    contentRef.current.style.height = 'auto'
+    contentRef.current.style.overflow = 'visible'
+  }
   const listSocial = dataSocialFooter?.data?.page?.translation?.homepage?.partners?.socialAction
   
   return (
