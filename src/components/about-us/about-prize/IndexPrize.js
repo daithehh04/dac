@@ -32,8 +32,12 @@ export const IndexPrize = ({ data, lang, slugPage, titlePage }) => {
     const desc_box = document.querySelector('.active.description_prize')
     if(desc_box){
       const desc_award = desc_box.querySelector('.desc_award');
-      const link_award = desc_award.querySelector('a'); 
-      link_award.setAttribute('target', '_blank');
+      if(desc_award){
+        const link_award = desc_award.querySelector('a'); 
+        if(link_award){
+          link_award.setAttribute('target', '_blank');
+        }
+      }
     }
   }, [active]);
   return (
