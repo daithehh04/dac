@@ -17,6 +17,7 @@ import getDataPage from '@/data/getDataPage'
 import { DATA_SOCIAL_FOOTER, GET_DATA_FOOTER } from '@/graphql/home/query'
 import NavbarData from '@/components/common/NavbarData'
 import SocialAction from '@/components/common/SocialAction'
+import ScrollUp from '@/components/common/ScrollUp'
 export const metadata = {
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1'
 }
@@ -36,6 +37,7 @@ export default async function RootLayout({ children, params }) {
         <ApolloClientProvider>
           <NavbarData lang={lang} />
           <SocialAction lang={lang} />
+          <ScrollUp />
           {children}
           <Footer lang={lang} data={dataFooterFinal} dataSocialFooter={dataSocialFooter} />
         </ApolloClientProvider>
