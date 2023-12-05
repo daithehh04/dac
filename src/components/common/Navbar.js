@@ -11,9 +11,7 @@ import barsIconW from '@/assets/imgs/bars-icon-w.svg'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import MenuMb from './MenuMb'
-import arrowUp from '@/assets/imgs/arrow2.svg'
 import { useMediaQuery } from 'react-responsive'
-import scrollDown from '@/hooks/scrollDown'
 
 function Navbar({
   lang,
@@ -27,7 +25,6 @@ function Navbar({
   const [checkScroll, setCheckScroll] = useState(false)
   const refMb = useRef()
   const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
-  const bannerRef = useRef()
   const handleOpenModal = () => {
     refMb?.current?.classList?.add('active')
   }
@@ -283,7 +280,6 @@ function Navbar({
           </div>
         </div>
       </nav>
-      <div ref={bannerRef}></div>
 
       <div ref={refMb} className='fixed inset-0 md:hidden overflow-x-hidden overflow-y-auto w-full h-full bg-white !z-[199] nav-mobile' >
         <MenuMb
@@ -291,10 +287,6 @@ function Navbar({
           handleCloseModal={handleCloseModal}
           lang={lang}
         />
-      </div>
-
-      <div onClick={() => scrollDown(bannerRef, 'start')} className='fixed arrow_up z-50 bottom-[2rem] right-[3.17rem]'>
-          <Image src={arrowUp} alt='arrow' className='md:w-[2.29167rem] md:h-[2.13542rem] w-[4.3rem] h-[4.3rem]' />
       </div>
     </>
   )

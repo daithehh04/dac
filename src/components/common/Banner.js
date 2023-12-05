@@ -6,7 +6,7 @@ function Banner({ image, title, description, classTitle, classDesc, positionAndB
     const scrollRef = useRef()
 
     return (
-        <section id={id} className={`md:w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative ${background}`} >
+        <section id={id} className={`banner_home md:w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative ${background}`} >
             <Image src={image} priority alt={altText || 'banner'} width={1800} height={1000} quality={100} className="w-full h-full md:rounded-br-[13.54rem] rounded-br-[16rem] object-cover " />
             <div className="overlay absolute top-0 w-full h-[16rem]" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
             {/* text */}

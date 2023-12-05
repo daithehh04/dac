@@ -10,7 +10,7 @@ function Banner() {
     let imgBanner = 'https://cms-dac.okhub.tech/wp-content/uploads/2023/11/TechnologyBanner1.png'
     return (
         <section>
-            <div className='banner w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative '>
+            <div className='banner banner_home w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative '>
                 <div className='absolute inset-0 bg-[#F5F5F5]'></div>
                 <Image src={context.dataBanner?.background || imgBanner} quality={100} alt='banner' fill className='w-full md:rounded-br-[13.54rem] rounded-br-[16rem] h-full object-cover z-[0]' />
                 <div className='flex flex-col justify-end absolute md:right-[14.17rem] md:bottom-[5.9rem] bottom-[3.73rem] max-md:left-[4.27rem]'>

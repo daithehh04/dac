@@ -6,7 +6,7 @@ import scrollDown from '@/hooks/scrollDown'
 function Banner({ data }) {
     const scrollDownRef = useRef()
     return (
-        <section className='md:w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative' >
+        <section className='banner_home md:w-full md:h-[70vh] lg:h-[100vh] h-[100rem] relative' >
             <Image src={data?.background?.sourceUrl || banner} width={1600} height={1000} alt={data?.background?.altText || 'banner'} quality={100} className="w-full h-full object-cover md:rounded-br-[13.54rem] rounded-br-[16rem]" />
             <div className="overlay absolute top-0 w-full h-full" style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.00) 89.06%)' }}></div>
             {/* text PC */}
