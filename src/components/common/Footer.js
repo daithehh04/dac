@@ -39,12 +39,12 @@ function Footer({ lang, data,dataSocialFooter }) {
         <div className="logo">
           <Image src={data?.homepage?.footer?.logo?.sourceUrl} width={100} height={100} className='object-cover w-[7.1875rem] h-[4.09453rem] max-md:w-[20.53333rem] max-md:h-[11.73333rem]' alt={data?.homepage?.footer?.logo?.altText || 'DAC'} />
         </div>
-        <div className='flex items-start max-md:flex-col justify-between md:mt-[3.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888] md:mb-[3rem]'>
+        <div className='flex items-start max-md:flex-col justify-between md:mt-[3.58rem] mt-[6.4rem] description2 md:!tracking-[-0.05rem] !text-[#888] md:mb-[3rem] mb-[6rem]'>
           <div className="left md:w-[44rem] md:mr-[10.4rem] max-md:mb-[8rem] title_name_company" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn1}` }}>
           </div>
           <div className='flex flex-col'>
             <div ref={contentRef} className="right title_name_company" dangerouslySetInnerHTML={{ __html: `${data?.homepage?.footer?.contentColumn2}` }}></div>
-            <div className='flex mt-[3rem]'>
+            <div className='flex mt-[3rem] max-md:hidden'>
                   <div className='grid grid-cols-2 gap-[1rem] md:mr-[4.84rem]'>
                     <Link href={`${listSocial?.facebook}`} target='_blank' > 
                       <Image src={icon4} alt='icon' className='w-[4rem] h-[4rem] object-contain' />

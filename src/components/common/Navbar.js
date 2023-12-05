@@ -78,13 +78,17 @@ function Navbar({
       } else {
         document.getElementById("navheader").style.top = "-100%";
         document.getElementById("navheader").style.backdropFilter = 'none'
+        document.getElementById("navheader").style.webkitBackdropFilter = 'none';
       }
       if (currentScrollPos === 0) {
         document.getElementById("navheader").style.backdropFilter = 'none'
+        document.getElementById("navheader").style.webkitBackdropFilter = 'none';
       }
 
-      if(currentScrollPos < 0) {
+      if(prevScrollpos < 0) {
         document.getElementById("navheader").style.top = "0";
+        document.getElementById("navheader").style.backdropFilter = 'none'
+        document.getElementById("navheader").style.webkitBackdropFilter = 'none';
       }
 
       if(banner_home && (currentScrollPos > banner_home.offsetHeight)){

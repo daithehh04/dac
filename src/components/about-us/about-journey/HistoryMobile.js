@@ -26,7 +26,7 @@ function HistoryMobile({ data }) {
         if (popUpRef.current && openRef.current && closeRef.current) {
             popUpRef.current.style.transform = 'translateX(0%)'
             popUpRef.current.style.position = 'fixed'
-            popUpRef.current.style.top = '0'
+            popUpRef.current.style.top = '10%'
             openRef.current.style.display = 'none'
             closeRef.current.style.display = 'block'
         }
@@ -65,15 +65,15 @@ function HistoryMobile({ data }) {
             let sectionHeight = historyId.scrollHeight + elementId.scrollHeight + bannerId.scrollHeight - 250
             if (openRef.current && currentY >= (elementId.scrollHeight + bannerId.scrollHeight)) {
                 openRef.current.style.position = 'fixed'
-                openRef.current.style.top = '0'
+                openRef.current.style.top = '15%'
             } else {
                 openRef.current.style.position = 'absolute'
-
+                openRef.current.style.top = '0'
             }
             if (popUpRef.current) {
                 if ((currentY >= (elementId.scrollHeight + bannerId.scrollHeight) && popUpRef.current.style.transform === 'translateX(0%)') || popUpRef.current.style.transform === 'translateX(0%)') {
                     popUpRef.current.style.position = 'fixed'
-                    popUpRef.current.style.top = '0'
+                    popUpRef.current.style.top = '10%'
                 } else if (currentY < elementId.scrollHeight) {
                     popUpRef.current.style.position = 'relative'
                 }
@@ -90,7 +90,7 @@ function HistoryMobile({ data }) {
 
                 } else if (currentY < sectionHeight && currentY >= (elementId.scrollHeight + bannerId.scrollHeight)) {
                     popUpRef.current.style.position = 'fixed'
-                    popUpRef.current.style.top = '0'
+                    popUpRef.current.style.top = '10%'
                     openRef.current.style.display = 'block'
                 }
             }
@@ -120,7 +120,7 @@ function HistoryMobile({ data }) {
                 </svg>
             </div>
 
-            <div className='absolute z-[10] left-0' ref={openRef} onClick={handleOpenPopUp}>
+            <div className='absolute z-[10] left-0 transition-all duration-500' ref={openRef} onClick={handleOpenPopUp}>
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-[6.93333rem] h-[9.0552rem]' viewBox="0 0 26 35" fill="none">
                     <path d="M0 0.413818H26V22.3713C26 28.9987 20.6274 34.3713 14 34.3713H0V0.413818Z" fill="#00A84F" />
                     <path d="M10 12.8372L15.5 17.3924L10 21.9477" stroke="white" />
