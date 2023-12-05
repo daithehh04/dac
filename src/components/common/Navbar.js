@@ -205,7 +205,30 @@ function Navbar({
     {
       link: 'TIN TỨC',
       linkEn: 'NEWS',
-      slug: 'tin-tuc-su-kien'
+      slug: 'tin-tuc-su-kien',
+      slug2: 'tin-tuc-su-kien',
+      listContent: [
+        {
+          name: 'Con người APP',
+          nameEn: 'APP-PEOPLE',
+          slug: 'con-nguoi-app'
+        },
+        {
+          name: 'Dành cho nhà đầu tư',
+          nameEn: 'investor',
+          slug: 'nha-dau-tu'
+        },
+        {
+          name: 'Dành cho doanh nghiệp',
+          nameEn: 'customers',
+          slug: 'khach-hang'
+        },
+        {
+          name: 'Tin tức khác',
+          nameEn: 'others',
+          slug: 'khac'
+        }
+      ]
     },
     {
       link: 'TUYỂN DỤNG',
