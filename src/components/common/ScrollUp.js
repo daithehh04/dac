@@ -6,7 +6,6 @@ import Image from 'next/image'
 function ScrollUp() {
   const arrowRef = useRef()
  
-  console.log();
   useEffect(()=>{
     const handleClick = () => {
         window.scrollTo({
@@ -16,7 +15,6 @@ function ScrollUp() {
     }
 
     window.addEventListener('click',(e)=>{
-        console.log(e.target);
         if(e.target === arrowRef?.current){
             handleClick()
         }

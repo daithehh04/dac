@@ -13,10 +13,10 @@ export async function generateMetadata({ params: { lang } }) {
   return getMeta(title, excerpt, featuredImage)
 }
 
-async function page({ params: { lang } }) {
+async function page({ params: { lang,id } }) {
   let dataNews = await fetchData(NEWS_QUERY, { language: lang?.toUpperCase() })
   return (
-    <Blog dataBlog={dataNews?.data?.page?.translation} lang={lang} />
+    <Blog slug={id} dataBlog={dataNews?.data?.page?.translation} lang={lang} />
   )
 }
 

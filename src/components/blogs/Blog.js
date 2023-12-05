@@ -2,11 +2,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Banner from './Banner'
 import { useQuery } from '@apollo/client'
-import { GET_DATA_ALL_WITH_SEARCH } from '@/graphql/news-blog/query'
+import { DATA_NEWS_WITH_SEARCH_AND_CATEGORY } from '@/graphql/news-blog/query'
 import BlogItem from './BlogItem'
 import { useMediaQuery } from 'react-responsive'
 import useDebounce from '@/hooks/useDebounce'
-function Blog({ lang, dataBlog }) {
+function Blog({ lang, dataBlog,slug }) {
     let language = lang?.toUpperCase()
     const [activePage, setActivePage] = useState(0)
     const [text, setText] = useState("")
@@ -16,12 +16,13 @@ function Blog({ lang, dataBlog }) {
     const eleRef = useRef()
     const seeMoreRef = useRef()
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
-    const { data, refetch, loading } = useQuery(GET_DATA_ALL_WITH_SEARCH, {
+    const { data, refetch, loading } = useQuery(DATA_NEWS_WITH_SEARCH_AND_CATEGORY, {
         variables: {
             language,
             offset: 0,
             size: isMobile ? 3 : 8,
-            text: textSearch
+            text: textSearch,
+            term:slug
         }
     })
     useEffect(() => {
