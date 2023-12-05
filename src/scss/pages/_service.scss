@@ -6,9 +6,11 @@
 }
 
 .slideFeatureImage {
+  width: 100%;
   .swiper-slide{
+    // border-bottom-right-radius: 7rem;
     @media screen and (max-width:767px) {
-      margin-right: 0.2rem;
+      // border-bottom-right-radius: 18rem;
     }
   }
   .swiper-pagination-bullet {
