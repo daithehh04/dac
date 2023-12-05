@@ -6,6 +6,8 @@ import { DATA_NEWS_WITH_SEARCH_AND_CATEGORY } from '@/graphql/news-blog/query'
 import BlogItem from './BlogItem'
 import { useMediaQuery } from 'react-responsive'
 import useDebounce from '@/hooks/useDebounce'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 function Blog({ lang, dataBlog,slug }) {
     let language = lang?.toUpperCase()
     const [activePage, setActivePage] = useState(0)
@@ -13,6 +15,7 @@ function Blog({ lang, dataBlog,slug }) {
     const [number, setNumber] = useState(0)
     const [dataNew, setDataNew] = useState([])
     const textSearch = useDebounce(text, 500)
+    const pathName = usePathname()
     const eleRef = useRef()
     const seeMoreRef = useRef()
     const isMobile = useMediaQuery({ query: '(max-width: 767.9px)' })
@@ -26,9 +29,11 @@ function Blog({ lang, dataBlog,slug }) {
         }
     })
     useEffect(() => {
-        eleRef?.current?.scrollIntoView({
-            behavior: 'smooth'
-        })
+        if(text !== ""){
+            eleRef?.current?.scrollIntoView({
+                behavior: 'smooth'
+            })
+        }
     }, [activePage, textSearch])
     ///////////////////////////////////////////// handle click PC//////////////////////////////////////////
 
@@ -74,15 +79,49 @@ function Blog({ lang, dataBlog,slug }) {
     const allNews = isMobile ? dataNew : data?.posts?.nodes
     const pageInfo = data?.posts?.pageInfo?.offsetPagination?.total
     const totalPage = Math.ceil(pageInfo / 8)
+
+
+    // list category
+    const listCategoryNews = [
+        {
+            nameVi:'Con người app',
+            nameEn:'APP people',
+            slug:'con-nguoi-app'
+        },
+        {
+            nameVi:'dành cho nhà đầu tư',
+            nameEn:'Investor',
+            slug:'nha-dau-tu'
+        },
+        {
+            nameVi:'dành cho doanh nghiệp',
+            nameEn:'Customer',
+            slug:'khach-hang'
+        },
+        {
+            nameVi:'Tin tức khác',
+            nameEn:'Others',
+            slug:'khac'
+        },
+    ]
     return (
         <>
             <Banner dataBanner={dataBlog} />
-            <section ref={eleRef} className='md:px-[4.17rem] blog_news md:pt-[8.28rem] md:pb-[2.97rem] max-md:flex flex-col-reverse'>
+            <section ref={eleRef} className='md:px-[4.17rem] blog_news md:pt-[3.13rem] md:pb-[2.97rem] max-md:flex flex-col-reverse'>
                 <span ref={seeMoreRef} onClick={handleClick} className='md:hidden text-[4.26667rem] text-[#00A84F] leading-[116.662%] underline text-center mb-[8.1rem] mt-[2rem]'>Xem thêm</span>
+                    <div className='flex md:mb-[5.21rem]'>
+                        {
+                            listCategoryNews?.map((item,index)=>(
+                                <Link key={index} href={`/${lang}/tin-tuc-su-kien/${item?.slug}`}>
+                                    <h2 className={`uppercase lg:text-[1.04167rem] md:text-[1.2rem] mr-[3.91rem] cursor-pointer ${pathName?.endsWith(item?.slug) ? 'text-[#00A84F]' : 'text-[#444]'}`}>{lang === 'vi' ? item?.nameVi : item?.nameEn}</h2>
+                                </Link>
+                            ))
+                        }
+                    </div>
                 <div className='grid md:grid-cols-4 md:gap-x-[2.6rem] md:gap-y-[4.43rem] max-md:px-[4.27rem]'>
                     {
                         allNews?.map((item, index) => (
-                            <BlogItem lang={lang} key={index} data={item} />
+                            <BlogItem slug={slug} lang={lang} key={index} data={item} />
                         )
                         )
                     }
