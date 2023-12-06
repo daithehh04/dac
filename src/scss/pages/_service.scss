@@ -7,11 +7,12 @@
 
 .slideFeatureImage {
   width: 100%;
+  
   .swiper-slide{
-    // border-bottom-right-radius: 7rem;
-    @media screen and (max-width:767px) {
-      // border-bottom-right-radius: 18rem;
-    }
+    display: flex;
+    justify-content: center;
+    // position: absolute;
+    z-index: 10;
   }
   .swiper-pagination-bullet {
     background: #444;
