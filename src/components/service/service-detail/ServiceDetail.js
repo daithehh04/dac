@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Pagination,Autoplay } from 'swiper/modules';
+import { Pagination,Autoplay,EffectCreative } from 'swiper/modules';
 import Link from 'next/link';
 
 function ServiceDetail({ data, lang,otherProduct,subTitle }) {
@@ -67,7 +67,9 @@ function ServiceDetail({ data, lang,otherProduct,subTitle }) {
                 <div className='flex justify-between md:mt-[2.5rem] md:mb-[4.01rem] max-md:flex-col '>
                     {/* slide1 */}
                     <div className='relative md:w-[36.66667rem] w-[100%] md:h-[32.8125rem] '>
-                        
+                        <svg xmlns="http://www.w3.org/2000/svg" className=' absolute inset-0 z-[-1]' viewBox="0 0 704 630" fill="none">
+                            <path d="M0 0H704V464.211C704 555.774 643.174 630 568.14 630H0V0Z" fill="#D9D9D9" />
+                        </svg> 
                         <Swiper
                             loop={true}
                             pagination={{
@@ -82,15 +84,14 @@ function ServiceDetail({ data, lang,otherProduct,subTitle }) {
                                     swiperRef1.current = swiper;
                                 }
                             }}
+                            
                         >
                             {data?.product_detail?.listImages?.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <div className='box relative overflow-hidden w-full h-full'>
                                         <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7rem] rounded-br-[18rem]' />
                                         <Image src={item?.image?.sourceUrl} alt='img' width={1000} height={1000} quality={100} className='w-full h-full object-cover md:rounded-br-[7rem] rounded-br-[18rem]' />
-                                        <svg xmlns="http://www.w3.org/2000/svg" className=' absolute inset-0 z-[-1]' viewBox="0 0 704 630" fill="none">
-                                            <path d="M0 0H704V464.211C704 555.774 643.174 630 568.14 630H0V0Z" fill="#D9D9D9" />
-                                        </svg>   
+                                          
                                     </div>
                                 </SwiperSlide>
                             ))}
